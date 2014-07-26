@@ -27,11 +27,28 @@ public class Cartman {
 	 * This method is called by the constructor
 	 */
 	private void makeMe(){
-		
+
 		Part chin = new Chin(Color.BLACK, 0, 0, 100, 25, -0, -180);
-		
 		parts.add(chin);
-		
+
+		//Part head = new Head();
+		//Part leftEye = new Eye();
+		//Part rightEye = new Eye();
+		//Part leftEyeball = new EyeBall();
+		//Part rightEyeball = new EyeBall();
+		//Part mouth = new Mouth();
+		//Part tooth = new Tooth();		
+		//Part body = new Body();
+		//Part leftFoot = new Foot();
+		//Part rightFoot = new Foot();
+		//Part pants = new Pants();
+		//Part button = new Button();
+		//Part leftHand = new Hand();
+		//Part rightHand = new Hand();
+		//Part hat = new Hat();
+		//Part hatTrim = new HatTrim();
+		//Part hatBall = new HatBall();
+
 	}
 
 	/**
