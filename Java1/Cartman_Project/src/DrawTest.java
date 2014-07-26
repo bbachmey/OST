@@ -11,10 +11,10 @@ public class DrawTest extends Applet
 	
 	public void paint(Graphics g)
 	{
-		//Create a Cartman object and pass it the Graphics object of this applet
+		//Create a Cartman object and pass to it the Graphics object given to this applet
 		Cartman myCartman = new Cartman(g);
 		//call the drawMe method on the Cartman object
-		myCartman.drawMe();
+		myCartman.drawAllOfMe();
 		
 	}
 }
