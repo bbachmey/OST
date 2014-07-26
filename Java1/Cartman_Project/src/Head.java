@@ -11,8 +11,9 @@ public class Head extends Part {
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
+		//draw the oval
+		g.fillOval(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());
 
 	}
-
+	
 }

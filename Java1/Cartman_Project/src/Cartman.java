@@ -28,10 +28,15 @@ public class Cartman {
 	 */
 	private void makeMe(){
 
+		//head
+		Part head = new Head(Color.PINK, 10, 30, 180, 150);
+		parts.add(head);
+		
+		//chin
 		Part chin = new Chin(Color.BLACK, 0, 0, 100, 25, -0, -180);
 		parts.add(chin);
-
-		//Part head = new Head();
+		
+		
 		//Part leftEye = new Eye();
 		//Part rightEye = new Eye();
 		//Part leftEyeball = new EyeBall();
@@ -67,6 +72,8 @@ public class Cartman {
 		//	and Java knows to execute the @Override draw() method of object in the ArrayList
 		//	that extends the Part class
 		for(Part p : parts){
+			//get the color from the Part and set the color of the Graphics object
+			g.setColor(p.getColor());
 			//call the draw() method of the Part
 			p.draw(g);
 		}
