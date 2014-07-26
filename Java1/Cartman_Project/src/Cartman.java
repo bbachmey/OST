@@ -115,7 +115,7 @@ public class Cartman {
 	private void drawEyeBalls(){
 		//set color
 		g.setColor(Color.BLACK);
-		//anchor position (left eye)
+		//anchor position (left eyeball)
 		int x = 63;
 		int y = 86;
 		//relative width and height
@@ -123,9 +123,9 @@ public class Cartman {
 		int h = 10;
 		//draw the oval
 		g.fillOval(x,y,w,h);
-		//anchor position (right eye)
+		//anchor position (right eyeball)
 		x = 90;
-		//draw the oval again	
+		//draw the oval again, with a new x-coordinate	
 		g.fillOval(x,y,w,h);
 	}
 	
@@ -133,22 +133,39 @@ public class Cartman {
 	 *  
 	 */
 	private void drawEyes(){
-		g.setColor(Color.white);
-		g.fillOval(50, 66, 35, 53);
-		g.fillOval(78,66,35,53);
+		//set color
+		g.setColor(Color.WHITE);
+		//anchor position (left eye)
+		int x = 50;
+		int y = 66;
+		//relative width and height
+		int w = 35;
+		int h = 53;
+		//draw the oval
+		g.fillOval(x,y,w,h);
+		//anchor position (right eye)
+		x = 78;
+		//draw the oval again, with a new x-coordinate	
+		g.fillOval(x,y,w,h);
+		
 	}
 
 	/**
 	 * 
 	 */
 	private void drawMouth(){
-		g.setColor(Color.black);
-		int [] xValues = {56,89,109};
-		int [] yValues = {140,150,140};
-		Polygon shapeThing = new Polygon(xValues, yValues, 3);
-		//g.fillPolygon(xValues, yValues, 3);
-		g.fillPolygon(shapeThing); /** this is an example of polymorphism **/
-	
+		//set color
+		g.setColor(Color.BLACK);
+		//anchor position
+		int x = 56;
+		int y = 140;
+		//relative position
+		int [] xValues = {x+0,x+33,x+53};
+		int [] yValues = {y+0,y+10,y+0};
+		//make a polygon
+		Polygon p = new Polygon(xValues, yValues, xValues.length);
+		//draw the polygon
+		g.fillPolygon(p);	
 	}
 
 	/**
