@@ -13,7 +13,7 @@ public class DrawTest extends Applet
 	{
 		//Create a Cartman object and pass to it the Graphics object given to this applet
 		Cartman myCartman = new Cartman(g);
-		//call the drawMe method on the Cartman object
+		//call the method on the Cartman object that draws the Cartman using the Graphics object
 		myCartman.drawAllOfMe();
 		
 	}
