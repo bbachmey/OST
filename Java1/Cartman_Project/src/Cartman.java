@@ -5,6 +5,7 @@ public class Cartman {
 	//this is an ArrayList which holds the Cartman parts
 	ArrayList<Part> parts = new ArrayList<Part>();
 	
+	Body body;
 	Head head;
 	Mouth mouth;
 	Chin firstChin;
@@ -46,13 +47,24 @@ public class Cartman {
 	 */
 	private void buildMe(){	
 		
+
+		//body
+		this.setBody(new Body(
+				Color.RED,
+				20,  //x
+				130, //y
+				220, //w
+				120  //h
+				));
+		parts.add(getBody());
+
 		//head
 		this.setHead(new Head(
 				Color.PINK,
-				10,
-				30,
-				180,
-				150
+				body.getxPos()+((body.getWidth()-180)/2) ,
+				body.getyPos()-120,
+				180, //w
+				150  //h
 				));
 		parts.add(head);
 		
@@ -193,14 +205,12 @@ public class Cartman {
 				180
 				));
 		parts.add(getHatTrim());
-
-
-		//Part hatTrim = new HatTrim();
-		//Part hatBall = new HatBall();
 		
+
+
 		
 		//Part mouth = new Mouth();
-		//Part body = new Body();
+
 		//Part leftFoot = new Foot();
 		//Part rightFoot = new Foot();
 		//Part pants = new Pants();
@@ -425,6 +435,14 @@ public class Cartman {
 
 	public void setThirdTooth(Tooth thirdTooth) {
 		this.thirdTooth = thirdTooth;
+	}
+
+	public Body getBody() {
+		return body;
+	}
+
+	public void setBody(Body body) {
+		this.body = body;
 	}
 
 }
