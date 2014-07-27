@@ -20,8 +20,8 @@ public class Cartman {
 		this.g = graph;
 		// call the private method that creates each Cartman part
 		this.buildMe();
+		
 	}
-	
 	
 	/**
 	 * This method is called by the constructor
@@ -32,6 +32,8 @@ public class Cartman {
 		parts.add(makeHead());
 		//
 		parts.add(makeChin());
+		//
+		parts.add(makeMouth());
 		//
 		parts.add(makeTooth());
 		
@@ -79,20 +81,29 @@ public class Cartman {
 		
 		}
 
-
 	/**
 	 * 
 	 */
 	private Part makeChin() {
+		//get head coordinates
+		//TODO: find another way to check for the head object in the parts array
+		//	currently calling the get() method with 0 works, because head is the first
+		//	part added to the array. The index of head could change, and this method would break.
+		Head head = ((Head)parts.get(0));
+		int x = head.getxPos();
+		int y = head.getyPos();
+		int w = head.getWidth();
+		int h = head.getHeight();
+		
 		//chin
 		Part chin = new Chin(
 				Color.BLACK, 
-				((Head)parts.get(0)).getxPos()+25, 	//x
-				((Head)parts.get(0)).getyPos()+100, 		//y
-				((Head)parts.get(0)).getWidth() / 5,  	//w
-				((Head)parts.get(0)).getHeight() / 4, 	//h
-				-0, 	//start angle
-				-180);	//arc angle
+				x + 25, 	//x
+				y + 100, 	//y
+				(int)(w-(w/3.5)),  	//w
+				h / 4, 		//h
+				-0, 		//start angle (where does the arc begin, relative to 3 o'clock?)
+				-180);		//arc angle (how far around the circle from start does the arc go?)
 		return chin;
 	}
 
@@ -103,7 +114,7 @@ public class Cartman {
 		//head
 		Part head = new Head(
 				Color.PINK, 
-				10, 	//x
+				10, 	//x - this will be the anchor position for the other shapes on the face
 				30, 	//y
 				180, 	//w
 				150);	//h
@@ -112,13 +123,46 @@ public class Cartman {
 	}
 
 	/**
+	 * 
+	 */
+	private Part makeMouth() {
+		//get head coordinates
+		Head head = ((Head)parts.get(0));
+		int x = head.getxPos();
+		int y = head.getyPos();
+		//mouth
+		Part mouth = new Mouth(
+				Color.BLACK,
+				x+46,
+				y+110
+				);
+		
+		return mouth;
+	}
+	
+	/**
 	 * @return
 	 */
 	private Part makeTooth() {
+		Mouth mouth;
+
+    	mouth = new Mouth(null, 0, 0);
+    	
+		for (Part p : parts) {
+		  if (p.getClass() == Mouth.class){
+			  int retval= parts.indexOf(p);
+			  mouth = ((Mouth)parts.get(retval));
+			  break;
+		    }
+		  }
+		
+		int x = mouth.getxPos();
+		int y = mouth.getyPos();
+		//make a new Part
 		Part tooth = new Tooth(
 				Color.WHITE,
-				((Head)parts.get(0)).getxPos()+75,		//x position
-				((Head)parts.get(0)).getyPos()+75		//y position
+				x + 10,		//x position
+				y		//y position
 				);
 		return tooth;
 	}

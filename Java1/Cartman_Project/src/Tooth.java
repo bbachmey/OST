@@ -12,10 +12,10 @@ public class Tooth extends Part {
 	private int yPos;
 	
 	/**
-	 * Tooth is a polygon and has int arrays for x and y points
+	 * Tooth is a polygon and x and y points to build a shape
 	 * @param c
-	 * @param xVals
-	 * @param yVals
+	 * @param x
+	 * @param y
 	 */
 	public Tooth(Color c, int x, int y){
 		// call super constructor
@@ -32,8 +32,10 @@ public class Tooth extends Part {
 		//this is where the shape of the tooth is defined
 		//setting the shape values here makes every tooth the same size
 		//TODO: make an override constructor for Tooth that accepts different values for the shape of the tooth
-		int [] xValues = (new int [] {this.getxPos(),this.getxPos()+5, this.getxPos()+5, this.getxPos()}); 
-		int [] yValues = (new int [] {this.getxPos(),this.getxPos(), this.getxPos()+5, this.getxPos()+5}) ;
+		int x = this.getxPos();
+		int y = this.getyPos();
+		int [] xValues = (new int [] {x, x+5, x+5, x}); 
+		int [] yValues = (new int [] {y, y, y+5, y+5});
 		//make a polygon
 		Polygon p = new Polygon(xValues, yValues, xValues.length);
 		//draw the polygon
