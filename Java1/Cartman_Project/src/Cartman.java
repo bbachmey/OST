@@ -185,9 +185,9 @@ public class Cartman {
 		//hat trim
 		this.setHatTrim(new HatTrim(
 				Color.YELLOW,
-				hat.getxPos()+4,
+				hat.getxPos()+2,
 				hat.getyPos()+37,
-				hat.getWidth()-10,
+				hat.getWidth()-4,
 				55, 
 				0, 
 				180
