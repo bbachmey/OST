@@ -344,8 +344,8 @@ public class Cartman {
 				Color.WHITE,
 				head.getxPos()+50,
 				head.getyPos()+50,
-				35,
-				53
+				40, //w
+				53 //h
 				));
 		parts.add(leftEye);
 
@@ -354,8 +354,8 @@ public class Cartman {
 				Color.WHITE,
 				leftEye.getxPos()+40,
 				leftEye.getyPos(),
-				35,
-				53
+				leftEye.getWidth(),
+				leftEye.getHeight()
 				));
 		parts.add(rightEye);
 
