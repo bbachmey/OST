@@ -374,7 +374,7 @@ public class Cartman {
 		//left eyeball
 		this.setLeftEyeBall(new EyeBall(
 				Color.BLACK,
-				leftEye.getxPos()+20,
+				leftEye.getxPos()+25,
 				leftEye.getyPos()+22,
 				6,
 				6
@@ -384,10 +384,10 @@ public class Cartman {
 		//right eyeball
 		this.setRightEyeBall(new EyeBall(
 				Color.BLACK,
-				rightEye.getxPos()+9,
-				rightEye.getyPos()+22,
-				6,
-				6
+				leftEyeBall.getxPos()+23,
+				leftEyeBall.getyPos(),
+				leftEyeBall.getWidth(),
+				leftEyeBall.getHeight()
 				));
 		parts.add(rightEyeBall);
 
