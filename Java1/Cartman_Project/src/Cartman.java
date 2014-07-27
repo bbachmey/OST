@@ -40,10 +40,10 @@ public class Cartman {
 		//chin
 		Part chin = new Chin(
 				Color.BLACK, 
-				0, 		//x
-				0, 		//y
-				100,  	//w
-				25, 	//h
+				((Head)head).getxPos()+25, 	//x
+				((Head)head).getyPos()+100, 		//y
+				((Head)head).getWidth()-(((Head)head).getxPos()*5),  	//w
+				((Head)head).getHeight() / 4, 	//h
 				-0, 	//start angle
 				-180);	//arc angle
 		parts.add(chin);
