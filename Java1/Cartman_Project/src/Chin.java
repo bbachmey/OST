@@ -10,7 +10,7 @@ import java.awt.Graphics;
  *
  */
 public class Chin extends Part {
-	//Chin has two additional attributes, after extending Part
+	//subclass attributes
 	private int startAngle;
 	private int arcAngle;
 	private int xPos;
@@ -19,11 +19,8 @@ public class Chin extends Part {
 	private int width;
 	
 	/**
-	 *   the chin is an arc  
-	 *  an arc is drawn with the drawArc method of the Graphics object
-	 *  
-	 *  drawArc(int x, int y, int width, int height, int startAngle, int arcAngle)
-	 *  
+	 *  The chin is an arc.  
+	 * 
 	 *  The center of the arc is the center of the rectangle whose origin is (x, y) and whose size is specified by the width and height arguments.
 	 *  
 	 *  Angles are interpreted such that 0 degrees is at the 3 o'clock position. 
@@ -56,12 +53,10 @@ public class Chin extends Part {
 	// override abstract method
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
-
 		//draw the arc
 		g.drawArc(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight(), this.getStartAngle(), this.getArcAngle());
 		//test the shape of the rectangle within which the arc is drawn
-		g.drawRect(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());
+		//g.drawRect(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());
 		
 		
 	}
