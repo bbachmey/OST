@@ -29,7 +29,6 @@ public class Cartman {
 	Button firstButton;
 	Button secondButton;
 	Button thirdButton;
-	
 	Shape headClip;
 	
 	/**
@@ -37,18 +36,19 @@ public class Cartman {
 	 * This constructor method requires a Graphics object and returns a Cartman
 	 */
 	public Cartman(){
-		// call the private method that assembles Cartman
+		// call the private method that assembles Cartman parts
 		this.buildMe();
 		
 	}
 	
 	/**
-	 * This method is called by the constructor
-	 * The order that Parts are added to the ArrayList is the order in which they are drawn
+	 * This method is called by the constructor.
+	 * The order that Parts are added to the ArrayList is the order in which they are drawn.
+	 * This method does not draw Cartman.
+	 * This method creates each Cartman part and adds it to the Array List.
 	 */
 	private void buildMe(){	
 		
-
 		//pants
 		this.setPants(new Pants(
 				Color.GRAY, 
@@ -382,11 +382,15 @@ public class Cartman {
 
 	}
 
+	/**
+	 * @param Graphics g
+	 * This method loops through the parts Array List and calls the draw() 
+	 * method on each object
+	 */
 	public void drawAllOfMe(Graphics g){
 		//Polymorphism in action!
-		//	The draw() method of each object in the ArrayList<Part> parts is called
-		//	and Java knows to execute the @Override draw() method of the subclass object 
-		// 	in the ArrayList that extends the Part class
+		//	The draw() method is called on each object in the ArrayList<Part> parts
+		//	The JVM executes the draw() method defined in each subclass of Part 
 		for(Part p : parts){
 			//get the color from the Part object and set the color of the Graphics object
 			g.setColor(p.getColor());
@@ -406,23 +410,28 @@ public class Cartman {
 		
 		}
 
+	//getters 
+	
+	public Body getBody() {
+		return body;
+	}
 
 	public Button getFirstButton() {
 		return firstButton;
 	}
-
+	
 	public Chin getFirstChin() {
 		return firstChin;
 	}
-	
+
 	public Tooth getFirstTooth() {
 		return firstTooth;
 	}
-
+	
 	public Tooth getFourthTooth() {
 		return fourthTooth;
 	}
-	
+
 	public Hat getHat() {
 		return hat;
 	}
@@ -437,6 +446,10 @@ public class Cartman {
 
 	public Head getHead() {
 		return head;
+	}
+
+	public Shape getHeadClip() {
+		return headClip;
 	}
 
 	public Eye getLeftEye() {
@@ -502,6 +515,12 @@ public class Cartman {
 	public Tooth getThirdTooth() {
 		return thirdTooth;
 	}
+	
+	//setters
+
+	public void setBody(Body body) {
+		this.body = body;
+	}
 
 	public void setFirstButton(Button firstButton) {
 		this.firstButton = firstButton;
@@ -533,6 +552,10 @@ public class Cartman {
 
 	public void setHead(Head head) {
 		this.head = head;
+	}
+
+	public void setHeadClip(Shape headClip) {
+		this.headClip = headClip;
 	}
 
 	public void setLeftEye(Eye leftEye) {
@@ -597,22 +620,6 @@ public class Cartman {
 
 	public void setThirdTooth(Tooth thirdTooth) {
 		this.thirdTooth = thirdTooth;
-	}
-
-	public Body getBody() {
-		return body;
-	}
-
-	public void setBody(Body body) {
-		this.body = body;
-	}
-
-	public Shape getHeadClip() {
-		return headClip;
-	}
-
-	public void setHeadClip(Shape headClip) {
-		this.headClip = headClip;
 	}
 
 }
