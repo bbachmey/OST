@@ -1,24 +1,40 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class Cartman {
-	//the Graphics object becomes an attribute of Carman upon construction
-	//this object is later used by the draw methods to do their drawing
-	Graphics g;
-	//this is an ArrayList which holds a list of Cartman parts
-	//notice the polymorphisim in action!
+	//this is an ArrayList which holds the Cartman parts
 	ArrayList<Part> parts = new ArrayList<Part>();
 	
+	Head head;
+	Mouth mouth;
+	Chin chin;
+	Eye leftEye;
+	Eye rightEye;
+	Hand leftHand;
+	Hand rightHand;
+	Pants pants;
+	Shoe leftShoe;
+	Shoe rightShoe;
+	Hat hat;
+	HatTrim hatTrim;
+	HatBall hatBall;
+	EyeBall leftEyeBall;
+	EyeBall rightEyeBall;
+	Tooth firstTooth;
+	Tooth secondTooth;
+	Tooth thirdTooth;
+	Tooth fourthTooth;
+	Button firstButton;
+	Button secondButton;
+	Button thirdButton;
+	
+	
 	/**
-	 * @param graph
 	 * This is the Cartman constructor
 	 * This constructor method requires a Graphics object and returns a Cartman
 	 */
-	public Cartman(Graphics graph){
-		// put the Graphics object into an instance variable
-		this.g = graph;
-		// call the private method that creates each Cartman part
+	public Cartman(){
+		// call the private method that assembles the Cartman
 		this.buildMe();
 		
 	}
@@ -29,15 +45,74 @@ public class Cartman {
 	 */
 	private void buildMe(){	
 		
-		parts.add(makeHead());
-		//
-		parts.add(makeChin());
-		//
-		parts.add(makeMouth());
-		//TODO: makeMouth is called twice, it should only be called once, preferrably
-		makeTeeth((Mouth)makeMouth());
+		//head
+		this.setHead(makeHead(
+				Color.PINK,
+				10,
+				30,
+				180,
+				150
+				));
+		parts.add(head);
 		
-		//Part leftEye = new Eye();
+		//chin
+		this.setChin(makeChin(
+				Color.BLACK, 
+				head.getxPos()+25, 
+				head.getyPos()+100,
+				((int)(head.getHeight()/4)),
+				((int)(head.getWidth()-(head.getWidth()/3.5))),				
+				-0,
+				-180
+				));
+		parts.add(chin);
+		
+		//mouth
+		this.setMouth(makeMouth(
+				Color.BLACK, 
+				head.getxPos()+46, 
+				head.getyPos()+110
+				));
+		parts.add(mouth);
+		
+		//first tooth
+		this.setFirstTooth(makeTooth(
+				(int)(mouth.getxPos()+(44*.17)), 
+				mouth.getyPos()
+				));
+		parts.add(firstTooth);
+		
+		//second tooth
+		this.setSecondTooth(makeTooth(
+				(firstTooth.getxPos()+8), 
+				firstTooth.getyPos()
+				));
+		parts.add(secondTooth);
+		
+		//third tooth
+		this.setThirdTooth(makeTooth(
+				(secondTooth.getxPos()+8), 
+				secondTooth.getyPos()
+				));
+		parts.add(thirdTooth);
+		
+		//fourth tooth
+		this.setFourthTooth(makeTooth(
+				(thirdTooth.getxPos()+8), 
+				thirdTooth.getyPos()
+				));
+		parts.add(fourthTooth);
+
+		//left eye
+		this.setLeftEye(makeEye(
+				));
+		parts.add(getLeftEye());
+
+		//right eye
+		this.setRightEye(makeEye(
+				));
+		parts.add(getRightEye());
+		
 		//Part rightEye = new Eye();
 		//Part leftEyeball = new EyeBall();
 		//Part rightEyeball = new EyeBall();
@@ -56,7 +131,7 @@ public class Cartman {
 	}
 
 
-	public void drawAllOfMe(){
+	public void drawAllOfMe(Graphics g){
 		//Polymorphism in action!
 		//	The draw() method of each object in the ArrayList<Part> parts is called
 		//	and Java knows to execute the @Override draw() method of the subclass object 
@@ -76,7 +151,7 @@ public class Cartman {
 	 * This method takes an integer and and calls the draw() method of an item in the ArrayList<Part> parts
 	 * 
 	 */
-	public void drawPartOfMe(int partNum){
+	public void drawPartOfMe(Graphics g, int partNum){
 		parts.get(partNum).draw(g);
 		
 		}
@@ -84,95 +159,244 @@ public class Cartman {
 	/**
 	 * 
 	 */
-	private Part makeChin() {
-		//get head coordinates
-		//TODO: find another way to check for the head object in the parts array
-		//	currently calling the get() method with 0 works, because head is the first
-		//	part added to the array. The index of head could change, and this method would break.
-		Head head = ((Head)parts.get(0));
-		int x = head.getxPos();
-		int y = head.getyPos();
-		int w = head.getWidth();
-		int h = head.getHeight();
-		
+	private Chin makeChin(Color c, int x, int y, int h, int w, int sa, int aa) {
 		//chin
-		Part chin = new Chin(
-				Color.BLACK, 
-				x + 25, 	//x
-				y + 100, 	//y
-				(int)(w-(w/3.5)),  	//w
-				h / 4, 		//h
-				-0, 		//start angle (where does the arc begin, relative to 3 o'clock?)
-				-180);		//arc angle (how far around the circle from start does the arc go?)
+		Chin chin = new Chin(
+				c, 
+				x, 
+				y,
+				w,
+				h,
+				sa,
+				aa);
 		return chin;
 	}
 
 	/**
+	 * This method calls the makeTooth method a number of times to make a mouth full of teeth
+	 * @return 
+	 */
+	private Eye makeEye(){    	
+		Eye eye = new Eye(null, 0, 0, 0, 0);
+		
+		return eye;
+		
+	}
+	
+	/**
 	 * @return
 	 */
-	private Part makeHead() {
+	private Head makeHead(Color c, int x, int y, int w, int h) {
 		//head
-		Part head = new Head(
-				Color.PINK, 
-				10, 	//x - this will be the anchor position for the other shapes on the face
-				30, 	//y
-				180, 	//w
-				150);	//h
-		parts.add(head);
+		Head head = new Head(
+				c, 
+				x, 	//x - this will be the anchor position for the other shapes on the face
+				y, 	//y
+				w, 	//w
+				h);	//h
 		return head;
 	}
 
 	/**
 	 * 
 	 */
-	private Part makeMouth() {
-		//get head coordinates
-		Head head = ((Head)parts.get(0));
-		int x = head.getxPos();
-		int y = head.getyPos();
+	private Mouth makeMouth(Color c, int x, int y) {
 		//mouth
-		Part mouth = new Mouth(
-				Color.BLACK,
-				x+46,
-				y+110
-				);
-		
+		Mouth mouth = new Mouth(
+				c,
+				x,
+				y);
 		return mouth;
 	}
 	
-	/**
-	 * This method calls the makeTooth method a number of times to make a mouth full of teeth
-	 * @return 
-	 */
-	private void makeTeeth(Mouth m){    	
-		//figure out where the mouth is
-		int x = m.getxPos();
-		int y = m.getyPos();
-		
-		//make the first tooth
-		parts.add(this.makeTooth(x+20, y));
-		
-		//make the second tooth
-		parts.add(this.makeTooth(x+26, y));
-		
-		//make the third tooth
-		parts.add(this.makeTooth(x+32, y));
-		
-		//make the fourth tooth
-		parts.add(this.makeTooth(x+38, y));
-		
-	}
+
 	/**
 	 * @return
 	 */
-	private Part makeTooth(int x, int y) {
+	private Tooth makeTooth(int x, int y) {
 		//make a new Part
-		Part tooth = new Tooth(
+		Tooth tooth = new Tooth(
 				Color.WHITE,
 				x,		//x position
 				y		//y position
 				);
 		return tooth;
+	}
+
+	public Head getHead() {
+		return head;
+	}
+
+	public void setHead(Head head) {
+		this.head = head;
+	}
+
+	public Mouth getMouth() {
+		return mouth;
+	}
+
+	public void setMouth(Mouth mouth) {
+		this.mouth = mouth;
+	}
+
+	public Eye getLeftEye() {
+		return leftEye;
+	}
+
+	public void setLeftEye(Eye leftEye) {
+		this.leftEye = leftEye;
+	}
+
+	public Eye getRightEye() {
+		return rightEye;
+	}
+
+	public void setRightEye(Eye rightEye) {
+		this.rightEye = rightEye;
+	}
+
+	public Hand getLeftHand() {
+		return leftHand;
+	}
+
+	public void setLeftHand(Hand leftHand) {
+		this.leftHand = leftHand;
+	}
+
+	public Hand getRightHand() {
+		return rightHand;
+	}
+
+	public void setRightHand(Hand rightHand) {
+		this.rightHand = rightHand;
+	}
+
+	public Pants getPants() {
+		return pants;
+	}
+
+	public void setPants(Pants pants) {
+		this.pants = pants;
+	}
+
+	public Shoe getLeftShoe() {
+		return leftShoe;
+	}
+
+	public void setLeftShoe(Shoe leftShoe) {
+		this.leftShoe = leftShoe;
+	}
+
+	public Shoe getRightShoe() {
+		return rightShoe;
+	}
+
+	public void setRightShoe(Shoe rightShoe) {
+		this.rightShoe = rightShoe;
+	}
+
+	public Hat getHat() {
+		return hat;
+	}
+
+	public void setHat(Hat hat) {
+		this.hat = hat;
+	}
+
+	public HatTrim getHatTrim() {
+		return hatTrim;
+	}
+
+	public void setHatTrim(HatTrim hatTrim) {
+		this.hatTrim = hatTrim;
+	}
+
+	public HatBall getHatBall() {
+		return hatBall;
+	}
+
+	public void setHatBall(HatBall hatBall) {
+		this.hatBall = hatBall;
+	}
+
+	public EyeBall getLeftEyeBall() {
+		return leftEyeBall;
+	}
+
+	public void setLeftEyeBall(EyeBall leftEyeBall) {
+		this.leftEyeBall = leftEyeBall;
+	}
+
+	public EyeBall getRightEyeBall() {
+		return rightEyeBall;
+	}
+
+	public void setRightEyeBall(EyeBall rightEyeBall) {
+		this.rightEyeBall = rightEyeBall;
+	}
+
+	public Tooth getFirstTooth() {
+		return firstTooth;
+	}
+
+	public void setFirstTooth(Tooth firstTooth) {
+		this.firstTooth = firstTooth;
+	}
+
+	public Tooth getSecondTooth() {
+		return secondTooth;
+	}
+
+	public void setSecondTooth(Tooth secondTooth) {
+		this.secondTooth = secondTooth;
+	}
+
+	public Tooth getThirdTooth() {
+		return thirdTooth;
+	}
+
+	public void setThirdTooth(Tooth thirdTooth) {
+		this.thirdTooth = thirdTooth;
+	}
+
+	public Tooth getFourthTooth() {
+		return fourthTooth;
+	}
+
+	public void setFourthTooth(Tooth fourthTooth) {
+		this.fourthTooth = fourthTooth;
+	}
+
+	public Button getFirstButton() {
+		return firstButton;
+	}
+
+	public void setFirstButton(Button firstButton) {
+		this.firstButton = firstButton;
+	}
+
+	public Button getSecondButton() {
+		return secondButton;
+	}
+
+	public void setSecondButton(Button secondButton) {
+		this.secondButton = secondButton;
+	}
+
+	public Button getThirdButton() {
+		return thirdButton;
+	}
+
+	public void setThirdButton(Button thirdButton) {
+		this.thirdButton = thirdButton;
+	}
+
+	public Chin getChin() {
+		return chin;
+	}
+
+	public void setChin(Chin chin) {
+		this.chin = chin;
 	}
 
 }

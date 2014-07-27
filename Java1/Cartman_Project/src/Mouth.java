@@ -20,8 +20,9 @@ public class Mouth extends Part {
 		g.setColor(Color.black);
 		int x = this.getxPos();
 		int y = this.getyPos();
-		int [] xValues = (new int [] {x, x+33, x+53}); 
-		int [] yValues = (new int [] {y, y+10, y});
+		//define shape
+		int [] xValues = (new int [] {x, x+22, x+44}); 
+		int [] yValues = (new int [] {y, y+16, y});
 		//make a polygon
 		Polygon p = new Polygon(xValues, yValues, xValues.length);
 		//draw the polygon

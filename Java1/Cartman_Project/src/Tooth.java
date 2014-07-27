@@ -34,8 +34,8 @@ public class Tooth extends Part {
 		//TODO: make an override constructor for Tooth that accepts different values for the shape of the tooth
 		int x = this.getxPos();
 		int y = this.getyPos();
-		int [] xValues = (new int [] {x, x+5, x+5, x}); 
-		int [] yValues = (new int [] {y, y, y+3, y+3});
+		int [] xValues = (new int [] {x, x+7, x+7, x}); 
+		int [] yValues = (new int [] {y, y, y+5, y+5});
 		//make a polygon
 		Polygon p = new Polygon(xValues, yValues, xValues.length);
 		//draw the polygon
