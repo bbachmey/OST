@@ -54,15 +54,36 @@ public class Cartman {
 				20,  //x
 				130, //y
 				220, //w
-				120  //h
+				130  //h
 				));
 		parts.add(getBody());
+		
+		//left hand
+		this.setLeftHand(new Hand(
+				Color.YELLOW,
+				body.getxPos()-10,  //x
+				body.getyPos()+10, //y
+				40, //w
+				40  //h
+				));
+		parts.add(getLeftHand());
+
+		//right hand
+		this.setRightHand(new Hand(
+				Color.YELLOW,
+				body.getxPos()+body.getWidth()-30, //x
+				body.getyPos()+40, //y
+				40, //w
+				40  //h
+				));
+		parts.add(getRightHand());
+		
 
 		//head
 		this.setHead(new Head(
 				Color.PINK,
 				body.getxPos()+((body.getWidth()-180)/2) ,
-				body.getyPos()-120,
+				body.getyPos()-90,
 				180, //w
 				150  //h
 				));
