@@ -1,18 +1,73 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Polygon;
 
 
 public class Pants extends Part {
+	private int xPos;
+	private int yPos;
+	private int [] xPoints;
+	private int [] yPoints;
 
-	public Pants(Color c, int x, int y, int w, int h) {
+	public Pants(Color c, int x, int y, int [] xArr, int [] yArr) {
+		//super constructor
 		super(c);
-		// TODO Auto-generated constructor stub
+		//instance variables
+		this.setxPos(x);
+		this.setyPos(y);
+		this.setxPoints(xArr);
+		this.setyPoints(yArr);
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
+		//reposition the x coordinates of the shape by adding xPos
+		 for(int i=0; i < xPoints.length; i++)
+		  {
+			 xPoints[i]=xPoints[i]+xPos;
+		  }
+		//reposition the y coordinates of the shape by adding yPos
+		 for(int i=0; i < yPoints.length; i++)
+		  {
+			 yPoints[i]=yPoints[i]+yPos;
+		  }
+		//make a polygon
+		Polygon p = new Polygon(xPoints, yPoints, xPoints.length);
+		//draw the polygon
+		g.fillPolygon(p);		
 
+	}
+
+	public int getxPos() {
+		return xPos;
+	}
+
+	public void setxPos(int xPos) {
+		this.xPos = xPos;
+	}
+
+	public int getyPos() {
+		return yPos;
+	}
+
+	public void setyPos(int yPos) {
+		this.yPos = yPos;
+	}
+
+	public int[] getxPoints() {
+		return xPoints;
+	}
+
+	public void setxPoints(int[] xPoints) {
+		this.xPoints = xPoints;
+	}
+
+	public int[] getyPoints() {
+		return yPoints;
+	}
+
+	public void setyPoints(int[] yPoints) {
+		this.yPoints = yPoints;
 	}
 
 }

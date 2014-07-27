@@ -48,16 +48,27 @@ public class Cartman {
 	private void buildMe(){	
 		
 
+		//pants
+		this.setPants(new Pants(
+				Color.GRAY, 
+				30,  //x
+				218, //y
+				(new int [] {0, 200, 185, 15}), //xArr
+				(new int [] {0, 0, 45, 45})     //yArr
+				
+				));
+		parts.add(getPants());
+		
 		//body
 		this.setBody(new Body(
 				Color.RED,
-				20,  //x
-				130, //y
+				pants.getxPos()-10,  //x
+				pants.getyPos()-88, //y
 				220, //w
-				130  //h
+				125  //h
 				));
 		parts.add(getBody());
-		
+
 		//left hand
 		this.setLeftHand(new Hand(
 				Color.YELLOW,
@@ -258,18 +269,14 @@ public class Cartman {
 				180
 				));
 		parts.add(getHatTrim());
-		
 
 
-		
-		//Part mouth = new Mouth();
+
+
 
 		//Part leftFoot = new Foot();
 		//Part rightFoot = new Foot();
-		//Part pants = new Pants();
-		//Part button = new Button();
-		//Part leftHand = new Hand();
-		//Part rightHand = new Hand();
+
 
 	}
 
