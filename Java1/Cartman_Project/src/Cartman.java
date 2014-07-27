@@ -25,24 +25,43 @@ public class Cartman {
 	
 	/**
 	 * This method is called by the constructor
+	 * The order that Parts are added to the ArrayList is the order in which they are drawn
 	 */
-	private void makeMe(){
-
+	private void makeMe(){	
 		//head
-		Part head = new Head(Color.PINK, 10, 30, 180, 150);
+		Part head = new Head(
+				Color.PINK, 
+				10, 	//x
+				30, 	//y
+				180, 	//w
+				150);	//h
 		parts.add(head);
 		
 		//chin
-		Part chin = new Chin(Color.BLACK, 0, 0, 100, 25, -0, -180);
+		Part chin = new Chin(
+				Color.BLACK, 
+				0, 		//x
+				0, 		//y
+				100,  	//w
+				25, 	//h
+				-0, 	//start angle
+				-180);	//arc angle
 		parts.add(chin);
-		
 		
 		//Part leftEye = new Eye();
 		//Part rightEye = new Eye();
 		//Part leftEyeball = new EyeBall();
 		//Part rightEyeball = new EyeBall();
 		//Part mouth = new Mouth();
-		//Part tooth = new Tooth();		
+		
+		Part tooth = new Tooth(
+				Color.WHITE,
+				((Head)head).getxPos()+75,		//x position
+				((Head)head).getyPos()+75		//y position
+				);		
+		//add the tooth to the parts ArrayList
+		parts.add(tooth);
+		
 		//Part body = new Body();
 		//Part leftFoot = new Foot();
 		//Part rightFoot = new Foot();

@@ -13,6 +13,10 @@ public class Chin extends Part {
 	//Chin has two additional attributes, after extending Part
 	private int startAngle;
 	private int arcAngle;
+	private int xPos;
+	private int yPos;
+	private int height;
+	private int width;
 	
 	/**
 	 *   the chin is an arc  
@@ -38,14 +42,18 @@ public class Chin extends Part {
 	public Chin(Color c, int x, int y, int w, int h, int sa, int aa){
 		//call the constructor of the super class: Part
 		//all Parts have Color, xPos, yPos, height, and width
-		super(c, x, y, w, h);
+		super(c);
 		//set the additional attributes of the subclass
+		this.setxPos(x);
+		this.setyPos(y);
+		this.setHeight(h);
+		this.setWidth(w);
 		this.setArcAngle(aa);
 		this.setStartAngle(sa);
 		
 	}
 
-	// override required abstract method
+	// override abstract method
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
@@ -58,7 +66,7 @@ public class Chin extends Part {
 		
 	}
 	
-	//subclass getters and setters
+	//getters and setters
 	public int getStartAngle() {
 		return startAngle;
 	}
@@ -76,6 +84,38 @@ public class Chin extends Part {
 
 	public void setArcAngle(int arcAngle) {
 		this.arcAngle = arcAngle;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getxPos() {
+		return xPos;
+	}
+
+	public void setxPos(int xPos) {
+		this.xPos = xPos;
+	}
+
+	public int getyPos() {
+		return yPos;
+	}
+
+	public void setyPos(int yPos) {
+		this.yPos = yPos;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
 }

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class Foot extends Part {
 
 	public Foot(Color c, int x, int y, int w, int h) {
-		super(c, x, y, w, h);
+		super(c);
 		// TODO Auto-generated constructor stub
 	}
 

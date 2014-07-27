@@ -6,7 +6,7 @@ import java.awt.Graphics;
 public class Body extends Part {
 
 	public Body(Color c, int x, int y, int w, int h) {
-		super(c, x, y, w, h);
+		super(c);
 		// TODO Auto-generated constructor stub
 	}
 

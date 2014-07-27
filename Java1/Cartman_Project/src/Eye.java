@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class Eye extends Part {
 
 	public Eye(Color c, int x, int y, int w, int h) {
-		super(c, x, y, w, h);
+		super(c);
 		// TODO Auto-generated constructor stub
 	}
 
