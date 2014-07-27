@@ -30,6 +30,7 @@ public class Cartman {
 	Button secondButton;
 	Button thirdButton;
 	
+	Shape headClip;
 	
 	/**
 	 * This is the Cartman constructor
@@ -62,9 +63,9 @@ public class Cartman {
 		//left shoe
 		this.setLeftShoe(new Shoe(
 				Color.BLACK,
-				pants.getxPos()+20, //x
-				pants.getyPos()+40, //y
-				100, //w
+				pants.getxPos()+10, //x
+				pants.getyPos()+38, //y
+				(int)((pants.getBottomWidth()/2)*(1.115)), //w
 				20, //h
 				0, //sa
 				180 //aa
@@ -74,7 +75,7 @@ public class Cartman {
 		//right shoe
 		this.setRightShoe(new Shoe(
 				Color.BLACK,
-				pants.getxPos()+leftShoe.getWidth()-10,
+				leftShoe.getxPos()+leftShoe.getWidth()-7,
 				leftShoe.getyPos(), //y
 				leftShoe.getWidth(), //w
 				leftShoe.getHeight(), //h
@@ -143,13 +144,131 @@ public class Cartman {
 				));
 		parts.add(thirdButton);
 		
-		//head
+		//whole head
+				this.setHead(new Head(
+						Color.PINK,
+						body.getxPos()+((body.getWidth()-180)/2) ,
+						body.getyPos()-90,
+						180, //w
+						150,  //h
+						headClip
+						));
+				parts.add(head);
+				
+		//hat
+		this.setHat(new Hat(
+				Color.BLUE,
+				body.getxPos()+((body.getWidth()-180)/2) ,
+				body.getyPos()-90,
+				180, //w
+				150, //h
+				0,
+				180
+				));
+		parts.add(hat);
+		
+		//hat ball
+		this.setHatBall(new HatBall(
+				Color.YELLOW,
+				hat.getxPos()+65,
+				hat.getyPos()-7,
+				55,
+				20
+				));
+		parts.add(hatBall);
+
+		//hat trim
+		this.setHatTrim(new HatTrim(
+				Color.YELLOW,
+				hat.getxPos()+2,
+				hat.getyPos()+37,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+
+		//hat trim two
+		this.setHatTrim(new HatTrim(
+				Color.YELLOW,
+				hat.getxPos()+2,
+				hat.getyPos()+36,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim three
+		this.setHatTrim(new HatTrim(
+				Color.YELLOW,
+				hat.getxPos()+2,
+				hat.getyPos()+35,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim four
+		this.setHatTrim(new HatTrim(
+				Color.YELLOW,
+				hat.getxPos()+2,
+				hat.getyPos()+38,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim five
+		this.setHatTrim(new HatTrim(
+				Color.YELLOW,
+				hat.getxPos()+2,
+				hat.getyPos()+39,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim six
+		this.setHatTrim(new HatTrim(
+				Color.YELLOW,
+				hat.getxPos()+2,
+				hat.getyPos()+34,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+
+	    //head clip
+	    this.setHeadClip(
+	    		//this is an oval Shape
+	    		//this Shape is used to clip the drawing of the head
+	    		//so that the head is not drawn over the hat
+	    		new java.awt.geom.Ellipse2D.Float(
+	    				hat.getxPos(), //float x
+	    				hat.getyPos()+38, //float y
+	    				hat.getWidth(), //float w
+	    				65 //float h
+	    				));
+	    
+		//clipped head
 		this.setHead(new Head(
 				Color.PINK,
 				body.getxPos()+((body.getWidth()-180)/2) ,
 				body.getyPos()-90,
 				180, //w
-				150  //h
+				150,  //h
+				headClip
 				));
 		parts.add(head);
 		
@@ -157,7 +276,7 @@ public class Cartman {
 		this.setMouth(new Mouth(
 				Color.BLACK, 
 				head.getxPos()+66, 
-				head.getyPos()+110,
+				head.getyPos()+115,
 				(new int [] {0, 22, 44}), 
 				(new int [] {0, 16, 0})
 				
@@ -220,23 +339,11 @@ public class Cartman {
 				));
 		parts.add(fourthTooth);
 
-		//hat
-		this.setHat(new Hat(
-				Color.BLUE,
-				head.getxPos(),
-				head.getyPos(),
-				head.getWidth(),
-				((int)(head.getHeight())),
-				0,
-				180
-				));
-		parts.add(hat);
-
 		//left eye
 		this.setLeftEye(new Eye(
 				Color.WHITE,
 				head.getxPos()+50,
-				head.getyPos()+40,
+				head.getyPos()+50,
 				35,
 				53
 				));
@@ -272,27 +379,6 @@ public class Cartman {
 				));
 		parts.add(rightEyeBall);
 
-		//hat ball
-		this.setHatBall(new HatBall(
-				Color.YELLOW,
-				hat.getxPos()+65,
-				hat.getyPos()-7,
-				55,
-				20
-				));
-		parts.add(hatBall);
-
-		//hat trim
-		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
-				hat.getxPos()+2,
-				hat.getyPos()+37,
-				hat.getWidth()-4,
-				55, 
-				0, 
-				180
-				));
-		parts.add(hatTrim);
 
 	}
 
@@ -519,6 +605,14 @@ public class Cartman {
 
 	public void setBody(Body body) {
 		this.body = body;
+	}
+
+	public Shape getHeadClip() {
+		return headClip;
+	}
+
+	public void setHeadClip(Shape headClip) {
+		this.headClip = headClip;
 	}
 
 }
