@@ -255,9 +255,9 @@ public class Cartman {
 	    		//this Shape is used to clip the drawing of the head
 	    		//so that the head is not drawn over the hat
 	    		new java.awt.geom.Ellipse2D.Float(
-	    				hat.getxPos(), //float x
+	    				hat.getxPos()-2, //float x
 	    				hat.getyPos()+38, //float y
-	    				hat.getWidth(), //float w
+	    				hat.getWidth()+4, //float w
 	    				65 //float h
 	    				));
 	    
