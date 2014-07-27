@@ -30,12 +30,18 @@ public class Cartman {
 	Button secondButton;
 	Button thirdButton;
 	Shape headClip;
+	Color cartmanBrown;
+	Color cartmanPink;
+	Color cartmanBlue;
+	Color cartmanYellow;
+	Color cartmanRed;
+	
 	
 	/**
 	 * This is the Cartman constructor
 	 * This constructor method requires a Graphics object and returns a Cartman
 	 */
-	public Cartman(){
+	public Cartman(){		
 		// call the private method that assembles Cartman parts
 		this.buildMe();
 		
@@ -48,10 +54,16 @@ public class Cartman {
 	 * This method creates each Cartman part and adds it to the Array List.
 	 */
 	private void buildMe(){	
+		// set the default colors
+		cartmanBrown = new Color(117,76,58);
+		cartmanPink = new Color(255,231,193);
+		cartmanBlue = new Color(82,188,204);
+		cartmanYellow = new Color(250,236,5);
+		cartmanRed = new Color(222,16,55);
 		
 		//pants
 		this.setPants(new Pants(
-				Color.GRAY, 
+				cartmanBrown,
 				30,  //x
 				218, //y
 				(new int [] {0, 200, 185, 15}), //xArr
@@ -86,7 +98,7 @@ public class Cartman {
 		
 		//body
 		this.setBody(new Body(
-				Color.RED,
+				cartmanRed,
 				pants.getxPos()-10,  //x
 				pants.getyPos()-88, //y
 				220, //w
@@ -96,7 +108,7 @@ public class Cartman {
 
 		//left hand
 		this.setLeftHand(new Hand(
-				Color.YELLOW,
+				cartmanYellow,
 				body.getxPos()-10,  //x
 				body.getyPos()+10, //y
 				40, //w
@@ -106,7 +118,7 @@ public class Cartman {
 
 		//right hand
 		this.setRightHand(new Hand(
-				Color.YELLOW,
+				cartmanYellow,
 				body.getxPos()+body.getWidth()-30, //x
 				body.getyPos()+40, //y
 				40, //w
@@ -146,7 +158,7 @@ public class Cartman {
 		
 		//whole head
 				this.setHead(new Head(
-						Color.PINK,
+						cartmanPink,
 						body.getxPos()+((body.getWidth()-180)/2) ,
 						body.getyPos()-90,
 						180, //w
@@ -157,7 +169,7 @@ public class Cartman {
 				
 		//hat
 		this.setHat(new Hat(
-				Color.BLUE,
+				cartmanBlue,
 				body.getxPos()+((body.getWidth()-180)/2) ,
 				body.getyPos()-90,
 				180, //w
@@ -169,7 +181,7 @@ public class Cartman {
 		
 		//hat ball
 		this.setHatBall(new HatBall(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+65,
 				hat.getyPos()-7,
 				55,
@@ -179,7 +191,7 @@ public class Cartman {
 
 		//hat trim
 		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+2,
 				hat.getyPos()+37,
 				hat.getWidth()-4,
@@ -191,7 +203,7 @@ public class Cartman {
 
 		//hat trim two
 		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+2,
 				hat.getyPos()+36,
 				hat.getWidth()-4,
@@ -203,7 +215,7 @@ public class Cartman {
 		
 		//hat trim three
 		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+2,
 				hat.getyPos()+35,
 				hat.getWidth()-4,
@@ -215,7 +227,7 @@ public class Cartman {
 		
 		//hat trim four
 		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+2,
 				hat.getyPos()+38,
 				hat.getWidth()-4,
@@ -227,7 +239,7 @@ public class Cartman {
 		
 		//hat trim five
 		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+2,
 				hat.getyPos()+39,
 				hat.getWidth()-4,
@@ -239,7 +251,7 @@ public class Cartman {
 		
 		//hat trim six
 		this.setHatTrim(new HatTrim(
-				Color.YELLOW,
+				cartmanYellow,
 				hat.getxPos()+2,
 				hat.getyPos()+34,
 				hat.getWidth()-4,
@@ -263,7 +275,7 @@ public class Cartman {
 	    
 		//clipped head
 		this.setHead(new Head(
-				Color.PINK,
+				cartmanPink,
 				body.getxPos()+((body.getWidth()-180)/2) ,
 				body.getyPos()-90,
 				180, //w
@@ -402,7 +414,7 @@ public class Cartman {
 
 	/**
 	 * @param partNum
-	 * This method takes an integer and and calls the draw() method of an item in the ArrayList<Part> parts
+	 * This method takes an integer and calls the draw() method of an item in the ArrayList<Part> parts
 	 * 
 	 */
 	public void drawPartOfMe(Graphics g, int partNum){
@@ -410,24 +422,28 @@ public class Cartman {
 		
 		}
 
-	//getters 
+	//getters and setters
 	
 	public Body getBody() {
 		return body;
 	}
 
+	public Color getBodyColor() {
+		return cartmanRed;
+	}
+	
 	public Button getFirstButton() {
 		return firstButton;
 	}
-	
+
 	public Chin getFirstChin() {
 		return firstChin;
 	}
-
+	
 	public Tooth getFirstTooth() {
 		return firstTooth;
 	}
-	
+
 	public Tooth getFourthTooth() {
 		return fourthTooth;
 	}
@@ -440,8 +456,16 @@ public class Cartman {
 		return hatBall;
 	}
 
+	public Color getHatColor() {
+		return cartmanBlue;
+	}
+
 	public HatTrim getHatTrim() {
 		return hatTrim;
+	}
+
+	public Color getHatTrimColor() {
+		return cartmanYellow;
 	}
 
 	public Head getHead() {
@@ -450,6 +474,10 @@ public class Cartman {
 
 	public Shape getHeadClip() {
 		return headClip;
+	}
+
+	public Color getHeadColor() {
+		return cartmanPink;
 	}
 
 	public Eye getLeftEye() {
@@ -474,6 +502,10 @@ public class Cartman {
 
 	public Pants getPants() {
 		return pants;
+	}
+
+	public Color getPantsColor() {
+		return cartmanBrown;
 	}
 
 	public ArrayList<Part> getParts() {
@@ -515,11 +547,13 @@ public class Cartman {
 	public Tooth getThirdTooth() {
 		return thirdTooth;
 	}
-	
-	//setters
 
 	public void setBody(Body body) {
 		this.body = body;
+	}
+
+	public void setBodyColor(Color bodyColor) {
+		this.cartmanRed = bodyColor;
 	}
 
 	public void setFirstButton(Button firstButton) {
@@ -546,8 +580,16 @@ public class Cartman {
 		this.hatBall = hatBall;
 	}
 
+	public void setHatColor(Color hatColor) {
+		this.cartmanBlue = hatColor;
+	}
+
 	public void setHatTrim(HatTrim hatTrim) {
 		this.hatTrim = hatTrim;
+	}
+
+	public void setHatTrimColor(Color hatTrimColor) {
+		this.cartmanYellow = hatTrimColor;
 	}
 
 	public void setHead(Head head) {
@@ -556,6 +598,10 @@ public class Cartman {
 
 	public void setHeadClip(Shape headClip) {
 		this.headClip = headClip;
+	}
+
+	public void setHeadColor(Color headColor) {
+		this.cartmanPink = headColor;
 	}
 
 	public void setLeftEye(Eye leftEye) {
@@ -580,6 +626,10 @@ public class Cartman {
 
 	public void setPants(Pants pants) {
 		this.pants = pants;
+	}
+
+	public void setPantsColor(Color pantsColor) {
+		this.cartmanBrown = pantsColor;
 	}
 
 	public void setParts(ArrayList<Part> parts) {
