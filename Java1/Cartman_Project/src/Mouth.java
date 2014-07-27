@@ -6,25 +6,33 @@ import java.awt.Polygon;
 public class Mouth extends Part {
 	private int xPos;
 	private int yPos;
+	private int [] xPoints;
+	private int [] yPoints;
 
-	public Mouth(Color c, int x, int y) {
+	public Mouth(Color c, int x, int y, int [] xArr, int [] yArr) {
+		//super constructor
 		super(c);
+		//instance variables
 		this.setxPos(x);
 		this.setyPos(y);
-		
+		this.setxPoints(xArr);
+		this.setyPoints(yArr);
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		//set color
-		g.setColor(Color.black);
-		int x = this.getxPos();
-		int y = this.getyPos();
-		//define shape
-		int [] xValues = (new int [] {x, x+22, x+44}); 
-		int [] yValues = (new int [] {y, y+16, y});
+		//reposition the x coordinates of the shape by adding xPos
+		 for(int i=0; i < xPoints.length; i++)
+		  {
+			 xPoints[i]=xPoints[i]+xPos;
+		  }
+		//reposition the y coordinates of the shape by adding yPos
+		 for(int i=0; i < yPoints.length; i++)
+		  {
+			 yPoints[i]=yPoints[i]+yPos;
+		  }
 		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
+		Polygon p = new Polygon(xPoints, yPoints, xPoints.length);
 		//draw the polygon
 		g.fillPolygon(p);		
 
@@ -44,6 +52,22 @@ public class Mouth extends Part {
 
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
+	}
+
+	public int[] getxPoints() {
+		return xPoints;
+	}
+
+	public void setxPoints(int[] xPoints) {
+		this.xPoints = xPoints;
+	}
+
+	public int[] getyPoints() {
+		return yPoints;
+	}
+
+	public void setyPoints(int[] yPoints) {
+		this.yPoints = yPoints;
 	}
 
 }

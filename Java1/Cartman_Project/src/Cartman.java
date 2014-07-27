@@ -82,7 +82,7 @@ public class Cartman {
 		this.setFirstButton(new Button(
 				Color.BLACK,
 				body.getxPos()+(body.getWidth()/2), //x
-				body.getyPos()+60, //y
+				body.getyPos()+65, //y
 				3, //w
 				8  //h
 				));
@@ -91,7 +91,7 @@ public class Cartman {
 		//second button
 		this.setSecondButton(new Button(
 				Color.BLACK,
-				firstButton.getxPos(), //x
+				firstButton.getxPos()+2, //x
 				firstButton.getyPos()+20, //y
 				3, //w
 				8  //h
@@ -101,7 +101,7 @@ public class Cartman {
 		//third button
 		this.setThirdButton(new Button(
 				Color.BLACK,
-				secondButton.getxPos(), //x
+				secondButton.getxPos()-1, //x
 				secondButton.getyPos()+20, //y
 				3, //w
 				8  //h
@@ -122,7 +122,10 @@ public class Cartman {
 		this.setMouth(new Mouth(
 				Color.BLACK, 
 				head.getxPos()+66, 
-				head.getyPos()+110
+				head.getyPos()+110,
+				(new int [] {0, 22, 44}), 
+				(new int [] {0, 16, 0})
+				
 				));
 		parts.add(mouth);
 
