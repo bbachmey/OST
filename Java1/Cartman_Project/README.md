@@ -1,4 +1,12 @@
 
+###GitHub repository
+https://github.com/bbachmey/OST/
+
+###Github branch
+https://github.com/bbachmey/OST/tree/java/1/homework/9/Java1/Cartman_Project
+
+###GitHub commits
+https://github.com/bbachmey/OST/commits/java/1/homework/9
 
 ###Steps to adding a new part
 Create class for Part  
