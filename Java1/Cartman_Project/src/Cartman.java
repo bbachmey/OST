@@ -34,8 +34,8 @@ public class Cartman {
 		parts.add(makeChin());
 		//
 		parts.add(makeMouth());
-		//
-		parts.add(makeTooth());
+		//TODO: makeMouth is called twice, it should only be called once, preferrably
+		makeTeeth((Mouth)makeMouth());
 		
 		//Part leftEye = new Eye();
 		//Part rightEye = new Eye();
@@ -141,27 +141,35 @@ public class Cartman {
 	}
 	
 	/**
+	 * This method calls the makeTooth method a number of times to make a mouth full of teeth
+	 * @return 
+	 */
+	private void makeTeeth(Mouth m){    	
+		//figure out where the mouth is
+		int x = m.getxPos();
+		int y = m.getyPos();
+		
+		//make the first tooth
+		parts.add(this.makeTooth(x+20, y));
+		
+		//make the second tooth
+		parts.add(this.makeTooth(x+26, y));
+		
+		//make the third tooth
+		parts.add(this.makeTooth(x+32, y));
+		
+		//make the fourth tooth
+		parts.add(this.makeTooth(x+38, y));
+		
+	}
+	/**
 	 * @return
 	 */
-	private Part makeTooth() {
-		Mouth mouth;
-
-    	mouth = new Mouth(null, 0, 0);
-    	
-		for (Part p : parts) {
-		  if (p.getClass() == Mouth.class){
-			  int retval= parts.indexOf(p);
-			  mouth = ((Mouth)parts.get(retval));
-			  break;
-		    }
-		  }
-		
-		int x = mouth.getxPos();
-		int y = mouth.getyPos();
+	private Part makeTooth(int x, int y) {
 		//make a new Part
 		Part tooth = new Tooth(
 				Color.WHITE,
-				x + 10,		//x position
+				x,		//x position
 				y		//y position
 				);
 		return tooth;

@@ -35,7 +35,7 @@ public class Tooth extends Part {
 		int x = this.getxPos();
 		int y = this.getyPos();
 		int [] xValues = (new int [] {x, x+5, x+5, x}); 
-		int [] yValues = (new int [] {y, y, y+5, y+5});
+		int [] yValues = (new int [] {y, y, y+3, y+3});
 		//make a polygon
 		Polygon p = new Polygon(xValues, yValues, xValues.length);
 		//draw the polygon
