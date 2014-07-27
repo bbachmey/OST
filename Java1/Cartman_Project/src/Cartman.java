@@ -77,8 +77,37 @@ public class Cartman {
 				40  //h
 				));
 		parts.add(getRightHand());
-		
 
+		//first button
+		this.setFirstButton(new Button(
+				Color.BLACK,
+				body.getxPos()+(body.getWidth()/2), //x
+				body.getyPos()+60, //y
+				3, //w
+				8  //h
+				));
+		parts.add(getFirstButton());
+
+		//second button
+		this.setSecondButton(new Button(
+				Color.BLACK,
+				firstButton.getxPos(), //x
+				firstButton.getyPos()+20, //y
+				3, //w
+				8  //h
+				));
+		parts.add(getSecondButton());
+
+		//third button
+		this.setThirdButton(new Button(
+				Color.BLACK,
+				secondButton.getxPos(), //x
+				secondButton.getyPos()+20, //y
+				3, //w
+				8  //h
+				));
+		parts.add(getThirdButton());
+		
 		//head
 		this.setHead(new Head(
 				Color.PINK,
