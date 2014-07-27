@@ -57,7 +57,31 @@ public class Cartman {
 				(new int [] {0, 0, 45, 45})     //yArr
 				
 				));
-		parts.add(getPants());
+		parts.add(pants);
+
+		//left shoe
+		this.setLeftShoe(new Shoe(
+				Color.BLACK,
+				pants.getxPos()+20, //x
+				pants.getyPos()+40, //y
+				100, //w
+				20, //h
+				0, //sa
+				180 //aa
+				));
+		parts.add(leftShoe);
+
+		//right shoe
+		this.setRightShoe(new Shoe(
+				Color.BLACK,
+				pants.getxPos()+leftShoe.getWidth()-10,
+				leftShoe.getyPos(), //y
+				leftShoe.getWidth(), //w
+				leftShoe.getHeight(), //h
+				0,
+				180
+				));
+		parts.add(rightShoe);
 		
 		//body
 		this.setBody(new Body(
@@ -67,7 +91,7 @@ public class Cartman {
 				220, //w
 				125  //h
 				));
-		parts.add(getBody());
+		parts.add(body);
 
 		//left hand
 		this.setLeftHand(new Hand(
@@ -77,7 +101,7 @@ public class Cartman {
 				40, //w
 				40  //h
 				));
-		parts.add(getLeftHand());
+		parts.add(leftHand);
 
 		//right hand
 		this.setRightHand(new Hand(
@@ -87,7 +111,7 @@ public class Cartman {
 				40, //w
 				40  //h
 				));
-		parts.add(getRightHand());
+		parts.add(rightHand);
 
 		//first button
 		this.setFirstButton(new Button(
@@ -97,7 +121,7 @@ public class Cartman {
 				3, //w
 				8  //h
 				));
-		parts.add(getFirstButton());
+		parts.add(firstButton);
 
 		//second button
 		this.setSecondButton(new Button(
@@ -107,7 +131,7 @@ public class Cartman {
 				3, //w
 				8  //h
 				));
-		parts.add(getSecondButton());
+		parts.add(secondButton);
 
 		//third button
 		this.setThirdButton(new Button(
@@ -117,7 +141,7 @@ public class Cartman {
 				3, //w
 				8  //h
 				));
-		parts.add(getThirdButton());
+		parts.add(thirdButton);
 		
 		//head
 		this.setHead(new Head(
@@ -206,7 +230,7 @@ public class Cartman {
 				0,
 				180
 				));
-		parts.add(getHat());
+		parts.add(hat);
 
 		//left eye
 		this.setLeftEye(new Eye(
@@ -216,7 +240,7 @@ public class Cartman {
 				35,
 				53
 				));
-		parts.add(getLeftEye());
+		parts.add(leftEye);
 
 		//right eye
 		this.setRightEye(new Eye(
@@ -226,7 +250,7 @@ public class Cartman {
 				35,
 				53
 				));
-		parts.add(getRightEye());
+		parts.add(rightEye);
 
 		//left eyeball
 		this.setLeftEyeBall(new EyeBall(
@@ -236,7 +260,7 @@ public class Cartman {
 				6,
 				6
 				));
-		parts.add(getLeftEyeBall());
+		parts.add(leftEyeBall);
 
 		//right eyeball
 		this.setRightEyeBall(new EyeBall(
@@ -246,7 +270,7 @@ public class Cartman {
 				6,
 				6
 				));
-		parts.add(getRightEyeBall());
+		parts.add(rightEyeBall);
 
 		//hat ball
 		this.setHatBall(new HatBall(
@@ -256,7 +280,7 @@ public class Cartman {
 				55,
 				20
 				));
-		parts.add(getHatBall());
+		parts.add(hatBall);
 
 		//hat trim
 		this.setHatTrim(new HatTrim(
@@ -268,15 +292,7 @@ public class Cartman {
 				0, 
 				180
 				));
-		parts.add(getHatTrim());
-
-
-
-
-
-		//Part leftFoot = new Foot();
-		//Part rightFoot = new Foot();
-
+		parts.add(hatTrim);
 
 	}
 

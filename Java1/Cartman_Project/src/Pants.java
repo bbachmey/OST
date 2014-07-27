@@ -37,6 +37,19 @@ public class Pants extends Part {
 		g.fillPolygon(p);		
 
 	}
+	
+	/**
+	 * @return int
+	 * This is a custom method to return the width of the pants
+	 * based on the known positions of the shape of the pants
+	 */
+	public int getWidth(){
+		int width;
+		//xPoints[2] is the bottom right corner of the pants polygon
+		//xPoints[3] is the bottom left corner of the pants polygon
+		width = xPoints[2]-xPoints[3];
+		return width;
+	}
 
 	public int getxPos() {
 		return xPos;
