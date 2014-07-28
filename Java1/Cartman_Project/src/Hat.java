@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-
 public class Hat extends Part {
 	int xPos;
 	int yPos;
@@ -25,15 +24,10 @@ public class Hat extends Part {
 
 	@Override
 	public void draw(Graphics g) {
-		//set clip
-		//g.setClip(100, 100, 100, 100);
 		//draw the arc
 		g.fillArc(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight(), this.getStartAngle(), this.getArcAngle());
 		//test the shape of the rectangle within which the arc is drawn
-		//g.drawRect(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());
-		//set the clip back to null
-		//g.setClip(null);
-		
+		//g.drawRect(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());	
 	}
 
 	public int getxPos() {

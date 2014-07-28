@@ -14,7 +14,6 @@ public class Eye extends Part {
 	private int width;
 
 	/**
-	 * Head is an oval
 	 * @param c
 	 * @param x
 	 * @param y
@@ -29,7 +28,6 @@ public class Eye extends Part {
 		this.setWidth(w);
 		this.setxPos(x);
 		this.setyPos(y);
-		
 	}
 
 	/**
@@ -39,7 +37,6 @@ public class Eye extends Part {
 	public void draw(Graphics g) {
 		//draw the oval
 		g.fillOval(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());
-
 	}
 
 	//getters and setters

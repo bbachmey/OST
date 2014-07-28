@@ -14,7 +14,6 @@ public class Hand extends Part {
 	private int width;
 
 	/**
-	 * Head is an oval
 	 * @param c
 	 * @param x
 	 * @param y

@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-
 /**
  * @author bbachmey
  *
@@ -10,6 +9,8 @@ import java.awt.Polygon;
 public class Tooth extends Part {
 	private int xPos;
 	private int yPos;
+	private int [] xPoints;
+	private int [] yPoints;
 	
 	/**
 	 * Tooth is a polygon and x and y points to build a shape
@@ -17,27 +18,33 @@ public class Tooth extends Part {
 	 * @param x
 	 * @param y
 	 */
-	public Tooth(Color c, int x, int y){
-		// call super constructor
+	public Tooth(Color c, int x, int y, int [] xArr, int [] yArr){
+		// super constructor
 		super(c);
-		// set instance variables
+		// instance variables
 		this.setxPos(x);
 		this.setyPos(y);
-			
+		this.setxPoints(xArr);
+		this.setyPoints(yArr);
 	}
 
+	/**
+	 * @param g
+	 */
 	@Override
 	public void draw(Graphics g) {
-		//make int arrays
-		//this is where the shape of the tooth is defined
-		//setting the shape values here makes every tooth the same size
-		//TODO: make an override constructor for Tooth that accepts different values for the shape of the tooth
-		int x = this.getxPos();
-		int y = this.getyPos();
-		int [] xValues = (new int [] {x, x+7, x+7, x}); 
-		int [] yValues = (new int [] {y, y, y+5, y+5});
+		//reposition the x coordinates of the shape by adding xPos
+		 for(int i=0; i < xPoints.length; i++)
+		  {
+			 xPoints[i]=xPoints[i]+xPos;
+		  }
+		//reposition the y coordinates of the shape by adding yPos
+		 for(int i=0; i < yPoints.length; i++)
+		  {
+			 yPoints[i]=yPoints[i]+yPos;
+		  }
 		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
+		Polygon p = new Polygon(xPoints, yPoints, xPoints.length);
 		//draw the polygon
 		g.fillPolygon(p);
 
@@ -57,6 +64,22 @@ public class Tooth extends Part {
 
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
+	}
+
+	public int[] getxPoints() {
+		return xPoints;
+	}
+
+	public void setxPoints(int[] xPoints) {
+		this.xPoints = xPoints;
+	}
+
+	public int[] getyPoints() {
+		return yPoints;
+	}
+
+	public void setyPoints(int[] yPoints) {
+		this.yPoints = yPoints;
 	}
 
 

@@ -36,7 +36,6 @@ public class Cartman {
 	Color cartmanYellow;
 	Color cartmanRed;
 	
-	
 	/**
 	 * This is the Cartman constructor
 	 * This constructor method requires a Graphics object and returns a Cartman
@@ -318,36 +317,49 @@ public class Cartman {
 				-140
 				));
 		parts.add(secondChin);
-		
+
 		//first tooth
 		this.setFirstTooth(new Tooth(
 				Color.WHITE,
-				(int)(mouth.getxPos()+(44*.17)), 
-				mouth.getyPos()
+				//Color.BLUE,
+				(int)(mouth.getxPos()+mouth.getWidth()/8), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 3, 2, 1, 0}), //xArr
+				(new int [] {0, 0, 4, 4, 3, 2, 2})  //yArr
+				
 				));
 		parts.add(firstTooth);
 		
 		//second tooth
 		this.setSecondTooth(new Tooth(
 				Color.WHITE,
-				(firstTooth.getxPos()+8), 
-				firstTooth.getyPos()
+				(firstTooth.getxPos()+9), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 0}), //xArr
+				(new int [] {0, 0, 5, 5})  //yArr
+				
 				));
 		parts.add(secondTooth);
 		
 		//third tooth
 		this.setThirdTooth(new Tooth(
 				Color.WHITE,
-				(secondTooth.getxPos()+8), 
-				secondTooth.getyPos()
+				(secondTooth.getxPos()+9), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 0}), //xArr
+				(new int [] {0, 0, 5, 5})  //yArr
+				
 				));
 		parts.add(thirdTooth);
 		
 		//fourth tooth
 		this.setFourthTooth(new Tooth(
 				Color.WHITE,
-				(thirdTooth.getxPos()+8), 
-				thirdTooth.getyPos()
+				(thirdTooth.getxPos()+9), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 7, 6, 5, 0}), //xArr
+				(new int [] {0, 0, 1, 2, 3, 4, 4})  //yArr
+				
 				));
 		parts.add(fourthTooth);
 
@@ -390,7 +402,6 @@ public class Cartman {
 				leftEyeBall.getHeight()
 				));
 		parts.add(rightEyeBall);
-
 
 	}
 

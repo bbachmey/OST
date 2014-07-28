@@ -31,10 +31,6 @@ public HatTrim(Color c, int x, int y, int w, int h, int sa, int aa){
 		g.drawArc(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight(), this.getStartAngle(), this.getArcAngle());
 		//test the shape of the rectangle within which the arc is drawn
 		//g.drawRect(this.getxPos(), this.getyPos(), this.getWidth(), this.getHeight());
-		
-		
-
-
 	}
 
 	public int getStartAngle() {

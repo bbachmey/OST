@@ -2,13 +2,19 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-
 public class Mouth extends Part {
 	private int xPos;
 	private int yPos;
 	private int [] xPoints;
 	private int [] yPoints;
 
+	/**
+	 * @param c
+	 * @param x
+	 * @param y
+	 * @param xArr
+	 * @param yArr
+	 */
 	public Mouth(Color c, int x, int y, int [] xArr, int [] yArr) {
 		//super constructor
 		super(c);
@@ -36,6 +42,16 @@ public class Mouth extends Part {
 		//draw the polygon
 		g.fillPolygon(p);		
 
+	}
+
+	public int getWidth() {
+		//instance method to return the width of the mouth,
+		//based on the known position of the shape points in xArr and yArr
+		int width;
+		//xPoints[2] is the bottom right corner of the pants polygon
+		//xPoints[3] is the bottom left corner of the pants polygon
+		width = xPoints[2]-xPoints[0];
+		return width;
 	}
 
 	public int getxPos() {
@@ -69,5 +85,5 @@ public class Mouth extends Part {
 	public void setyPoints(int[] yPoints) {
 		this.yPoints = yPoints;
 	}
-
+	
 }

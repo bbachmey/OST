@@ -2,6 +2,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
+/**
+ * @author bbachmey
+ *
+ */
 public class Shoe extends Part {
 	int xPos;
 	int yPos;
@@ -10,6 +14,15 @@ public class Shoe extends Part {
 	int startAngle;
 	int arcAngle;
 
+	/**
+	 * @param c
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h
+	 * @param sa
+	 * @param aa
+	 */
 	public Shoe(Color c, int x, int y, int w, int h, int sa, int aa) {
 		//super constructor
 		super(c);
@@ -20,9 +33,11 @@ public class Shoe extends Part {
 		this.setWidth(w);
 		this.setStartAngle(sa);
 		this.setArcAngle(aa);
-		
 	}
 
+	/* (non-Javadoc)
+	 * @see Part#draw(java.awt.Graphics)
+	 */
 	@Override
 	public void draw(Graphics g) {
 		//draw the arc

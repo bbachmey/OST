@@ -13,8 +13,8 @@ public class Button extends Part {
 	private int height;
 	private int width;
 
+
 	/**
-	 * Head is an oval
 	 * @param c
 	 * @param x
 	 * @param y

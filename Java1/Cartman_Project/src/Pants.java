@@ -2,13 +2,19 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-
 public class Pants extends Part {
 	private int xPos;
 	private int yPos;
 	private int [] xPoints;
 	private int [] yPoints;
 
+	/**
+	 * @param c
+	 * @param x
+	 * @param y
+	 * @param xArr
+	 * @param yArr
+	 */
 	public Pants(Color c, int x, int y, int [] xArr, int [] yArr) {
 		//super constructor
 		super(c);
@@ -19,6 +25,9 @@ public class Pants extends Part {
 		this.setyPoints(yArr);
 	}
 
+	/* (non-Javadoc)
+	 * @see Part#draw(java.awt.Graphics)
+	 */
 	@Override
 	public void draw(Graphics g) {
 		//reposition the x coordinates of the shape by adding xPos
@@ -40,7 +49,7 @@ public class Pants extends Part {
 	
 	/**
 	 * @return int
-	 * This is a custom method to return the width of the pants
+	 * This is an instance method which returns the width of the pants
 	 * based on the known positions of the shape of the pants
 	 */
 	public int getBottomWidth(){
