@@ -2,6 +2,8 @@ OST
 ===
 This repository holds projects completed for O'Reilly School of Technology - Java Programming.
 
+Edit: 2014-07-28
+
 http://www.oreillyschool.com/certificate-programs/java-programming/
 
 ####Java Programming 1: Introduction to Java and the Eclipse Development Environment
