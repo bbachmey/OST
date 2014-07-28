@@ -6,15 +6,21 @@ public class DrawTest extends Applet
 	public void init()
 	{
 		//set the applet background color
-		//setBackground(Color.cyan);
+		setBackground(Color.WHITE);
+		
+
+		// resize the applet window
+		resize(300,300);
+		
 	}
 	
 	public void paint(Graphics g)
 	{
-		//Create a Cartman object and pass it the Graphics object of this applet
-		Cartman myCartman = new Cartman(g);
-		//call the drawMe method on the Cartman object
-		myCartman.drawMe();
+		//Create a Cartman object and pass to it the Graphics object given to this applet
+		Cartman myCartman = new Cartman();
+		 
+		//call the method on the Cartman object that draws the Cartman using the Graphics object
+		myCartman.drawAllOfMe(g);
 		
 	}
 }

@@ -1,354 +1,686 @@
 import java.awt.*;
-
+import java.util.ArrayList;
 
 public class Cartman {
-	Graphics g;
-	int numOfParts;
+	//this is an ArrayList which holds the Cartman parts
+	ArrayList<Part> parts = new ArrayList<Part>();
+	
+	Body body;
+	Head head;
+	Mouth mouth;
+	Chin firstChin;
+	Chin secondChin;
+	Eye leftEye;
+	Eye rightEye;
+	Hand leftHand;
+	Hand rightHand;
+	Pants pants;
+	Shoe leftShoe;
+	Shoe rightShoe;
+	Hat hat;
+	HatTrim hatTrim;
+	HatBall hatBall;
+	EyeBall leftEyeBall;
+	EyeBall rightEyeBall;
+	Tooth firstTooth;
+	Tooth secondTooth;
+	Tooth thirdTooth;
+	Tooth fourthTooth;
+	Button firstButton;
+	Button secondButton;
+	Button thirdButton;
+	Shape headClip;
+	Color cartmanBrown;
+	Color cartmanPink;
+	Color cartmanBlue;
+	Color cartmanYellow;
+	Color cartmanRed;
 	
 	/**
-	 * @param graph
 	 * This is the Cartman constructor
-	 * This constructor method requires a Graphics object and return a Cartman
+	 * This constructor method requires a Graphics object and returns a Cartman
 	 */
-	public Cartman(Graphics graph){
-		// put the Graphics object into an instance variable
-		this.g = graph;
-		// set the number of parts to be drawn
-		// 	this is one less than the number of cases in the switch statement
-		//	which makes case 14 a place to stash method calls that are not run
-		numOfParts = 13;
+	public Cartman(){		
+		// call the private method that assembles Cartman parts
+		this.buildMe();
+		
 	}
 	
 	/**
-	 * This is the method that tells a Cartman to draw itself
-	 * @param none
-	 * @author bbachmey
+	 * This method is called by the constructor.
+	 * The order that Parts are added to the ArrayList is the order in which they are drawn.
+	 * This method does not draw Cartman.
+	 * This method creates each Cartman part and adds it to the Array List.
 	 */
-	public void drawMe(){
+	private void buildMe(){	
+		// set the default colors
+		cartmanBrown = new Color(117,76,58);
+		cartmanPink = new Color(255,231,193);
+		cartmanBlue = new Color(82,188,204);
+		cartmanYellow = new Color(250,236,5);
+		cartmanRed = new Color(222,16,55);
+		
+		//pants
+		this.setPants(new Pants(
+				cartmanBrown,
+				30,  //x
+				218, //y
+				(new int [] {0, 200, 185, 15}), //xArr
+				(new int [] {0, 0, 45, 45})     //yArr
+				
+				));
+		parts.add(pants);
 
-		for(int i=0; i<numOfParts; i++ ){
-			//call the drawPartOfMe method and pass it the loop increment
-			this.drawPartOfMe(i);
+		//left shoe
+		this.setLeftShoe(new Shoe(
+				Color.BLACK,
+				pants.getxPos()+10, //x
+				pants.getyPos()+38, //y
+				(int)((pants.getBottomWidth()/2)*(1.115)), //w
+				20, //h
+				0, //sa
+				180 //aa
+				));
+		parts.add(leftShoe);
+
+		//right shoe
+		this.setRightShoe(new Shoe(
+				Color.BLACK,
+				leftShoe.getxPos()+leftShoe.getWidth()-7,
+				leftShoe.getyPos(), //y
+				leftShoe.getWidth(), //w
+				leftShoe.getHeight(), //h
+				0,
+				180
+				));
+		parts.add(rightShoe);
+		
+		//body
+		this.setBody(new Body(
+				cartmanRed,
+				pants.getxPos()-10,  //x
+				pants.getyPos()-88, //y
+				220, //w
+				125  //h
+				));
+		parts.add(body);
+
+		//left hand
+		this.setLeftHand(new Hand(
+				cartmanYellow,
+				body.getxPos()-10,  //x
+				body.getyPos()+10, //y
+				40, //w
+				40  //h
+				));
+		parts.add(leftHand);
+
+		//right hand
+		this.setRightHand(new Hand(
+				cartmanYellow,
+				body.getxPos()+body.getWidth()-30, //x
+				body.getyPos()+40, //y
+				40, //w
+				40  //h
+				));
+		parts.add(rightHand);
+
+		//first button
+		this.setFirstButton(new Button(
+				Color.BLACK,
+				body.getxPos()+(body.getWidth()/2), //x
+				body.getyPos()+65, //y
+				3, //w
+				8  //h
+				));
+		parts.add(firstButton);
+
+		//second button
+		this.setSecondButton(new Button(
+				Color.BLACK,
+				firstButton.getxPos()+2, //x
+				firstButton.getyPos()+20, //y
+				3, //w
+				8  //h
+				));
+		parts.add(secondButton);
+
+		//third button
+		this.setThirdButton(new Button(
+				Color.BLACK,
+				secondButton.getxPos()-1, //x
+				secondButton.getyPos()+20, //y
+				3, //w
+				8  //h
+				));
+		parts.add(thirdButton);
+		
+		//whole head
+				this.setHead(new Head(
+						cartmanPink,
+						body.getxPos()+((body.getWidth()-180)/2) ,
+						body.getyPos()-90,
+						180, //w
+						150,  //h
+						headClip
+						));
+				parts.add(head);
+				
+		//hat
+		this.setHat(new Hat(
+				cartmanBlue,
+				body.getxPos()+((body.getWidth()-180)/2) ,
+				body.getyPos()-90,
+				180, //w
+				150, //h
+				0,
+				180
+				));
+		parts.add(hat);
+		
+		//hat ball
+		this.setHatBall(new HatBall(
+				cartmanYellow,
+				hat.getxPos()+65,
+				hat.getyPos()-7,
+				55,
+				20
+				));
+		parts.add(hatBall);
+
+		//hat trim
+		this.setHatTrim(new HatTrim(
+				cartmanYellow,
+				hat.getxPos()+2,
+				hat.getyPos()+37,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+
+		//hat trim two
+		this.setHatTrim(new HatTrim(
+				cartmanYellow,
+				hat.getxPos()+2,
+				hat.getyPos()+36,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim three
+		this.setHatTrim(new HatTrim(
+				cartmanYellow,
+				hat.getxPos()+2,
+				hat.getyPos()+35,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim four
+		this.setHatTrim(new HatTrim(
+				cartmanYellow,
+				hat.getxPos()+2,
+				hat.getyPos()+38,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim five
+		this.setHatTrim(new HatTrim(
+				cartmanYellow,
+				hat.getxPos()+2,
+				hat.getyPos()+39,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+		
+		//hat trim six
+		this.setHatTrim(new HatTrim(
+				cartmanYellow,
+				hat.getxPos()+2,
+				hat.getyPos()+34,
+				hat.getWidth()-4,
+				55, 
+				0, 
+				180
+				));
+		parts.add(hatTrim);
+
+	    //head clip
+	    this.setHeadClip(
+	    		//this is an oval Shape
+	    		//this Shape is used to clip the drawing of the head
+	    		//so that the head is not drawn over the hat
+	    		new java.awt.geom.Ellipse2D.Float(
+	    				hat.getxPos()-2, //float x
+	    				hat.getyPos()+38, //float y
+	    				hat.getWidth()+4, //float w
+	    				65 //float h
+	    				));
+	    
+		//clipped head
+		this.setHead(new Head(
+				cartmanPink,
+				body.getxPos()+((body.getWidth()-180)/2) ,
+				body.getyPos()-90,
+				180, //w
+				150,  //h
+				headClip
+				));
+		parts.add(head);
+		
+		//mouth
+		this.setMouth(new Mouth(
+				Color.BLACK, 
+				head.getxPos()+66, 
+				head.getyPos()+115,
+				(new int [] {0, 22, 44}), 
+				(new int [] {0, 16, 0})
+				
+				));
+		parts.add(mouth);
+
+		//first chin
+		this.setFirstChin(new Chin(
+				Color.BLACK, 
+				mouth.getxPos()+10, 
+				mouth.getyPos()+14,
+				21,
+				5,				
+				-0,
+				-140
+				));
+		parts.add(firstChin);
+
+		//second chin
+		this.setSecondChin(new Chin(
+				Color.BLACK, 
+				head.getxPos()+25, 
+				head.getyPos()+86,
+				((int)(head.getWidth()-(head.getWidth()/3.5))),	
+				((int)(head.getHeight()*.38)),			
+				-20,
+				-140
+				));
+		parts.add(secondChin);
+
+		//first tooth
+		this.setFirstTooth(new Tooth(
+				Color.WHITE,
+				//Color.BLUE,
+				(int)(mouth.getxPos()+mouth.getWidth()/8), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 3, 2, 1, 0}), //xArr
+				(new int [] {0, 0, 4, 4, 3, 2, 2})  //yArr
+				
+				));
+		parts.add(firstTooth);
+		
+		//second tooth
+		this.setSecondTooth(new Tooth(
+				Color.WHITE,
+				(firstTooth.getxPos()+9), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 0}), //xArr
+				(new int [] {0, 0, 5, 5})  //yArr
+				
+				));
+		parts.add(secondTooth);
+		
+		//third tooth
+		this.setThirdTooth(new Tooth(
+				Color.WHITE,
+				(secondTooth.getxPos()+9), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 0}), //xArr
+				(new int [] {0, 0, 5, 5})  //yArr
+				
+				));
+		parts.add(thirdTooth);
+		
+		//fourth tooth
+		this.setFourthTooth(new Tooth(
+				Color.WHITE,
+				(thirdTooth.getxPos()+9), 
+				mouth.getyPos()+1,
+				(new int [] {0, 8, 8, 7, 6, 5, 0}), //xArr
+				(new int [] {0, 0, 1, 2, 3, 4, 4})  //yArr
+				
+				));
+		parts.add(fourthTooth);
+
+		//left eye
+		this.setLeftEye(new Eye(
+				Color.WHITE,
+				head.getxPos()+50,
+				head.getyPos()+50,
+				40, //w
+				53 //h
+				));
+		parts.add(leftEye);
+
+		//right eye
+		this.setRightEye(new Eye(
+				Color.WHITE,
+				leftEye.getxPos()+40,
+				leftEye.getyPos(),
+				leftEye.getWidth(),
+				leftEye.getHeight()
+				));
+		parts.add(rightEye);
+
+		//left eyeball
+		this.setLeftEyeBall(new EyeBall(
+				Color.BLACK,
+				leftEye.getxPos()+25,
+				leftEye.getyPos()+22,
+				6,
+				6
+				));
+		parts.add(leftEyeBall);
+
+		//right eyeball
+		this.setRightEyeBall(new EyeBall(
+				Color.BLACK,
+				leftEyeBall.getxPos()+23,
+				leftEyeBall.getyPos(),
+				leftEyeBall.getWidth(),
+				leftEyeBall.getHeight()
+				));
+		parts.add(rightEyeBall);
+
+	}
+
+	/**
+	 * @param Graphics g
+	 * This method loops through the parts Array List and calls the draw() 
+	 * method on each object
+	 */
+	public void drawAllOfMe(Graphics g){
+		//Polymorphism in action!
+		//	The draw() method is called on each object in the ArrayList<Part> parts
+		//	The JVM executes the draw() method defined in each subclass of Part 
+		for(Part p : parts){
+			//get the color from the Part object and set the color of the Graphics object
+			g.setColor(p.getColor());
+			//call the draw() method of the Part
+			p.draw(g);
 		}
-	
+		
 	}
 
 	/**
 	 * @param partNum
-	 * This method takes an integer and feeds it to a switch statement,
-	 * 	which excecutes another method specified within the case clase.
-	 * This is not, I think the best way to call each method, but I looked
-	 * 	at using Reflection, and was steered away from that.
-	 * I do want a way to separate the instructions for drawing each part, 
-	 * 	and I want a way to selectively call the method to draw each part,
-	 * 	or to loop through and call them all. This is the best-first way I 
-	 * 	decided to implement this idea.
+	 * This method takes an integer and calls the draw() method of an item in the ArrayList<Part> parts
+	 * 
 	 */
-	private void drawPartOfMe(int partNum){
+	public void drawPartOfMe(Graphics g, int partNum){
+		parts.get(partNum).draw(g);
 		
-		switch (partNum) 
-		{
-		case 0: 
-			this.drawHead();
-			break;
-		case 1: 
-			this.drawEyes();
-			break;
-		case 2: 
-			this.drawEyeBalls();
-			break;
-		case 3: 
-			this.drawMouth();
-			break;
-		case 4: 
-			this.drawTeeth();
-			break;
-		case 5: 
-			
-			break;
-		case 6: 
-			
-			break;
-		case 7: 
-			
-			break;
-		case 8: 
-			
-			break;
-		case 9: 
-			
-			break;
-		case 10: 
-			
-			break;
-		case 11: 
-			
-			break;
-		case 12: 
-			
-			break;
-		case 13: 
-			
-			
-			
-			
-			
-			this.drawBody();
-			this.drawFeet();
-			this.drawPants();
-			this.drawButtons();
-			this.drawHands();
-			this.drawChin();
-			this.drawHat();
-			this.drawTrim();
-			this.drawHatBall();
-			break;
-			
-			
 		}
 
+	//getters and setters
+	
+	public Body getBody() {
+		return body;
+	}
+
+	public Color getBodyColor() {
+		return cartmanRed;
 	}
 	
-	/**
-	 * Draw the eye balls
-	 */
-	private void drawEyeBalls(){
-		//set color
-		g.setColor(Color.BLACK);
-		//anchor position (left eye)
-		int x = 63;
-		int y = 86;
-		//relative width and height
-		int w = 10;
-		int h = 10;
-		//draw the oval
-		g.fillOval(x,y,w,h);
-		//anchor position (right eye)
-		x = 90;
-		//draw the oval again	
-		g.fillOval(x,y,w,h);
+	public Button getFirstButton() {
+		return firstButton;
+	}
+
+	public Chin getFirstChin() {
+		return firstChin;
 	}
 	
-	/**
-	 *  
-	 */
-	private void drawEyes(){
-		g.setColor(Color.white);
-		g.fillOval(50, 66, 35, 53);
-		g.fillOval(78,66,35,53);
+	public Tooth getFirstTooth() {
+		return firstTooth;
 	}
 
-	/**
-	 * 
-	 */
-	private void drawMouth(){
-		g.setColor(Color.black);
-		int [] xValues = {56,89,109};
-		int [] yValues = {140,150,140};
-		Polygon shapeThing = new Polygon(xValues, yValues, 3);
-		//g.fillPolygon(xValues, yValues, 3);
-		g.fillPolygon(shapeThing); /** this is an example of polymorphism **/
-	
+	public Tooth getFourthTooth() {
+		return fourthTooth;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawTeeth(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
-		
+	public Hat getHat() {
+		return hat;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawHead(){
-		//set color
-		g.setColor(Color.PINK);
-		//anchor position
-		int x = 10;
-		int y = 30;
-		//relative width and height
-		int w = 180;
-		int h = 150;
-		//draw the oval
-		g.fillOval(x,y,w,h);
+	public HatBall getHatBall() {
+		return hatBall;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawBody(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public Color getHatColor() {
+		return cartmanBlue;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawFeet(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public HatTrim getHatTrim() {
+		return hatTrim;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawPants(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public Color getHatTrimColor() {
+		return cartmanYellow;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawButtons(){
-		//set color
-		g.setColor(Color.PINK);
-		//anchor position
-		int x = 10;
-		int y = 30;
-		//relative width and height
-		int w = 180;
-		int h = 150;
-		//draw the oval
-		g.fillOval(x,y,w,h);
+	public Head getHead() {
+		return head;
 	}
 
-	/**
-	 * 
-	 */
-	private void drawHands(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public Shape getHeadClip() {
+		return headClip;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawChin(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public Color getHeadColor() {
+		return cartmanPink;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawHat(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public Eye getLeftEye() {
+		return leftEye;
 	}
 
-	/**
-	 *  
-	 */
-	private void drawTrim(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public EyeBall getLeftEyeBall() {
+		return leftEyeBall;
 	}
 
-	/**
-	 *  
-	 */ 
-	private void drawHatBall(){
-		//set color
-		g.setColor(Color.WHITE);
-		//anchor position
-		int x = 0;
-		int y = 0;
-		//relative position
-		int [] xValues = {x+56,x+89,x+109};
-		int [] yValues = {y+140,y+150,y+140};
-		//make a polygon
-		Polygon p = new Polygon(xValues, yValues, xValues.length);
-		//draw the polygon
-		g.fillPolygon(p);
+	public Hand getLeftHand() {
+		return leftHand;
 	}
 
+	public Shoe getLeftShoe() {
+		return leftShoe;
+	}
 
+	public Mouth getMouth() {
+		return mouth;
+	}
 
+	public Pants getPants() {
+		return pants;
+	}
 
+	public Color getPantsColor() {
+		return cartmanBrown;
+	}
 
-	
+	public ArrayList<Part> getParts() {
+		return parts;
+	}
+
+	public Eye getRightEye() {
+		return rightEye;
+	}
+
+	public EyeBall getRightEyeBall() {
+		return rightEyeBall;
+	}
+
+	public Hand getRightHand() {
+		return rightHand;
+	}
+
+	public Shoe getRightShoe() {
+		return rightShoe;
+	}
+
+	public Button getSecondButton() {
+		return secondButton;
+	}
+
+	public Chin getSecondChin() {
+		return secondChin;
+	}
+
+	public Tooth getSecondTooth() {
+		return secondTooth;
+	}
+
+	public Button getThirdButton() {
+		return thirdButton;
+	}
+
+	public Tooth getThirdTooth() {
+		return thirdTooth;
+	}
+
+	public void setBody(Body body) {
+		this.body = body;
+	}
+
+	public void setBodyColor(Color bodyColor) {
+		this.cartmanRed = bodyColor;
+	}
+
+	public void setFirstButton(Button firstButton) {
+		this.firstButton = firstButton;
+	}
+
+	public void setFirstChin(Chin firstChin) {
+		this.firstChin = firstChin;
+	}
+
+	public void setFirstTooth(Tooth firstTooth) {
+		this.firstTooth = firstTooth;
+	}
+
+	public void setFourthTooth(Tooth fourthTooth) {
+		this.fourthTooth = fourthTooth;
+	}
+
+	public void setHat(Hat hat) {
+		this.hat = hat;
+	}
+
+	public void setHatBall(HatBall hatBall) {
+		this.hatBall = hatBall;
+	}
+
+	public void setHatColor(Color hatColor) {
+		this.cartmanBlue = hatColor;
+	}
+
+	public void setHatTrim(HatTrim hatTrim) {
+		this.hatTrim = hatTrim;
+	}
+
+	public void setHatTrimColor(Color hatTrimColor) {
+		this.cartmanYellow = hatTrimColor;
+	}
+
+	public void setHead(Head head) {
+		this.head = head;
+	}
+
+	public void setHeadClip(Shape headClip) {
+		this.headClip = headClip;
+	}
+
+	public void setHeadColor(Color headColor) {
+		this.cartmanPink = headColor;
+	}
+
+	public void setLeftEye(Eye leftEye) {
+		this.leftEye = leftEye;
+	}
+
+	public void setLeftEyeBall(EyeBall leftEyeBall) {
+		this.leftEyeBall = leftEyeBall;
+	}
+
+	public void setLeftHand(Hand leftHand) {
+		this.leftHand = leftHand;
+	}
+
+	public void setLeftShoe(Shoe leftShoe) {
+		this.leftShoe = leftShoe;
+	}
+
+	public void setMouth(Mouth mouth) {
+		this.mouth = mouth;
+	}
+
+	public void setPants(Pants pants) {
+		this.pants = pants;
+	}
+
+	public void setPantsColor(Color pantsColor) {
+		this.cartmanBrown = pantsColor;
+	}
+
+	public void setParts(ArrayList<Part> parts) {
+		this.parts = parts;
+	}
+
+	public void setRightEye(Eye rightEye) {
+		this.rightEye = rightEye;
+	}
+
+	public void setRightEyeBall(EyeBall rightEyeBall) {
+		this.rightEyeBall = rightEyeBall;
+	}
+
+	public void setRightHand(Hand rightHand) {
+		this.rightHand = rightHand;
+	}
+
+	public void setRightShoe(Shoe rightShoe) {
+		this.rightShoe = rightShoe;
+	}
+
+	public void setSecondButton(Button secondButton) {
+		this.secondButton = secondButton;
+	}
+
+	public void setSecondChin(Chin secondChin) {
+		this.secondChin = secondChin;
+	}
+
+	public void setSecondTooth(Tooth secondTooth) {
+		this.secondTooth = secondTooth;
+	}
+
+	public void setThirdButton(Button thirdButton) {
+		this.thirdButton = thirdButton;
+	}
+
+	public void setThirdTooth(Tooth thirdTooth) {
+		this.thirdTooth = thirdTooth;
+	}
+
 }
