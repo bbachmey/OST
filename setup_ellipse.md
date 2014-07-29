@@ -1,7 +1,7 @@
 ###Setup instructions for cloning this repository in Ellipse using Git
-+ [download git](https://github.com/bbachmey/GitHow/blob/master/download.md)
-+ [install git](https://github.com/bbachmey/GitHow/blob/master/install_git.md)
-+go to workspace
++ [download git](https://github.com/bbachmey/GitHow/blob/master/download.md)  
++ [install git](https://github.com/bbachmey/GitHow/blob/master/install_git.md)  
++ go to workspace
 ```
 cd v:\workspace
 ```
