@@ -4,7 +4,19 @@
 3. go to workspace
 4. initialize repository
 5. add remote origin
+```
+git remote add origin https://github.com/bbachmey/OST.git
+# Set a new remote
+
+git remote -v
+# Verify new remote
+# origin  https://github.com/bbachmey/OST.git (fetch)
+# origin  https://github.com/bbachmey/OST.git (push)
+```
 6. fetch remote
+
+Reference:
+https://help.github.com/articles/adding-a-remote
 
 ### After changes have been made on another machine and pushed to GitHub
 
