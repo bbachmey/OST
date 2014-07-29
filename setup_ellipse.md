@@ -2,7 +2,13 @@
 1. [download git](https://github.com/bbachmey/GitHow/blob/master/download.md)
 2. [install git](https://github.com/bbachmey/GitHow/blob/master/install_git.md)
 3. go to workspace
+```
+cd v:\workspace
+```
 4. initialize repository
+```
+git init
+```
 5. add remote origin
 ```
 git remote add origin https://github.com/bbachmey/OST.git
@@ -14,6 +20,8 @@ git remote -v
 # origin  https://github.com/bbachmey/OST.git (push)
 ```
 6. fetch remote
+```
+```
 
 Reference:
 https://help.github.com/articles/adding-a-remote
