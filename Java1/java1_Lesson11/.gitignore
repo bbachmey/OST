@@ -1,3 +1,8 @@
+# ADDED #
+java.policy.applet
+
+# GITHUB TEMPLATE #
+
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -10,8 +15,3 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-# No files from any directory named /bin
-*/bin/*
-/bin
-/bin/*

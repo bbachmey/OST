@@ -3,6 +3,11 @@ OST
 Edit: 2014-07-28
 
 ===
+
+[Process to start a new lesson](./new_lesson.md)
+
+
+===
 This repository holds projects completed for O'Reilly School of Technology - Java Programming.
 
 http://www.oreillyschool.com/certificate-programs/java-programming/
