@@ -28,7 +28,7 @@ git fetch origin
 git merge origin/branchname
 ```
 
-Reference:
+Reference:  
 https://help.github.com/articles/adding-a-remote  
 https://help.github.com/articles/fetching-a-remote  
 
