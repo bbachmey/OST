@@ -21,10 +21,17 @@ git remote -v
 ```
 + fetch remote
 ```
+git fetch origin
+```
++ merge remote
+```
+git merge origin/branchname
+
 ```
 
 Reference:
-https://help.github.com/articles/adding-a-remote
+https://help.github.com/articles/adding-a-remote  
+https://help.github.com/articles/fetching-a-remote  
 
 ### After changes have been made on another machine and pushed to GitHub
 
