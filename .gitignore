@@ -13,3 +13,5 @@ hs_err_pid*
 
 # No files from any directory named /bin
 */bin/*
+/bin
+/bin/*
