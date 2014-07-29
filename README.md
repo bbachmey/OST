@@ -4,7 +4,7 @@ Edit: 2014-07-28
 
 ===
 
-Process to start a new lesson  
+[Process to start a new lesson](./new_lesson.md)
 
 
 ===
