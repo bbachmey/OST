@@ -26,7 +26,6 @@ git fetch origin
 + merge remote
 ```
 git merge origin/branchname
-
 ```
 
 Reference:
