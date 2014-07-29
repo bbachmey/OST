@@ -5,8 +5,7 @@ import java.awt.*;
 public class ReturnDemo extends Applet {
 	
 	public void paint(Graphics g){
-		int answer = areaRectangle(30,40);
-		g.drawString("area of rectangle is " + answer, 20, 20);
+		g.drawString("area of rectangle is " + areaRectangle(30,40), 20, 20);
 		
 	}
 	
