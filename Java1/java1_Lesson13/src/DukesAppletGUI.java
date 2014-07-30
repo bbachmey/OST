@@ -34,7 +34,8 @@ public class DukesAppletGUI extends Applet implements ItemListener{
 		action = myDuke.getActionImage();
 		
 		//new checkbox
-		Checkbox isAngry = new Checkbox("angry", myDuke.isAngry());
+		//Checkbox isAngry = new Checkbox("angry", myDuke.isAngry());
+		Checkbox isAngry = new Checkbox("angry", myDuke.angry);
 		//add this checkbox to the applet
 		add(isAngry);
 		//add an item listener to the checkbox
