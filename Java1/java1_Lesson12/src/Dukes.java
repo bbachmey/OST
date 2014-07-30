@@ -13,6 +13,9 @@ public class Dukes {
 	private String whatDoing = "Give me something to do";
 	private String message = "";
 	
+	/**
+	 * 
+	 */
 	public Dukes(){
 		//generate a random number
 		int rint = (int)(Math.random() * 3);
@@ -25,6 +28,9 @@ public class Dukes {
 		}
 	}
 
+	/**
+	 * @return String action
+	 */
 	public String write()
 	{
 		whatDoing = "I am a writing Duke";
@@ -39,6 +45,9 @@ public class Dukes {
 		}
 		return action;
 	}
+	/**
+	 * @return String action
+	 */
 	public String think()
 	{
 		whatDoing = "I am a thinking Duke";
@@ -53,6 +62,9 @@ public class Dukes {
 		}
 		return action;
 	}
+	/**
+	 * @return String action
+	 */
 	public String wave()
 	{
 		whatDoing = "I am a waving Duke";
@@ -68,6 +80,9 @@ public class Dukes {
 		return action;
 	}
 	
+    /**
+     * @return String action
+     */
     public String getActionImage()
     {
         return action;
