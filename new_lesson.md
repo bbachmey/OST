@@ -15,11 +15,5 @@
 13. Fetch from
 14. Merge
 15. Push
-16. Create new project
-17. Set the location to: <local>/workspace/OST/GitRepo/Java1/[lesson]
-18. Share project
-19. Commit
-20. Push
-
 
 [README](./README.md)
