@@ -10,8 +10,8 @@ public class Dukes {
 	private Color noseColor = Color.red;
 	
 	// default Dukes aren't disgruntled
-	//private boolean angry = false;  
-	public boolean angry = false;
+	private boolean angry = false;  
+	//public boolean angry = false;
 	
 	//default Dukes are friendly
 	private String action = "../../images/duke/dukeWave.gif";
