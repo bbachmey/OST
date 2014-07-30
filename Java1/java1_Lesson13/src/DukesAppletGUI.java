@@ -33,6 +33,13 @@ public class DukesAppletGUI extends Applet implements ItemListener{
 		// see what Duke's current action is
 		action = myDuke.getActionImage();
 		
+		//new checkbox
+		Checkbox isAngry = new Checkbox("angry", myDuke.isAngry());
+		//add this checkbox to the applet
+		add(isAngry);
+		//add an item listener to the checkbox
+	    isAngry.addItemListener(this);
+		
 	}
 	
 	// paint method 
@@ -42,25 +49,32 @@ public class DukesAppletGUI extends Applet implements ItemListener{
 		g.drawString(myDuke.getAction(), 10, 165);
 		g.drawString(myDuke.getMessage(), 10, 180);
 		g.drawImage(myAction,  20,  50,  Color.WHITE,  this);
+		g.drawString(myDuke.getAngryMessage(), 110,110);
 		
 	}
 	
 	@Override
 	public void itemStateChanged(ItemEvent evt)
 	{
-		int whichOne = ((Choice)evt.getItemSelectable()).getSelectedIndex();
-		switch (whichOne)
-		{
-		case 0: action = myDuke.wave();
-			break;
-		case 1: action = myDuke.think();
-			break;
-		case 2: action = myDuke.write();
-			break;
+		if (evt.getItem().toString() == "angry"){
+			myDuke.setMood();
 		}
-		
-		// if a different choice has been made, call our paint through repaint()
-		repaint();
+	    else
+	    {
+			int whichOne = ((Choice)evt.getItemSelectable()).getSelectedIndex();
+			switch (whichOne)
+			{
+				case 0: action = myDuke.wave();
+					break;
+				case 1: action = myDuke.think();
+					break;
+				case 2: action = myDuke.write();
+					break;
+			}
+			
+			// if a different choice has been made, call our paint through repaint()
+			repaint();
+	    }
 		
 	}
 
