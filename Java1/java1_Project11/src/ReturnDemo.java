@@ -36,7 +36,7 @@ public class ReturnDemo extends Applet {
 	private int centerX(){
 		int x;
 		
-		x = width / 2;
+		x = (width / 2) + 25;
 		
 		return x;
 		
@@ -45,7 +45,7 @@ public class ReturnDemo extends Applet {
 	private int centerY(){
 		int y;
 		
-		y = height/2;
+		y = (height/2) + 25;
 		
 		return y;
 	}
