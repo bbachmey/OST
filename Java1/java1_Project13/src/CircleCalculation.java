@@ -4,33 +4,141 @@
  import java.awt.event.*;
  import java.text.*;
 
- public class CircleCalculation extends Applet implements ActionListener {
-     private double radius = 4.0;
-     private double area = 50.27;
-     private TextField tf1, tf2;
+ /**
+ * @author bbachmey
+ * @instructions First, employ what you have learned about data encapsulation/hiding. 
+ * Secondly, fix the applet so that if a user enters a radius and then presses Enter, 
+ * the area text box will show the true area. 
+ */
+public class CircleCalculation extends Applet implements ActionListener {
+     private double radius;
+     private double area;
+     private TextField tfRadius, tfArea;
+     private NumberFormat nf;
       
-     public void init() {
-         tf1 = new TextField("4.0",15); 
-         tf2 = new TextField("50.27",15);  
+ 	/* (non-Javadoc)
+ 	 * @see java.applet.Applet#init()
+ 	 */
+ 	public void init() {
+    	 //set the number format
+    	 this.setNf( NumberFormat.getInstance() );
+    	 //set the maximum number of digits in the number format
+    	 this.getNf().setMaximumFractionDigits(2);
+    	 
+         //set the initial value of radius
+    	 this.setRadius(4.0);
+    	 //calculate the area given the radius
+    	 this.setArea(calculateArea(radius));
+    	 //set the value of the radius text field
+         this.setTfRadius(new TextField(String.valueOf(nf.format(radius)), 15)); 
+         //create a new label
          this.add(new Label("Radius"));
-         this.add(tf1); 
+         //add the label to the radius text field
+         this.add(tfRadius); 
+         //
+         this.tfArea = new TextField(String.valueOf(nf.format(area)), 15);  
          this.add(new Label("Area"));
-         this.add(tf2); 
+         this.add(tfArea); 
 
-         this.tf1.addActionListener(this); 
-         this.tf2.addActionListener(this); 
+         //add this applet as an action listener to both text fields
+         this.tfRadius.addActionListener(this);
+         this.tfArea.addActionListener(this); 
      }
-     public void actionPerformed(ActionEvent e){  
-         TextField temp = (TextField)e.getSource(); 
-         if (temp == tf1) radius = Double.parseDouble(temp.getText()); 
-         if (temp == tf2) area = Double.parseDouble(temp.getText());
-         repaint();
+ 	
+     /* (non-Javadoc)
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    public void actionPerformed(ActionEvent e){  
+         //use getSource() to determine which textfield sent the event
+    	 TextField tfEvent = (TextField)e.getSource(); 
+    	 //parse the text value into a double
+    	 double givenNumber = Double.parseDouble(tfEvent.getText());
+         //use an if statement to decide what to do in response
+    	 //use the getText() method to change the value of 
+    	 //the corresponding instance variable
+    	 if (tfEvent == tfRadius) {
+    		 this.setArea(calculateArea(givenNumber));
+    		 this.setRadius(givenNumber);
+    		 tfArea.setText((String.valueOf(nf.format(this.getArea()))));
+    		 
+    	 }
+    	 else if (tfEvent == tfArea) {
+        	 this.setRadius(calculateRadius(givenNumber));
+        	 this.setArea(givenNumber);
+    		 tfRadius.setText((String.valueOf(nf.format(this.getRadius()))));
+         }
+    	 
+         //repaint the applet
+         this.repaint();
      }
+     
+     /**
+     * @param rad
+     * @return
+     */
+    private double calculateArea(double rd){
+    	// hint: area = Math.PI*radius*radius)
+     	double a;
+     	a = Math.PI * rd * rd;
+     	return a;
+      }
 
-     public void paint(Graphics g) {
-    	 NumberFormat nf = NumberFormat.getInstance();
-         nf.setMaximumFractionDigits(2);
-         g.drawString("Radius is " + radius + " Area is " + nf.format(area), 10, 100);
-            // hint: area = Math.PI*radius*radius)
+     /**
+     * @param ar
+     * @return
+     */
+    private double calculateRadius(double ar){
+     	double r;
+     	r = Math.sqrt(ar /Math.PI);
+     	return r;
+      }
+	
+	/* (non-Javadoc)
+     * @see java.awt.Container#paint(java.awt.Graphics)
+     */
+    public void paint(Graphics g) {
+         //the paint method just redraws the string below the text fields
+    	 g.drawString(
+    			 "Radius is " + 
+    				nf.format(this.getRadius()) + 
+    				" Area is " + 
+    				nf.format(this.getArea()), 
+				 10, 100);            
+    	 
      }
+    
+    
+    //getters and setters
+    
+     public double getArea() {
+		return area;
+	}
+     public NumberFormat getNf() {
+		return nf;
+	}
+	public double getRadius() {
+		return radius;
+	}
+	public TextField getTfArea() {
+		return tfArea;
+	}
+	public TextField getTfRadius() {
+		return tfRadius;
+	}
+	public void setArea(double area) {
+		this.area = area;
+	}
+	public void setNf(NumberFormat nf) {
+		this.nf = nf;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	public void setTfArea(TextField tfArea) {
+		this.tfArea = tfArea;
+	}
+	public void setTfRadius(TextField tfRadius) {
+		this.tfRadius = tfRadius;
+	}
+	
  }
