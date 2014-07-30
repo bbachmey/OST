@@ -5,20 +5,20 @@
  import java.text.*;
 
  public class CircleCalculation extends Applet implements ActionListener {
-     double radius = 4.0;
-     double area = 50.27;
-     TextField tf1, tf2;
+     private double radius = 4.0;
+     private double area = 50.27;
+     private TextField tf1, tf2;
       
      public void init() {
          tf1 = new TextField("4.0",15); 
          tf2 = new TextField("50.27",15);  
-         add(new Label("Radius"));
-         add(tf1); 
-         add(new Label("Area"));
-         add(tf2); 
+         this.add(new Label("Radius"));
+         this.add(tf1); 
+         this.add(new Label("Area"));
+         this.add(tf2); 
 
-         tf1.addActionListener(this); 
-         tf2.addActionListener(this); 
+         this.tf1.addActionListener(this); 
+         this.tf2.addActionListener(this); 
      }
      public void actionPerformed(ActionEvent e){  
          TextField temp = (TextField)e.getSource(); 
