@@ -1,6 +1,10 @@
 import java.applet.Applet;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,7 +12,7 @@ import java.util.Random;
  * @author bbachmey
  *
  */
-public class Grid extends Applet {
+public class Grid extends Applet implements ActionListener {
 	//int primitives for Box height and width
 	private int boxH;
 	private int boxW;
@@ -30,19 +34,30 @@ public class Grid extends Applet {
 		boxW = 60;
 		
 		//set the number of boxes
-		numBoxes = 18; 
+		numBoxes = 16; 
 		/** 
 		 * 
 		 * adjust the value of numBoxes to get a different size grid
 		 * 
 		 **/
-		
+
+		//resize the window to fit
+		//resize((int)((Math.sqrt(numBoxes)*boxW)+(boxW*Math.PI)),(int)((Math.sqrt(numBoxes)*boxH)+(boxH*Math.PI)));
+		resize(380,380);
 		//set the background color
 		this.setBackground(Color.LIGHT_GRAY.darker());
 		//initialize the boxes ArrayList
 		boxes = new ArrayList<Box>();
-		//resize the window to fit
-		resize((int)((Math.sqrt(numBoxes)*boxW)+(boxW*Math.PI)),(int)((Math.sqrt(numBoxes)*boxH)+(boxH*Math.PI)));
+				
+		//make a button
+		//give the button a label by sending a string to the Button constructor
+		Button button = new Button("Click Me!");
+		//add this class (Grid.java) to the button object as an ActionListener
+		//the Grid class is-a-ActionListener because it implements the ActionListener interface
+		button.addActionListener(this);
+		//add the button to the Applet
+		this.add(button);
+		
 	}
 	
 	public void paint(Graphics g){
@@ -50,6 +65,14 @@ public class Grid extends Applet {
 		this.makeBoxes();
 		//call the method to paint the boxes
 		this.paintBoxes(g);
+	}
+	
+
+	public void actionPerformed(ActionEvent evt)
+	{
+		//when the button is clicked, repaint this applet
+		this.repaint();
+		
 	}
 	
 	private void makeBoxes(){
