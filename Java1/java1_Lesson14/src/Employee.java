@@ -8,7 +8,7 @@ public class Employee {
 			topSalary = s;
 	}
 	
-	public static void addMoreHours () {
+	public void addMoreHours () {
 		hoursPerWeek++; //won't work (CM, IV)
 	}
 	
