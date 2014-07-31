@@ -24,17 +24,16 @@ public class Employee {
 	private int hoursPerWeek;
 
 	public static void main(String[] args){
+		
 		//set the top salary
 		topSalary = 195000;
+		
 		//declare two employees
 		Employee e1, e2;
+		
 		//instantiate two employees
 		e1 = new Employee();
 		e2 = new Employee();
-		
-		//reset the top salary of the Employee class, calling by class
-		Employee.setTopSalary(199000);
-		//Employee.topSalary = 200000;
 		
 		//set instance variables of instantiated employees
 		e1.hoursPerWeek = 40;
@@ -62,6 +61,12 @@ public class Employee {
 		 */
 		e1.addMoreHours();
 		e2.addMoreHours();
+		
+		/*
+		 * reset the top salary of the Employee class, calling by class
+		 */
+		Employee.setTopSalary(199000);
+		//Employee.topSalary = 200000;
 
 		//print names and values of the instance variables in each instance of the Employee class
 		System.out.println("WEEK 2");
