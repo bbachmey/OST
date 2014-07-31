@@ -10,10 +10,7 @@ public class Employee {
 	private int hoursPerWeek;
 
 	public static void main(String[] args){
-		
-		//set the top salary
-		topSalary = 195000;
-				
+						
 	}
 	
 	public void addMoreHours () {
