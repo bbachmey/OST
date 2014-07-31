@@ -7,7 +7,11 @@ public class Employee {
 		if (s > topSalary)
 			topSalary = s;
 	}
-
+	
+	public static void addMoreHours () {
+		hoursPerWeek++; //won't work (CM, IV)
+	}
+	
 	public static void main(String[] args){
 		Employee e1, e2;
 		e1 = new Employee();
