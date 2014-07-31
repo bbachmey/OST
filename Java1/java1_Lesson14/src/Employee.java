@@ -21,5 +21,9 @@ public class Employee {
 		//calling by class; can we do this?
 		e2.setTopSalary(199001);
 		//calling by instance; can we do this?
+		
+		e1.hoursPerWeek = 40;
+		e2.hoursPerWeek = 45;
+		
 	}
 }
