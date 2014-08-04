@@ -31,23 +31,12 @@ public class DukesPin extends Dukes {
 		
 	}
 	
-	public boolean isShowingLovePin(){
-		return showingLovePin;
+	public boolean isShowingBluePin() {
+		return showingBluePin;
 	}
 	
-	/**
-	 * This switch only works if the Duke is angry. 
-	 * If Duke isn't angry, this method sets the Angry message and
-	 * sets the showingLovePin Checkbox back to false 
-	 */
-	public void switchShowingPin(){
-		showingLovePin =! showingLovePin;
-		if (showingLovePin && !isAngry())
-		{
-			setAngryMessage("I don't get a Pin, I'm not angry");
-			//don't let them show Pins since not angry
-			showingLovePin =!showingLovePin;
-		}
+	public boolean isShowingLovePin(){
+		return showingLovePin;
 	}
 	
 	/* (non-Javadoc)
@@ -60,12 +49,27 @@ public class DukesPin extends Dukes {
 		if (isAngry() == false) showingLovePin = false;
 	}
 
-	public boolean isShowingBluePin() {
-		return showingBluePin;
-	}
-
 	public void setShowingBluePin(boolean showingBluePin) {
 		this.showingBluePin = showingBluePin;
+	}
+
+	public void setShowingLovePin(boolean showingLovePin) {
+		this.showingLovePin = showingLovePin;
+	}
+
+	/**
+	 * This switch only works if the Duke is angry. 
+	 * If Duke isn't angry, this method sets the Angry message and
+	 * sets the showingLovePin Checkbox back to false 
+	 */
+	public void switchShowingLovePin(){
+		showingLovePin =! showingLovePin;
+		if (showingLovePin && !isAngry())
+		{
+			setAngryMessage("I don't get a Pin, I'm not angry");
+			//don't let them show Pins since not angry
+			showingLovePin =!showingLovePin;
+		}
 	}
 
 }

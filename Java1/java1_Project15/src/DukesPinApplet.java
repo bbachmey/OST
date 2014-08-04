@@ -74,7 +74,7 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		}
 		else if (evt.getItem().toString() == "ShowPin")
 		{
-			myDuke.switchShowingPin();
+			myDuke.switchShowingLovePin();
 			if(showPin.getState() && !myDuke.isAngry()) showPin.setState(false);
 		}
 		else
