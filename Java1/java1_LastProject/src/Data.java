@@ -12,7 +12,26 @@ public class Data {
 		//build a set of solutions
 		
 	}
+
+	/**
+	 * get a random problem
+	 * @return Problem
+	 */
+	public Problem fetchProblem(){
+		//Make a problem object
+		Problem problem = new Problem();
+		//get a random number from 0 to the number of Problems in the problems ArrayList
+		int rint = (int)(Math.random() * this.getProblems().size());
+		//get the problem
+		problem = problems.get(rint);
+		//return the problem
+		return problem;
+	}
 	
+	/**
+	 * @param index
+	 * @return
+	 */
 	public Problem fetchProblem(int index){
 		Problem problem = new Problem();
 		problem = problems.get(index);

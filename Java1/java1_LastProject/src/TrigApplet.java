@@ -8,7 +8,16 @@ import java.awt.event.ItemListener;
 
 public class TrigApplet extends Applet implements ItemListener, ActionListener {
 	
+	private Problem problem;
+	private Solution solution;
+	private UnitCircle unitcircle;
+	private Data dao;
+	
+	
 	public void init(){
+		dao = new Data();
+		problem = dao.fetchProblem();
+		solution = dao.fetchSolution(problem.getProblemNumber());
 		
 	}
 
