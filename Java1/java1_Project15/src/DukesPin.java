@@ -14,6 +14,7 @@ public class DukesPin extends Dukes {
 	 */
 	public DukesPin(){
 		// call the Dukes constructor
+		// remember that the empty Dukes constructor randomly generates a mood and nose color
 		super();
 		
 	}
@@ -21,11 +22,12 @@ public class DukesPin extends Dukes {
 	/**
 	 * overloaded constructor
 	 * @param nose
-	 * @param love
+	 * @param mad
 	 */
-	public DukesPin(Color nose, boolean love){
+	public DukesPin(Color nose, boolean mad){
 		//accept a Color and a boolean and send them to the super constructor
-		super(nose, love);
+		//
+		super(nose, mad);
 		
 	}
 	
