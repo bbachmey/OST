@@ -5,7 +5,8 @@ public class Problem {
 	
 	private int problemNumber;
 	private String problemTitle;
-	private HashMap<Integer, String> problemVariables;
+	private String problemStatement;
+	private HashMap<Integer, String> problemValues;
 
 
 	/**
@@ -41,12 +42,21 @@ public class Problem {
 		this.problemTitle = problemTitle;
 	}
 
-	public HashMap<Integer, String> getProblemVariables() {
-		return problemVariables;
+	public HashMap<Integer, String> getProblemValues() {
+		return problemValues;
 	}
 
-	public void setProblemVariables(HashMap<Integer, String> problemVariables) {
-		this.problemVariables = problemVariables;
+	public void setProblemValues(HashMap<Integer, String> problemValues) {
+		this.problemValues = problemValues;
 	}
+
+	public String getProblemStatement() {
+		return problemStatement;
+	}
+
+	public void setProblemStatement(String problemStatement) {
+		this.problemStatement = problemStatement;
+	}
+
 
 }

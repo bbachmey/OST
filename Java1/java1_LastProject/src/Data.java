@@ -18,9 +18,60 @@ public class Data {
 		
 	}
 
+	private ArrayList<Problem> loadProblems() {
+		
+		//Local arraylist
+		ArrayList<Problem> probs = new ArrayList<Problem>();
+		
+		//2.1.ex.1 A Point on the Unit Circle
+		Problem prob = new Problem();
+		prob.setProblemNumber(0);
+		prob.setProblemTitle("A Point on the Unit Circle");
+		prob.setProblemStatement("Show that the point is on the unit circle.");
+		HashMap<Integer, String> vari = new HashMap<Integer, String>();
+		vari.put(1, new Point(
+				(Math.sqrt(3)/3),
+				(Math.sqrt(6)/3)
+				));
+		vari.put(2, new String("then do this"));
+		prob.setProblemValues(vari);
+		
+		//add the problem to the arraylist
+		probs.add(prob);
+		//2.1.ex.2 Locating a Point on the Unit Circle
+		//2.1.ex.3 Finding Terminal Points
+		//2.1.ex.4 Finding Terminal Points
+		//2.1.ex.5 Finding Reference Numbers
+		//2.1.ex.6 Using Reference Numbers to Find Terminal Points
+		//2.1.ex.7 Finding Terminal Points for Large t
+		
+		
+		
+		
+		
+		
+		// Manually set values for new solution objects
+		prob = new Problem();
+		prob.setProblemNumber(1);
+		prob.setProblemTitle("asdf");
+		vari = new HashMap<Integer, String>();
+		vari.put(1, new String("do this"));
+		vari.put(2, new String("then do this"));
+		prob.setProblemValues(vari);
+		
+		//add the problem to the arraylist
+		probs.add(prob);
+
+		//return the problems
+		return probs;
+		
+	}
+
 	private ArrayList<Solution> loadSolutions() {
 		// Local ArrayList
 		ArrayList<Solution> sols = new ArrayList<Solution>();
+		
+
 		// Manually set values for new solution objects
 		Solution sol = new Solution();
 		sol.setSolutionNumber(0);
@@ -30,29 +81,22 @@ public class Data {
 		steps.put(2, new String("then do this"));
 		sol.setSteps(steps);
 		sols.add(sol);
-		//return
-		return sols;
-	}
-
-	private ArrayList<Problem> loadProblems() {
-		//Local arraylist
-		ArrayList<Problem> probs = new ArrayList<Problem>();
 		
 		// Manually set values for new solution objects
-		Problem prob = new Problem();
-		prob.setProblemNumber(0);
-		prob.setProblemTitle("asdf");
-		HashMap<Integer, String> vari = new HashMap<Integer, String>();
-		vari.put(1, new String("do this"));
-		vari.put(2, new String("then do this"));
-		//prob.setProblemVariables(vari);
+		sol = new Solution();
+		sol.setSolutionNumber(1);
+		sol.setSolutionTitle("asasdfasdfdf");
+		steps = new HashMap<Integer, String>();
+		steps.put(1, new String("do this"));
+		steps.put(2, new String("then do this"));
+		sol.setSteps(steps);
+		sols.add(sol);
 		
-		//add the problem to the arraylist
-		probs.add(prob);
-
-		//return the problems
-		return probs;
 		
+		
+		
+		//return
+		return sols;
 	}
 
 	/**
@@ -63,7 +107,9 @@ public class Data {
 		//Make a problem object
 		Problem problem = new Problem();
 		//get a random number from 0 to the number of Problems in the problems ArrayList
-		int rint = (int)(Math.random() * this.getProblems().size());
+		int size = this.getProblems().size();
+		double rand = Math.random();
+		int rint = (int)(rand * size);
 		//get the problem
 		problem = problems.get(rint);
 		//return the problem
