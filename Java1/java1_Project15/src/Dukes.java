@@ -10,8 +10,7 @@ public class Dukes {
 	private Color noseColor = Color.red;
 	
 	// default Dukes aren't disgruntled
-	private boolean angry = false;  
-	//public boolean angry = false;
+	private boolean angry = false; 
 	
 	//default Dukes are friendly
 	private String action = "../../images/duke/dukeWave.gif";
@@ -25,6 +24,8 @@ public class Dukes {
 	public Dukes(){
 		//generate a random number
 		int rint = (int)(Math.random() * 3);
+		//On the one-in-three chance that the random number generator returns a 0
+		//set the nose to blue.
 		if (rint == 0)
 		{
 			//more often red
@@ -34,12 +35,16 @@ public class Dukes {
 		}
 		
 		// randomly decide if Duke is angry
-		        rint = (int)(Math.random() * 3);
+		rint = (int)(Math.random() * 3);
+		//On the one-in-three chance that the random number generator retuns a 1,
+		//make the Duke angry
 		if (rint == 1)
 			{
 			angry = true;
 			angryMessage = "I QUIT!!";
-		Dukes myDuke = new Dukes(noseColor, true); 
+			//commenting out this statement 
+			//to see if it is used, or needed. suspect that it is not.
+			//Dukes myDuke = new Dukes(noseColor, true); 
 		}
 
 	}
