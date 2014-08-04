@@ -49,7 +49,6 @@ public class Dukes {
 
 	}
 
-
     /**
      * @param nose
      * @param isMad
@@ -63,22 +62,39 @@ public class Dukes {
 	}
     
 
+    public String getAction() 
+	{
+		return whatDoing;
+	}
+
+    public String getActionImage()
+    {
+        return action;
+    }
+
     public String getAngryMessage()
     {
         return angryMessage;
     }
 
-    public void setAngryMessage(String newMessage)
-    {
-        angryMessage = newMessage;
-    }
+    public String getMessage() 
+	{
+		return message;
+	}
 
+	public Color getNoseColor() 
+   	{
+   		return noseColor;
+   	}
     public boolean isAngry()
     {
         return angry;
     }
-
-    /**
+   	public void setAngryMessage(String newMessage)
+    {
+        angryMessage = newMessage;
+    }
+	/**
      * 
      */
     public void setMood()  
@@ -91,38 +107,6 @@ public class Dukes {
             angryMessage= "";
     }
 
-	public String getAction() 
-	{
-		return whatDoing;
-	}
-    public String getActionImage()
-    {
-        return action;
-    }
-   	public Color getNoseColor() 
-   	{
-   		return noseColor;
-   	}
-	public String getMessage() 
-	{
-		return message;
-	}
-
-	public String write()
-	{
-		whatDoing = "I am a writing Duke";
-		if (noseColor == Color.red){
-			action = "../../images/duke/penduke.gif";
-			message = "";
-		}
-		else
-		{
-			action = "../../images/duke/penduke2.gif";
-			message = "My nose feels funny";
-		}
-		return action;
-	}
-	
 	public String think()
 	{
 		whatDoing = "I am a thinking Duke";
@@ -148,6 +132,21 @@ public class Dukes {
 		else
 		{
 			action = "../../images/duke/dukeWave2.gif";
+			message = "My nose feels funny";
+		}
+		return action;
+	}
+	
+	public String write()
+	{
+		whatDoing = "I am a writing Duke";
+		if (noseColor == Color.red){
+			action = "../../images/duke/penduke.gif";
+			message = "";
+		}
+		else
+		{
+			action = "../../images/duke/penduke2.gif";
 			message = "My nose feels funny";
 		}
 		return action;
