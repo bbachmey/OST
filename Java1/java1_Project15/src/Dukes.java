@@ -19,6 +19,9 @@ public class Dukes {
 	private String message = "";
 	private String angryMessage= "";
 	
+	/**
+	 * 
+	 */
 	public Dukes(){
 		//generate a random number
 		int rint = (int)(Math.random() * 3);
@@ -40,8 +43,12 @@ public class Dukes {
 		}
 
 	}
-	
-	//new constructor
+
+
+    /**
+     * @param nose
+     * @param isMad
+     */
     public Dukes(Color nose, boolean isMad) {
 		// give Duke instance specified values for traits 
     	//that are passed from the class that instantiated
@@ -66,6 +73,9 @@ public class Dukes {
         return angry;
     }
 
+    /**
+     * 
+     */
     public void setMood()  
     {   // toggle the boolean value.  
     	//If it was true it becomes false; if false it becomes true

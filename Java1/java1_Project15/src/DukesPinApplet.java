@@ -53,7 +53,7 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		
 		g.drawString(myDuke.getAngryMessage(),  110,  140);
 		//call the makePin() method if the showingPin attribute of the Duke is true
-		if (myDuke.isShowingPin()) makePin();
+		if (myDuke.isShowingLovePin()) makePin();
 		else clearPin();
 		
 	}
