@@ -28,7 +28,7 @@ public class DukesPin extends Dukes {
 		}
 	}
 	
-	public void setMeed() {
+	public void setMood() {
 		//let the parent do the work first, then do what we need in addition
 		super.setMood();
 		if (isAngry() == false) showingPin = false;
