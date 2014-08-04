@@ -11,10 +11,16 @@ public class DukesPinApplet extends Applet implements ItemListener {
 	Graphics g;
 	
 	private void clearBluePin() {
-		// TODO Auto-generated method stub
+		// change the pen color
+		g.setColor(Color.white);
+		// fill an oval the same shape as the pin
+		g.fillOval(120+90, 50, 80, 80);
 		
 	}
 	
+	/**
+	 * 
+	 */
 	private void clearLovePin() {
 		// change the pen color
 		g.setColor(Color.white);
@@ -23,7 +29,13 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.applet.Applet#init()
+	 */
 	public void init(){
+		//resize the window
+		this.resize(400, 200);
+		//make a Choice object
 		Choice actionList = new Choice();
 		actionList.add("wave");
 		actionList.add("think");
@@ -76,7 +88,12 @@ public class DukesPinApplet extends Applet implements ItemListener {
 			//if the Duke isn't angry, set the state of the Checkbox object to false
 			if (!myDuke.isAngry()) showLovePin.setState(false);		
 		}
-		else if (evt.getItem().toString() == "ShowPin")
+		else if (evt.getItem().toString() == "ShowBluePin")
+		{
+			myDuke.switchShowingBluePin();
+			
+		}
+		else if (evt.getItem().toString() == "ShowLovePin")
 		{
 			myDuke.switchShowingLovePin();
 			if(showLovePin.getState() && !myDuke.isAngry()) showLovePin.setState(false);
@@ -99,10 +116,23 @@ public class DukesPinApplet extends Applet implements ItemListener {
 	}
 
 	private void makeBluePin() {
-		// TODO Auto-generated method stub
+		//
+		PinImages images = new PinImages();
+		//make pin
+		g.setColor(Color.blue);
+		g.fillOval(120+90, 50, 80, 80);
+		//put something in Pin
+		g.setColor(Color.white);
+		g.drawString("I", 155+90, 70);
+		images.drawHeart(g, Color.CYAN, 145+90, 75, 25);
+		g.setColor(Color.white);
+		g.drawString("Blue!", 145+90, 120);
 		
 	}
 	
+	/**
+	 * 
+	 */
 	private void makeLovePin() {
 		//
 		PinImages images = new PinImages();
@@ -122,22 +152,22 @@ public class DukesPinApplet extends Applet implements ItemListener {
 	public void paint(Graphics g){
 		//make the Graphics object given to the paint method an attribute of the applet
 		this.g = g;
-		//make an image
+		//make an image of Duke
 		Image actionChoice = getImage(getDocumentBase(), action);
-		//draw an image
+		//draw an image on the Graphics object
 		g.drawImage(actionChoice, 20, 50, Color.white, this);
 		//draw three strings on the graphics object
-		g.drawString(myDuke.getAction(),10,165);
-		g.drawString(myDuke.getMessage(),10, 180);		
-		g.drawString(myDuke.getAngryMessage(),  110,  140);
+		g.drawString(myDuke.getAction(), 10, 165);
+		g.drawString(myDuke.getMessage(), 10, 180);		
+		g.drawString(myDuke.getAngryMessage(), 110, 140);
 
 		//call the makeBluePin() method if the showingPin attribute of the Duke is true
-		if (myDuke.isShowingBluePin()) makeBluePin();
-		else clearBluePin();
+		if (myDuke.isShowingBluePin()) this.makeBluePin();
+		else this.clearBluePin();
 		
 		//call the makeLovePin() method if the showingPin attribute of the Duke is true
-		if (myDuke.isShowingLovePin()) makeLovePin();
-		else clearLovePin();
+		if (myDuke.isShowingLovePin()) this.makeLovePin();
+		else this.clearLovePin();
 		
 	}
 
