@@ -28,12 +28,11 @@ public class Data {
 		prob.setProblemNumber(0);
 		prob.setProblemTitle("A Point on the Unit Circle");
 		prob.setProblemStatement("Show that the point is on the unit circle.");
-		HashMap<Integer, String> vari = new HashMap<Integer, String>();
-		vari.put(1, new Point(
+		HashMap<Integer, MathValue> vari = new HashMap<Integer, MathValue>();
+		vari.put(0, new Point(
 				(Math.sqrt(3)/3),
 				(Math.sqrt(6)/3)
 				));
-		vari.put(2, new String("then do this"));
 		prob.setProblemValues(vari);
 		
 		//add the problem to the arraylist
@@ -54,9 +53,9 @@ public class Data {
 		prob = new Problem();
 		prob.setProblemNumber(1);
 		prob.setProblemTitle("asdf");
-		vari = new HashMap<Integer, String>();
-		vari.put(1, new String("do this"));
-		vari.put(2, new String("then do this"));
+		vari = new HashMap<Integer, MathValue>();
+		vari.put(1, new Point(1.2, 3.3));
+
 		prob.setProblemValues(vari);
 		
 		//add the problem to the arraylist
