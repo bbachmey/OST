@@ -6,9 +6,23 @@ public class DukesPinApplet extends Applet implements ItemListener {
 	
 	DukesPin myDuke;
 	String action;
-	Checkbox showPin;
+	Checkbox showLovePin;
+	Checkbox showBluePin;
 	Graphics g;
 	
+	private void clearBluePin() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private void clearLovePin() {
+		// change the pen color
+		g.setColor(Color.white);
+		// fill an oval the same shape as the pin
+		g.fillOval(120, 50, 80, 80);
+		
+	}
+
 	public void init(){
 		Choice actionList = new Choice();
 		actionList.add("wave");
@@ -20,41 +34,31 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		//add the Choice to the applet, so that it is displayed on the UI
 		add(actionList);
 		
-		//make a new DukesPin, which is-a Dukes by extension
+		//make a new DukesPin, which is-a Dukes by extension of the Dukes class
 		myDuke=new DukesPin();
 		//get the String actionImage from the new Duke and assign it to the action attribute of this applet
 		action = myDuke.getActionImage();
 		
-		//make a new checkbox
+		//make a new checkbox, set it to the return value of the Dukes object angry attribute
 		Checkbox changeMood = new Checkbox("Angry", myDuke.isAngry());
 		//add the checkbox to the applet
 		add(changeMood);
 		//add this applet as an item listener to the Checkbox object
 		changeMood.addItemListener(this);
+
+		//make another Checkbox
+		showBluePin = new Checkbox("ShowBluePin");
+		//add the checkbox to the applet
+		add(showBluePin);
+		//add the applet to the Checkbox as a listener
+		showBluePin.addItemListener(this);
 		
 		//make another Checkbox
-		showPin = new Checkbox("ShowPin");
+		showLovePin = new Checkbox("ShowLovePin");
 		//add the checkbox to the applet
-		add(showPin);
+		add(showLovePin);
 		//add the applet to the Checkbox as a listener
-		showPin.addItemListener(this);
-		
-	}
-	
-	public void paint(Graphics g){
-		//make the Graphics object given to the paint method an attribute of the applet
-		this.g = g;
-		//make an image
-		Image actionChoice = getImage(getDocumentBase(), action);
-		//draw some stuff on the graphics object
-		g.drawString(myDuke.getAction(),10,165);
-		g.drawString(myDuke.getMessage(),10, 180);
-		g.drawImage(actionChoice, 20, 50, Color.white, this);
-		
-		g.drawString(myDuke.getAngryMessage(),  110,  140);
-		//call the makePin() method if the showingPin attribute of the Duke is true
-		if (myDuke.isShowingLovePin()) makePin();
-		else clearPin();
+		showLovePin.addItemListener(this);
 		
 	}
 
@@ -70,12 +74,12 @@ public class DukesPinApplet extends Applet implements ItemListener {
 			//call the setMood method of the Duke
 			myDuke.setMood();
 			//if the Duke isn't angry, set the state of the Checkbox object to false
-			if (!myDuke.isAngry()) showPin.setState(false);		
+			if (!myDuke.isAngry()) showLovePin.setState(false);		
 		}
 		else if (evt.getItem().toString() == "ShowPin")
 		{
 			myDuke.switchShowingLovePin();
-			if(showPin.getState() && !myDuke.isAngry()) showPin.setState(false);
+			if(showLovePin.getState() && !myDuke.isAngry()) showLovePin.setState(false);
 		}
 		else
 		{
@@ -93,16 +97,13 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		//repaint the applet
 		repaint();
 	}
-	
-	private void clearPin() {
-		// change the pen color
-		g.setColor(Color.white);
-		// fill an oval the same shape as the pin
-		g.fillOval(120, 50, 80, 80);
+
+	private void makeBluePin() {
+		// TODO Auto-generated method stub
 		
 	}
-
-	private void makePin() {
+	
+	private void makeLovePin() {
 		//
 		PinImages images = new PinImages();
 		//make pin
@@ -115,6 +116,28 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		g.setColor(Color.white);
 		g.drawString("Duke!", 145, 120);
 		
+		
+	}
+
+	public void paint(Graphics g){
+		//make the Graphics object given to the paint method an attribute of the applet
+		this.g = g;
+		//make an image
+		Image actionChoice = getImage(getDocumentBase(), action);
+		//draw an image
+		g.drawImage(actionChoice, 20, 50, Color.white, this);
+		//draw three strings on the graphics object
+		g.drawString(myDuke.getAction(),10,165);
+		g.drawString(myDuke.getMessage(),10, 180);		
+		g.drawString(myDuke.getAngryMessage(),  110,  140);
+
+		//call the makeBluePin() method if the showingPin attribute of the Duke is true
+		if (myDuke.isShowingBluePin()) makeBluePin();
+		else clearBluePin();
+		
+		//call the makeLovePin() method if the showingPin attribute of the Duke is true
+		if (myDuke.isShowingLovePin()) makeLovePin();
+		else clearLovePin();
 		
 	}
 

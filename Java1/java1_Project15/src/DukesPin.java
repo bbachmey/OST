@@ -46,6 +46,7 @@ public class DukesPin extends Dukes {
 	public void setMood() {
 		//let the parent do the work first, then do what we need in addition
 		super.setMood();
+		//if Dukes.isAngry() returns true, set the showingLovePin to false
 		if (isAngry() == false) showingLovePin = false;
 	}
 
@@ -57,6 +58,13 @@ public class DukesPin extends Dukes {
 		this.showingLovePin = showingLovePin;
 	}
 
+	/**
+	 * This switch works whether or not the Duke is angry.  
+	 */
+	public void switchShowingBluePin(){
+		showingBluePin =! showingBluePin;
+
+	}
 	/**
 	 * This switch only works if the Duke is angry. 
 	 * If Duke isn't angry, this method sets the Angry message and
