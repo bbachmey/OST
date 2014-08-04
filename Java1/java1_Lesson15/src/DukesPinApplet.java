@@ -7,6 +7,7 @@ public class DukesPinApplet extends Applet implements ItemListener {
 	DukesPin myDuke;
 	String action;
 	Checkbox showPin;
+	Checkbox bluePin;
 	Graphics g;
 	
 	public void init(){
@@ -31,13 +32,20 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		add(changeMood);
 		//add this applet as an item listener to the Checkbox object
 		changeMood.addItemListener(this);
-		
+
 		//make another Checkbox
 		showPin = new Checkbox("ShowPin");
 		//add the checkbox to the applet
 		add(showPin);
 		//add the applet to the Checkbox as a listener
 		showPin.addItemListener(this);
+
+		//make another Checkbox
+		bluePin = new Checkbox("BluePin");
+		//add the checkbox to the applet
+		add(bluePin);
+		//add the applet to the Checkbox as a listener
+		bluePin.addItemListener(this);
 		
 	}
 	
@@ -55,6 +63,9 @@ public class DukesPinApplet extends Applet implements ItemListener {
 		//call the makePin() method if the showingPin attribute of the Duke is true
 		if (myDuke.isShowingPin()) makePin();
 		else clearPin();
+		//call the makeBluePin() method if the showingBluePin attribute of the Duke is true
+		if (myDuke.isShowingBluePin()) makeBluePin();
+		else clearBluePin();
 		
 	}
 

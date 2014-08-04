@@ -1,7 +1,8 @@
 import java.awt.Color;
 
 public class DukesPin extends Dukes {
-	private boolean showingPin;
+	private boolean showingLovePin;
+	private boolean showingBluePin;
 	
 	public DukesPin(){
 		// call the Dukes constructor
@@ -15,23 +16,23 @@ public class DukesPin extends Dukes {
 	}
 	
 	public boolean isShowingPin(){
-		return showingPin;
+		return showingLovePin;
 	}
 	
 	public void switchShowingPin(){
-		showingPin =! showingPin;
-		if (showingPin && !isAngry())
+		showingLovePin =! showingLovePin;
+		if (showingLovePin && !isAngry())
 		{
 			setAngryMessage("I don't get a Pin, I'm not angry");
 			//don't let them show Pins since not angry
-			showingPin =!showingPin;
+			showingLovePin =!showingLovePin;
 		}
 	}
 	
 	public void setMood() {
 		//let the parent do the work first, then do what we need in addition
 		super.setMood();
-		if (isAngry() == false) showingPin = false;
+		if (isAngry() == false) showingLovePin = false;
 	}
 
 }
