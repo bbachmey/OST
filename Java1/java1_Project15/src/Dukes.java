@@ -42,9 +42,6 @@ public class Dukes {
 			{
 			angry = true;
 			angryMessage = "I QUIT!!";
-			//commenting out this statement 
-			//to see if it is used, or needed. suspect that it is not.
-			//Dukes myDuke = new Dukes(noseColor, true); 
 		}
 
 	}
@@ -52,6 +49,8 @@ public class Dukes {
     /**
      * @param nose
      * @param isMad
+     * Overloaded constructor. If a Duke is instantiated with nose color and mood given,
+     * don't bother with the random color and mood generator statements.
      */
     public Dukes(Color nose, boolean isMad) {
 		// give Duke instance specified values for traits 
