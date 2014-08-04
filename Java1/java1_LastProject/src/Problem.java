@@ -4,9 +4,18 @@ import java.util.HashMap;
 public class Problem {
 	
 	private int problemNumber;
-	private int problemTitle;
-	private HashMap problemVariables;
+	private String problemTitle;
+	private HashMap<Integer, String> problemVariables;
 
+
+	/**
+	 * empty constructor
+	 */
+	public Problem() {
+		
+		
+	}
+	
 	public Problem(int num, String title){
 		
 	}
@@ -15,10 +24,6 @@ public class Problem {
 		
 	}
 
-	public Problem() {
-		// empty constructor
-		
-	}
 
 	public int getProblemNumber() {
 		return problemNumber;
@@ -28,19 +33,19 @@ public class Problem {
 		this.problemNumber = problemNumber;
 	}
 
-	public int getProblemTitle() {
+	public String getProblemTitle() {
 		return problemTitle;
 	}
 
-	public void setProblemTitle(int problemTitle) {
+	public void setProblemTitle(String problemTitle) {
 		this.problemTitle = problemTitle;
 	}
 
-	public HashMap getProblemVariables() {
+	public HashMap<Integer, String> getProblemVariables() {
 		return problemVariables;
 	}
 
-	public void setProblemVariables(HashMap problemVariables) {
+	public void setProblemVariables(HashMap<Integer, String> problemVariables) {
 		this.problemVariables = problemVariables;
 	}
 

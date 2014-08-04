@@ -14,6 +14,7 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 	private Data dao;
 	
 	
+	@Override
 	public void init(){
 		dao = new Data();
 		problem = dao.fetchProblem();
@@ -21,6 +22,7 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 		
 	}
 
+	@Override
 	public void paint(Graphics g){
 		
 		g.drawString("Hello World", 50, 50);

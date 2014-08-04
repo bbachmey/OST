@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Data {
@@ -6,10 +7,51 @@ public class Data {
 	ArrayList<Problem> problems;
 	ArrayList<Solution> solutions;
 	
-	public void init(){
-		//build a set of problems
+	/**
+	 * empty constructor
+	 */
+	public Data(){
+		//initialize problems with the return value of method with manual problem entries
+		problems = loadProblems();
+		//initialize solutions with the return value of method with manual solution entries
+		solutions = loadSolutions();
 		
-		//build a set of solutions
+	}
+
+	private ArrayList<Solution> loadSolutions() {
+		// Local ArrayList
+		ArrayList<Solution> sols = new ArrayList<Solution>();
+		// Manually set values for new solution objects
+		Solution sol = new Solution();
+		sol.setSolutionNumber(0);
+		sol.setSolutionTitle("asdf");
+		HashMap<Integer, String> steps = new HashMap<Integer, String>();
+		steps.put(1, new String("do this"));
+		steps.put(2, new String("then do this"));
+		sol.setSteps(steps);
+		sols.add(sol);
+		//return
+		return sols;
+	}
+
+	private ArrayList<Problem> loadProblems() {
+		//Local arraylist
+		ArrayList<Problem> probs = new ArrayList<Problem>();
+		
+		// Manually set values for new solution objects
+		Problem prob = new Problem();
+		prob.setProblemNumber(0);
+		prob.setProblemTitle("asdf");
+		HashMap<Integer, String> vari = new HashMap<Integer, String>();
+		vari.put(1, new String("do this"));
+		vari.put(2, new String("then do this"));
+		//prob.setProblemVariables(vari);
+		
+		//add the problem to the arraylist
+		probs.add(prob);
+
+		//return the problems
+		return probs;
 		
 	}
 
