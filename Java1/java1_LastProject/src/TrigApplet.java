@@ -1,4 +1,5 @@
 import java.applet.Applet;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +20,7 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 	public void init(){
 		//initialize the math shapes array list
 		appletShapes = new ArrayList<MathShape>();
-//		//make a graph object
+		//make a graph object
 		mg = new MathGraph(
 				3, //columns
 				3, //rows
@@ -36,7 +37,13 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 		appletShapes.add(uc);
 		
 		//make an arc
-		
+		MathArc arc = new MathArc(
+				mg.getCenter(),
+				mg.getUnit(),
+				45,
+				Color.GREEN
+				);
+		appletShapes.add(arc);
 		
 		//resize the window to fit the graph
 		this.resize(
