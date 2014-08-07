@@ -46,4 +46,28 @@ public class MathArc extends MathShape {
 
 	}
 
+	public MathPoint getCenter() {
+		return center;
+	}
+
+	public void setCenter(MathPoint center) {
+		this.center = center;
+	}
+
+	public int getRadius() {
+		return radius;
+	}
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+
+	public int getAngle() {
+		return angle;
+	}
+
+	public void setAngle(int angle) {
+		this.angle = angle;
+	}
+
 }

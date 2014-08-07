@@ -38,4 +38,23 @@ public class UnitCircle extends MathShape {
 		
 	}
 
+	public void erase(Graphics g) {
+		Color jot = g.getColor();
+		g.setColor(Color.WHITE);			
+
+		g.fillOval(
+				//the x-coordinate of the point used to draw the oval for the unit circle
+				//  is the same as the x-coordinate of the center point of the graph
+				//  minus the spacing unit of the graph
+				(int)centerPoint.getX()-radius,
+				//
+				(int)centerPoint.getX()-radius,
+				//the height of the oval is twice the size of the spacing unit
+				radius*2,
+				//the width of the oval is twice the size of the spacing unit
+				radius*2
+				);
+		g.setColor(jot);
+	}
+
 }
