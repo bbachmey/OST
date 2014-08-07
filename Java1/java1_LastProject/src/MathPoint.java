@@ -1,9 +1,9 @@
 
-public class Point extends MathValue {
+public class MathPoint extends MathValue {
 	private double x;
 	private double y;
 
-	public Point(double x, double y) {
+	public MathPoint(double x, double y) {
 		this.setX(x);
 		this.setY(y);
 	}
