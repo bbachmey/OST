@@ -30,7 +30,9 @@ public class MathGraph extends MathShape {
 		this.margin = ma;
 		int x = (int)(cl*un/2);
 		int y = (int)(rw*un/2);
-		this.graphCenterPoint = new MathPoint(x+margin,y+margin); //all of the MathShapes on the graph are ancored to this MathPoint
+		//all of the MathShapes on the graph are anchored to this MathPoint
+		this.graphCenterPoint = new MathPoint(x+margin,y+margin); 
+		//the makeShapes() method returns an ArrayList of shape objects, each of which has a draw method
 		this.graphShapes = makeShapes();
 	}
 

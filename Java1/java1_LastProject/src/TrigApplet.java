@@ -4,31 +4,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 
 public class TrigApplet extends Applet implements ItemListener, ActionListener {
 	
 	private Problem problem;
 	private Solution solution;
-	private UnitCircle unitcircle;
 	private Data dao;
-	private MathGraph mg;
-	
+	private ArrayList<MathShape> appletShapes;
+	MathGraph mg;
 	
 	@Override
 	public void init(){
-		//make a graph object
+		//initialize the math shapes array list
+		appletShapes = new ArrayList<MathShape>();
+//		//make a graph object
 		mg = new MathGraph(
-				20, //columns
-				20, //rows
-				30, //unit
+				3, //columns
+				3, //rows
+				160, //unit
 				30 //margin
 				);
+		appletShapes.add(mg);
+		
+		//make a unit circle
+		UnitCircle uc = new UnitCircle(
+				mg.getCenter(),
+				mg.getUnit()
+				);
+		appletShapes.add(uc);
+		
+		//make an arc
+		
+		
 		//resize the window to fit the graph
 		this.resize(
 				(int)((mg.getColumns()*mg.getUnit())+(mg.getMargin()*2)),
 				(int)((mg.getRows()*mg.getUnit())+(mg.getMargin()*2))
 				);
+		
 		//make a data access object
 		dao = new Data();
 		//fetch a problem from the data access object
@@ -41,9 +56,11 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 	@Override
 	public void paint(Graphics g){
 		
-		g.drawString("Hello World", 50, 50);
+		g.drawString("Hello World", 120, 50);
 		
-		mg.draw(g);
+		for (MathShape ms : appletShapes){
+			ms.draw(g);
+		}
 	}
 	
 	@Override
@@ -58,44 +75,9 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 		
 	}
 
-	public Problem getProblem() {
-		return problem;
-	}
 
-	public void setProblem(Problem problem) {
-		this.problem = problem;
-	}
 
-	public Solution getSolution() {
-		return solution;
-	}
 
-	public void setSolution(Solution solution) {
-		this.solution = solution;
-	}
 
-	public UnitCircle getUnitcircle() {
-		return unitcircle;
-	}
-
-	public void setUnitcircle(UnitCircle unitcircle) {
-		this.unitcircle = unitcircle;
-	}
-
-	public Data getDao() {
-		return dao;
-	}
-
-	public void setDao(Data dao) {
-		this.dao = dao;
-	}
-
-	public MathGraph getGo() {
-		return mg;
-	}
-
-	public void setGo(MathGraph go) {
-		this.mg = go;
-	}
 
 }
