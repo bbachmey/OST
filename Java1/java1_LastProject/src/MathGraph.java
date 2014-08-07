@@ -35,15 +35,24 @@ public class MathGraph extends MathShape {
 	}
 
 	private ArrayList<MathShape> makeShapes() {
+		//
+		//Declare local variables
+		//
 		ArrayList<MathShape> maths = new ArrayList<MathShape>();
 		Dot centerDot;
 		MathLine xline;
 		MathLine yline;
 
+		//
+		//Initialize local variables
+		//
+		
 		//make a Dot centered around the Point which is given as the conceptual center of the Graph
+		//the constructor for Dot object has logic which centers itself around the point given
 		centerDot = new Dot(center,20);
 		//add the shape to the array list
 		maths.add(centerDot);
+		
 		//make the x-coordinate line
 		xline = new MathLine(
 					new MathPoint(
@@ -56,37 +65,46 @@ public class MathGraph extends MathShape {
 						),
 					Color.BLUE
 				);
+		//add the shape to the array list
 		maths.add(xline);
+		
 		//make the y-coordinate line
 		yline = new MathLine(
 					new MathPoint(
-						(int)(center.getX()-(rows*unit/2)), 
-						(int)center.getY() 
+						(int)(center.getX()), 
+						(int)(center.getY()+(rows*unit/2))
 						), 
 					new MathPoint(
-						(int)(center.getX()+(rows*unit/2)), 
-						(int)center.getY()
+						(int)(center.getX()), 
+						(int)(center.getY()-(rows*unit/2))
 						),
 					Color.PINK
 				);
+		//add the shape to the array list
 		maths.add(yline);
+
+		//make the x lines above the x-axis
+		/* for i equals 1 while i is less than or equal to half of the number of rows */
+		for (int i = 1; i <= rows/2; i++){
+			//make Point A
+			MathPoint a = new MathPoint (
+					(int)center.getX()-(columns*unit/2), // x-coordinate of the first line is equal to the x-coordinate of the center point 
+					(int)center.getY()-(i*unit) // y-coordinate of the first line is equal to the y-coordinate of the center point minus the incremental counter multiplied by the space unit
+					);
+			
+			//make Point B
+			MathPoint b = new MathPoint(
+					(int)center.getX()+(columns*unit/2),
+					(int)center.getY()-(i*unit)
+					);
 		
-//		//draw the x rows above the x-axis
-//		/* for i equals 1 while i is less than or equal to half of the number of rows */
-//		for (int i = 1; i <= rows/2; i++){
-//			//jot the current color of the graphics object
-//			Color jot = g.getColor();
-//			//set a temporary color for the graphics object
-//			g.setColor(Color.MAGENTA);
-//			//draw a horizontal line
-//			g.drawLine(
-//					(int)center.getX()-(columns*unit/2), // x-coordinate of the first line is equal to the x-coordinate of the center point 
-//					(int)center.getY()-(i*unit), // y-coordinate of the first line is equal to the y-coordinate of the center point minus the incremental counter multiplied by the space unit 
-//					(int)center.getX()+(columns*unit/2),
-//					(int)center.getY()-(i*unit)
-//					);
-//			g.setColor(jot);			
-//		}
+			//make a new line
+			MathLine line = new MathLine(a,b);
+			
+			//add the line to the shapes array
+			maths.add(line);
+			
+		}
 //
 //		//draw the x rows below the x-axis
 //		/* for i equals 1 while i is less than or equal to half of the number of rows */
