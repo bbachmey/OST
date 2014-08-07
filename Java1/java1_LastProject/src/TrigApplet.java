@@ -130,6 +130,7 @@ public class TrigApplet extends Applet implements ItemListener, ActionListener {
 		this.go = g;
 
 		//go.drawString("Hello World", 120, 50);
+		go.drawString("Change either value and hit enter", 180, 20);
 
 		for (MathShape ms : appletShapes){
 			ms.draw(go);

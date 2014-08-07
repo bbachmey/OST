@@ -51,7 +51,7 @@ public class MathGraph extends MathShape {
 
 		//make a Dot centered around the Point which is given as the conceptual center of the Graph
 		//the constructor for Dot object has logic which centers itself around the point given
-		centerDot = new Dot(graphCenterPoint,20);
+		centerDot = new Dot(graphCenterPoint,10);
 		//add the shape to the array list
 		maths.add(centerDot);
 
