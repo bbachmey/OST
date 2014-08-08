@@ -2,7 +2,7 @@
 public class Test {
             
     public static void main(String[] args) {
-        int 4tryme;
-        int HowAboutThis&That;
+//        int 4tryme;
+//        int HowAboutThis&That;
     }
 }  
