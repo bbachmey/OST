@@ -1,4 +1,4 @@
-package java2_Lesson2;
+
 
 import java.awt.event.*;
 import java.awt.*;

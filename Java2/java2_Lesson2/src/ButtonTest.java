@@ -27,6 +27,7 @@ public class ButtonTest extends Applet {
 
 	public void point(Graphics g){
 		g.drawString(msg, 20, 60);
+
 		
 	}
 
