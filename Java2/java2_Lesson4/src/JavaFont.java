@@ -4,7 +4,8 @@ import java.awt.*;
 
 public class JavaFont extends Applet {
 	Font bigFont = new Font("Serif", Font.BOLD, 56);
-	Font smallFont = new Font("Helvetica", Font.PLAIN, 20);
+	//Font smallFont = new Font("Helvetica", Font.PLAIN, 20);
+	Font smallFont = new Font("Helvetica", 3, 20);
 	
 	//Make a dark read for OST
 	private static final Color leafRed = new Color(115, 0, 0);
