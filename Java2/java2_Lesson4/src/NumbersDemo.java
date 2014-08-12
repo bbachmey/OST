@@ -17,6 +17,7 @@ public class NumbersDemo extends Applet {
 
 		DecimalFormat myFormat1 = new DecimalFormat("###,###.##");
 		DecimalFormat myFormat2 = new DecimalFormat("###,###");
+		DecimalFormat df1 = new DecimalFormat("###.00");
 		
 //		NumberFormat nf = NumberFormat.getInstance();
 //		nf.setMaximumFractionDigits(2);
@@ -31,7 +32,8 @@ public class NumbersDemo extends Applet {
 		g.drawString("An alternate formatting without decimals ", 10, 95);
 		g.drawString("The circle's area= " + myFormat2.format(Math.pow(radius, 2)*Math.PI), 10, 110);
 		
-		g.drawString("The money owed is " + myFormat1.format(amountOwed), 10, 130);
+		//g.drawString("The money owed is " + myFormat1.format(amountOwed), 10, 130);
+		g.drawString("The money owed is " + df1.format(amountOwed), 10, 130);
 		
 		
 	}
