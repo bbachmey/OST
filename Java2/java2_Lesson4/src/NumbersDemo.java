@@ -22,6 +22,7 @@ public class NumbersDemo extends Applet {
 //		nf.setMaximumFractionDigits(2);
 		double area;
 		double radius = 12;
+		double amountOwed = 12.00;
 
 		g.drawString("Area of a circle = (radius)^2*Pi", 10, 20);
 		g.drawString("If radius = " + radius, 10, 40);
@@ -29,6 +30,8 @@ public class NumbersDemo extends Applet {
 		g.drawString("The circle's area = " + myFormat1.format(Math.pow(radius, 2)*Math.PI), 10, 60);
 		g.drawString("An alternate formatting without decimals ", 10, 95);
 		g.drawString("The circle's area= " + myFormat2.format(Math.pow(radius, 2)*Math.PI), 10, 110);
+		
+		g.drawString("The money owed is " + myFormat1.format(amountOwed), 10, 130);
 		
 		
 	}
