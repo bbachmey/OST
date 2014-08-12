@@ -10,15 +10,14 @@ public class DemoStrings extends Applet {
 	}
 	
 	public void paint(Graphics g){
-		int length = 200;
-		int width = 400;
+		int y = 15;
+		String str = "Java is hot";
+		g.drawString(str, 10, y*1);
+		String modify = str.replace("v","bb").replace('o','u').replace("is", "the");
+		g.drawString(str.substring(0,7) + " still" + str.substring(7,11), 10, y*2);
+		g.drawString("But used to make: ", 10, y*4);
+		g.drawString(modify, 10, y*5);
 		
-
-        g.drawString("The area of this window is the length times the width", 10, 20);
-        g.drawString("Our width is " + width +  " pixels, and length is " + length, 10, 40);
-        //g.drawString("The area of this rectangle is " + (width * length), 10, 70);
-
-        g.drawString("The perimeter of this rectangle is " + (2*width) + (2*length), 10, 70);
         
 	}
 
