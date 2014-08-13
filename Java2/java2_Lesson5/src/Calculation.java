@@ -3,17 +3,25 @@ import java.awt.*;
 
 
 public class Calculation extends Applet {
+	
+	//make room for display
+	public void start(){
+		resize(300,200);
+		
+	}
 
 	public void paint(Graphics g){
-		int length;
-		int width;
-		int area;
+		int radius;
+		double area;
 		
-		length = 20;
-		width = 10;
-		area = length * width;
-		g.drawString("Area is " + area,  100,  100);
-		//display the answer
+		radius =50;
+		area = Math.PI * Math.pow(radius, 2);
+		
+		g.drawOval(10, 10, radius,  radius);
+		g.drawString("My circle's area is " + area,  10,  100);
+		
+
+
 	}
 	
 }
