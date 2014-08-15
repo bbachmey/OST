@@ -2,7 +2,7 @@
 public class Test {
 
 	public static void main(String[] args) {
-		int rem = 2;
+		int rem = 3;
 		int i = 21;
 		System.out.println("After declaring and setting to 21, i is " + i);
 		System.out.println();
