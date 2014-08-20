@@ -21,6 +21,11 @@ public class Calculation extends Applet {
 		g.drawOval(10,10,(int)radius,(int)radius);
 		g.drawString("My circle's area is " + area, 10, 100);
 
+
+		g.drawString("Answer is " + 1 + 2, 100, 120);
+
+		g.drawString("Answer is " +(1+2), 100, 130);
+
 	}
 
 }
