@@ -33,7 +33,8 @@ public class Testing {
 //       
 //       System.out.println("For a score of " + score + ", the grade is " + grade);
        
-
+       
+       //Logic Statements Versus If Statements
        int year;
        boolean leap;
 
@@ -41,7 +42,16 @@ public class Testing {
        System.out.print("Enter a year to test: ");
        year = scan.nextInt();		
 	   	 
-       leap = (year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0);
+       //leap = (year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0);
+       
+
+       if (year % 4 == 0)
+           if (year % 100 == 0)   // if divisible by 100 must be divisible by 400
+               leap = (year % 400 == 0);  // i.e., if year is divisible by 400 then this is true
+           else
+               leap = true;
+       else
+           leap = false;
 
        System.out.println("It is " + leap + " that " + year + " is a leap year.");       
        
