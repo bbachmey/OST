@@ -25,6 +25,14 @@ public class Craps extends Applet implements ActionListener {
         g.drawString("Total is " + total, 40, 65);
         if (total==7)
             g.drawString ("You won!" , 50, 90);
+        //if (die1 == die2)
+        //if (value1 == value2)
+        if ((value1 == value2) && (value1 !=0))
+            g.drawString ("You won again!" , 50, 100);  
+
+        if ((total==2) || (total==7))      
+            g.drawString ("You won in yet another way!" , 50, 110);        
+        
     }
     
     @Override
