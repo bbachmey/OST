@@ -10,8 +10,13 @@ class Gigantic {
           //arr = new int[256];     
           
           //arr = new int[2560000];
+          //123,456,789 * 32 = 3,950,617,248 bits = 493,827,156 bytes
+          arr = new int[123456789];
           
-          arr = new int[8];
+          //1,234,567,890 * 32 = 39,506,172,480 bits = 4,938,271,560 bytes
+          arr = new int[1234567890];
+
+          //arr = new int[8];
           
           for (int i=0; i<arr.length; i++) {
         	  arr[i] = i;  
