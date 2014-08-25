@@ -15,14 +15,14 @@ public class Days extends Applet {
     		g.drawString("Day is " + day, 50, 100*day); 
        
 	        switch (day) {
-	              case 1: g.drawString("Monday", 50, 100*day + 10); break;
-	              case 2: g.drawString("Tuesday", 50,  100*day + 10); break;
-	              case 3: g.drawString("Wednesday", 50,  100*day + 10); break;
-	              case 4: g.drawString("Thursday", 50,  100*day + 10); break;
-	              case 5: g.drawString("Friday", 50,  100*day + 10); break;
-	              case 6: g.drawString("Saturday", 50,  100*day + 10); break;
-	              case 7: g.drawString("Sunday", 50,  100*day + 10); break;
-	              default: g.drawString("Not a day", 50, 790); break;
+	              case 1: g.drawString("Monday", 50, 100*day + 10); // break;
+	              case 2: g.drawString("Tuesday", 50,  100*day + 20); // break;
+	              case 3: g.drawString("Wednesday", 50,  100*day + 30); // break;
+	              case 4: g.drawString("Thursday", 50,  100*day + 40); // break;
+	              case 5: g.drawString("Friday", 50,  100*day + 50); // break;
+	              case 6: g.drawString("Saturday", 50,  100*day + 60); // break;
+	              case 7: g.drawString("Sunday", 50,  100*day + 70); // break;
+	              default: g.drawString("Not a day", 50, 790); // break;
 	              }
     	}
     }
