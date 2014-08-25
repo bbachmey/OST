@@ -23,6 +23,11 @@ public class HelloWorldApp {
 //		for (Properties prop : props){
 //			System.out.println(prop.toString());
 //		}
+				
+
+        int x = 6;
+        System.out.println("The value of x is " + x);
+        
 	}
 
 }
