@@ -18,6 +18,6 @@ class ArrayDemo {
           System.out.println("Element at index 1: " + array1[1]);
           System.out.println("Element at index 4: " + array1[4]);
           System.out.println("Element at index 6: " + array1[6]);
-          System.out.println("Element at index 8: " + array1[8]);
+//          System.out.println("Element at index 8: " + array1[8]);
      }
 }   
