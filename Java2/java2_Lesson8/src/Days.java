@@ -17,28 +17,17 @@ public class Days extends Applet implements ActionListener{
 
         g.drawString("Give a number from 1 to 7", 5, 80); 
        
-        if (day == 1)
-           g.drawString("Monday", 50, 50);
-        else
-         if (day == 2)
-           g.drawString("Tuesday", 50, 50);
-        else
-         if (day == 3)
-           g.drawString("Wednesday", 50, 50);
-        else
-         if (day == 4)
-           g.drawString("Thursday", 50, 50);
-        else
-         if (day == 5)
-           g.drawString("Friday", 50, 50);
-        else
-         if (day == 6)
-           g.drawString("Saturday", 50, 50);  
-        else
-         if (day == 7)
-           g.drawString("Sunday", 50, 50);
-        else 
-           g.drawString("Please follow directions", 5, 50);
+
+        switch (day) {
+              case 1: g.drawString("Monday", 50, 50); break;
+              case 2: g.drawString("Tuesday", 50, 50); break;
+              case 3: g.drawString("Wednesday", 50, 50); break;
+              case 4: g.drawString("Thursday", 50, 50); break;
+              case 5: g.drawString("Friday", 50, 50); break;
+              case 6: g.drawString("Saturday", 50, 50); break;
+              case 7: g.drawString("Sunday", 50, 50); break;
+              default: g.drawString("Please follow directions", 5, 50); break;
+              }
     }
 
     public void actionPerformed(ActionEvent event) {
