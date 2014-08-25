@@ -1,6 +1,6 @@
 class ArrayDemo {
      public static void main(String[] args) {
-          int[] array1;              // declares an array of integers
+          int array1[];              // declares an array of integers
 
           array1 = new int[8];      // allocates memory for 8 integers
             
