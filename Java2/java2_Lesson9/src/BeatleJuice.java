@@ -20,6 +20,14 @@ public class BeatleJuice {
         System.out.println("Element at index 4: " + beatles[4]);
 
         System.out.println("\nSize of the beatles array is " + beatles.length);
+        
+        int x = 1; 
+        System.out.println();
+        System.out.println("When x=" + x + ", the element at beatles[x] is " + beatles[x]);
+        System.out.println("With x=" + x + ", the element at beatles[x++] is " + beatles[x++]);
+        System.out.println("After use and then increment, x is now " + x);
+        System.out.println("With x=" + x + ", Element at beatles[++x] is " + beatles[++x]);
+        System.out.println("After increment and then use, x is now " + x);
     }
 
 }
