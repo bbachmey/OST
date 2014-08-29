@@ -16,13 +16,21 @@ public class OneDArrayApplet extends Applet {
     public void init() {
         for (int i = 0; i < boxes.length; i++) {
             boxes[i] = new ClickableBox(START_X, START_Y + i * BOX_HEIGHT, BOX_WIDTH,
-               BOX_HEIGHT, Color.black, Color.red, true);
+               BOX_HEIGHT, Color.black, Color.red, true, this);
+            this.addMouseListener(boxes[i]);
         }
         defaultBoxColors();
     }
 
     public void paint(Graphics g) {
         for(int i = 0; i < boxes.length; i++) {
+            if(boxes[i].isClicked()) {
+                boxes[i].setBackColor(new Color(
+                  (int)(Math.random() * 256), 
+                  (int)(Math.random() * 256), 
+                  (int)(Math.random() * 256)));
+                boxes[i].setClicked(false);
+            }
             boxes[i].draw(g);
         }
     }

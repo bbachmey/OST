@@ -1,12 +1,15 @@
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
      
 public class ClickableBox extends MouseAdapter {
      
     private int x, y, width, height;
     private Color borderColor, backColor, oldColor;
-    private boolean drawBorder;
+    private boolean drawBorder, clicked;
+    private Container parent;
      
     public ClickableBox(int x, 
     		int y, 
@@ -14,7 +17,8 @@ public class ClickableBox extends MouseAdapter {
     		int height, 
     		Color borderColor, 
     		Color backColor,
-    		boolean drawBorder) {
+    		boolean drawBorder,
+    		Container parent) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -22,6 +26,7 @@ public class ClickableBox extends MouseAdapter {
         this.borderColor = borderColor;
         this.backColor = backColor;
         this.drawBorder = drawBorder;
+        this.parent = parent;
     }
     
     public void draw(Graphics g) {
@@ -35,6 +40,22 @@ public class ClickableBox extends MouseAdapter {
         g.setColor(oldColor);
     }
 
+    public void mouseReleased(MouseEvent e) {
+        if(x < e.getX() && e.getX() < x + width &&
+             y < e.getY() && e.getY() < y + height) {
+            clicked = true;
+            parent.repaint();
+        }
+    }
+     
+    public boolean isClicked() {
+        return clicked;
+    }
+    
+    public void setClicked(boolean clicked) {
+        this.clicked = clicked;
+    }
+    
 	public int getX() {
 		return x;
 	}
