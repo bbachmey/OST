@@ -3,7 +3,7 @@ public class Main {
 
   public static void main(String[] args) {
     int x;
-    PhoneBook pb = new PhoneBook();
+    Phonebook pb = new Phonebook();
     System.out.println(pb);
     x = pb.nextIndex();
     if(x != -1) {

@@ -46,9 +46,14 @@ public class Phonebook {
 		StringBuilder sb = new StringBuilder();
 		
 		for (int i=0;i<names.length;i++){
-			sb.append(names[i].toString());
-			sb.append(numbers[i].toString());
-			
+			if (names[i] != null){
+				sb.append(names[i].toString());	
+				sb.append("\t");				
+			}
+			if (numbers[i] != null){
+				sb.append(numbers[i].toString());	
+				sb.append("\n");				
+			}
 		}
 		
 		return sb.toString();
@@ -61,10 +66,20 @@ public class Phonebook {
 	 * Return true if the index is in bounds of the name array and the data was set. 
 	 * Return false if the index is out of bounds.
 	 */
-	public boolean setName(String nm){
+	public boolean setName(String nm, int idx){
+		//set the upper and lower bounds for the index
+		int upper = names.length;
+		int lower = 0;
 		
-		
-		return false;
+		if (idx > upper || idx < lower){
+			//out of bounds
+			return false;
+		}
+		else{
+			//in bounds
+			names[idx] = nm;						
+			return true;
+		}
 
 	}
 
@@ -76,30 +91,40 @@ public class Phonebook {
 	 * Return true if the index is in bounds of the phoneNumber array and the data was set. 
 	 * Return false if the index is out of bounds.
 	 */
-	public boolean setNumber(String pn){
+	public boolean setNumber(String pn, int idx){		
+		//set the upper and lower bounds for the index
+		int upper = names.length;
+		int lower = 0;
 		
-		
-		return false;
+		if (idx > upper || idx < lower){
+			//out of bounds
+			return false;
+		}
+		else{
+			//in bounds
+			numbers[idx] = pn;						
+			return true;
+		}
 
 	}
 
 	/**
 	 * @return String
-	 * 	A getRecord() method that takes an index number of a record (array slot). 
+	 * A getRecord() method that takes an index number of a record (array slot). 
 	 * Look up the record at that index in the name and phoneNumber arrays. 
 	 * Return a new String array with the record's name in element 0 and the person's phone 
 	 * number in element 1. 
 	 * If the index number is out of bounds or if the record contains no valid data, return null. 
 	 * This method returns either a two element String array or null.
 	 */
-	public String getRecord(int index){
+	public String[] getRecord(int index){
 
-		String name;
-		String number;
+		String[] arr;
+		arr = new String[2];
 
-		name = names[index];
-		number = numbers[index];
-		return name + " " + number;
+		arr[0] = names[index];
+		arr[1] = numbers[index];
+		return arr;
 		
 	}
 
@@ -115,22 +140,19 @@ public class Phonebook {
 	 * Return -1 if the record is not found.
 	 */
 	public int getRecord(String nm){
-
-		int index = 0;
-
+		//set the index value to -1 by default
+		int index = -1;
+		//loop through the names array
 		for (int i=0; i<names.length; i++){
-			if (names[i].toString() == nm){
+			if (names[i] != null && names[i].toUpperCase().equals(nm.toUpperCase())){
+				//updated the index value
 				index = i;
+				//stop the loop
 				break;
 			}
 		}
-		
-		if (index == 0){
-			index = -1;
-		}
 
-		return index;
-		
+		return index;		
 	}
 
 	/**
@@ -150,7 +172,7 @@ public class Phonebook {
 			}
 		}
 		
-		if (next == 0){
+		if (next == names.length){
 			next=-1;
 		}
 		
