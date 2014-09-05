@@ -31,15 +31,24 @@ class Test {
 	    public void demo(){
 	        int[] table = new int[12];          // instantiate the array table
 	        for (int i=0; i < table.length; i++)
-	        table[i] = 1;                   // populate the array table with all 1s
+	        {   
+	            table[i] = 1;                   // populate the array table with all 1's
+	            System.out.print(table[i] + " ");
+	        }
 	        total = sum(table);                 // call the method sum and pass the array table
 	        System.out.println("The total is " + total);
+	        System.out.println("After method invocation completes \n and control has returned, values are");
+	        for (int i=0; i < table.length; i++) 
+	            System.out.print(table[i] + " ");
 	    }
-	    
+
 	    public int sum(int [] array) {
 	        total = 0;
-	        for (int s=0; s < array.length; s++)      // when the index s equals the length, loop will stop
-	            total = total + array[s];                // find the sum of all of the elements in the array
+	        for (int s=0; s < array.length; s++)    // when the index s equals the length, loop will stop
+	        {
+	           total = total + array[s];               // find the sum of all of the elements in the array
+	           array[s]= array[s] + 1;
+	        } 
 	        return total;
 	    }
 	
