@@ -24,10 +24,15 @@ class Test {
 	    int total;
 	                                                                    
 	    public static void main(String[] args){
-	        int[] table = new int[12];             // instantiate the array table
+	        Test myTest = new Test();     // instantiate the class Test
+	        myTest.demo();                      // start the class
+	    }
+	 
+	    public void demo(){
+	        int[] table = new int[12];          // instantiate the array table
 	        for (int i=0; i < table.length; i++)
-	           table[i] = 1;                       // populate the array table with all 1s
-	        total = sum(table);                    // call the method sum and pass the array table
+	        table[i] = 1;                   // populate the array table with all 1s
+	        total = sum(table);                 // call the method sum and pass the array table
 	        System.out.println("The total is " + total);
 	    }
 	    
