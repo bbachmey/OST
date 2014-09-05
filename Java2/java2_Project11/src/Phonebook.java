@@ -92,8 +92,45 @@ public class Phonebook {
 	 * If the index number is out of bounds or if the record contains no valid data, return null. 
 	 * This method returns either a two element String array or null.
 	 */
-	public String getRecord(){
+	public String getRecord(int index){
 
+		String name;
+		String number;
+
+		name = names[index];
+		number = numbers[index];
+		return name + " " + number;
+		
+	}
+
+	/**
+	 * @return
+	 * A getRecord() method that overloads your other getRecord() method. 
+	 * This method needs to take a String as a parameter that represents the name of a person 
+	 * you want to get the record of. 
+	 * It should return the index number of that record. 
+	 * Your search of the array should be case insensitive. 
+	 * There are methods in the String class that can help with this. 
+	 * Remember to check for a null value before trying to access data in the array element. 
+	 * Return -1 if the record is not found.
+	 */
+	public int getRecord(String nm){
+
+		int index = 0;
+
+		for (int i=0; i<names.length; i++){
+			if (names[i].toString() == nm){
+				index = i;
+				break;
+			}
+		}
+		
+		if (index == 0){
+			index = -1;
+		}
+
+		return index;
+		
 	}
 
 	/**
@@ -104,20 +141,20 @@ public class Phonebook {
 	 * class where data may be stored without overwriting current data.
 	 */
 	public int nextIndex(){
-
-	}
-
-	/**
-	 * @return
-	 * A getRecord() method that overloads your other getRecord() method. 
-	 * This method needs to take a String as a parameter that represents the name of a person 
-	 * you want to get the record of. It should return the index number of that record. 
-	 * Your search of the array should be case insensitive. 
-	 * There are methods in the String class that can help with this. 
-	 * Remember to check for a null value before trying to access data in the array element. 
-	 * Return -1 if the record is not found.
-	 */
-	public String getRecord(){
+		int next = 0;
+		
+		for (int i = 0; i<names.length; i++){
+			if (names[i] == null){
+				next = i;
+				break;
+			}
+		}
+		
+		if (next == 0){
+			next=-1;
+		}
+		
+		return next;
 
 	}
 
