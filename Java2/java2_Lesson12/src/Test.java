@@ -35,7 +35,11 @@ class Test {
 	            table[i] = 1;                   // populate the array table with all 1's
 	            System.out.print(table[i] + " ");
 	        }
-	        total = sum(table);                 // call the method sum and pass the array table
+
+	        int[] table2 = new int[12];
+	        System.arraycopy(table, 0, table2, 0, table.length);
+	        total = sum(table2);                // call the method sum and pass the copy of array table
+	        
 	        System.out.println("The total is " + total);
 	        System.out.println("After method invocation completes \n and control has returned, values are");
 	        for (int i=0; i < table.length; i++) 
