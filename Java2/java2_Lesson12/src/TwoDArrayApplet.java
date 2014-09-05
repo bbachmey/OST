@@ -1,5 +1,9 @@
 import java.applet.Applet;
+import java.awt.Button;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class TwoDArrayApplet extends Applet {
@@ -10,31 +14,68 @@ public class TwoDArrayApplet extends Applet {
 	private final int BOX_WIDTH = 20;
 	private final int BOX_HEIGHT = 20;
 
-	private ClickableBox boxes[][];
+	private MaskableBox boxes[][];
 	private Color boxColors[][];
 
-	public void init() {
-		boxes = new ClickableBox[ROWS][COLS];
-		boxColors = new Color[ROWS][COLS];
-		randomizeColors();
-		buildBoxes();
-	}
+    private Button resetButton;
+  
+    public void init() {
+        boxes = new MaskableBox[ROWS][COLS];
+        boxColors = new Color[ROWS][COLS];
+        resetButton = new Button("Reset Colors");
+        resetButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                randomizeColors();
+                buildBoxes();
+                repaint();
+            }
+        });
+        add(resetButton);
+        //separate building colors so we can add a button later
+        //to re-randomize them.
+        randomizeColors();
+        buildBoxes();
+    }
 
-	private void buildBoxes(){
-		for(int row = 0; row < boxes.length; row++) {
-			for(int col = 0; col < boxes[row].length; col++) {
-				boxes[row][col] = 
-						new ClickableBox(START_X + col * BOX_WIDTH,
-								START_Y + row * BOX_HEIGHT,
-								BOX_WIDTH,
-								BOX_HEIGHT,
-								Color.gray,
-								boxColors[row][col],
-								true,
-								this);
-			}
-		}
-	}
+
+    private void removeMouseListeners() {
+        for(int row = 0; row < boxes.length; row ++) {
+            for(int col = 0; col < boxes[row].length; col++) {
+                removeMouseListener(boxes[row][col]);
+            }
+        }
+    }
+  
+    public void paint(Graphics g) {
+        for(int row = 0; row < boxes.length; row ++) {
+            for(int col = 0; col < boxes[row].length; col++) {
+                if(boxes[row][col].isClicked()) {
+                    boxes[row][col].setMaskColor(Color.black);
+                    boxes[row][col].setMask(!boxes[row][col].isMask());
+                    boxes[row][col].setClicked(false);
+                }
+                boxes[row][col].draw(g);
+            }
+        }
+    }
+  
+    private void buildBoxes() {
+        removeMouseListeners();
+        for(int row = 0; row < boxes.length; row++) {
+            for(int col = 0; col < boxes[row].length; col++) {
+                boxes[row][col] = 
+                  new MaskableBox(START_X + col * BOX_WIDTH,
+                                  START_Y + row * BOX_HEIGHT,
+                                  BOX_WIDTH,
+                                  BOX_HEIGHT,
+                                  Color.gray,
+                                  boxColors[row][col],
+                                  true,
+                                  this);
+                addMouseListener(boxes[row][col]);
+            }
+        }
+    }
 
 	private void randomizeColors() {
 		int[] chosenColors = {0, 0, 0, 0, 0, 0, 0, 0 };
