@@ -17,7 +17,9 @@ Add the following instance variables to the class.
  private boolean matchedBoxes[][];
  //this is used to keep track of two boxes that have been clicked.
  private MaskableBox chosenBoxes[];
+```
 Modify the paint() method to be the following:
+```java
  public void paint(Graphics g) {
  // loop through the boxes rows
  for (int row = 0; row < boxes.length; row++) {
