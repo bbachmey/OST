@@ -12,6 +12,7 @@ Note in the MaskableBox class' draw() method that the super.draw(g) method is ca
 Right-click on the TwoDArrayApplet in your java2_Project12 project. Select Refactor|Rename, and change the name of the file to GuessingGame.
 Open the GuessingGame class. Refactoring the class should have changed its name in the code.
 Add the following instance variables to the class.
+```java
  //this is used to keep track of boxes that have been matched.
  private boolean matchedBoxes[][];
  //this is used to keep track of two boxes that have been clicked.
@@ -40,6 +41,7 @@ Modify the paint() method to be the following:
   }
  }
  }
+ ```
 Add the following line to the beginning of the buildBoxes() method:
  // need to clear any chosen boxes when building new array.
  chosenBoxes = new MaskableBox[2];
