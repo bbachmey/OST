@@ -12,11 +12,14 @@ Note in the MaskableBox class' draw() method that the super.draw(g) method is ca
 Right-click on the TwoDArrayApplet in your java2_Project12 project. Select Refactor|Rename, and change the name of the file to GuessingGame.
 Open the GuessingGame class. Refactoring the class should have changed its name in the code.
 Add the following instance variables to the class.
+```java
  //this is used to keep track of boxes that have been matched.
  private boolean matchedBoxes[][];
  //this is used to keep track of two boxes that have been clicked.
  private MaskableBox chosenBoxes[];
+```
 Modify the paint() method to be the following:
+```java
  public void paint(Graphics g) {
  // loop through the boxes rows
  for (int row = 0; row < boxes.length; row++) {
@@ -40,17 +43,22 @@ Modify the paint() method to be the following:
   }
  }
  }
+ ```
 Add the following line to the beginning of the buildBoxes() method:
+```java
  // need to clear any chosen boxes when building new array.
  chosenBoxes = new MaskableBox[2];
  // create a new matchedBoxes array
  matchedBoxes = new boolean [ROWS][COLS];
+ ```
 When building the array of boxes, set each box's masked value to true so that the boxes will be blacked out on initial display.
 Create a new method with the following signature:
+```java
  public void gameLogic(MaskableBox box)
+ ```
 The gameLogic() method is your project. We will give you the basic logic of the game and you need to take that and convert it into Java code.
 Game Logic:
-
+```
 If both chosenBoxes array at index 0 and 1 are not null 
  //we need to check to see if their colors match.
  if the background color of both chosenBoxes are equal to each other
@@ -91,6 +99,7 @@ else
 
  end_if
 end_else
+```
 Debug, run, etc., as needed.
 
 Submit your java2_Project12 when done.
