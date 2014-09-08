@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class TwoDArrayApplet extends Applet {
+public class GuessingGame extends Applet {
 	private final int START_X = 20;
 	private final int START_Y = 40;
 	private final int ROWS = 4;
