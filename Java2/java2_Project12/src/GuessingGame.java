@@ -88,7 +88,7 @@ public class GuessingGame extends Applet {
 				Color.green,
 				Color.yellow, 
 				Color.cyan, 
-				Color.magenta, 
+				Color.LIGHT_GRAY, 
 				Color.pink, 
 				Color.orange 
 		};
@@ -143,6 +143,9 @@ public class GuessingGame extends Applet {
 								boxColors[row][col],
 								true,
 								this);
+				//set the MASK to TRUE when the box is first built
+				boxes[row][col].setMask(true);
+				boxes[row][col].setMaskColor(Color.WHITE);
 				//add the MaskableBox as a MouseListener to the applet
 				this.addMouseListener(boxes[row][col]);
 			}
@@ -235,22 +238,33 @@ public class GuessingGame extends Applet {
 						for (int k=0;k<boxes[j].length;k++){
 							if (chosenBoxes[i] == boxes[j][k] ){
 								matchedBoxes[j][k] = true;
+								boxes[j][k].setMatched(true);
 								break;
 							}
 						}
 					}
 				}
 			}
-			else{
-				//no match
-				//set both chosenBoxes mask value to true
-				chosenBoxes[0].setMask(true);
-				chosenBoxes[1].setMask(true);				
-			}
+		}
+		else {
+			//this is the third box chosen
 
+			//check to see if the previous two were matches
+			if (!chosenBoxes[0].isMatched()){
+				//set both the chosenBoxes mask value to true
+				chosenBoxes[0].setMask(true);
+				chosenBoxes[1].setMask(true);
+			}
 
 			//Clear the chosen boxes to allow another pair of guesses
 			chosenBoxes = new MaskableBox[2];
+
+			//set the first chosenBoxes element equal to the parameter of the method.
+			chosenBoxes[0] = box;
+
+			//set the mask on the third box chosen to false
+			chosenBoxes[0].setMask(false);
+
 		}
 	} //end doGameLogic
 

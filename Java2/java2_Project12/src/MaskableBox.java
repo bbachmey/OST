@@ -6,6 +6,7 @@ public class MaskableBox extends ClickableBox {
     private boolean mask;
     private Color maskColor;
     Container parent;
+    private boolean matched;
 
     public MaskableBox(
     		int x, 
@@ -59,4 +60,12 @@ public class MaskableBox extends ClickableBox {
     public void setMaskColor(Color maskColor) {
         this.maskColor = maskColor;
     }
+
+	public boolean isMatched() {
+		return matched;
+	}
+
+	public void setMatched(boolean matched) {
+		this.matched = matched;
+	}
 }   
