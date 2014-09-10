@@ -27,10 +27,9 @@ public class TicTacToe extends Applet {
 	public void init() {
 		boxes = new MaskableBox[ROWS][COLS];
 		boxColors = new Color[ROWS][COLS];
-		resetButton = new Button("Reset Colors");
+		resetButton = new Button("New Game");
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				randomizeColors();
 				buildBoxes();
 				repaint();
 			}
@@ -38,7 +37,6 @@ public class TicTacToe extends Applet {
 		add(resetButton);
 		//separate building colors so we can add a button later
 		//to re-randomize them.
-		randomizeColors();
 		buildBoxes();
 	}
 
@@ -47,10 +45,10 @@ public class TicTacToe extends Applet {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		//loop through the rows of the 2D array of MaskableBoxes
+		//loop through the rows of the 2D array of TickableBoxes
 		// for the purpose of figuring out which box was clicked  
 		for (int row = 0; row < boxes.length; row++) {
-			// loop through columns of the 2D array of MaskableBoxes
+			// loop through columns of the 2D array of TickableBoxes
 			for (int col = 0; col < boxes[row].length; col++) {
 				//each MaskableBox has a clicked property from the parent class ClickableBox
 				if (boxes[row][col].isClicked()) {
@@ -66,7 +64,7 @@ public class TicTacToe extends Applet {
 				}
 			}
 		}
-		//loop through the array of all MaskableBoxes and draw them
+		//loop through the array of all TickableBoxes and draw them
 		for (int row = 0; row < boxes.length; row++) {
 			for (int col = 0; col < boxes[row].length; col++) {
 				//the draw() method of MaskableBox overrides the draw() method inherited from ClickableBox
