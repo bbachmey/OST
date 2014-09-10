@@ -54,68 +54,20 @@ public class TicTacToe extends Applet {
 				if (boxes[row][col].isClicked()) {
 					// un click it
 					boxes[row][col].setClicked(false);
-					//check the boolean value in the matchedBoxes array at the 
-					//same [row][col] position to see if this 
-					//MaskableBox has been matched.
-					//Call the doGameLogic() method if the box in this position has not already been matched
-					if (!matchedBoxes[row][col]) {
-						doGameLogic(boxes[row][col]);
-					}
+					//Call the doGameLogic() method and pass the box that was clicked
+					doGameLogic(boxes[row][col]);					
 				}
 			}
 		}
 		//loop through the array of all TickableBoxes and draw them
 		for (int row = 0; row < boxes.length; row++) {
 			for (int col = 0; col < boxes[row].length; col++) {
-				//the draw() method of MaskableBox overrides the draw() method inherited from ClickableBox
+				//the draw() method of TickableBox overrides the draw() method inherited from ClickableBox
 				boxes[row][col].draw(g);
 			}
 		}
 	}
 
-	/**
-	 * 
-	 */
-	private void randomizeColors() {
-		//make an int array
-		int[] chosenColors = {0, 0, 0, 0, 0, 0, 0, 0 };
-		//make an array of Color objects
-		Color[] availableColors = { 
-				Color.red, 
-				Color.blue, 
-				Color.green,
-				Color.yellow, 
-				Color.cyan, 
-				Color.LIGHT_GRAY, 
-				Color.pink, 
-				Color.orange 
-		};
-		//loop through the array of rows of boxes
-		//the array of rows is as long as there are ROWS in the declaration MaskableBox[ROWS][COLS]
-		for(int row = 0; row < boxes.length; row++) {
-			//loop through the array of boxes in each row
-			//the array of boxes is as long as there are COLS in the declaration MaskableBox[ROWS][COLS]
-			for(int col = 0; col < boxes[row].length; col++) {
-				//infinite loop, runs until break;
-				for(;;) {
-					//get a random number
-					int rnd = (int)(Math.random() * 8);
-					//look at the int value in the chosenColors array at the position of the random number
-					//if the int value in the array at the random position is less than 2
-					//then this color has not yet been used twice
-					if(chosenColors[rnd] < 2) {
-						//increment the int value in the array at the random position  
-						chosenColors[rnd]++;
-						//grab the Color from the availableColors array at the random position and 
-						//assign the color to the boxColors array
-						boxColors[row][col] = availableColors[rnd];
-						//quit the infinite loop
-						break;
-					}
-				}
-			}
-		}
-	}
 
 	/**
 	 * 
