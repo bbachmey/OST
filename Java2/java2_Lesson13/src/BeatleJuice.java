@@ -15,10 +15,14 @@ class Beatlejuice {
 //        System.out.println("Element at index 3: " + beatles[3]);
 //        System.out.println("Element at index 4: " + beatles[4]);
 
-        for (int i=0; i < beatles.length; i++){
-          System.out.println("Element at index " + i + ": " + beatles[i]);
-        }
-                
+//        for (int i=0; i < beatles.length; i++){
+//          System.out.println("Element at index " + i + ": " + beatles[i]);
+//        }
+           
+
+        for(String item : beatles)
+            System.out.println("Element is : " + item);
+        
         System.out.println("\nSize of the beatles array is " + beatles.length);
     }
 } 
