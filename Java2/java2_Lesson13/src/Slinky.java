@@ -31,10 +31,16 @@ import java.awt.event.*;
     public void paint(Graphics g) { 
        int x = 20, y = 20;
        int count=1;                               // declare and set loop variable
-       while (count <= howManyCircles) {         // check condition before entering loop block
-          g.drawOval (x+count*5, y+count*5, 50, 50);
-          count++;                                // increment loop variable
-       } 
+//       while (count <= howManyCircles) {         // check condition before entering loop block
+//          g.drawOval (x+count*5, y+count*5, 50, 50);
+//          count++;                                // increment loop variable
+//       } 
+       
+       do {
+           g.drawOval (x+count*5, y+count*5, 50, 50);
+           count++;                                // increment loop variable
+           } while (count <= howManyCircles);     // check condition after running loop block 
+       
     }
     
     public void actionPerformed(ActionEvent event) {
