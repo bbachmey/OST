@@ -4,6 +4,7 @@ class Test {
         int counter = 0;
         do {
             counter = counter + 2;
+            System.out.println("counter is: " + counter);
         } while (counter <= n);
     }
-}               
+}            
