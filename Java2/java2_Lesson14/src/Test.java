@@ -1,10 +1,9 @@
 class Test {  
-
     public static void main(String[] args){
-        int x = 1;
+        int n = 6;
+        int counter = 0;
         do {
-            System.out.println("Looping, round " + x);
-            x++; 
-        }  while (x <= 4); 
+            counter = counter + 2;
+        } while (counter <= n);
     }
-}            
+}               
