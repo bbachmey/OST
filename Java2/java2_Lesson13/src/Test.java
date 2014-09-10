@@ -1,15 +1,14 @@
 class Test {   
-   public static void main(String[] args){
-//     int [] arrayValues = {5,6,6,44,6,7,34,4,9,89};
-//     int sum = 0; 
-//     for (int e : arrayValues) // e is short for element
-//        sum += e; 
-//     System.out.println("Sum of the array is " + sum);
-	   
-	   while (true){
-		      System.out.println("I am learning lots of Java");
-		      System.out.println("This course is wonderful! \n");
-		    }
-	   
-   }                                            
-} 
+    public static void main(String[] args){          
+        out:
+        for (int i = 1; i <= 5; i++)
+        { 
+            for (int j = 1; j <= 3; j++) {
+                System.out.println("i is " + i + " , j is " + j);
+                if ((i + j) > 4)
+                    break out;		       // jumps out of both loops
+            }
+        }	
+        System.out.println("end of loops");  
+    }
+}
