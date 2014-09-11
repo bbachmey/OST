@@ -2,13 +2,13 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Graphics;
 
-public class TickableBox extends ClickableBox {
+public class MaskableBox extends ClickableBox {
     private boolean mask;
     private Color maskColor;
     Container parent;
     private boolean matched;
 
-    public TickableBox(
+    public MaskableBox(
     		int x, 
     		int y, 
     		int width, 

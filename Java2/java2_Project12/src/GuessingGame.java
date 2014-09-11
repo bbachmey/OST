@@ -12,20 +12,20 @@ public class GuessingGame extends Applet {
 	private final int COLS = 4; 
 	private final int BOX_WIDTH = 20;
 	private final int BOX_HEIGHT = 20;
-	private TickableBox boxes[][];
+	private MaskableBox boxes[][];
 	private Color boxColors[][];
 	private Button resetButton;
 	//this is used to keep track of boxes that have been matched.
 	private boolean matchedBoxes[][];
 	//this is used to keep track of two boxes that have been clicked.
-	private TickableBox chosenBoxes[];
+	private MaskableBox chosenBoxes[];
 
 	/* (non-Javadoc)
 	 * @see java.applet.Applet#init()
 	 */
 	@Override
 	public void init() {
-		boxes = new TickableBox[ROWS][COLS];
+		boxes = new MaskableBox[ROWS][COLS];
 		boxColors = new Color[ROWS][COLS];
 		resetButton = new Button("Reset Colors");
 		resetButton.addActionListener(new ActionListener() {
@@ -124,7 +124,7 @@ public class GuessingGame extends Applet {
 	 */
 	private void buildBoxes() {
 		// need to clear any chosen boxes when building new array.
-		chosenBoxes = new TickableBox[2];
+		chosenBoxes = new MaskableBox[2];
 		// create a new matchedBoxes array
 		matchedBoxes = new boolean [ROWS][COLS];
 
@@ -135,7 +135,7 @@ public class GuessingGame extends Applet {
 			for(int col = 0; col < boxes[row].length; col++) {
 				//create a new MaskableBox and add it to the array of boxes
 				boxes[row][col] = 
-						new TickableBox(START_X + col * BOX_WIDTH,
+						new MaskableBox(START_X + col * BOX_WIDTH,
 								START_Y + row * BOX_HEIGHT,
 								BOX_WIDTH,
 								BOX_HEIGHT,
@@ -212,7 +212,7 @@ public class GuessingGame extends Applet {
 		end_else
 
 	 */
-	public void doGameLogic(TickableBox box){
+	public void doGameLogic(MaskableBox box){
 
 		if(chosenBoxes[0] == null){
 			//we have no boxes already chosen.
@@ -257,7 +257,7 @@ public class GuessingGame extends Applet {
 			}
 
 			//Clear the chosen boxes to allow another pair of guesses
-			chosenBoxes = new TickableBox[2];
+			chosenBoxes = new MaskableBox[2];
 
 			//set the first chosenBoxes element equal to the parameter of the method.
 			chosenBoxes[0] = box;
