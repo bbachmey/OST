@@ -12,32 +12,65 @@ public class TicTacToe extends Applet {
 	private final int COLS = 3; 
 	private final int BOX_WIDTH = 50;
 	private final int BOX_HEIGHT = 50;
-	private MaskableBox boxes[][];
-	private Color boxColors[][];
+	private TickableBox boxes[][];
 	private Button resetButton;
-	//this is used to keep track of boxes that have been matched.
-	private boolean matchedBoxes[][];
-	//this is used to keep track of two boxes that have been clicked.
-	private MaskableBox chosenBoxes[];
+	private char turn;
+	private String winner;
+	private int turnCounter;
 
 	/* (non-Javadoc)
 	 * @see java.applet.Applet#init()
 	 */
 	@Override
 	public void init() {
-		boxes = new MaskableBox[ROWS][COLS];
-		boxColors = new Color[ROWS][COLS];
+		//x goes first
+		turn = 'x';
+		//declare an array of TickableBoxes
+		boxes = new TickableBox[ROWS][COLS];
+		//declare a button
 		resetButton = new Button("New Game");
+		//add an action listener to the button
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				winner = null;
+				turnCounter=0;
+				//removeMouseListeners();
 				buildBoxes();
 				repaint();
 			}
 		});
+		//add the button to the applet
 		add(resetButton);
-		//separate building colors so we can add a button later
-		//to re-randomize them.
+		//
 		buildBoxes();
+		//resize the window
+		this.resize(BOX_WIDTH*4, BOX_HEIGHT*5);
+	}
+
+	/**
+	 * 
+	 */
+	private void buildBoxes() {
+		//paint hasn't been called yet
+		//loop through the declared array of boxes and create a box in each position
+		for(int row = 0; row < boxes.length; row++) {
+			for(int col = 0; col < boxes[row].length; col++) {
+				//create a new TickableBox and add it to the array of boxes
+				boxes[row][col] = 
+						new TickableBox(
+								START_X + col * BOX_WIDTH, //x
+								START_Y + row * BOX_HEIGHT, //y
+								BOX_WIDTH,	//width
+								BOX_HEIGHT,	//height
+								Color.BLACK, //borderColor
+								Color.WHITE, //backColor
+								true, //drawBorder
+								this //container
+								);
+				//add the TickableBox as a MouseListener to the applet
+				this.addMouseListener(boxes[row][col]);
+			}
+		}
 	}
 
 	/* (non-Javadoc)
@@ -45,178 +78,110 @@ public class TicTacToe extends Applet {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		//loop through the rows of the 2D array of TickableBoxes
-		// for the purpose of figuring out which box was clicked  
-		for (int row = 0; row < boxes.length; row++) {
-			// loop through columns of the 2D array of TickableBoxes
-			for (int col = 0; col < boxes[row].length; col++) {
-				//each MaskableBox has a clicked property from the parent class ClickableBox
-				if (boxes[row][col].isClicked()) {
-					// un click it
-					boxes[row][col].setClicked(false);
-					//Call the doGameLogic() method and pass the box that was clicked
-					doGameLogic(boxes[row][col]);					
-				}
-			}
-		}
 		//loop through the array of all TickableBoxes and draw them
 		for (int row = 0; row < boxes.length; row++) {
 			for (int col = 0; col < boxes[row].length; col++) {
+				if (boxes[row][col].isClicked()){
+					this.doGameLogic(boxes[row][col]);
+				}
 				//the draw() method of TickableBox overrides the draw() method inherited from ClickableBox
 				boxes[row][col].draw(g);
 			}
 		}
-	}
 
-
-	/**
-	 * 
-	 */
-	private void buildBoxes() {
-		// need to clear any chosen boxes when building new array.
-		chosenBoxes = new MaskableBox[2];
-		// create a new matchedBoxes array
-		matchedBoxes = new boolean [ROWS][COLS];
-
-		//mouse listeners have to be removed from the applet
-		this.removeMouseListeners();
-
-		for(int row = 0; row < boxes.length; row++) {
-			for(int col = 0; col < boxes[row].length; col++) {
-				//create a new MaskableBox and add it to the array of boxes
-				boxes[row][col] = 
-						new MaskableBox(START_X + col * BOX_WIDTH,
-								START_Y + row * BOX_HEIGHT,
-								BOX_WIDTH,
-								BOX_HEIGHT,
-								Color.gray,
-								boxColors[row][col],
-								true,
-								this);
-				//set the MASK to TRUE when the box is first built
-				boxes[row][col].setMask(true);
-				boxes[row][col].setMaskColor(Color.WHITE);
-				//add the MaskableBox as a MouseListener to the applet
-				this.addMouseListener(boxes[row][col]);
-			}
+		//remove the outer border of the set of boxes
+		g.setColor(Color.WHITE);
+		g.drawRect(
+				START_X, 
+				START_Y, 
+				ROWS * BOX_WIDTH, 
+				COLS * BOX_HEIGHT
+				);
+		if (winner != null){
+			g.setColor(Color.BLACK);
+			g.drawString(
+					winner, 
+					START_X-8,
+					(COLS * BOX_HEIGHT)+ (START_Y*2)+5
+					);
 		}
-	}
-
-	/**
-	 * 
-	 */
-	private void removeMouseListeners() {
-		for(int row = 0; row < boxes.length; row ++) {
-			for(int col = 0; col < boxes[row].length; col++) {
-				//this is a method of the Component class
-				this.removeMouseListener(boxes[row][col]);
-			}
+		else {
+			g.setColor(Color.BLACK);
+			g.drawString(
+					" go: " + turn, 
+					START_X-5,
+					(COLS * BOX_HEIGHT)+ (START_Y*2)+5
+					);
 		}
 	}
 
 	/**
 	 * @param box
 	 * 
-		pseudocode:
-
-		If both chosenBoxes array at index 0 and 1 are not null 
-		 //we need to check to see if their colors match.
-		 if the background color of both chosenBoxes are equal to each other
-		  //we need to set each of their corresponding matchedBoxes elements
-		  //to true so game logic won't be called if those boxes are clicked
-		  //again.
-
-		  for each of the chosenBoxes at index i
-		   for each of the boxes array at index row
-		    for for each of the boxes[row] array at index col
-		     if the boxes array at the intersection of indexes
-		       row and col is equal to the 
-		       chosenBoxes array at index i
-		      Set the matchedBoxes array at row and col equal to true
-		      break out of the inner loop.// break; is the Java statement.
-		     end_if
-		    end_for
-		   end_for
-		  end_for
-		 end_if
-		 else 
-		  //the background colors do not match
-		  set both chosenBoxes mask value to true.
-		 end_else
-		 //we need to reset the chosenBoxes array elements to null.
-		 Set the chosenBoxes array to equal a new array of size 2.
-		end_if
-
-		if the first index chosenBoxes is null
-		 //we have no boxes already chosen.
-		 set the first chosenBoxes equal to the parameter of the method.
-		 set its mask value to false and return out of the method.
-		end_if
-		else 
-		 if the second index chosenBoxes is null
-		  //we have one box already chosen.
-		  set the second chosenBoxes equal to the parameter of the method.
-		  set its mask value to false
-
-		 end_if
-		end_else
-
 	 */
-	public void doGameLogic(MaskableBox box){
+	public void doGameLogic(TickableBox box){
+		//see if there is already a winner
+		if (winner == null){
+			//see if the box already has a mark
+			//don't count the turn if the box has a mark
+			if (box.getBoxMark()[0]==0){
+				//set the box mark, according to whose turn it is
+				box.changeBoxMark(turn);	
+				//increment the turn counter
+				turnCounter++;
+				//switch turns
+				if (turn=='x'){
+					turn='o';
+				}
+				else{
+					turn='x';
+				}
+			}
 
-		if(chosenBoxes[0] == null){
-			//we have no boxes already chosen.
-			//set the first chosenBoxes element equal to the parameter of the method.
-			chosenBoxes[0] = box;
-			//set its mask value to false
-			chosenBoxes[0].setMask(false);
-		}
-		else if (chosenBoxes[1] == null) {
-			//this is the second box chosen
-			//set the second chosenBoxes element equal to the parameter of the method.
-			chosenBoxes[1] = box;	
-			//set its mask value to false
-			chosenBoxes[1].setMask(false);
+			//unset the clicked boolean
+			box.setClicked(false);		
 
-			//Check to see if the Colors of the MaskableBox objects match
-			if ( chosenBoxes[0].getBackColor() == chosenBoxes[1].getBackColor() ){
-				//we need to set each of their corresponding matchedBoxes elements
-				//to true so game logic won't be called if those boxes are clicked
-				//again.
-				for (int i=0;i<chosenBoxes.length;i++) {
-					for(int j=0;j<boxes.length;j++){
-						for (int k=0;k<boxes[j].length;k++){
-							if (chosenBoxes[i] == boxes[j][k] ){
-								matchedBoxes[j][k] = true;
-								boxes[j][k].setMatched(true);
-								break;
-							}
-						}
+			//decide if we have a winner
+			//no point in checking for a winner before turn 5
+			if (turnCounter > 4){
+				int [] checksum;
+				checksum = new int[8];
+				//row 1
+				checksum[0] = (int)boxes[0][0].getBoxMark()[0] + (int)boxes[0][1].getBoxMark()[0] + (int)boxes[0][2].getBoxMark()[0];
+				//row 2
+				checksum[1] = (int)boxes[1][0].getBoxMark()[0] + (int)boxes[1][1].getBoxMark()[0] + (int)boxes[1][2].getBoxMark()[0];
+				//row 3
+				checksum[2] = (int)boxes[2][0].getBoxMark()[0] + (int)boxes[2][1].getBoxMark()[0] + (int)boxes[2][2].getBoxMark()[0];
+				//col 1
+				checksum[3] = (int)boxes[0][0].getBoxMark()[0] + (int)boxes[1][0].getBoxMark()[0] + (int)boxes[2][0].getBoxMark()[0];
+				//col 2
+				checksum[4] = (int)boxes[0][1].getBoxMark()[0] + (int)boxes[1][1].getBoxMark()[0] + (int)boxes[2][1].getBoxMark()[0];
+				//col 3
+				checksum[5] = (int)boxes[0][2].getBoxMark()[0] + (int)boxes[1][2].getBoxMark()[0] + (int)boxes[2][2].getBoxMark()[0];
+				//diagonal down
+				checksum[6] = (int)boxes[0][0].getBoxMark()[0] + (int)boxes[1][1].getBoxMark()[0] + (int)boxes[2][2].getBoxMark()[0];
+				//diagonal up
+				checksum[7] = (int)boxes[2][0].getBoxMark()[0] + (int)boxes[1][1].getBoxMark()[0] + (int)boxes[0][2].getBoxMark()[0];
+				//333 o wins
+				//360 x wins
+				for (int i=0;i<8;i++){
+					if (checksum[i]==333){
+						winner = "o wins!";
+						break;
+					}
+					if (checksum[i]==360){
+						winner = "x wins!";
+						break;
+					}
+				}
+
+				//if we don't have a winner after 9 turns, it's a draw
+				if (turnCounter == 9){
+					if (winner == null){
+						winner = "draw";
 					}
 				}
 			}
 		}
-		else {
-			//this is the third box chosen
-
-			//check to see if the previous two were matches
-			if (!chosenBoxes[0].isMatched()){
-				//set both the chosenBoxes mask value to true
-				chosenBoxes[0].setMask(true);
-				chosenBoxes[1].setMask(true);
-			}
-
-			//Clear the chosen boxes to allow another pair of guesses
-			chosenBoxes = new MaskableBox[2];
-
-			//set the first chosenBoxes element equal to the parameter of the method.
-			chosenBoxes[0] = box;
-
-			//set the mask on the third box chosen to false
-			chosenBoxes[0].setMask(false);
-
-		}
 	} //end doGameLogic
-
-
 }

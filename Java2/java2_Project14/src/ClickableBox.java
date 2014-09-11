@@ -47,15 +47,7 @@ public class ClickableBox extends MouseAdapter {
             parent.repaint();
         }
     }
-     
-    public boolean isClicked() {
-        return clicked;
-    }
-    
-    public void setClicked(boolean clicked) {
-        this.clicked = clicked;
-    }
-    
+
 	public int getX() {
 		return x;
 	}
@@ -119,5 +111,23 @@ public class ClickableBox extends MouseAdapter {
 	public void setDrawBorder(boolean drawBorder) {
 		this.drawBorder = drawBorder;
 	}
+
+	public boolean isClicked() {
+		return clicked;
+	}
+
+	public void setClicked(boolean clicked) {
+		this.clicked = clicked;
+	}
+
+	public Container getParent() {
+		return parent;
+	}
+
+	public void setParent(Container parent) {
+		this.parent = parent;
+	}
+     
+    
     
 }
