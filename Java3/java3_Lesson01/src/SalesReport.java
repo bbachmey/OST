@@ -4,9 +4,11 @@ public class SalesReport {
     int salespeople;
     int sum;
     int sales[];
+    Scanner scan = new Scanner(System.in);
 
     public SalesReport(){
-        this.salespeople = 3;
+        System.out.print("Enter the number of salespersons: ");
+        this.salespeople = scan.nextInt(); //REMOVE the 3!!!
         this.sales = new int[salespeople];
     }
   
@@ -16,7 +18,7 @@ public class SalesReport {
     }
                 
     public void getSalesInput(){
-        Scanner scan = new Scanner(System.in);
+//        Scanner scan = new Scanner(System.in);
                
         for (int i=0; i<sales.length; i++){
             System.out.print("Enter sales for salesperson " + i + ": ");
