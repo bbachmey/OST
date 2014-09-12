@@ -1,0 +1,3 @@
+Create a new project named java3_Homework01 in your Java3_Homework working set. Copy the last version of your SalesReport class into this new project. Enhance SalesReport by writing a computeAverage() method to compute and print the average sale. You can compute this from the value of sum; no new loop is necessary. Make any necessary changes to the program. Make sure to print out the average so that the user of the code sees it as output.
+
+Note: You'll need to do some casting to get an accurate average, because the sum and the number of salespeople are both integers but the average should be a float or double.
