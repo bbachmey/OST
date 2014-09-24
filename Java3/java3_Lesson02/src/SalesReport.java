@@ -27,11 +27,12 @@ public class SalesReport {
                 
     private void findMax() {
     	int max = 0;
-    	for (int i=0; i < sales.length; i++)
+    	int i;
+    	for (i=0; i < sales.length; i++)
     	{
     		if (max < sales[i]) max=sales[i];
     	}
-    	System.out.println("\nMaximum sales is " + max);
+    	System.out.println("\nSalesperson " + (i+1) + " had the highest sales with $" + max);
 		
 	}
 
