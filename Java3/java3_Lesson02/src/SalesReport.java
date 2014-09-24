@@ -13,7 +13,13 @@ public class SalesReport {
         this.sales = new int[salespeople];
     }
   
-    public void testMe(){
+    public SalesReport(int howMany) {
+		// TODO Auto-generated constructor stub
+    	this.salespeople = howMany;
+    	this.sales = new int[salespeople];
+	}
+
+	public void testMe(){
         getSalesInput();
         provideSalesOutput();
     }
