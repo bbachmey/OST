@@ -22,13 +22,24 @@ public class SalesReport {
 	public void testMe(){
         getSalesInput();
         provideSalesOutput();
+        findMax();
     }
                 
-    public void getSalesInput(){
+    private void findMax() {
+    	int max = 0;
+    	for (int i=0; i < sales.length; i++)
+    	{
+    		if (max < sales[i]) max=sales[i];
+    	}
+    	System.out.println("\nMaximum sales is " + max);
+		
+	}
+
+	public void getSalesInput(){
 //        Scanner scan = new Scanner(System.in);
                
         for (int i=0; i<sales.length; i++){
-            System.out.print("Enter sales for salesperson " + i + ": ");
+            System.out.print("Enter sales for salesperson " + (i+1) + ": ");
             sales[i] = scan.nextInt();
         }
     }
@@ -38,7 +49,7 @@ public class SalesReport {
         System.out.println("--------------------");
         sum = 0;
         for (int i=0; i<sales.length; i++){
-            System.out.println("     " + i + "         " + sales[i]);
+            System.out.println("     " + (i+1) + "         " + sales[i]);
             sum = sum + sales[i];
         }
         System.out.println("\nTotal sales: " + sum);
