@@ -26,7 +26,7 @@ public class SalesReport {
     }
                 
     private void findMax() {
-    	int max = 0;
+    	int max = sales[0];
     	int who = 0;
     	for (int i=0; i < sales.length; i++)
     	{
