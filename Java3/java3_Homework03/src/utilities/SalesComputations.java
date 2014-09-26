@@ -4,9 +4,17 @@ import java.util.Scanner;
 
 import salesIO.SalesReport;
 
+/**
+ * @author bbachmey
+ *
+ */
 public class SalesComputations {
 
 
+	/**
+	 * @param sales
+	 * @return who
+	 */
 	public int findMax(int sales[][]) {
 		int max = sales[0][SalesReport.TOTAL_COLUMN];
 		int who = sales[0][SalesReport.ID_COLUMN];
@@ -20,6 +28,10 @@ public class SalesComputations {
 
 	}
 
+	/**
+	 * @param sales
+	 * @return who
+	 */
 	public int findMin(int sales[][]) {
 		int min = sales[0][SalesReport.TOTAL_COLUMN];
 		int who = sales[0][SalesReport.ID_COLUMN];
@@ -33,6 +45,11 @@ public class SalesComputations {
 
 	}
 
+	/**
+	 * @param sales
+	 * @param guess
+	 * @return more
+	 */
 	public int[] findMore(int sales[][], int guess) {
 		int more[];
 		int many = 0;
@@ -55,6 +72,10 @@ public class SalesComputations {
 		
 	}
 
+	/**
+	 * @param sales
+	 * @return sum
+	 */
 	public int findSum(int sales[][]) {
 		int sum = 0;
 		for (int i=0; i<sales.length; i++){
@@ -63,6 +84,11 @@ public class SalesComputations {
 		return sum;
 	}
 
+	/**
+	 * @param people
+	 * @param sum
+	 * @return average
+	 */
 	public int findAvg(int people, int sum) {
 		double average = sum/people;
 		return (int)average;

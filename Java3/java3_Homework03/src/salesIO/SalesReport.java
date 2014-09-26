@@ -37,8 +37,6 @@ public class SalesReport {
 
 	}
 
-
-
 	private void input() {
 		//ask for a number
 		System.out.print("Enter the number of salespersons: ");
@@ -60,7 +58,7 @@ public class SalesReport {
 			sales[i][1] = number;
 			sales[i][2] = amount;
 		}
-
+		
 	}
 
 	private void calculate() {
@@ -69,7 +67,7 @@ public class SalesReport {
 		avg = computer.findAvg(salespeople,sum);
 		max = computer.findMax(sales);
 		min = computer.findMin(sales);
-
+		
 	}
 
 	public void output(){
@@ -118,5 +116,7 @@ public class SalesReport {
 			
 			System.out.println("The total number of salespeople whose sales exceeded the $ amount entered is: " + more.length ); 
 		}
+		
 	}
+	
 } 
