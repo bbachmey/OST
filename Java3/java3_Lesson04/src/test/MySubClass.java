@@ -2,7 +2,15 @@ package test;
 
 public class MySubClass extends MySuperClass {
 	
-	//int i = 42;
+	public MySubClass(){
+    } 
+
+    public MySubClass(int x){
+
+        super(x);  // passes the desired value to the super. 
+        System.out.println("Here I am passing " + x + " to my super for a value of i");
+    	
+    }
 	
 	public static void main(String[] args){
 		
