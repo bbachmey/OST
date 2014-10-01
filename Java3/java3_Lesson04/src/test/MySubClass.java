@@ -12,9 +12,11 @@ public class MySubClass extends MySuperClass {
 		
 	}
 
+/*
     public void addToI (int j) {
         i = i + (j / 2);
         System.out.println("After MySubClass addToI, i is " + i); 
     }
+*/
 
 }
