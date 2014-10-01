@@ -18,7 +18,7 @@ public class MySubClass extends MySuperClass {
 	
 	public static void main(String[] args){
 		
-		MySubClass testing = new MySubClass();
+		MySubClass testing = new MySubClass(50);
 
 		System.out.println("\nEnd of main after instantiation. Value of i is " + testing.i); 
 		
