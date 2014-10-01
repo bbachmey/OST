@@ -13,12 +13,12 @@ public class MySuperClass {
 	}
 	
 	public MySuperClass(){
-		i=10;
+		this.i=10;
 		
 	}
 	
 	public MySuperClass(int value){
-		this.i = value;
+		i = value;
 		
 	}
 
