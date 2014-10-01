@@ -13,7 +13,8 @@ public class MySuperClass {
 //	}
 	
 	public MySuperClass(){
-		this.i=10;
+		//this.i=10;
+		this(10);
 		
 	}
 	
@@ -22,11 +23,10 @@ public class MySuperClass {
 		
 	}
 	
-
     public void addToI (int j) {
         i = i + j; 
-        System.out.println("After MySuperClass addToI, i is " + i); 
+        System.out.println("After MySuperClass addToI, i is " + i);
+        
     }
     
-
 }
