@@ -45,6 +45,18 @@ public class Rectangle extends Shape {
 		this.width = width;
 	}
 
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resize() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

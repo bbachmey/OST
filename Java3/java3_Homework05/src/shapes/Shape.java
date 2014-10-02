@@ -2,16 +2,27 @@ package shapes;
 
 import java.awt.Color;
 
-public class Shape {
+/**
+ * @author bbachmey
+ *
+ */
+public abstract class Shape {
 	Color outline;
 	Color fill;
 
+	/**
+	 * 
+	 */
 	public Shape(){
 		outline = Color.BLACK;
 		fill = Color.BLACK;
 		
 	}
 
+	/**
+	 * @param outline
+	 * @param fill
+	 */
 	public Shape(
 			Color outline, 
 			Color fill){
@@ -20,30 +31,54 @@ public class Shape {
 		this.fill = fill;
 	}
 
-	public void draw() {
-	}
+	/**
+	 * This is an abstract method because different shapes need to be drawn differently
+	 */
+	public abstract void draw();
 	
-	public void move() {
-	}
+	/**
+	 * This is an abstract method because different shapes have different position properties
+	 */
+	public abstract void move();
 	
-	public void resize() {
-	}
+	/**
+	 * This is an abstract method because different shapes have different size properties
+	 */
+	public abstract void resize();
 	
+	/**
+	 * 
+	 */
 	public void remove() {
 	}
 	
+	/**
+	 * 
+	 */
 	public void change() {
 	}
 
+	/**
+	 * @return
+	 */
 	public Color getOutline() {
 		return outline;
 	}
+	/**
+	 * @param outline
+	 */
 	public void setOutline(Color outline) {
 		this.outline = outline;
 	}
+	/**
+	 * @return
+	 */
 	public Color getFill() {
 		return fill;
 	}
+	/**
+	 * @param fill
+	 */
 	public void setFill(Color fill) {
 		this.fill = fill;
 	}
