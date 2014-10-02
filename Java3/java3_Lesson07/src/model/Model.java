@@ -94,4 +94,20 @@ public class Model implements Resettable{
 	public void setCurrentShapeType(String currentShapeType) {
 		this.currentShapeType = currentShapeType;
 	}
+
+	public Container getContainer() {
+		return container;
+	}
+
+	public void setContainer(Container container) {
+		this.container = container;
+	}
+
+	public Shape getCurrentShape() {
+		return currentShape;
+	}
+
+	public void setCurrentShape(Shape currentShape) {
+		this.currentShape = currentShape;
+	}
 }

@@ -28,6 +28,7 @@ public class ShapeMouseHandler extends MouseAdapter {
     /*
      * Overrides MouseAdapter mousePressed method.
      */
+    @Override
     public void mousePressed(MouseEvent e) {
         if (model.getAction() == Model.DRAW) {
             // original upper left x and y of the shape.

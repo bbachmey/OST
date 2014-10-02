@@ -36,7 +36,7 @@ public abstract class Shape {
         return lineColor;
     }
   
-    public void setLineColor() {
+    public void setLineColor(Color lineColor) {
         this.lineColor = lineColor;
     }
 }
