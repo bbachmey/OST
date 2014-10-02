@@ -31,4 +31,24 @@ public class Model implements Resettable{
             ((Resettable)container).resetComponents();
         }
     }
+  
+    public String getAction() {
+        return action;
+    }
+  
+    public void setAction(String action) {
+        this.action = action;
+    }
+  
+    public boolean isFill() {
+        return fill;
+    }
+  
+    public void setFill(boolean fill) {
+        this.fill = fill;
+    }
+  
+    public String toString() {
+        return "Model:\n\tAction: " + action + "\n\tFill: " + fill;
+    }
 }
