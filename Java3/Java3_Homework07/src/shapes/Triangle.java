@@ -14,8 +14,14 @@ public class Triangle extends Shape {
 
 	public Triangle(int x, int y, Color lineColor) {
 		super(x, y, lineColor);
-		line1 = new Line(10,20,30,40, lineColor);
-		line2 = new Line(10,20,30,40, lineColor);
+		
+		line1 = new Line(x,y,x+30,y+30, lineColor);
+		line2 = new Line(
+				line1.getX1()+line1.getX2(),
+				(int)((line1.getX2()-line1.getX1())/2),
+				line1.getY1()+30, 
+				y, 
+				lineColor);
 		line3 = new Line(10,20,30,40, lineColor);
 		
 	}
