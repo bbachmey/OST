@@ -15,7 +15,10 @@ public class ActionPanel extends Panel implements Resettable {
     private Checkbox chkDraw, chkMove, chkResize, chkRemove, chkChange, chkFill;
   
     public ActionPanel(final Model model) {
+    	//Instantiate the CheckboxGroup
         actionGroup = new CheckboxGroup();
+       
+        //instantiate the Checkboxes
         chkDraw = new Checkbox(Model.DRAW, actionGroup, true);
         chkMove = new Checkbox(Model.MOVE, actionGroup, false);
         chkResize = new Checkbox(Model.RESIZE, actionGroup, false);
@@ -23,6 +26,7 @@ public class ActionPanel extends Panel implements Resettable {
         chkChange = new Checkbox(Model.CHANGE, actionGroup, false);
         chkFill = new Checkbox(Model.FILL, false);
         
+        //add anonymous inner class ItemListeners to the Checkboxes
         chkDraw.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 model.setAction(Model.DRAW);
@@ -54,6 +58,7 @@ public class ActionPanel extends Panel implements Resettable {
             }
         });
         
+        //add Checkboxes to this Panel
         setLayout(new GridLayout(1, 6));
         add(chkDraw);
         add(chkMove);

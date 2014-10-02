@@ -7,11 +7,19 @@ import model.Model;
 
 public class MainPanel extends Panel implements Resettable {
     ActionPanel actionPanel;
+    ChoicePanel choicePanel;
   
     public MainPanel(Model model) {
-        actionPanel = new ActionPanel(model);
-        setLayout(new GridLayout(2,1));
+    	//set the layout of this MainPanel
+    	this.setLayout(new GridLayout(2,1));
+    	
+    	//add the action panel to the main panel
+        actionPanel = new ActionPanel(model);        
         add(actionPanel);
+        
+    	//add the choice panel to the main panel
+        choicePanel = new ChoicePanel(model);
+        add(choicePanel);
     }
   
     public void resetComponents() {
