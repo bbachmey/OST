@@ -1,4 +1,4 @@
-package java3_Quiz06;
+
 
 public class Quiz<T> implements Comparable<T> {
 
