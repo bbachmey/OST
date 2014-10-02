@@ -23,16 +23,26 @@ public class ChoicePanel extends Panel implements Resettable{
 	Choice choice;
 
 	public ChoicePanel(Model mdl) {
+		//Set the Model property of the ChoicePanel object to the Model defined in the formal parameter
+		//of the constructor
 		model = mdl;
+		//make a new blank Choice
 		choice = new Choice();
-
-
+		
+		//loop through the selections in the Model and add each one to the Choice object
+	    for(String msg : Model.choices) {
+	        choice.add(msg);
+	    }
+	    
+	    
+		//add an anonymous inner class ItemListener to the Choice object
 		choice.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 
 
 			}
 		});
+		//add the Choice to this ChoicePanel
 		this.add(choice);
 	}
 

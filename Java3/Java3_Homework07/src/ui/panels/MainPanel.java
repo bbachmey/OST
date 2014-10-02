@@ -22,7 +22,6 @@ public class MainPanel extends Panel implements Resettable {
         choicePanel = new ChoicePanel(model);
         add(choicePanel);
         
-
     	//add the controls panel to the main panel
         controlsPanel = new ControlsPanel(model);
         add(controlsPanel);

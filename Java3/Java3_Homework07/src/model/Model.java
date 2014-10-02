@@ -12,7 +12,8 @@ import java.awt.Container;
 import interfaces.Resettable;
 
 public class Model implements Resettable{
-    private Container container;
+
+	private Container container;
 
     public final static String DRAW = "Draw";
     public final static String MOVE = "Move";
@@ -26,6 +27,9 @@ public class Model implements Resettable{
     public final static String RECTANGLE = "Rectangle";
     public final static String OVAL = "Oval";
     public final static String TRIANGLE = "Triangle";
+    //Homework 7
+    public static String[] choices = {TRIANGLE, RECTANGLE, OVAL};
+    
     //Lesson 6
     //create a String instance variable named currentShapeType and set it to whatever 
     // your default shape will be (using the final static String variables you just created). 
