@@ -2,8 +2,9 @@ package model;
 
 import java.awt.Container;
 import view.ChoiceApplet;
+import interfaces.Resettable;
 
-public class Model {
+public class Model implements Resettable{
   
     private Container view;
     private String message;
@@ -25,5 +26,11 @@ public class Model {
     
     public void repaint() {
         view.repaint();
+    }
+    
+    public void resetComponents() {
+        //cast view to a Resettable type in order to see resetComponents().
+        ((Resettable)view).resetComponents();
+        repaint();
     }
 }
