@@ -33,4 +33,14 @@ public class ActionPanel extends Panel implements Resettable{
         add(chkChange);
         add(chkFill);
     }
+  
+    public void resetComponents() {
+        // For each component, set the state. Only one of the first five can be true.
+        chkDraw.setState(true);
+        chkMove.setState(false);
+        chkResize.setState(false);
+        chkRemove.setState(false);
+        chkChange.setState(false);
+        chkFill.setState(false);
+    }
 }
