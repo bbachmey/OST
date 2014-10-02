@@ -34,11 +34,11 @@ public class ChoicePanel extends Panel implements Resettable{
 	        choice.add(msg);
 	    }
 	    
-	    
 		//add an anonymous inner class ItemListener to the Choice object
 		choice.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-
+				model.setCurrentShapeType(choice.getSelectedItem());
+				 model.repaint();
 
 			}
 		});
@@ -48,7 +48,7 @@ public class ChoicePanel extends Panel implements Resettable{
 
 	public void resetComponents() {
 		choice.select(0);
-
+        model.setCurrentShapeType(choice.getSelectedItem());
 
 	}
 }

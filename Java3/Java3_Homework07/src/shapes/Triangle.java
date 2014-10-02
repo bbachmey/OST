@@ -14,7 +14,10 @@ public class Triangle extends Shape {
 
 	public Triangle(int x, int y, Color lineColor) {
 		super(x, y, lineColor);
-
+		line1 = new Line(10,20,30,40, lineColor);
+		line2 = new Line(10,20,30,40, lineColor);
+		line3 = new Line(10,20,30,40, lineColor);
+		
 	}
 
 	@Override

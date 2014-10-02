@@ -29,7 +29,9 @@ public class MainPanel extends Panel implements Resettable {
     }
   
     public void resetComponents() {
+    	//reset all the Panels defined in the MainPanel
         actionPanel.resetComponents();
         controlsPanel.resetComponents();
+        choicePanel.resetComponents();
     }
 }

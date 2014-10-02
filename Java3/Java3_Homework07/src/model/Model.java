@@ -28,7 +28,7 @@ public class Model implements Resettable{
     public final static String OVAL = "Oval";
     public final static String TRIANGLE = "Triangle";
     //Homework 7
-    public static String[] choices = {TRIANGLE, RECTANGLE, OVAL};
+    public static String[] choices = {RECTANGLE, OVAL, TRIANGLE};
     
     //Lesson 6
     //create a String instance variable named currentShapeType and set it to whatever 
@@ -62,6 +62,7 @@ public class Model implements Resettable{
   
     /**
      * @param container
+     * The Container being passed to this constructor is GUIDemo
      */
     public Model (Container container) {
         this.container = container;
@@ -83,10 +84,19 @@ public class Model implements Resettable{
         currentShape = null;
         fill = false;
         if(container instanceof Resettable) {
+        	//This is a call to the resetComponents() method of GUIDemo
             ((Resettable)container).resetComponents();
         }
     }
-  
+
+    
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    public String toString() {
+        return "Model:\n\tAction: " + action + "\n\tFill: " + fill;
+    }
+
     public String getAction() {
         return action;
     }
@@ -102,14 +112,6 @@ public class Model implements Resettable{
     public void setFill(boolean fill) {
         this.fill = fill;
     }
-  
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        return "Model:\n\tAction: " + action + "\n\tFill: " + fill;
-    }
-
 	public String getCurrentShapeType() {
 		return currentShapeType;
 	}
