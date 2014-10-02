@@ -2,22 +2,21 @@ package ui.applet;
 
 import interfaces.Resettable;
 import java.applet.Applet;
-//import ui.panels.ActionPanel;
 import ui.panels.MainPanel;
+import model.Model;
 
 public class GUIDemo extends Applet implements Resettable{
-    //ActionPanel actionPanel;
     MainPanel mainPanel;
+    Model model;
   
     public void init() {
         resize(600,400);
-        //actionPanel = new ActionPanel();
-        //add(actionPanel);
-        mainPanel = new MainPanel();
+        model = new Model(this);
+        mainPanel = new MainPanel(model);
         add(mainPanel);
     }
-    
-    public void resetComponents(){
+  
+    public void resetComponents() {
         mainPanel.resetComponents();
     }
 }
