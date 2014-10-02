@@ -1,10 +1,14 @@
 package model;
 
 import java.awt.Color;
+
+import shapes.Oval;
 import shapes.Rectangle;
 import shapes.Shape;
+import shapes.Triangle;
 
 import java.awt.Container;  
+
 import interfaces.Resettable;
 
 public class Model implements Resettable{
@@ -29,10 +33,23 @@ public class Model implements Resettable{
 
     //Lesson 7
     private Shape currentShape;
+    
+    /**
+     * @return
+     * Homework 7
+     * Give your Model.createShape() the ability to make whatever shape 
+     * the Model.currentShapeType variable (created in the last project) indicates.
+     */
     public Shape createShape() { 
         if(currentShapeType == RECTANGLE){
-          currentShape =  new Rectangle(0, 0, 0, 0, Color.black, Color.red, fill);
-        }
+            currentShape =  new Rectangle(0, 0, 0, 0, Color.black, Color.red, fill);
+          }
+        if(currentShapeType == OVAL){
+            currentShape =  new Oval(0, 0, 0, 0, Color.black, Color.red, fill);
+          }
+        if(currentShapeType == TRIANGLE){
+            currentShape =  new Triangle(0, 0, Color.black);
+          }
         return currentShape;
     }
     
