@@ -53,4 +53,30 @@ public class ShapeMouseHandler extends MouseAdapter {
         // tell the model to repaint the applet or application.
         model.repaint();
     }
+    
+    /*
+     * Overrides MouseAdapter's mouseDragged method.
+     */
+    public void mouseDragged(MouseEvent e) {
+        // get the current shape handled by the model.
+        shape = model.getCurrentShape();
+        // if there is a current shape in the model.
+        if (shape != null) {
+            // if we are in DRAW mode.
+            if (model.getAction() == Model.DRAW) {
+                // set the x and y location of the shape (allows rubber banding).
+                shape.setX(Math.min(startX, e.getX()));
+                shape.setY(Math.min(startY, e.getY()));
+            }
+            // if the shape is an instance of Rectangle or a descendant of Rectangle
+            if (shape instanceof Rectangle) {
+                // set its width and height.
+                // allows for rubber banding.
+                ((Rectangle) shape).setWidth(Math.abs(startX - e.getX()));
+                ((Rectangle) shape).setHeight(Math.abs(startY - e.getY()));
+            }
+        }
+        // tell the model to repaint the applet or application.
+        model.repaint();
+    }
 }
