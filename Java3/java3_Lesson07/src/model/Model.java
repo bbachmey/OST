@@ -58,6 +58,8 @@ public class Model implements Resettable{
      */
     public void resetComponents() {
         action = DRAW;
+
+        currentShape = null;
         fill = false;
         if(container instanceof Resettable) {
             ((Resettable)container).resetComponents();
