@@ -1,5 +1,9 @@
 package model;
 
+import java.awt.Color;
+import shapes.Rectangle;
+import shapes.Shape;
+
 import java.awt.Container;  
 import interfaces.Resettable;
 
@@ -23,6 +27,14 @@ public class Model implements Resettable{
     // your default shape will be (using the final static String variables you just created). 
     private String currentShapeType = RECTANGLE;
 
+    //Lesson 7
+    private Shape currentShape;
+    public Shape createShape() { 
+        if(currentShapeType == RECTANGLE){
+          currentShape =  new Rectangle(0, 0, 0, 0, Color.black, Color.red, fill);
+        }
+        return currentShape;
+    }
     
     private String action = DRAW;
     private boolean fill = false;
