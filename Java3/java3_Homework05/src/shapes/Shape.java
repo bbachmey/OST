@@ -2,85 +2,53 @@ package shapes;
 
 import java.awt.Color;
 
-/**
- * @author bbachmey
- *
- */
 public abstract class Shape {
-	Color outline;
-	Color fill;
+	Color color;
+	int x;
+	int y;
 
-	/**
-	 * 
-	 */
 	public Shape(){
-		outline = Color.BLACK;
-		fill = Color.BLACK;
+		color = Color.BLACK;
 		
 	}
 
-	/**
-	 * @param outline
-	 * @param fill
-	 */
-	public Shape(
-			Color outline, 
-			Color fill){
+	public Shape(int x, int y, Color c){
 
-		this.outline = outline;
-		this.fill = fill;
+		this.x = x;
+		this.y = y;
+		this.color = c;
+		
 	}
 
 	/**
 	 * This is an abstract method because different shapes need to be drawn differently
 	 */
 	public abstract void draw();
-	
-	/**
-	 * This is an abstract method because different shapes have different position properties
-	 */
-	public abstract void move();
-	
-	/**
-	 * This is an abstract method because different shapes have different size properties
-	 */
-	public abstract void resize();
-	
-	/**
-	 * 
-	 */
-	public void remove() {
-	}
-	
-	/**
-	 * 
-	 */
-	public void change() {
+
+
+	public Color getColor() {
+		return color;
 	}
 
-	/**
-	 * @return
-	 */
-	public Color getOutline() {
-		return outline;
-	}
-	/**
-	 * @param outline
-	 */
-	public void setOutline(Color outline) {
-		this.outline = outline;
-	}
-	/**
-	 * @return
-	 */
-	public Color getFill() {
-		return fill;
-	}
-	/**
-	 * @param fill
-	 */
-	public void setFill(Color fill) {
-		this.fill = fill;
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	
 }
