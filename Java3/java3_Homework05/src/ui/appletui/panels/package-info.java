@@ -5,4 +5,4 @@
  * @author bbachmey
  *
  */
-package ui.panels;
+package ui.appletui.panels;
