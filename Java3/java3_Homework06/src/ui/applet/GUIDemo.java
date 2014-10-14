@@ -11,17 +11,23 @@ public class GUIDemo extends Applet implements Resettable{
     Model model;
   
     public void init() {
-        resize(600,400);
-        model = new Model(this);
+        //resize the applet window
+    	resize(600,400);
+        //make a model object and send this Applet as a parameter
+    	model = new Model(this);
+    	//make a MainPanel object and send the Model object as a parameter
         mainPanel = new MainPanel(model);
-        add(mainPanel);
+        //add the MainPanel object to this Applet
+        this.add(mainPanel);
     }
     
     public void paint(Graphics g){
+    	//Nothing happening here, yet. See the console for output.
         System.out.println(model);
     }
     
     public void resetComponents() {
+    	//call the resetComponents() method on the MainPanel object
         mainPanel.resetComponents();
     }
 }
