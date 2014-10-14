@@ -1,0 +1,8 @@
+Create a new project named java3_Homework06 in your Java3_Homework working set. Copy your latest version of the GUIDemo applet and associated files into the java3_Homework06 project. You can use your GUIDemo class later to draw your shapes, or you can create a new class in your ui.applet package in java3_Homework06. If you create a new class for this, please make sure your mentor knows which one to view when you submit your projects.
+
+This project is designed to bring you up to speed on what we did in Lesson 6 and get you more comfortable with the Model/View/Controller (MVC) design pattern. Feel free to use any code you have created or seen in the previous lessons.
+
+Add a ChoicePanel that contains a Choice component for the types of Shapes you will allow (as shown in lesson 6), including at least one Shape in addition to the Rectangle and Oval (perhaps a Triangle). This ChoicePanel also needs to implement Resettable.
+In your Model class, create final static String variables to represent the different Shape types, "Rectangle," "Oval," etc. Use these variables to fill your Choice component.
+In your Model class, create a String instance variable named currentShapeType and set it to whatever your default shape will be (using the final static String variables you just created). You also need to make getters and setters for it. Don't worry about using currentShapeType yet. In the next lesson, we'll tell createShape() to instantiate a Shape that matches the currentShapeType. For now, just make sure it's set to the default shape type.
+In the next lesson, we'll add the ability to draw shapes using the mouse.
