@@ -1,12 +1,7 @@
-Overall Comments:
-This is pretty great! 
+This is AWESOME!
 
-I just have one small nit-pick, but it's directly related to this Lesson-  The Shape class declares a fill Color, but Lines can't embody this attribute.  The super class should be as general as possible, so that it can describe ALL of it's subclasses.  
-
-In a similar, but opposite situation, you have all of your subclasses declaring their own personal starting points.  If this is a var that ALL will embody, then the super class is where you should declare it.
-
-The next lesson will offer some advice on this, take a look- Let me know if you have questions.
+It looks like you're off to a great start!   =D
 
 Grade:
 
-Try Again
+Great
