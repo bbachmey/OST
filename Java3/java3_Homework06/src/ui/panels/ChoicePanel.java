@@ -25,12 +25,18 @@ public class ChoicePanel extends Panel implements Resettable{
 	public ChoicePanel(Model mdl) {
 		model = mdl;
 		choice = new Choice();
+		
 
+        for(String msg : mdl.choices) {
+            choice.add(msg);
+        }
+        
+        
+        
 
 		choice.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-
-
+				//Nothing here
 			}
 		});
 		this.add(choice);
