@@ -14,6 +14,10 @@ public class Model implements Resettable{
 	//declare a Container object
     private Container container;
 
+
+    private String action = DRAW;
+    private boolean fill = false;
+    
     //declare a set of String constants
     public final static String DRAW = "Draw";
     public final static String MOVE = "Move";
@@ -48,19 +52,17 @@ public class Model implements Resettable{
      */
     public Shape createShape() { 
         if(currentShapeType == RECTANGLE){
-            currentShape =  new Rectangle(0, 0, 0, 0, Color.black, Color.red, fill);
+            currentShape =  new Rectangle(Color.black, 0, 0, 0, 0, Color.red, fill);
           }
         if(currentShapeType == OVAL){
-            currentShape =  new Oval(0, 0, 0, 0, Color.black, Color.red, fill);
+            currentShape =  new Oval(Color.black, 0, 0, 0, 0, Color.red, fill);
           }
         if(currentShapeType == TRIANGLE){
-            currentShape =  new Triangle(0, 0, Color.black);
+            currentShape =  new Triangle(Color.black, 0, 0 );
           }
         return currentShape;
     }
     
-    private String action = DRAW;
-    private boolean fill = false;
   
     /**
      * Model constructor
