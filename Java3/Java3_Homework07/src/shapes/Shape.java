@@ -19,10 +19,14 @@ public abstract class Shape {
      * 
      * The constructor requires all three Shape properties
      */
-    public Shape(int x, int y, Color lineColor) {
+    public Shape(
+    		Color lineColor, 
+    		int x, 
+    		int y
+    		){
+        this.lineColor = lineColor;
         this.x = x;
         this.y = y;
-        this.lineColor = lineColor;
     }
   
     //Abstract methods must be implemented by subclasses

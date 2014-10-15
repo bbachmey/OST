@@ -8,29 +8,52 @@ public class Triangle extends Shape {
 	private int width; 
 	private int height;
 	private boolean fill;
-	private Line line1;
-	private Line line2;
-	private Line line3;
+	private Point A;
+	private Point B;
+	private Point C;
 
-	public Triangle(int x, int y, Color lineColor) {
-		super(x, y, lineColor);
-		
-//		line1 = new Line(x,y,x+30,y+30, lineColor);
-//		line2 = new Line(
-//				line1.getX1()+line1.getX2(),
-//				(int)((line1.getX2()-line1.getX1())/2),
-//				line1.getY1()+30, 
-//				y, 
-//				lineColor);
-//		line3 = new Line(10,20,30,40, lineColor);
-		
+	public Triangle(Color lineColor, int x, int y) {
+		super(lineColor, x, y);
+		A = new Point(lineColor,0,0);
+		B = new Point(lineColor,0,0);
+		C = new Point(lineColor,0,0);
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		line1.draw(g);
-		line2.draw(g);
-		line3.draw(g);
+
+		Line ab = new Line(fillColor,0,0,0,0);
+		Line bc = new Line(fillColor,0,0,0,0);
+		Line ca = new Line(fillColor,0,0,0,0);
+		
+		A.setX( super.getX() );
+		A.setY( super.getY() );
+
+		B.setX( super.getX() + width );
+		B.setY( super.getY() );
+		
+		C.setX( B.getX()-(width/2) );
+		C.setY( A.getY() - height );
+
+
+		ab.setX(A.getX());
+		ab.setX2(B.getX());
+		ab.setY(A.getY());
+		ab.setY2(B.getY());
+
+		bc.setX(B.getX());
+		bc.setX2(C.getX());
+		bc.setY(B.getY());
+		bc.setY2(C.getY());
+
+		ca.setX(C.getX());
+		ca.setX2(A.getX());
+		ca.setY(C.getY());
+		ca.setY2(A.getY());
+	
+		ab.draw(g);
+		bc.draw(g);
+		ca.draw(g);
 
 	}
 
@@ -48,6 +71,20 @@ public class Triangle extends Shape {
 		return false;
 	}
 
+
+	/**
+	 * Returns a String representing this object.
+	 * Overrides toString() in java.lang.Object
+	 */
+	@Override
+	public String toString() {
+		return "Triangle: " +
+				"\n\tA = ( " + A.getX() + "," + A.getY() + " )" + 
+				"\n\tA = ( " + B.getX() + "," + B.getY() + " )" + 
+				"\n\tA = ( " + C.getX() + "," + C.getY() + " )"  
+				;
+	}
+	
 	//getters and setters
 	public Color getFillColor() {
 		return fillColor;
@@ -79,6 +116,30 @@ public class Triangle extends Shape {
 
 	public void setFill(boolean fill) {
 		this.fill = fill;
+	}
+
+	public Point getA() {
+		return A;
+	}
+
+	public void setA(Point a) {
+		A = a;
+	}
+
+	public Point getB() {
+		return B;
+	}
+
+	public void setB(Point b) {
+		B = b;
+	}
+
+	public Point getC() {
+		return C;
+	}
+
+	public void setC(Point c) {
+		C = c;
 	}
 
 }

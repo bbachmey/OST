@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import model.Model;
 import shapes.Rectangle;
 import shapes.Shape;
+import shapes.Triangle;
 
 public class ShapeMouseHandler extends MouseAdapter {
     private Model model;
@@ -48,6 +49,11 @@ public class ShapeMouseHandler extends MouseAdapter {
                     ((Rectangle) shape).setWidth(50);
                     ((Rectangle) shape).setHeight(50);
                 }
+                else {
+                    ((Triangle) shape).setWidth(50);
+                    ((Triangle) shape).setHeight(50);
+                	
+                }
             }
         }
         // tell the model to repaint the applet or application.
@@ -74,6 +80,11 @@ public class ShapeMouseHandler extends MouseAdapter {
                 // allows for rubber banding.
                 ((Rectangle) shape).setWidth(Math.abs(startX - e.getX()));
                 ((Rectangle) shape).setHeight(Math.abs(startY - e.getY()));
+            }
+            else{
+
+                ((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
+                ((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
             }
         }
         // tell the model to repaint the applet or application.

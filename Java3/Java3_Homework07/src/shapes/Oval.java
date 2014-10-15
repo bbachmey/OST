@@ -7,8 +7,16 @@ public class Oval extends Rectangle {
     /**
     * Constructor.  Just passes the params to the Rectangle constructor.
     */
-    public Oval(int x, int y, int w, int h, Color lineColor, Color fillColor, boolean fill) {
-        super(x, y, w, h, lineColor, fillColor, fill);
+    public Oval(
+    		Color lineColor, 
+    		int x, 
+    		int y, 
+    		int w, 
+    		int h, 
+    		Color fillColor, 
+    		boolean fill
+    		){
+        super(lineColor, x, y, w, h, fillColor, fill);
     }
   
     /*

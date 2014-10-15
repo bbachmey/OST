@@ -9,16 +9,25 @@ public class Rectangle extends Shape {
 	private int height;
 	private boolean fill;
 
+	/**
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h
+	 * @param lineColor
+	 * @param fillColor
+	 * @param fill
+	 */
 	public Rectangle(
+			Color lineColor,
 			int x, 
 			int y, 
 			int w, 
-			int h, 
-			Color lineColor, 
+			int h,  
 			Color fillColor, 
 			boolean fill
 			){
-		super(x, y, lineColor);
+		super(lineColor, x, y);
 		this.width = w;
 		this.height = h;
 		this.fillColor = fillColor;
@@ -27,22 +36,28 @@ public class Rectangle extends Shape {
 
 	public void draw(Graphics g) {
 		// Be nice. Save the state of the object before changing it.
-		Color oldColor = g.getColor();
+		Color jot = g.getColor();
 		if (isFill()) {
 			g.setColor(getFillColor());
 			g.fillRect(getX(), getY(), getWidth(), getHeight());
 		}
+		//draw the outline after drawing the shape
 		g.setColor(getLineColor());
 		g.drawRect(getX(), getY(), getWidth(), getHeight());
 		// Set the state back when done.
-		g.setColor(oldColor);
+		g.setColor(jot);
 	}
 
 	// Override abstract method containsLocation in the Shape class.
 	@Override
 	public boolean containsLocation(int x, int y) {
-		if (getX() <= x && getY() <= y && getX() + getWidth() >= x && getY() + getHeight() >= y) {
-			return true;
+		if (
+				getX() <= x 
+				&& getY() <= y 
+				&& getX() + getWidth() >= x 
+				&& getY() + getHeight() >= y
+			) {
+				return true;
 		}
 		return false;
 	}

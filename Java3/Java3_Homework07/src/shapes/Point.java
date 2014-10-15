@@ -3,29 +3,23 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Line extends Shape {
+public class Point extends Shape {
 
-	int x2;
-	int y2;
-
-	public Line(
+	public Point(
 			Color lineColor,
-			int x1, 
-			int y1,
-			int x2, 
-			int y2
+			int x, 
+			int y
 			){
-		super(lineColor, x1, y1);
+		super(lineColor, x, y);
 	}
 	
 	@Override
 	public void draw(Graphics g) {
 
-
         // Jot down the Color of the Graphics object
         Color jot = g.getColor();
         g.setColor(getLineColor());
-        g.drawLine(super.getX(), super.getY(), this.x2, this.y2);
+        g.drawOval(getX(), getY(), 1, 1);
 
         // Re-jot the Color
         g.setColor(jot);
@@ -38,23 +32,5 @@ public class Line extends Shape {
 		return false;
 	}
 	
-	public int getX2() {
-		return x2;
-	}
-
-	public void setX2(int x2) {
-		this.x2 = x2;
-	}
-
-	public int getY2() {
-		return y2;
-	}
-
-	public void setY2(int y2) {
-		this.y2 = y2;
-	}
-
-
-
 	
 }
