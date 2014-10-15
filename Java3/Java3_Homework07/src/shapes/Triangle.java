@@ -80,8 +80,8 @@ public class Triangle extends Shape {
 	public String toString() {
 		return "Triangle: " +
 				"\n\tA = ( " + A.getX() + "," + A.getY() + " )" + 
-				"\n\tA = ( " + B.getX() + "," + B.getY() + " )" + 
-				"\n\tA = ( " + C.getX() + "," + C.getY() + " )"  
+				"\n\tB = ( " + B.getX() + "," + B.getY() + " )" + 
+				"\n\tC = ( " + C.getX() + "," + C.getY() + " )"  
 				;
 	}
 	
