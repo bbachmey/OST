@@ -23,7 +23,7 @@ public class NestTest extends Applet {
 				
 	}
 	
-	public static class BirthDayClass{
+	private static class BirthDayClass{
 		private int birthYear;
 		private int birthMonth;
 		private int birthDay;
