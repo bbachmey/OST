@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class NestTest5 extends Applet {
     private static int count = 0;
     public void init() {
-        Button myButton = new Button("I've been pressed " + count + " times.");
+        final Button myButton = new Button("I've been pressed " + count + " times.");
         // compare to the pattern above
         myButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
