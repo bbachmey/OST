@@ -9,6 +9,15 @@ public class NestTest3 extends Applet {
     String msg = "";
 
     public void init() {
+    	
+    	class ListListener implements ActionListener {
+    		public void actionPerformed(ActionEvent e) {
+    			msg = e.getActionCommand();
+    			repaint();
+    		}
+    	}
+    	
+    	
         List myList = new List();
         for (String item : listItems) {
             myList.add(item);
@@ -16,12 +25,7 @@ public class NestTest3 extends Applet {
         myList.addActionListener(new ListListener());
         add(myList);
 
-        class ListListener implements ActionListener {
-            public void actionPerformed(ActionEvent e) {
-                msg = e.getActionCommand();
-                repaint();
-            }
-        }
+     
     }
 
     public void paint(Graphics g) {
