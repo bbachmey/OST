@@ -1,5 +1,6 @@
 package event;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -39,7 +40,9 @@ public class ShapeMouseHandler extends MouseAdapter {
             shape = model.createShape();
             // if the shape was created.
             if (shape != null) {
-                //set its upper left x and y to where the mouse was pressed.
+            	//set the shape colors
+            	shape.setLineColor(model.getCurrentLineColor());
+            	//set its upper left x and y to where the mouse was pressed.
                 shape.setX(e.getX());
                 shape.setY(e.getY());
                 // We should set a default width and height or ending location in
@@ -66,8 +69,14 @@ public class ShapeMouseHandler extends MouseAdapter {
     public void mouseDragged(MouseEvent e) {
         // get the current shape handled by the model.
         shape = model.getCurrentShape();
+
+        
         // if there is a current shape in the model.
         if (shape != null) {
+
+        	//set the shape colors
+        	shape.setLineColor(model.getCurrentLineColor());
+        	
             // if we are in DRAW mode.
             if (model.getAction() == Model.DRAW) {
                 // set the x and y location of the shape (allows rubber banding).

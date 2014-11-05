@@ -11,8 +11,17 @@ public abstract class Shape {
 	//all Shapes have x and y positions and a line Color
     private int x, y;
     private Color lineColor;
+    private Color fillColor;
   
-    /**
+    public Color getFillColor() {
+		return fillColor;
+	}
+
+	public void setFillColor(Color fillColor) {
+		this.fillColor = fillColor;
+	}
+
+	/**
      * @param x
      * @param y
      * @param lineColor

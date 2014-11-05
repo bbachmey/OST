@@ -90,10 +90,11 @@ public class MainPanel extends Panel implements Resettable {
 					
 					//loop through the map in the model and find a match
 					for (Map.Entry<String, Color> entry : model.COLORS.entrySet() ) {
-						if (entry.getKey()==colorName){
-						}
+						String keyName = entry.getKey();
+						if ( colorName.equals(keyName) ){
 							model.setCurrentLineColor(entry.getValue() );
 						}
+					}
 					
 					model.repaint();
 
@@ -129,10 +130,11 @@ public class MainPanel extends Panel implements Resettable {
 					
 					//loop through the map in the model and find a match
 					for (Map.Entry<String, Color> entry : model.COLORS.entrySet() ) {
-						if (entry.getKey()==colorName){
-						}
+						String keyName = entry.getKey();
+						if ( colorName.equals(keyName) ){
 							model.setCurrentFillColor(entry.getValue() );
 						}
+					}
 					
 					model.repaint();
 

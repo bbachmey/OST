@@ -48,8 +48,6 @@ public class Model implements Resettable{
     //Lesson 7
     private Shape currentShape;
 
-
-    
     //Homework 8    
     //public final static Color BLACK = Color.BLACK;
     //public final static Color WHITE = Color.WHITE;    
@@ -67,11 +65,21 @@ public class Model implements Resettable{
     }};
     
     //declare a Color object for the model to keep track of the current Color
-	private Color currentLineColor;
-	private Color currentFillColor;
+	public Color currentLineColor;
+	public Color currentFillColor;
     
     
-    /**
+    public Color getCurrentLineColor() {
+		return currentLineColor;
+	}
+
+
+	public Color getCurrentFillColor() {
+		return currentFillColor;
+	}
+
+
+	/**
      * @return
      * Homework 7
      * Give your Model.createShape() the ability to make whatever shape 
