@@ -25,7 +25,7 @@ public class TestRectangleSort {
 		
 		// Once that's done, we call the Sortable.shellSort() method, 
 		//passing the array and figures to the method. 
-		Sortable.shellSort(figures);
+		Sorts.shellSort(figures);
 		
 		// Then we display the array in order again
 		System.out.println("\nAfter shellSort:");
