@@ -18,8 +18,8 @@ public abstract class Sortable {
 				}			
 				a[j] = temp;
 			}
+			increment = increment/2;
 		}
-		increment = increment/2;
 	}
 
 }
