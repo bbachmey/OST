@@ -55,6 +55,8 @@ public class ActionPanel extends Panel implements Resettable {
         chkFill.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 model.setFill(chkFill.getState());
+                
+                model.repaint();
             }
         });
         

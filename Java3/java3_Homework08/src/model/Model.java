@@ -17,9 +17,9 @@ import interfaces.Resettable;
 public class Model implements Resettable{
 	//declare a Container object
     private Container container;
-
-
+    //by default, action is draw
     private String action = DRAW;
+    //by default, no fill
     private boolean fill = false;
     
     //declare a set of String constants
@@ -37,7 +37,7 @@ public class Model implements Resettable{
     public final static String OVAL = "Oval";
     public final static String TRIANGLE = "Triangle";
     
-    //Make an array of the choice Strings
+    //Make an array of Strings for the shape choice
     public final static String [] choices = {RECTANGLE, OVAL, TRIANGLE};
     
     //Lesson 6
@@ -53,7 +53,8 @@ public class Model implements Resettable{
     //public final static Color WHITE = Color.WHITE;    
     //Make an array of the choice Strings
 
-    public static final Map<String, Color> COLORS = new HashMap<String , Color>() {{
+    public static final Map<String, Color> COLORS = new HashMap<String , Color>() {
+    	{
         put("Black", Color.BLACK);
         put("White", Color.WHITE);
         put("Orange",   Color.ORANGE);
@@ -62,7 +63,8 @@ public class Model implements Resettable{
         put("Magenta",   Color.MAGENTA);
         put("Yellow",   Color.YELLOW);
         put("Pink",   Color.PINK);
-    }};
+    	}
+    };
     
     //declare a Color object for the model to keep track of the current Color
 	public Color currentLineColor;
@@ -87,13 +89,13 @@ public class Model implements Resettable{
      */
     public Shape createShape() { 
         if(currentShapeType == RECTANGLE){
-            currentShape =  new Rectangle(Color.black, 0, 0, 0, 0, Color.red, fill);
+            currentShape =  new Rectangle(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
           }
         if(currentShapeType == OVAL){
-            currentShape =  new Oval(Color.black, 0, 0, 0, 0, Color.red, fill);
+            currentShape =  new Oval(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
           }
         if(currentShapeType == TRIANGLE){
-            currentShape =  new Triangle(Color.black, 0, 0 );
+            currentShape =  new Triangle(currentLineColor, 0, 0 );
           }
         return currentShape;
     }

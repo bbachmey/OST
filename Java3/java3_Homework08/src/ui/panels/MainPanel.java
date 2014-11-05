@@ -77,9 +77,7 @@ public class MainPanel extends Panel implements Resettable {
 			//iterating over values only
 			for (String value : model.COLORS.keySet() ) {
 				System.out.println("Value = " + value);
-				
 				lineColorChoice.add(value);
-				
 			}
 			
 			//add an anonymous inner class ItemListener to the Choice object
@@ -100,6 +98,7 @@ public class MainPanel extends Panel implements Resettable {
 
 				}
 			});
+
 			//add the Choice to this Panel
 			//remember that ChoicePanel is-a Panel
 			this.add(lineColorChoice);

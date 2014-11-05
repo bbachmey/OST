@@ -40,8 +40,6 @@ public class ShapeMouseHandler extends MouseAdapter {
             shape = model.createShape();
             // if the shape was created.
             if (shape != null) {
-            	//set the shape colors
-            	shape.setLineColor(model.getCurrentLineColor());
             	//set its upper left x and y to where the mouse was pressed.
                 shape.setX(e.getX());
                 shape.setY(e.getY());
@@ -49,6 +47,7 @@ public class ShapeMouseHandler extends MouseAdapter {
                 // case the user does not drag the mouse.
                 // Currently we only have instances of Rectangle or its descendants.
                 if (shape instanceof Rectangle) {
+                	//set the shape size
                     ((Rectangle) shape).setWidth(50);
                     ((Rectangle) shape).setHeight(50);
                 }
@@ -73,9 +72,6 @@ public class ShapeMouseHandler extends MouseAdapter {
         
         // if there is a current shape in the model.
         if (shape != null) {
-
-        	//set the shape colors
-        	shape.setLineColor(model.getCurrentLineColor());
         	
             // if we are in DRAW mode.
             if (model.getAction() == Model.DRAW) {
