@@ -8,6 +8,7 @@ import shapes.Shape;
 import shapes.Triangle;
 
 import java.awt.Container;  
+
 import interfaces.Resettable;
 
 public class Model implements Resettable{
@@ -43,6 +44,18 @@ public class Model implements Resettable{
 
     //Lesson 7
     private Shape currentShape;
+
+
+    
+    //Homework 8    
+    public final static Color BLACK = Color.BLACK;
+    public final static Color WHITE = Color.WHITE;    
+    //Make an array of the choice Strings
+    public final static Color [] colors = {BLACK, WHITE};
+    //declare a Color object for the model to keep track of the current Color
+	private Color currentLineColor;
+	private Color currentFillColor;
+    
     
     /**
      * @return
@@ -144,5 +157,16 @@ public class Model implements Resettable{
 
 	public void setCurrentShape(Shape currentShape) {
 		this.currentShape = currentShape;
+	}
+
+
+	public void setCurrentLineColor(Color color) {
+		this.currentLineColor = color;
+		
+	}
+	
+	public void setCurrentFillColor(Color color) {
+		this.currentFillColor = color;
+		
 	}
 }
