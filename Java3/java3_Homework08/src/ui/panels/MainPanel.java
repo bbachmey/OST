@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Map;
 
 import model.Model;
 
@@ -19,7 +20,7 @@ public class MainPanel extends Panel implements Resettable {
 
 	public MainPanel(Model model) {
 		//set the layout of this MainPanel
-		this.setLayout(new GridLayout(3,1));
+		this.setLayout(new GridLayout(4,1));
 
 		//add the action panel to the main panel
 		actionPanel = new ActionPanel(model);        
@@ -29,14 +30,15 @@ public class MainPanel extends Panel implements Resettable {
 		choicePanel = new ChoicePanel(model);
 		add(choicePanel);
 
-		//add the controls panel to the main panel
-		controlsPanel = new ControlsPanel(model);
-		add(controlsPanel);
-
 		//Homework 8
 		//add the color panel to the main panel
 		colorPanel = new ColorPanel(model);
 		add(colorPanel);
+		
+		//add the controls panel to the main panel
+		controlsPanel = new ControlsPanel(model);
+		add(controlsPanel);
+
 
 	}
 
@@ -59,7 +61,6 @@ public class MainPanel extends Panel implements Resettable {
 	 */
 
 	static class ColorPanel extends Panel implements Resettable {
-		ChoicePanel colorChoicePanel;
 		Choice fillColorChoice;
 		Model model;
 		Choice lineColorChoice;
@@ -69,54 +70,77 @@ public class MainPanel extends Panel implements Resettable {
 			//Set the Model property of the ColorPanel object to the Model defined in the formal parameter
 			//of the constructor
 			model = mdl;
-			//make a new blank Choice
+			//make a new blank Choice object (aka combo box)
 			lineColorChoice = new Choice();
 
-			//loop through the selections in the Model and add each one to the Choice object
-			for(Color col : Model.colors) {
-				lineColorChoice.add(col.toString());
+			//loop through the selections in the Model and add each one to the Choice object			
+			//iterating over values only
+			for (String value : model.COLORS.keySet() ) {
+				System.out.println("Value = " + value);
+				
+				lineColorChoice.add(value);
+				
 			}
-
+			
 			//add an anonymous inner class ItemListener to the Choice object
 			lineColorChoice.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
 
-					lineColorChoice.getSelectedItem().
+					String colorName = lineColorChoice.getSelectedItem();
 					
-					model.setCurrentLineColor();
-
+					//loop through the map in the model and find a match
+					for (Map.Entry<String, Color> entry : model.COLORS.entrySet() ) {
+						if (entry.getKey()==colorName){
+						}
+							model.setCurrentLineColor(entry.getValue() );
+						}
+					
 					model.repaint();
 
 				}
 			});
-			//add the Choice to this ChoicePanel
+			//add the Choice to this Panel
+			//remember that ChoicePanel is-a Panel
 			this.add(lineColorChoice);
 			
-			
+			/*
+			 * 
+			 * 
+			 */
 
 			//make a new blank Choice
 			fillColorChoice = new Choice();
 
-			//loop through the selections in the Model and add each one to the Choice object
-			for(Color col : Model.colors) {
-				fillColorChoice.add(col.toString());
+
+			//loop through the selections in the Model and add each one to the Choice object			
+			//iterating over values only
+			for (String value : model.COLORS.keySet() ) {
+				System.out.println("Fill Value = " + value);
+				
+				fillColorChoice.add(value);
+				
 			}
 
 			//add an anonymous inner class ItemListener to the Choice object
 			fillColorChoice.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
 
-					String s = fillColorChoice.getSelectedItem();
-					Color c = s;
-					model.setCurrentLineColor();
-
+					String colorName = fillColorChoice.getSelectedItem();
+					
+					//loop through the map in the model and find a match
+					for (Map.Entry<String, Color> entry : model.COLORS.entrySet() ) {
+						if (entry.getKey()==colorName){
+						}
+							model.setCurrentFillColor(entry.getValue() );
+						}
+					
 					model.repaint();
 
 				}
 			});
-			//add the Choice to this ChoicePanel
-			this.add(lineColorChoice);
-			
+			//add the Choice to this Panel
+			//remember that ChoicePanel is-a Panel
+			this.add(fillColorChoice);
 			
 
 		}

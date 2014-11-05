@@ -8,6 +8,9 @@ import shapes.Shape;
 import shapes.Triangle;
 
 import java.awt.Container;  
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import interfaces.Resettable;
 
@@ -48,10 +51,21 @@ public class Model implements Resettable{
 
     
     //Homework 8    
-    public final static Color BLACK = Color.BLACK;
-    public final static Color WHITE = Color.WHITE;    
+    //public final static Color BLACK = Color.BLACK;
+    //public final static Color WHITE = Color.WHITE;    
     //Make an array of the choice Strings
-    public final static Color [] colors = {BLACK, WHITE};
+
+    public static final Map<String, Color> COLORS = new HashMap<String , Color>() {{
+        put("Black", Color.BLACK);
+        put("White", Color.WHITE);
+        put("Orange",   Color.ORANGE);
+        put("Red",   Color.RED);
+        put("Blue",   Color.BLUE);
+        put("Magenta",   Color.MAGENTA);
+        put("Yellow",   Color.YELLOW);
+        put("Pink",   Color.PINK);
+    }};
+    
     //declare a Color object for the model to keep track of the current Color
 	private Color currentLineColor;
 	private Color currentFillColor;
