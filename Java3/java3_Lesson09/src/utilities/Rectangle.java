@@ -1,6 +1,6 @@
 package utilities;
 
-public class Rectangle implements Sortable {
+public class Rectangle extends Shape implements Sortable {
 	int uLX, uLY, lRX, lRY;
 	private int area;
 	
