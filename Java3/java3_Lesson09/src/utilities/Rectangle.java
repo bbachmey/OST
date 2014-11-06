@@ -20,12 +20,16 @@ public class Rectangle extends Shape implements Sortable {
 		return area;
 	}
 	
-	@Override
-	public int compareTo(Sortable b) {
-		Rectangle oneToCompare = (Rectangle)b;
-		if (getArea() < oneToCompare.getArea()) return -1; // this one is smaller
-		if (getArea() > oneToCompare.getArea()) return 1; //this is the larger
-		return 0; //they are the same
-	}
-
-}
+	public int compareTo(Sortable sortable) {
+        //Rectangle oneToCompare = (Rectangle)b;
+        Shape shape = null;
+    
+        if (sortable instanceof Shape){ 
+            shape = (Shape)sortable;
+            if (getArea() < shape.getArea()) return -1;  	// this one is smaller
+            if (getArea() > shape.getArea()) return 1;   	// this one is larger
+            return 0;                                   	// they are the same
+        }
+        return 0;
+    }
+}  
