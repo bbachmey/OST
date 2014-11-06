@@ -4,7 +4,7 @@ public class Sorts {
 	
 	//get an array of objects that implements the Sortable interface
 	//implementing the Sortable interface makes the objects in the array is-a Sortable
-	public static void shellSort(Sortable[] sortableArray){
+	public static  void shellSort(Sortable[] sortableArray){
 		//get the length of the is-a Sortable array
 		int fullLength = sortableArray.length;
 		//declare an integer and set it to half the length of the sortable array
@@ -37,7 +37,8 @@ public class Sorts {
 				//and send as the actual parameter the object in the Sortable array at 
 				//the position equal to the subcounter minus the halfLength integer.
 				//If the halfLength is greater than 0 and temp object gets a 1 back from the 
-				//call to the compareTo() method, then go into the while code block
+				//call to the compareTo() method, meaning this one is larger,
+				//then go into the while code block
 				while (j>= halfLength && temp.compareTo(sortableArray[j - halfLength]) < 0){
 					//Take the object used in the call to the compareTo() method
 					//of the temporary Sortable object, and assign that object to
