@@ -10,6 +10,8 @@ package interfaces;
  */
 public interface ComparableShape {
 	
+	
 	public int getArea();
+	public void setArea();
 	
 }

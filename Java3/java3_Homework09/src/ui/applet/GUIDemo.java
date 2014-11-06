@@ -61,6 +61,29 @@ public class GUIDemo extends Applet implements Resettable {
             System.out.println(model);
             System.out.println(shape);
         	
+            //Homework 9
+            //Then if two figures have been drawn and the two objects drawn can be compared,
+            //have the objects compared using the model's compareShapes() method.
+            //The applet output should show the two drawings and also specify which one 
+            //is larger than the other, or if they are the same area.
+            if (model.shapes[1] != null){
+            	int comparison = model.compareShapes();
+            	switch (comparison){
+            	case -1:
+        			g.drawString("The shapes cannot be compared", 200, 200);
+            		break;
+            	case 0:
+        			g.drawString("The shapes are the same size", 200, 200);
+            		break;
+        		case 1:
+        			g.drawString("The first shape is bigger than the second shape", 200, 200);
+            		break;
+        		case 2:
+        			g.drawString("The second shape is bigger than the first shape", 200, 200);
+            		break;
+            	}
+            }
+            
         }
     }
   

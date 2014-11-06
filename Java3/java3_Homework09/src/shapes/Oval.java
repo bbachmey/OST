@@ -1,9 +1,13 @@
 package shapes;
 
+import interfaces.ComparableShape;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Oval extends Rectangle {
+public class Oval extends Rectangle implements ComparableShape {
+	int area;
+	
     /**
     * Constructor.  Just passes the params to the Rectangle constructor.
     */
@@ -41,4 +45,23 @@ public class Oval extends Rectangle {
     public String toString() {
         return "Oval: \n\tx = " + getX() + "\n\ty = " + getY() + "\n\tw = " + getWidth() + "\n\th = " + getHeight();
     }
+
+    public void setArea(){
+    	// http://courses.oreillyschool.com/java3/java309.html
+        // not necessarily a circle, so rather than PI*r*r, 
+        // we have for ellipses PI*a*b where a and b are half of width and height
+        area = (int)(
+        		Math.PI *
+        		.5 *
+        		super.getWidth() * 
+        		.5 *
+        		super.getHeight()
+        );   
+    }
+    
+	@Override
+	public int getArea() {
+		// TODO Auto-generated method stub
+		return area;
+	}
 }

@@ -1,13 +1,16 @@
 package shapes;
 
+import interfaces.ComparableShape;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements ComparableShape {
 	private Color fillColor;
 	private int width; 
 	private int height;
 	private boolean fill;
+	private int area;
 
 	/**
 	 * @param x
@@ -103,6 +106,18 @@ public class Rectangle extends Shape {
 
 	public boolean isFill() {
 		return fill;
+	}
+
+	@Override
+	public int getArea() {
+		return area;
+		
+	}
+
+	@Override
+	public void setArea() {
+		area = (this.getWidth()) * (this.getHeight());
+		
 	}
 
 }

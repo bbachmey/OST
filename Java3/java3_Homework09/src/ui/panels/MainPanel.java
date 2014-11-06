@@ -20,7 +20,7 @@ public class MainPanel extends Panel implements Resettable {
 
 	public MainPanel(Model model) {
 		//set the layout of this MainPanel
-		this.setLayout(new GridLayout(4,1));
+		this.setLayout(new GridLayout(4,4));
 
 		//add the action panel to the main panel
 		actionPanel = new ActionPanel(model);        
