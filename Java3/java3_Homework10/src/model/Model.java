@@ -8,6 +8,7 @@ import shapes.Shape;
 import shapes.Triangle;
 
 import java.awt.Container;  
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -73,12 +74,24 @@ public class Model implements Resettable{
 	//Homework 9
 	//In the model of your java3_Homework09 project, add an array 
 	//of type Shape of size 2 as an instance variable. (in the Model class)
+	/*
 	public Shape [] shapes = new Shape[2];
+	*/
+	//Homework 10
+	//For java3_Homework10, use Vector or ArrayList to add components drawn to a 
+	//list for multiple figure storage. Add this Vector (or ArrayList) to the model 
+	//and allow users to draw as many figures as they want (that is, it should not 
+	//erase each time but draw everything that the user has thus far drawn). Basically 
+	//you will need to replace your array of Shapes with this collection and modify any 
+	//methods that utilized that array. Your Vector or ArrayList should only allow 
+	//objects of type Shape
+	 public ArrayList<Shape> shapes = new ArrayList<Shape>();
 
 	//Homework 9
 	//Add a method to your model called compareShapes(), which will return 
 	//either 0, 1, or 2--1 if the area of the first Shape is bigger than the 
 	//second, 2 if it is smaller, and 0 if the two Shapes are the same size.
+	 /*
 	public int compareShapes(){
 		//set the default return value
 		int value = 0;
@@ -109,6 +122,7 @@ public class Model implements Resettable{
 		}
 		return value;
 	}
+	*/
 
 	public Color getCurrentLineColor() {
 		return currentLineColor;
@@ -140,6 +154,7 @@ public class Model implements Resettable{
 		//Allow the user to draw two Shapes, which when instantiated, 
 		//get put into the array.(store the shapes in the createShape() method.
 		//When a third figure is drawn, reset the array and allow the process to repeat.
+		/*
 		if (shapes[0] != null){
 			if (shapes[1] != null){
 				shapes[1]=null;
@@ -151,7 +166,15 @@ public class Model implements Resettable{
 		else{
 			shapes[0]=currentShape;        	
 		}
+		*/
 
+		//Homework 10
+		//Each time something is drawn, it should stay until it is removed 
+		//(no need to implement the Remove action yet). 
+		//Since objects are stored in vectors as Objects, you will need to cast 
+		//them back to Shape to have access to the correct draw methods.
+		shapes.add(currentShape);
+		
 		return currentShape;
 	}
 
