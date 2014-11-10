@@ -46,6 +46,13 @@ public class TestVectors {
 		//which gives us the number of objects in the Vector.
 		for (int i=0; i<moreFigures.size(); i++){
 			System.out.println("Element " + i + " is " + moreFigures.elementAt(i));
+			//Let's cast the elements to something.
+            Point myBad =(Point)moreFigures.elementAt(i);
+            System.out.println("Vector Element "+ myBad);
+            //Even though we can't cast a Rectangle to a Point, we weren't given any errors. 
+            //A problem like this may go unnoticed until runtime. 
+            //Fortunately, in version 1.5, Java made Vectors a Generic class, 
+            //so if we use the generics framework properly, we cannot cast incorrectly.
 		}
 		
 	}
