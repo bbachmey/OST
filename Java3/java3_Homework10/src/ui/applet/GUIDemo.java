@@ -66,6 +66,12 @@ public class GUIDemo extends Applet implements Resettable {
             //have the objects compared using the model's compareShapes() method.
             //The applet output should show the two drawings and also specify which one 
             //is larger than the other, or if they are the same area.
+            //Homework 10
+            //compareShapes() is only relevant to the previous objective.  
+            //Now that multiple figures can be drawn, compareShapes() won't work as 
+            //previously designed.  You are free to update compareShapes() to compare 
+            //multiple shapes or comment this method out.
+            /*
             if (model.shapes[1] != null){
             	int comparison = model.compareShapes();
             	switch (comparison){
@@ -83,6 +89,7 @@ public class GUIDemo extends Applet implements Resettable {
             		break;
             	}
             }
+            */
             
         }
     }
