@@ -11,10 +11,10 @@ import shapes.Triangle;
 
 public class ShapeMouseHandler extends MouseAdapter {
     private Model model;
-    //Start x and y location used to mark where the upper left corner of a
-    //shape is.
+    // Integers to mark where the upper left corner of a shape is
     private int startX;
     private int startY;
+    // Shape object
     private Shape shape;
   
     /**
@@ -32,32 +32,66 @@ public class ShapeMouseHandler extends MouseAdapter {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        if (model.getAction() == Model.DRAW) {
-            // original upper left x and y of the shape.
-            startX = e.getX();
-            startY = e.getY();
-            // have the model create a new shape for us.
+    	
+        // Get the x,y coordinates of the mouse event
+        startX = e.getX();
+        startY = e.getY();
+    	
+    	switch(model.getAction() ){
+    	case Model.DRAW:
+            // Call the create() method on the model
             shape = model.createShape();
-            // if the shape was created.
+            // If we got a shape...
             if (shape != null) {
-            	//set its upper left x and y to where the mouse was pressed.
-                shape.setX(e.getX());
-                shape.setY(e.getY());
+            	// Set the x and y of the shape to the mouse event coordinates
+                shape.setX( startX );
+                shape.setY( startY );
+                
                 // We should set a default width and height or ending location in
-                // case the user does not drag the mouse.
-                // Currently we only have instances of Rectangle or its descendants.
+                //case the user does not drag the mouse.
+                
+                // Check the object inheritance of the shape.
                 if (shape instanceof Rectangle) {
-                	//set the shape size
+                	// Set the default shape size
                     ((Rectangle) shape).setWidth(50);
                     ((Rectangle) shape).setHeight(50);
                 }
                 else {
                     ((Triangle) shape).setWidth(50);
-                    ((Triangle) shape).setHeight(50);
-                	
+                    ((Triangle) shape).setHeight(50);                	
                 }
             }
-        }
+            
+            // Break out of the switch statement
+            break;
+
+    	case Model.MOVE:
+    		
+    		// Break out of the switch statement
+            break;
+
+    	case Model.CHANGE:
+    		
+    		// Break out of the switch statement
+            break;
+    		
+    	case Model.FILL:
+    		
+    		// Break out of the switch statement
+            break;
+    		
+    	case Model.REMOVE:
+    		
+    		// Break out of the switch statement
+            break;
+    		
+    	case Model.RESIZE:
+        		
+    		// Break out of the switch statement
+            break;
+    	
+    	}
+        
         // tell the model to repaint the applet or application.
         model.repaint();
     }

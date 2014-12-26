@@ -8,7 +8,7 @@ import java.awt.Graphics;
  *
  */
 public abstract class Shape {
-	//all Shapes have x and y positions and a line Color
+	// All Shapes have x and y positions and a line Color
     private int x, y;
     private Color lineColor;
 

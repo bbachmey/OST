@@ -76,7 +76,7 @@ public class Model implements Resettable{
 	//of type Shape of size 2 as an instance variable. (in the Model class)
 	/*
 	public Shape [] shapes = new Shape[2];
-	*/
+	 */
 	//Homework 10
 	//For java3_Homework10, use Vector or ArrayList to add components drawn to a 
 	//list for multiple figure storage. Add this Vector (or ArrayList) to the model 
@@ -85,13 +85,13 @@ public class Model implements Resettable{
 	//you will need to replace your array of Shapes with this collection and modify any 
 	//methods that utilized that array. Your Vector or ArrayList should only allow 
 	//objects of type Shape
-	 public ArrayList<Shape> shapes = new ArrayList<Shape>();
+	public ArrayList<Shape> shapes = new ArrayList<Shape>();
 
 	//Homework 9
 	//Add a method to your model called compareShapes(), which will return 
 	//either 0, 1, or 2--1 if the area of the first Shape is bigger than the 
 	//second, 2 if it is smaller, and 0 if the two Shapes are the same size.
-	 /*
+	/*
 	public int compareShapes(){
 		//set the default return value
 		int value = 0;
@@ -122,17 +122,48 @@ public class Model implements Resettable{
 		}
 		return value;
 	}
-	*/
+	 */
 
+	/*
+	 In your model, write a method that returns an instance of a Shape, 
+	 given a set of x and y coordinates. You will need to search your Vector or Array list. 
+	 If no object contains those coordinates, return null.
+	 */
+	public Shape findClickedShape(int x, int y){
+
+		// Remember that: All Shapes have x and y position properties
+		
+		// Our shapes are kept in an instance of this model class in a property called shape
+		
+		// The x,y position of a shape can be compared to the x,y position of a click,
+		//by adding the width and height values to the click position and comparing the ranges with the 
+		//click x,y position
+		
+		// The abstract class Shape requires implementation of a containsLocation() method
+		//This can be used to compare the click x,y position. 
+		
+		for (Shape shape : shapes){
+			boolean does;
+			does = shape.containsLocation(x, y);
+			
+			if (does){
+				return shape;
+			}
+			
+		}
+		
+		// Execution only arrives here if no shape was found containing the x,y location
+		return null;
+	}
+	
+	
 	public Color getCurrentLineColor() {
 		return currentLineColor;
 	}
 
-
 	public Color getCurrentFillColor() {
 		return currentFillColor;
 	}
-
 
 	/**
 	 * @return
@@ -166,7 +197,7 @@ public class Model implements Resettable{
 		else{
 			shapes[0]=currentShape;        	
 		}
-		*/
+		 */
 
 		//Homework 10
 		//Each time something is drawn, it should stay until it is removed 
@@ -174,7 +205,7 @@ public class Model implements Resettable{
 		//Since objects are stored in vectors as Objects, you will need to cast 
 		//them back to Shape to have access to the correct draw methods.
 		shapes.add(currentShape);
-		
+
 		return currentShape;
 	}
 

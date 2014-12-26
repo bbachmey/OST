@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author bbachmey
- *
- */
-package model;
