@@ -39,26 +39,15 @@ public class GUIDemo extends Applet implements Resettable {
 	}
 
 	public void paint(Graphics g) {
-		//Declare a Shape
-		Shape shape;
 		//declare an index counter
 		int i = -1;
 		//Loop through instantiation of Shapes from the Model
-		for (Shape shp : model.shapes){
+		for (Shape shape : model.shapes){
 			//increment the counter
 			i++;
-			//reference the shape
-			shape = shp;
 			//If the Model provided a Shape, then draw() it
 			if(shape != null) {
-				//set the shape colors
-				shape.setLineColor(model.getCurrentLineColor());
-				if (shape instanceof Rectangle) {
-					//set the fill Color
-					((Rectangle) shape).setFillColor(model.getCurrentFillColor());
-					//set the shape isFill property
-					((Rectangle) shape).setFill(model.isFill());
-				}
+				// Just draw the shape. The logic for how the shape is drawn is in the draw() method. 
 				shape.draw(g);
 			}
 
@@ -70,13 +59,13 @@ public class GUIDemo extends Applet implements Resettable {
 			// So that we can see how they are stored, each time a new figure is added 
 			//to the list, provide output in the console of all of the elements in the 
 			//Vector (or ArrayList) at that time. 
-			if (shp instanceof Rectangle){
+			if (shape instanceof Rectangle){
 				System.out.println("Element " + i + " is a rectangle");
 			} 
-			if (shp instanceof Oval){
+			if (shape instanceof Oval){
 				System.out.println("Element " + i + " is a oval");                
 			} 
-			if (shp instanceof Triangle){
+			if (shape instanceof Triangle){
 				System.out.println("Element " + i + " is a triangle");                
 			}
 
