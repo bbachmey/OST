@@ -21,21 +21,21 @@ public class GUIDemo extends Applet implements Resettable {
 	public void init() {
 		//set the applet window size
 		resize(600,400);
-		//make a Model object
+		//make a Model object and send it this Applet
 		model = new Model(this);
+		//set the default colors of the model
+		model.setCurrentFillColor(Color.BLUE);
+		model.setCurrentLineColor(Color.BLUE);
 		//make a MainPanel object
 		mainPanel = new MainPanel(model);
 		//add the MainPanel to this Applet
-		add(mainPanel);
+		this.add(mainPanel);
 		//make a ShapeMouseHandler
 		ShapeMouseHandler mouseHandler = new ShapeMouseHandler(model);
 		//add the ShapeMouseHandler to this applet as a MouseListener
-		addMouseListener(mouseHandler);
+		this.addMouseListener(mouseHandler);
 		//add the ShapeMouseHandler to this applet as a MouseMotionListener
-		addMouseMotionListener(mouseHandler);
-		//set the default colors
-		model.setCurrentFillColor(Color.BLUE);
-		model.setCurrentLineColor(Color.BLUE);
+		this.addMouseMotionListener(mouseHandler);
 	}
 
 	public void paint(Graphics g) {
@@ -74,11 +74,13 @@ public class GUIDemo extends Applet implements Resettable {
 			//have the objects compared using the model's compareShapes() method.
 			//The applet output should show the two drawings and also specify which one 
 			//is larger than the other, or if they are the same area.
+			
 			//Homework 10
 			//compareShapes() is only relevant to the previous objective.  
 			//Now that multiple figures can be drawn, compareShapes() won't work as 
 			//previously designed.  You are free to update compareShapes() to compare 
 			//multiple shapes or comment this method out.
+			
 			/*
             if (model.shapes[1] != null){
             	int comparison = model.compareShapes();
