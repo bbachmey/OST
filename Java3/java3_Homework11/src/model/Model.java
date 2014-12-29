@@ -86,7 +86,7 @@ public class Model implements Resettable{
 	//methods that utilized that array. Your Vector or ArrayList should only allow 
 	//objects of type Shape
 	public ArrayList<Shape> shapes = new ArrayList<Shape>();
-
+	
 	//Homework 9
 	//Add a method to your model called compareShapes(), which will return 
 	//either 0, 1, or 2--1 if the area of the first Shape is bigger than the 
@@ -129,34 +129,36 @@ public class Model implements Resettable{
 	 given a set of x and y coordinates. You will need to search your Vector or Array list. 
 	 If no object contains those coordinates, return null.
 	 */
-	public Shape findClickedShape(int x, int y){
+	public Shape findClickedShape(int clickX, int clickY){
 
 		// Remember that: All Shapes have x and y position properties
-		
 		// Our shapes are kept in an instance of this model class in a property called shape
-		
 		// The x,y position of a shape can be compared to the x,y position of a click,
-		//by adding the width and height values to the click position and comparing the ranges with the 
-		//click x,y position
-		
+		// by adding the width and height values to the click position and comparing the ranges with the 
+		// click x,y position		
 		// The abstract class Shape requires implementation of a containsLocation() method
-		//This can be used to compare the click x,y position. 
+		// This can be used to compare the click x,y position. 
+
+		// Reverse loop through all of the shapes to see if any of them were clicked	
 		
-		for (Shape shape : shapes){
-			boolean does;
-			does = shape.containsLocation(x, y);
-			
-			if (does){
-				return shape;
+		int size = shapes.size();
+		
+		for(int i = size;i>0;i--){
+			Shape ship = shapes.get(i-1);
+			boolean within = ship.containsLocation(clickX, clickY);
+
+			// Evaluate the boolean value
+			if(within){
+				// Return the shape
+				return ship;
 			}
-			
 		}
-		
+
 		// Execution only arrives here if no shape was found containing the x,y location
 		return null;
 	}
-	
-	
+
+
 	public Color getCurrentLineColor() {
 		return currentLineColor;
 	}

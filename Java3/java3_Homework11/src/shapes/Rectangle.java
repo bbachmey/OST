@@ -53,12 +53,12 @@ public class Rectangle extends Shape implements ComparableShape {
 
 	// Override abstract method containsLocation in the Shape class.
 	@Override
-	public boolean containsLocation(int x, int y) {
+	public boolean containsLocation(int paramX, int paramY) {
 		if (
-				getX() <= x 
-				&& getY() <= y 
-				&& getX() + getWidth() >= x 
-				&& getY() + getHeight() >= y
+				getX() <= paramX
+				&& getY() <= paramY 
+				&& getX() + getWidth() >= paramX 
+				&& getY() + getHeight() >= paramY
 			) {
 				return true;
 		}
