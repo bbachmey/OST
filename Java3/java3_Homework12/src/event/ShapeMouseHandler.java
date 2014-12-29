@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import enums.ShapeAction;
 import model.Model;
 import shapes.Rectangle;
 import shapes.Shape;
@@ -53,7 +54,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 		
 		// Proceed with the action
 
-		if ( model.getAction() == Model.DRAW ){
+		if ( model.getAction() == ShapeAction.DRAW ){
 			// Call the create() method on the model
 			shape = model.createShape();
 			// If we got a shape...
@@ -79,7 +80,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 		}
 
 
-		if (model.getAction() == Model.CHANGE){
+		if (model.getAction() == ShapeAction.CHANGE){
 
 			if (shape != null){
 				
@@ -92,7 +93,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 			
 		}
 
-		if(model.getAction() ==  Model.REMOVE){
+		if(model.getAction() ==  ShapeAction.REMOVE){
 
 			model.shapes.remove(shape);
 			
@@ -111,7 +112,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 
 
-		if (model.getAction() ==  Model.DRAW){
+		if (model.getAction() ==  ShapeAction.DRAW){
 
 			// set the x and y location of the shape (allows rubber banding).
 			shape.setX(Math.min(startX, e.getX()));
@@ -131,7 +132,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 			}
 		}
 
-		if (model.getAction() ==  Model.MOVE){
+		if (model.getAction() ==  ShapeAction.MOVE){
 
 			// if there is a current shape in the model.
 			if (shape != null) {
@@ -146,7 +147,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 			}
 		}
 
-		if (model.getAction() ==  Model.RESIZE){
+		if (model.getAction() ==  ShapeAction.RESIZE){
 			
 			// if the shape is an instance of Rectangle or a descendant of Rectangle
 			if (shape instanceof Rectangle) {

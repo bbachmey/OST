@@ -1,12 +1,15 @@
 package ui.panels;
 
 import interfaces.Resettable;
+
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+
+import enums.ShapeAction;
 import model.Model;
 
 public class ActionPanel extends Panel implements Resettable {
@@ -19,37 +22,37 @@ public class ActionPanel extends Panel implements Resettable {
         actionGroup = new CheckboxGroup();
        
         //instantiate the Checkboxes
-        chkDraw = new Checkbox(Model.DRAW, actionGroup, true);
-        chkMove = new Checkbox(Model.MOVE, actionGroup, false);
-        chkResize = new Checkbox(Model.RESIZE, actionGroup, false);
-        chkRemove = new Checkbox(Model.REMOVE, actionGroup, false);
-        chkChange = new Checkbox(Model.CHANGE, actionGroup, false);
-        chkFill = new Checkbox(Model.FILL, false);
+        chkDraw = new Checkbox(ShapeAction.DRAW.getName(), actionGroup, true);
+        chkMove = new Checkbox(ShapeAction.MOVE.getName(), actionGroup, false);
+        chkResize = new Checkbox(ShapeAction.RESIZE.getName(), actionGroup, false);
+        chkRemove = new Checkbox(ShapeAction.REMOVE.getName(), actionGroup, false);
+        chkChange = new Checkbox(ShapeAction.CHANGE.getName(), actionGroup, false);
+        chkFill = new Checkbox(ShapeAction.FILL.getName(), false);
         
         //add anonymous inner class ItemListeners to the Checkboxes
         chkDraw.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                model.setAction(Model.DRAW);
+                model.setAction(ShapeAction.DRAW);
             }
         });
         chkMove.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                model.setAction(Model.MOVE);
+                model.setAction(ShapeAction.MOVE);
             }
         });
         chkResize.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                model.setAction(Model.RESIZE);
+                model.setAction(ShapeAction.RESIZE);
             }
         });
         chkRemove.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                model.setAction(Model.REMOVE);
+                model.setAction(ShapeAction.REMOVE);
             }
         });
         chkChange.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                model.setAction(Model.CHANGE);
+                model.setAction(ShapeAction.CHANGE);
             }
         });
         chkFill.addItemListener(new ItemListener() {

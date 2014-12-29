@@ -13,39 +13,51 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import enums.ShapeAction;
+import enums.ShapeType;
 import interfaces.ComparableShape;
 import interfaces.Resettable;
 
 public class Model implements Resettable{
 	//declare a Container object
 	private Container container;
-	//by default, action is draw
-	private String action = DRAW;
-	//by default, no fill
+	//by default, the fill option is false
 	private boolean fill = false;
 
-	//declare a set of String constants
-	public final static String DRAW = "Draw";
-	public final static String MOVE = "Move";
-	public final static String REMOVE = "Remove";
-	public final static String RESIZE = "Resize";
-	public final static String CHANGE = "Change";
-	public final static String FILL = "Fill";
+	// Homework 12
+	// Convert the Model action final static String variables 
+	// (DRAW, MOVE, REMOVE, RESIZE, CHANGE, FILL) to an enum and modify your code to use the 
+	// new data structure instead of the constants.
+	
+//	public final static String DRAW = "Draw";
+//	public final static String MOVE = "Move";
+//	public final static String REMOVE = "Remove";
+//	public final static String RESIZE = "Resize";
+//	public final static String CHANGE = "Change";
+//	public final static String FILL = "Fill";
+
+	//by default, action is draw
+	private ShapeAction action = ShapeAction.DRAW;
 
 	//Lesson 6
 	//create final static String variables to represent the different Shape types, 
 	//"Rectangle," "Oval," etc. Use these variables to fill your Choice component.
-	public final static String RECTANGLE = "Rectangle";
-	public final static String OVAL = "Oval";
-	public final static String TRIANGLE = "Triangle";
+	
+	// Homework 12
+	// Convert the Model shape type final static String variables (RECTANGLE, OVAL, etc) 
+	// to an enum and modify your code to use the new data structure instead of the constants.
+	
+//	public final static String RECTANGLE = "Rectangle";
+//	public final static String OVAL = "Oval";
+//	public final static String TRIANGLE = "Triangle";
 
 	//Make an array of Strings for the shape choice
-	public final static String [] choices = {RECTANGLE, OVAL, TRIANGLE};
+	public final static String [] choices = {ShapeType.RECTANGLE.getName(), ShapeType.OVAL.getName(), ShapeType.TRIANGLE.getName()};
 
 	//Lesson 6
 	//create a String instance variable named currentShapeType and set it to whatever 
 	// your default shape will be (using the final static String variables you just created). 
-	private String currentShapeType = RECTANGLE;
+	private ShapeType currentShapeType = ShapeType.RECTANGLE;
 
 	//Lesson 7
 	private Shape currentShape;
@@ -174,13 +186,13 @@ public class Model implements Resettable{
 	 * the Model.currentShapeType variable (created in the last project) indicates.
 	 */
 	public Shape createShape() { 
-		if(currentShapeType == RECTANGLE){
+		if(currentShapeType == ShapeType.RECTANGLE){
 			currentShape =  new Rectangle(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
 		}
-		if(currentShapeType == OVAL){
+		if(currentShapeType == ShapeType.OVAL){
 			currentShape =  new Oval(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
 		}
-		if(currentShapeType == TRIANGLE){
+		if(currentShapeType == ShapeType.TRIANGLE){
 			currentShape =  new Triangle(currentLineColor, 0, 0 );
 		}
 		//Homework 9
@@ -235,7 +247,7 @@ public class Model implements Resettable{
 	 * @see interfaces.Resettable#resetComponents()
 	 */
 	public void resetComponents() {
-		action = DRAW;
+		action = ShapeAction.DRAW;
 
 		currentShape = null;
 		fill = false;
@@ -254,11 +266,11 @@ public class Model implements Resettable{
 		return "Model:\n\tAction: " + action + "\n\tFill: " + fill;
 	}
 
-	public String getAction() {
+	public ShapeAction getAction() {
 		return action;
 	}
 
-	public void setAction(String action) {
+	public void setAction(ShapeAction action) {
 		this.action = action;
 	}
 
@@ -270,11 +282,11 @@ public class Model implements Resettable{
 		this.fill = fill;
 	}
 
-	public String getCurrentShapeType() {
+	public ShapeType getCurrentShapeType() {
 		return currentShapeType;
 	}
 
-	public void setCurrentShapeType(String currentShapeType) {
+	public void setCurrentShapeType(ShapeType currentShapeType) {
 		this.currentShapeType = currentShapeType;
 	}
 
