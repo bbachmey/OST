@@ -52,8 +52,8 @@ public class ShapeMouseHandler extends MouseAdapter {
 		}
 		
 		// Proceed with the action
-		switch(model.getAction() ){
-		case Model.DRAW:
+
+		if ( model.getAction() == Model.DRAW ){
 			// Call the create() method on the model
 			shape = model.createShape();
 			// If we got a shape...
@@ -76,17 +76,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 					((Triangle) shape).setHeight(50);                	
 				}
 			}
+		}
 
-			// Break out of the switch statement
-			break;
 
-		case Model.MOVE:
-
-			
-			// Break out of the switch statement
-			break;
-
-		case Model.CHANGE:
+		if (model.getAction() == Model.CHANGE){
 
 			if (shape != null){
 				
@@ -97,26 +90,12 @@ public class ShapeMouseHandler extends MouseAdapter {
 				}
 			}
 			
-			// Break out of the switch statement
-			break;
+		}
 
-		case Model.FILL:
-
-			// Break out of the switch statement
-			break;
-
-		case Model.REMOVE:
+		if(model.getAction() ==  Model.REMOVE){
 
 			model.shapes.remove(shape);
 			
-			// Break out of the switch statement
-			break;
-
-		case Model.RESIZE:
-
-			// Break out of the switch statement
-			break;
-
 		}
 
 		// tell the model to repaint the applet or application.
@@ -130,10 +109,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 		// get the current shape handled by the model.
 		shape = model.getCurrentShape();
 
-		// Check the action set in the model
-		switch( model.getAction() ){
 
-		case Model.DRAW:
+
+		if (model.getAction() ==  Model.DRAW){
 
 			// set the x and y location of the shape (allows rubber banding).
 			shape.setX(Math.min(startX, e.getX()));
@@ -151,11 +129,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 				((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
 				((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
 			}
+		}
 
-			// Break out of switch statement
-			break;
-
-		case Model.MOVE:
+		if (model.getAction() ==  Model.MOVE){
 
 			// if there is a current shape in the model.
 			if (shape != null) {
@@ -168,11 +144,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 				shape.setX( shape.getX() - diffX - offsetX );
 				shape.setY( shape.getY() - diffY - offsetY );
 			}
+		}
 
-			// Break out of switch statement
-			break;
-
-		case Model.RESIZE:
+		if (model.getAction() ==  Model.RESIZE){
 			
 			// if the shape is an instance of Rectangle or a descendant of Rectangle
 			if (shape instanceof Rectangle) {
@@ -186,21 +160,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 				((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
 				((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
 			}
-			
-			// Break out of switch statement
-			break;
-
-		case Model.REMOVE:
-			// Break out of switch statement
-			break;
-
-		case Model.CHANGE:
-			// Break out of switch statement
-			break;
-
 		}
-
-
 
 		// tell the model to repaint the applet or application.
 		model.repaint();
