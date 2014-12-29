@@ -1,6 +1,7 @@
 package enumerable;
 
 import java.util.*;
+import java.awt.Color;
 
 public class Card {
 
@@ -15,13 +16,15 @@ public class Card {
 	private Card(Face face, Suit suit) {
 		this.face = face;
 		this.suit = suit;
+
 	}
 
-	private static List<Card> initializeDeck (){
-		for (Suit suit : Suit.values())
-			for (Face face : Face.values())
+	static {
+		for (Suit suit : Suit.values()){
+			for (Face face : Face.values()){
 				theDeck.add(new Card(face, suit));
-		return theDeck;
+			}
+		}
 	}  
 
 	public Face getFace() { 
@@ -35,9 +38,30 @@ public class Card {
 	public String toString() { 
 		return face + " of " + suit; 
 	}
+    
+    public static ArrayList<Card> newDeck() {
+        return new ArrayList<Card>(theDeck);
+    }
+    
 
-	public static void main(String [] args){
-		List<Card> aDeck = Card.initializeDeck();
-		System.out.println(aDeck);
-	}
+    public Color testSwitch(){
+        Color result = null;
+        switch(suit){ 
+            case SPADES:
+            case CLUBS: result = Color.black;  break; 
+            case HEARTS: 
+            case DIAMONDS: result = Color.red;  break; 
+        }
+        return result;
+    }
+
+    public static void main(String [] args){
+        List<Card> deck  = Card.newDeck();
+        Card myCard = deck.get(20);
+        if (myCard.testSwitch() == Color.black)
+            System.out.println(myCard + " is black");
+        else System.out.println(myCard + " is red");
+    }
+    
+    
 }
