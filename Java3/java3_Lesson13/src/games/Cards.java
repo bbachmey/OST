@@ -20,8 +20,9 @@ public class Cards {   // a class with two enum specifications
 
     static {                                    // initializes theDeck into the class variable
     for (Suit suit : Suit.values())
-         for (Face face : Face.values())
-         theDeck.add(new Cards(face, suit));
+         for (Face face : Face.values()){
+        	 theDeck.add(new Cards(face, suit));
+         }
     }
 
     public Face getFace() { 
