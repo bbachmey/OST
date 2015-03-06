@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 
 import enums.ShapeAction;
 import model.Model;
+import shapes.PolyTri;
 import shapes.Rectangle;
 import shapes.Shape;
 import shapes.Triangle;
@@ -72,6 +73,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 					((Rectangle) shape).setWidth(50);
 					((Rectangle) shape).setHeight(50);
 				}
+				else if (shape instanceof PolyTri) {
+					((PolyTri) shape).setWidth(50);
+					((PolyTri) shape).setHeight(50);                	
+				}
 				else {
 					((Triangle) shape).setWidth(50);
 					((Triangle) shape).setHeight(50);                	
@@ -125,6 +130,11 @@ public class ShapeMouseHandler extends MouseAdapter {
 				((Rectangle) shape).setWidth(Math.abs( startX - e.getX() ));
 				((Rectangle) shape).setHeight(Math.abs( startY - e.getY() ));
 			}
+			else if (shape instanceof PolyTri) {
+
+				((PolyTri) shape).setWidth(Math.abs(startX - e.getX()));
+				((PolyTri) shape).setHeight(Math.abs(startY - e.getY()));
+			}
 			else{
 
 				((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
@@ -155,6 +165,11 @@ public class ShapeMouseHandler extends MouseAdapter {
 				// allows for rubber banding.
 				((Rectangle) shape).setWidth(Math.abs( startX - e.getX() - offsetX ));
 				((Rectangle) shape).setHeight(Math.abs( startY - e.getY() - offsetY ));
+			}
+			else if (shape instanceof PolyTri) {
+
+				((PolyTri) shape).setWidth(Math.abs(startX - e.getX()));
+				((PolyTri) shape).setHeight(Math.abs(startY - e.getY()));
 			}
 			else{
 

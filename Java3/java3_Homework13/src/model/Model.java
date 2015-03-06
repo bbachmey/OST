@@ -3,6 +3,7 @@ package model;
 import java.awt.Color;
 
 import shapes.Oval;
+import shapes.PolyTri;
 import shapes.Rectangle;
 import shapes.Shape;
 import shapes.Triangle;
@@ -52,7 +53,12 @@ public class Model implements Resettable{
 //	public final static String TRIANGLE = "Triangle";
 
 	//Make an array of Strings for the shape choice
-	public final static String [] choices = {ShapeType.RECTANGLE.getName(), ShapeType.OVAL.getName(), ShapeType.TRIANGLE.getName()};
+	public final static String [] choices = {
+		ShapeType.RECTANGLE.getName(), 
+		ShapeType.OVAL.getName(), 
+		ShapeType.TRIANGLE.getName(),
+		ShapeType.POLYTRI.getName()	
+	};
 
 	//Lesson 6
 	//create a String instance variable named currentShapeType and set it to whatever 
@@ -190,10 +196,14 @@ public class Model implements Resettable{
 			currentShape =  new Rectangle(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
 		}
 		if(currentShapeType == ShapeType.OVAL){
+			// Create a new Oval with zeros and nulls for position, size, fill color, and fill
 			currentShape =  new Oval(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
 		}
 		if(currentShapeType == ShapeType.TRIANGLE){
 			currentShape =  new Triangle(currentLineColor, 0, 0 );
+		}
+		if(currentShapeType == ShapeType.POLYTRI){
+			currentShape =  new PolyTri(currentLineColor, 0, 0 );
 		}
 		//Homework 9
 		//Allow the user to draw two Shapes, which when instantiated, 
