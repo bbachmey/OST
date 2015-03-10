@@ -114,71 +114,74 @@ public class ShapeMouseHandler extends MouseAdapter {
 	public void mouseDragged(MouseEvent e) {
 		// get the current shape handled by the model.
 		shape = model.getCurrentShape();
+		
+		// Make sure the model has a current shape before trying any actions
+		if (shape != null){
 
+			if (model.getAction() ==  ShapeAction.DRAW){
 
+				// set the x and y location of the shape (allows rubber banding).
+				shape.setX(Math.min(startX, e.getX()));
+				shape.setY(Math.min(startY, e.getY()));
 
-		if (model.getAction() ==  ShapeAction.DRAW){
+				// if the shape is an instance of Rectangle or a descendant of Rectangle
+				if (shape instanceof Rectangle) {
+					// set its width and height.
+					// allows for rubber banding.
+					((Rectangle) shape).setWidth(Math.abs( startX - e.getX() ));
+					((Rectangle) shape).setHeight(Math.abs( startY - e.getY() ));
+				}
+				else if (shape instanceof PolyTri) {
 
-			// set the x and y location of the shape (allows rubber banding).
-			shape.setX(Math.min(startX, e.getX()));
-			shape.setY(Math.min(startY, e.getY()));
+					((PolyTri) shape).setWidth(Math.abs(startX - e.getX()));
+					((PolyTri) shape).setHeight(Math.abs(startY - e.getY()));
+				}
+				else{
 
-			// if the shape is an instance of Rectangle or a descendant of Rectangle
-			if (shape instanceof Rectangle) {
-				// set its width and height.
-				// allows for rubber banding.
-				((Rectangle) shape).setWidth(Math.abs( startX - e.getX() ));
-				((Rectangle) shape).setHeight(Math.abs( startY - e.getY() ));
+					((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
+					((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
+				}
 			}
-			else if (shape instanceof PolyTri) {
 
-				((PolyTri) shape).setWidth(Math.abs(startX - e.getX()));
-				((PolyTri) shape).setHeight(Math.abs(startY - e.getY()));
-			}
-			else{
+			if (model.getAction() ==  ShapeAction.MOVE){
 
-				((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
-				((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
+				// if there is a current shape in the model.
+				if (shape != null) {
+					// Set the difference between the shape position and the event position
+					int diffX = shape.getX() - e.getX();
+					int diffY = shape.getY() - e.getY();
+
+					// Include the offset in the calculation to keep the mouse icon 
+					//in relative position to the shape
+					shape.setX( shape.getX() - diffX - offsetX );
+					shape.setY( shape.getY() - diffY - offsetY );
+				}
 			}
+
+			if (model.getAction() ==  ShapeAction.RESIZE){
+				
+				// if the shape is an instance of Rectangle or a descendant of Rectangle
+				if (shape instanceof Rectangle) {
+					// set its width and height.
+					// allows for rubber banding.
+					((Rectangle) shape).setWidth(Math.abs( startX - e.getX() - offsetX ));
+					((Rectangle) shape).setHeight(Math.abs( startY - e.getY() - offsetY ));
+				}
+				else if (shape instanceof PolyTri) {
+
+					((PolyTri) shape).setWidth(Math.abs(startX - e.getX()));
+					((PolyTri) shape).setHeight(Math.abs(startY - e.getY()));
+				}
+				else{
+
+					((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
+					((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
+				}
+			}
+
+			// tell the model to repaint the applet or application.
+			model.repaint();
 		}
 
-		if (model.getAction() ==  ShapeAction.MOVE){
-
-			// if there is a current shape in the model.
-			if (shape != null) {
-				// Set the difference between the shape position and the event position
-				int diffX = shape.getX() - e.getX();
-				int diffY = shape.getY() - e.getY();
-
-				// Include the offset in the calculation to keep the mouse icon 
-				//in relative position to the shape
-				shape.setX( shape.getX() - diffX - offsetX );
-				shape.setY( shape.getY() - diffY - offsetY );
-			}
-		}
-
-		if (model.getAction() ==  ShapeAction.RESIZE){
-			
-			// if the shape is an instance of Rectangle or a descendant of Rectangle
-			if (shape instanceof Rectangle) {
-				// set its width and height.
-				// allows for rubber banding.
-				((Rectangle) shape).setWidth(Math.abs( startX - e.getX() - offsetX ));
-				((Rectangle) shape).setHeight(Math.abs( startY - e.getY() - offsetY ));
-			}
-			else if (shape instanceof PolyTri) {
-
-				((PolyTri) shape).setWidth(Math.abs(startX - e.getX()));
-				((PolyTri) shape).setHeight(Math.abs(startY - e.getY()));
-			}
-			else{
-
-				((Triangle) shape).setWidth(Math.abs(startX - e.getX()));
-				((Triangle) shape).setHeight(Math.abs(startY - e.getY()));
-			}
-		}
-
-		// tell the model to repaint the applet or application.
-		model.repaint();
 	}
 }

@@ -203,7 +203,7 @@ public class Model implements Resettable{
 			currentShape =  new Triangle(currentLineColor, 0, 0 );
 		}
 		if(currentShapeType == ShapeType.POLYTRI){
-			currentShape =  new PolyTri(currentLineColor, 0, 0 );
+			currentShape =  new PolyTri(currentLineColor, 0, 0, currentFillColor, fill);
 		}
 		//Homework 9
 		//Allow the user to draw two Shapes, which when instantiated, 
