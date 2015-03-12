@@ -140,14 +140,17 @@ public class ShapeMouseHandler extends MouseAdapter {
 			offsetX = startX - shape.getX();
 			offsetY = startY - shape.getY();	
 			
-			// If the action is CHANGE
+			// Change the shape
 			if (action == ShapeAction.CHANGE){
 				changeShape();
 			}
-
-			// If the action is REMOVE
+			// Remove the shape
 			if(action ==  ShapeAction.REMOVE){
 				removeShape();				
+			}
+			// Draw a shape on top of another shape
+			if(action ==  ShapeAction.DRAW){
+				makeShape();				
 			}
 		}
 		else {
