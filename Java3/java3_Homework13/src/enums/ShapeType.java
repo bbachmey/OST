@@ -3,8 +3,7 @@ package enums;
 public enum ShapeType {
 	RECTANGLE ( "Rectangle"),
 	OVAL ( "Oval"),
-	TRIANGLE ( "Triangle"),
-	POLYTRI ( "PolyTri"),
+	POLYTRI ( "Triangle"),
 	POLYOCTAGON ( "Octagon")
 	;
 	

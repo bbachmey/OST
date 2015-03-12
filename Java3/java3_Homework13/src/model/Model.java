@@ -57,7 +57,6 @@ public class Model implements Resettable{
 	public final static String [] choices = {
 		ShapeType.RECTANGLE.getName(), 
 		ShapeType.OVAL.getName(), 
-		ShapeType.TRIANGLE.getName(),
 		ShapeType.POLYTRI.getName()	,
 		ShapeType.POLYOCTAGON.getName()	
 	};
@@ -201,9 +200,6 @@ public class Model implements Resettable{
 			// Create a new Oval with zeros and nulls for position, size, fill color, and fill
 			currentShape =  new Oval(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
 		}
-		if(currentShapeType == ShapeType.TRIANGLE){
-			currentShape =  new Triangle(currentLineColor, 0, 0 );
-		}
 		if(currentShapeType == ShapeType.POLYTRI){
 			currentShape =  new PolyTri(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
 		}
@@ -247,7 +243,11 @@ public class Model implements Resettable{
 	 * 
 	 */
 	public Model (Container container) {
+		// Local reference of Applet
 		this.container = container;
+		
+		// Set the default values of the UI components
+		this.resetComponents();
 	}
 
 	/**
@@ -262,6 +262,12 @@ public class Model implements Resettable{
 	 * @see interfaces.Resettable#resetComponents()
 	 */
 	public void resetComponents() {
+		
+		//Default colors
+		this.setCurrentFillColor(Color.RED);
+		this.setCurrentLineColor(Color.RED);
+		
+		// Default action
 		action = ShapeAction.DRAW;
 
 		currentShape = null;

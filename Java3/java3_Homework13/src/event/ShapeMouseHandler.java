@@ -24,6 +24,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 	private ShapeAction action; 
 	// The Model
 	private Model model;
+	
+	int diffX;
+	int diffY;
 
 	/**
 	 * Constructor. Sets the model for this Listener.
@@ -36,10 +39,6 @@ public class ShapeMouseHandler extends MouseAdapter {
 	}
 
 	private void changeShape() {
-
-		// Set the offset
-		offsetX = startX - shape.getX();
-		offsetY = startY - shape.getY();	
 		
 		// Set the line color of the shape
 		shape.setLineColor(model.currentLineColor);
@@ -97,12 +96,12 @@ public class ShapeMouseHandler extends MouseAdapter {
 				resizeShape( e.getX(), e.getY() );
 			}
 
-			if (model.getAction() ==  ShapeAction.MOVE){
+			if (action ==  ShapeAction.MOVE){
 
 				moveShape( e.getX(), e.getY() );
 			}
 
-			if (model.getAction() ==  ShapeAction.RESIZE){
+			if (action ==  ShapeAction.RESIZE){
 
 				resizeShape( e.getX(), e.getY() );
 			}
@@ -137,6 +136,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 			
 			// A shape was clicked
 
+			// Set the offset
+			offsetX = startX - shape.getX();
+			offsetY = startY - shape.getY();	
+			
 			// If the action is CHANGE
 			if (action == ShapeAction.CHANGE){
 				changeShape();
@@ -164,10 +167,11 @@ public class ShapeMouseHandler extends MouseAdapter {
 	private void moveShape(int x,int y) {
 		// if there is a current shape in the model.
 		if (shape != null) {
-			// Set the difference between the shape position and the event position
-			int diffX = shape.getX() - x;
-			int diffY = shape.getY() - y;
 
+			// Set the difference between the shape position and the event position
+			diffX = shape.getX() - x;
+			diffY = shape.getY() - y;
+			
 			// Include the offset in the calculation to keep the mouse icon 
 			//in relative position to the shape
 			shape.setX( shape.getX() - diffX - offsetX );

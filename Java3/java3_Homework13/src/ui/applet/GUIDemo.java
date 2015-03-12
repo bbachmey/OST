@@ -23,18 +23,25 @@ public class GUIDemo extends Applet implements Resettable {
 	public void init() {
 		//set the applet window size
 		resize(600,400);
+
 		//make a Model object and send it this Applet
 		model = new Model(this);
+		
 		//make a MainPanel object
 		mainPanel = new MainPanel(model);
+
 		//add the MainPanel to this Applet
 		this.add(mainPanel);
+
 		//make a ShapeMouseHandler
 		ShapeMouseHandler mouseHandler = new ShapeMouseHandler(model);
+		
 		//add the ShapeMouseHandler to this applet as a MouseListener
 		this.addMouseListener(mouseHandler);
+		
 		//add the ShapeMouseHandler to this applet as a MouseMotionListener
 		this.addMouseMotionListener(mouseHandler);
+
 	}
 
 	public void paint(Graphics g) {
@@ -111,6 +118,8 @@ public class GUIDemo extends Applet implements Resettable {
 
 	public void resetComponents() {
 		//call the resetComponents() method of the MainPanel object
-		mainPanel.resetComponents();
+		if(mainPanel != null){
+			mainPanel.resetComponents();			
+		}
 	}
 }
