@@ -52,32 +52,44 @@ public class PolyOctagon extends Shape {
         // Be nice. Save the state of the object before changing it.
         Color oldColor = g.getColor();
         
-		int [] polyx = new int [3];
-		int [] polyy = new int [3];
+		int [] polyx = new int [8];
+		int [] polyy = new int [8];
 		
+		
+//		Octagon numbers
+//		0	0
+//		62	0
+//		106	44
+//		106	106
+//		62	150
+//		0	150
+//		-44	106
+//		-44	44
+	      
+	      
 		A.setX( super.getX() );
 		A.setY( super.getY() );
 
-		B.setX( A.getX() + (width/2) );
+		B.setX( A.getX() + 62 );
 		B.setY( A.getY() );
 		
-		C.setX( B.getX()+ (width/4) );
-		C.setY( B.getY() - (width/4) ); //TODO: Finish the math for making an octagon
+		C.setX( A.getX() + 106 );
+		C.setY( A.getY() + 44  ); //TODO: Finish the math for making an octagon
 		
-		D.setX( B.getX()-(width/2) );
-		D.setY( A.getY() - height );
+		D.setX( A.getX() + 106 );
+		D.setY( A.getY() + 106 );
 		
-		E.setX( B.getX()-(width/2) );
-		E.setY( A.getY() - height );
+		E.setX( A.getX() + 62 );
+		E.setY( A.getY() + 150 );
 		
-		F.setX( B.getX()-(width/2) );
-		F.setY( A.getY() - height );
+		F.setX( A.getX() + 0 );
+		F.setY( A.getY() + 150 );
 		
-		G.setX( B.getX()-(width/2) );
-		G.setY( A.getY() - height );
+		G.setX( A.getX() - 44 );
+		G.setY( A.getY() + 106 );
 		
-		H.setX( B.getX()-(width/2) );
-		H.setY( A.getY() - height );
+		H.setX( A.getX() - 44 );
+		H.setY( A.getY() + 44 );
 		
 		polyx[0]=A.getX(); 
 		polyx[1]=B.getX(); 
@@ -127,7 +139,7 @@ public class PolyOctagon extends Shape {
 	 */
 	@Override
 	public String toString() {
-		return "PolyTri: " +
+		return "Octagon: " +
 				"\n\tA = ( " + A.getX() + "," + A.getY() + " )" + 
 				"\n\tB = ( " + B.getX() + "," + B.getY() + " )" + 
 				"\n\tB = ( " + C.getX() + "," + C.getY() + " )" + 
