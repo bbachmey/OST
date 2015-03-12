@@ -7,7 +7,6 @@ import shapes.PolyOctagon;
 import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
-import shapes.Triangle;
 
 import java.awt.Container;
 import java.util.ArrayList;

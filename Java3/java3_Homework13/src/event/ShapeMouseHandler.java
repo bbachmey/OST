@@ -10,7 +10,6 @@ import shapes.PolyOctagon;
 import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
-import shapes.Triangle;
 
 public class ShapeMouseHandler extends MouseAdapter {
 	// Integers to mark the x,y position of a mouse click

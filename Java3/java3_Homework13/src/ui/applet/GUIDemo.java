@@ -12,7 +12,6 @@ import shapes.PolyOctagon;
 import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
-import shapes.Triangle;
 import ui.panels.MainPanel;
 import model.Model;
 
@@ -74,11 +73,8 @@ public class GUIDemo extends Applet implements Resettable {
 			if (shape instanceof Oval) {
 				System.out.println("Element " + i + " is a oval");
 			}
-			if (shape instanceof Triangle) {
-				System.out.println("Element " + i + " is a triangle");
-			}
 			if (shape instanceof PolyTriangle) {
-				System.out.println("Element " + i + " is a polytri");
+				System.out.println("Element " + i + " is a triangle");
 			}
 			if (shape instanceof PolyOctagon) {
 				System.out.println("Element " + i + " is an octagon");
