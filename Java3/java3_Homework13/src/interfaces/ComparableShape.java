@@ -8,6 +8,10 @@ package interfaces;
  * only closed shapes can do this. How do you get the area of a line? 
  * The instanceof operator will be handy here.
  */
+/**
+ * @author bbachmey
+ *
+ */
 public interface ComparableShape {
 
 	public int getArea();

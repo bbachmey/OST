@@ -19,6 +19,9 @@ public class Triangle extends Shape {
 		C = new Point(lineColor, 0, 0);
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#draw(java.awt.Graphics)
+	 */
 	@Override
 	public void draw(Graphics g) {
 
@@ -57,6 +60,9 @@ public class Triangle extends Shape {
 	}
 
 	// Override abstract method containsLocation in the Shape class.
+	/* (non-Javadoc)
+	 * @see shapes.Shape#containsLocation(int, int)
+	 */
 	@Override
 	public boolean containsLocation(int x, int y) {
 		if (getX() <= x && getY() <= y && getX() + getWidth() >= x

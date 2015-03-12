@@ -19,6 +19,9 @@ public class Oval extends Rectangle implements ComparableShape {
 	/*
 	 * Override Rectangle draw(Graphics g) method.
 	 */
+	/* (non-Javadoc)
+	 * @see shapes.Rectangle#draw(java.awt.Graphics)
+	 */
 	public void draw(Graphics g) {
 		// Be nice. Save the state of the object before changing it.
 		Color oldColor = g.getColor();
@@ -40,6 +43,9 @@ public class Oval extends Rectangle implements ComparableShape {
 				+ getWidth() + "\n\th = " + getHeight();
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Rectangle#setArea()
+	 */
 	public void setArea() {
 		// http://courses.oreillyschool.com/java3/java309.html
 		// not necessarily a circle, so rather than PI*r*r,
@@ -48,6 +54,9 @@ public class Oval extends Rectangle implements ComparableShape {
 		area = (int) (Math.PI * .5 * super.getWidth() * .5 * super.getHeight());
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Rectangle#getArea()
+	 */
 	@Override
 	public int getArea() {
 		// TODO Auto-generated method stub

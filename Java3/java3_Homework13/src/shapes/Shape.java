@@ -26,8 +26,16 @@ public abstract class Shape {
 	}
 
 	// Abstract methods must be implemented by subclasses
+	/**
+	 * @param g
+	 */
 	public abstract void draw(Graphics g);
 
+	/**
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public abstract boolean containsLocation(int x, int y);
 
 	// getters and setters

@@ -16,6 +16,10 @@ import shapes.Shape;
 import enums.ShapeAction;
 import enums.ShapeType;
 
+/**
+ * @author bbachmey
+ *
+ */
 public class Model implements Resettable {
 	// declare a Container object
 	private Container container;
@@ -134,6 +138,11 @@ public class Model implements Resettable {
 	 * In your model, write a method that returns an instance of a Shape, given
 	 * a set of x and y coordinates. You will need to search your Vector or
 	 * Array list. If no object contains those coordinates, return null.
+	 */
+	/**
+	 * @param clickX
+	 * @param clickY
+	 * @return
 	 */
 	public Shape findClickedShape(int clickX, int clickY) {
 

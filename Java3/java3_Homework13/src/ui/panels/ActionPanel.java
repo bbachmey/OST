@@ -12,12 +12,19 @@ import java.awt.event.ItemListener;
 import model.Model;
 import enums.ShapeAction;
 
+/**
+ * @author bbachmey
+ *
+ */
 public class ActionPanel extends Panel implements Resettable {
 
 	private CheckboxGroup actionGroup;
 	private Checkbox chkDraw, chkMove, chkResize, chkRemove, chkChange,
 			chkFill;
 
+	/**
+	 * @param model
+	 */
 	public ActionPanel(final Model model) {
 		// Instantiate the CheckboxGroup
 		actionGroup = new CheckboxGroup();
@@ -77,6 +84,9 @@ public class ActionPanel extends Panel implements Resettable {
 		add(chkFill);
 	}
 
+	/* (non-Javadoc)
+	 * @see interfaces.Resettable#resetComponents()
+	 */
 	public void resetComponents() {
 		chkDraw.setState(true);
 		chkMove.setState(false);

@@ -12,12 +12,19 @@ import java.util.Map;
 
 import model.Model;
 
+/**
+ * @author bbachmey
+ *
+ */
 public class MainPanel extends Panel implements Resettable {
 	ActionPanel actionPanel;
 	ChoicePanel choicePanel;
 	ControlsPanel controlsPanel;
 	ColorPanel colorPanel;
 
+	/**
+	 * @param model
+	 */
 	public MainPanel(Model model) {
 		// set the layout of this MainPanel
 		this.setLayout(new GridLayout(4, 4));
@@ -41,6 +48,9 @@ public class MainPanel extends Panel implements Resettable {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see interfaces.Resettable#resetComponents()
+	 */
 	public void resetComponents() {
 		// reset all the Panels defined in the MainPanel
 		actionPanel.resetComponents();
@@ -60,6 +70,10 @@ public class MainPanel extends Panel implements Resettable {
 	 * close to where it is used to make maintenance easier.
 	 */
 
+	/**
+	 * @author bbachmey
+	 *
+	 */
 	static class ColorPanel extends Panel implements Resettable {
 		Choice fillColorChoice;
 		Model model;
@@ -149,6 +163,9 @@ public class MainPanel extends Panel implements Resettable {
 
 		}
 
+		/* (non-Javadoc)
+		 * @see interfaces.Resettable#resetComponents()
+		 */
 		@Override
 		public void resetComponents() {
 			// TODO Auto-generated method stub

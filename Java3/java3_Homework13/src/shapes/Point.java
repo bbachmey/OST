@@ -9,6 +9,9 @@ public class Point extends Shape {
 		super(lineColor, x, y);
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#draw(java.awt.Graphics)
+	 */
 	@Override
 	public void draw(Graphics g) {
 
@@ -22,6 +25,9 @@ public class Point extends Shape {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#containsLocation(int, int)
+	 */
 	@Override
 	public boolean containsLocation(int x, int y) {
 		// TODO Auto-generated method stub

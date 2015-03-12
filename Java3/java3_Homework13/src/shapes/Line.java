@@ -12,6 +12,9 @@ public class Line extends Shape {
 		super(lineColor, x1, y1);
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#draw(java.awt.Graphics)
+	 */
 	@Override
 	public void draw(Graphics g) {
 
@@ -25,6 +28,9 @@ public class Line extends Shape {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#containsLocation(int, int)
+	 */
 	@Override
 	public boolean containsLocation(int x, int y) {
 		// TODO Auto-generated method stub

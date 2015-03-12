@@ -30,6 +30,9 @@ public class Rectangle extends Shape implements ComparableShape {
 		this.fill = fill;
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#draw(java.awt.Graphics)
+	 */
 	public void draw(Graphics g) {
 		// Be nice. Save the state of the object before changing it.
 		Color jot = g.getColor();
@@ -45,6 +48,9 @@ public class Rectangle extends Shape implements ComparableShape {
 	}
 
 	// Override abstract method containsLocation in the Shape class.
+	/* (non-Javadoc)
+	 * @see shapes.Shape#containsLocation(int, int)
+	 */
 	@Override
 	public boolean containsLocation(int paramX, int paramY) {
 		if (getX() <= paramX && getY() <= paramY

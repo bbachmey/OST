@@ -14,6 +14,10 @@ import shapes.Shape;
 import ui.panels.MainPanel;
 import event.ShapeMouseHandler;
 
+/**
+ * @author bbachmey
+ *
+ */
 public class GUIDemo extends Applet implements Resettable {
 	MainPanel mainPanel;
 	Model model;
@@ -42,6 +46,9 @@ public class GUIDemo extends Applet implements Resettable {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.Container#paint(java.awt.Graphics)
+	 */
 	public void paint(Graphics g) {
 		// declare an index counter
 		int i = -1;
@@ -111,6 +118,9 @@ public class GUIDemo extends Applet implements Resettable {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see interfaces.Resettable#resetComponents()
+	 */
 	public void resetComponents() {
 		// call the resetComponents() method of the MainPanel object
 		if (mainPanel != null) {

@@ -1,5 +1,9 @@
 package enums;
 
+/**
+ * @author bbachmey
+ *
+ */
 public enum ShapeAction {
 	DRAW("Draw"), MOVE("Move"), REMOVE("Remove"), RESIZE("Resize"), CHANGE(
 			"Change"), FILL("Fill");

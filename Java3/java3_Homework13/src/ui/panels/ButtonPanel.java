@@ -7,9 +7,16 @@ import java.awt.event.ActionListener;
 
 import model.Model;
 
+/**
+ * @author bbachmey
+ *
+ */
 public class ButtonPanel extends Panel {
 	private Button btnClear;
 
+	/**
+	 * @param model
+	 */
 	public ButtonPanel(final Model model) {
 		// declare and instantiate a new Button that says, "Clear"
 		btnClear = new Button("Clear");
@@ -28,6 +35,10 @@ public class ButtonPanel extends Panel {
 		// });
 
 		// declare an inner class that implements ActionListener
+		/**
+		 * @author bbachmey
+		 *
+		 */
 		class ButtonListener implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				model.resetComponents();

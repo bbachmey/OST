@@ -36,6 +36,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 		this.model = model;
 	}
 
+	/**
+	 * 
+	 */
 	private void changeShape() {
 
 		// Set the line color of the shape
@@ -60,6 +63,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
+	/**
+	 * 
+	 */
 	private void makeShape() {
 
 		// Call the create() method on the model
@@ -77,6 +83,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	/*
 	 * Overrides MouseAdapter's mouseDragged method.
+	 */
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
 	public void mouseDragged(MouseEvent e) {
 
@@ -112,6 +121,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	/*
 	 * Overrides MouseAdapter mousePressed method.
+	 */
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -164,6 +176,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
+	/**
+	 * @param x
+	 * @param y
+	 */
 	private void moveShape(int x, int y) {
 		// if there is a current shape in the model.
 		if (shape != null) {
@@ -181,10 +197,17 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
+	/**
+	 * 
+	 */
 	private void removeShape() {
 		model.shapes.remove(shape);
 	}
 
+	/**
+	 * @param x
+	 * @param y
+	 */
 	private void resizeShape(int x, int y) {
 
 		// if the shape is an instance of Rectangle or a descendant of Rectangle

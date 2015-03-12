@@ -33,6 +33,9 @@ public class PolyTriangle extends Shape {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see shapes.Shape#draw(java.awt.Graphics)
+	 */
 	@Override
 	public void draw(Graphics g) {
 
@@ -74,6 +77,9 @@ public class PolyTriangle extends Shape {
 	}
 
 	// Override abstract method containsLocation in the Shape class.
+	/* (non-Javadoc)
+	 * @see shapes.Shape#containsLocation(int, int)
+	 */
 	@Override
 	public boolean containsLocation(int x, int y) {
 		if (p.contains(x, y)) {

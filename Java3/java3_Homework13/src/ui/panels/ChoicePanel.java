@@ -22,6 +22,9 @@ public class ChoicePanel extends Panel implements Resettable {
 	Model model;
 	Choice choice;
 
+	/**
+	 * @param mdl
+	 */
 	public ChoicePanel(Model mdl) {
 		// Set the Model property of the ChoicePanel object to the Model defined
 		// in the formal parameter
@@ -54,6 +57,9 @@ public class ChoicePanel extends Panel implements Resettable {
 		this.add(choice);
 	}
 
+	/* (non-Javadoc)
+	 * @see interfaces.Resettable#resetComponents()
+	 */
 	public void resetComponents() {
 		choice.select(0);
 		// model.setCurrentShapeType(ShapeType.RECTANGLE);
