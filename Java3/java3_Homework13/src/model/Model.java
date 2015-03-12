@@ -3,6 +3,7 @@ package model;
 import java.awt.Color;
 
 import shapes.Oval;
+import shapes.PolyOctagon;
 import shapes.PolyTri;
 import shapes.Rectangle;
 import shapes.Shape;
@@ -163,13 +164,13 @@ public class Model implements Resettable{
 		int size = shapes.size();
 		
 		for(int i = size;i>0;i--){
-			Shape ship = shapes.get(i-1);
-			boolean within = ship.containsLocation(clickX, clickY);
+			Shape it = shapes.get(i-1);
+			boolean within = it.containsLocation(clickX, clickY);
 
 			// Evaluate the boolean value
 			if(within){
 				// Return the shape
-				return ship;
+				return it;
 			}
 		}
 
@@ -205,6 +206,9 @@ public class Model implements Resettable{
 		}
 		if(currentShapeType == ShapeType.POLYTRI){
 			currentShape =  new PolyTri(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
+		}
+		if(currentShapeType == ShapeType.POLYOCTAGON){
+			currentShape =  new PolyOctagon(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
 		}
 		//Homework 9
 		//Allow the user to draw two Shapes, which when instantiated, 
@@ -247,7 +251,7 @@ public class Model implements Resettable{
 	}
 
 	/**
-	 * 
+	 * This is how the Applet can be made to repaint itself by the Model
 	 */
 	public void repaint() {
 		//This method call is sent to the repaint method of the Applet object
@@ -264,7 +268,7 @@ public class Model implements Resettable{
 		fill = false;
 		//Does the Applet object implement the Resettable interface?
 		if(container instanceof Resettable) {
-			//If so, call the resetComponents() method
+			//If so, call the resetComponents() method of the Applet
 			((Resettable)container).resetComponents();
 		}
 	}

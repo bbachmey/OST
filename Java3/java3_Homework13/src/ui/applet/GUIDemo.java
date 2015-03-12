@@ -8,6 +8,7 @@ import java.awt.Graphics;
 
 import event.ShapeMouseHandler;
 import shapes.Oval;
+import shapes.PolyOctagon;
 import shapes.PolyTri;
 import shapes.Rectangle;
 import shapes.Shape;
@@ -48,7 +49,7 @@ public class GUIDemo extends Applet implements Resettable {
 			i++;
 			//If the Model provided a Shape, then draw() it
 			if(shape != null) {
-				// Just draw the shape. The logic for how the shape is drawn is in the draw() method. 
+				// The logic for how the Shape is drawn is in the draw() method of the Shape. 
 				shape.draw(g);
 			}
 
@@ -71,6 +72,9 @@ public class GUIDemo extends Applet implements Resettable {
 			}
 			if (shape instanceof PolyTri){
 				System.out.println("Element " + i + " is a polytri");                
+			}
+			if (shape instanceof PolyOctagon){
+				System.out.println("Element " + i + " is an octagon");                
 			}
 
 			//Homework 9

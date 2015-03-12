@@ -25,6 +25,8 @@ public class PolyOctagon extends Shape {
 			Color lineColor, 
 			int x, 
 			int y,
+			int w,
+			int h,
     		Color fillColor, 
     		boolean fill
 			){
@@ -40,6 +42,9 @@ public class PolyOctagon extends Shape {
 		F = new Point(lineColor,x,y);
 		G = new Point(lineColor,x,y);
 		H = new Point(lineColor,x,y);
+
+		this.width = w;
+		this.height = h;
 
 		this.fillColor = fillColor;
 		this.fill = fill;
