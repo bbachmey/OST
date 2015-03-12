@@ -33,8 +33,14 @@ public class ShapeMouseHandler extends MouseAdapter {
 	int diffX;
 	int diffY;
 	
-	// placeholder for actual line color
-	Color actualLineColor;
+	// placeholder for original line color
+	Color originalLineColor;
+	
+	// placeholder for original fill color
+	Color originalFillColor;
+	
+	// placeholder for original fill setting
+	boolean originalFill;
 
 	/**
 	 * Constructor. Sets the model for this Listener.
@@ -73,15 +79,29 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
-	public Color getActualLineColor() {
-		return actualLineColor;
-	}
-
 	private void highlightShape() {
-//		shape.setLineColor(Color.CYAN);
+		shape.setLineColor(Color.CYAN);
+
+
+		// Check the inheritance of the Shape
+		if (shape instanceof Rectangle) {
+			// Downcast to get fill methods
+			((Rectangle) shape).setFill( true );
+			((Rectangle) shape).setFillColor( Color.WHITE );
+		}
+		if (shape instanceof PolyTriangle) {
+			// Downcast to get fill methods
+			((PolyTriangle) shape).setFill( true );
+			((PolyTriangle) shape).setFillColor( Color.WHITE );
+		}
+		if (shape instanceof PolyOctagon) {
+			// Downcast to get fill methods
+			((PolyOctagon) shape).setFill( true );
+			((PolyOctagon) shape).setFillColor( Color.WHITE );
+		}
 		
 	}
-
+	
 	/**
 	 * Create a shape that doesn't yet exists
 	 */
@@ -99,7 +119,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 		}
 
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
@@ -159,8 +179,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 		if (shape != null) {
 
 			// A shape was clicked
-
-			actualLineColor = shape.getLineColor();
+			recordShapeOriginals();
 			
 			// Set the offset
 			offsetX = startX - shape.getX();
@@ -196,6 +215,29 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
+
+	private void recordShapeOriginals() {
+		originalLineColor = shape.getLineColor();
+		
+		// Check the inheritance of the Shape
+		if (shape instanceof Rectangle) {
+			// Downcast to get fill methods
+			originalFill = ((Rectangle) shape).isFill();
+			originalFillColor = ((Rectangle) shape).getFillColor();
+		}
+		if (shape instanceof PolyTriangle) {
+			// Downcast to get fill methods
+			originalFill = ((PolyTriangle) shape).isFill(  );
+			originalFillColor = ((PolyTriangle) shape).getFillColor();
+		}
+		if (shape instanceof PolyOctagon) {
+			// Downcast to get fill methods
+			originalFill = ((PolyOctagon) shape).isFill();
+			originalFillColor = ((PolyOctagon) shape).getFillColor(  );
+		}
+				
+	}
+
 	@Override
 	public void mouseReleased(MouseEvent e){
 		// Get the current shape from the Model
@@ -206,19 +248,19 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 		// Make sure the model has a current shape before trying any actions
 		if (shape != null) {
-			
+
 			if (action == ShapeAction.CHANGE) {
 				changeShape();
+				model.repaint();
+			}
+			if (action == ShapeAction.MOVE) {
+				unhighlightShape();
 				model.repaint();
 			}
 			
 		}
 		
-
-
-		
 	}
-
 
 	/**
 	 * Move a shape to another position on the screen
@@ -272,12 +314,39 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
-	public void setActualLineColor(Color actualLineColor) {
-		this.actualLineColor = actualLineColor;
+	public void setOriginalLineColor(Color originalLineColor) {
+		this.originalLineColor = originalLineColor;
 	}
 
 	private void unhighlightShape() {
-//		shape.setLineColor(actualLineColor);
+		shape.setLineColor(originalLineColor);
 		
+		// Check the inheritance of the Shape
+		if (shape instanceof Rectangle) {
+			// Downcast to get fill methods
+			((Rectangle) shape).setFill( originalFill );
+			((Rectangle) shape).setFillColor( originalFillColor );
+		}
+		if (shape instanceof PolyTriangle) {
+			// Downcast to get fill methods
+			((PolyTriangle) shape).setFill( originalFill );
+			((PolyTriangle) shape).setFillColor( originalFillColor );
+		}
+		if (shape instanceof PolyOctagon) {
+			// Downcast to get fill methods
+			((PolyOctagon) shape).setFill( originalFill );
+			((PolyOctagon) shape).setFillColor( originalFillColor );
+		}
+			
 	}
+	
+	// getters and setters
+	public Color getActualLineColor() {
+		return originalLineColor;
+	}
+
+	public Color getOriginalLineColor() {
+		return originalLineColor;
+	}
+	
 }
