@@ -19,6 +19,8 @@ public class PolyTri extends Shape {
 			Color lineColor, 
 			int x, 
 			int y,
+			int w,
+			int h,
     		Color fillColor, 
     		boolean fill
 			){
@@ -30,6 +32,9 @@ public class PolyTri extends Shape {
 		B = new Point(lineColor,x,y);
 		C = new Point(lineColor,x,y);
 
+		this.width = w;
+		this.height = h;
+		
 		this.fillColor = fillColor;
 		this.fill = fill;
 		

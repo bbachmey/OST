@@ -193,17 +193,17 @@ public class Model implements Resettable{
 	 */
 	public Shape createShape() { 
 		if(currentShapeType == ShapeType.RECTANGLE){
-			currentShape =  new Rectangle(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
+			currentShape =  new Rectangle(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
 		}
 		if(currentShapeType == ShapeType.OVAL){
 			// Create a new Oval with zeros and nulls for position, size, fill color, and fill
-			currentShape =  new Oval(currentLineColor, 0, 0, 0, 0, currentFillColor, fill);
+			currentShape =  new Oval(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
 		}
 		if(currentShapeType == ShapeType.TRIANGLE){
 			currentShape =  new Triangle(currentLineColor, 0, 0 );
 		}
 		if(currentShapeType == ShapeType.POLYTRI){
-			currentShape =  new PolyTri(currentLineColor, 0, 0, currentFillColor, fill);
+			currentShape =  new PolyTri(currentLineColor, 0, 0, 50, 50, currentFillColor, fill);
 		}
 		//Homework 9
 		//Allow the user to draw two Shapes, which when instantiated, 
