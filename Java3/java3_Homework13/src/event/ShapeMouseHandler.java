@@ -1,5 +1,6 @@
 package event;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -28,8 +29,12 @@ public class ShapeMouseHandler extends MouseAdapter {
 	// The Model
 	private Model model;
 
+	// Change in x and y position
 	int diffX;
 	int diffY;
+	
+	// placeholder for actual line color
+	Color actualLineColor;
 
 	/**
 	 * Constructor. Sets the model for this Listener.
@@ -68,6 +73,15 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
+	public Color getActualLineColor() {
+		return actualLineColor;
+	}
+
+	private void highlightShape() {
+//		shape.setLineColor(Color.CYAN);
+		
+	}
+
 	/**
 	 * Create a shape that doesn't yet exists
 	 */
@@ -85,7 +99,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 		}
 
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
@@ -106,8 +120,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 			}
 
 			if (action == ShapeAction.MOVE) {
-
+				
 				moveShape(e.getX(), e.getY());
+				
 			}
 
 			if (action == ShapeAction.RESIZE) {
@@ -126,7 +141,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
-
+		
 		// Get the x,y coordinates of the mouse event
 		startX = e.getX();
 		startY = e.getY();
@@ -145,13 +160,19 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 			// A shape was clicked
 
+			actualLineColor = shape.getLineColor();
+			
 			// Set the offset
 			offsetX = startX - shape.getX();
 			offsetY = startY - shape.getY();
 
+			// Change the color of the shape
+			if (action == ShapeAction.MOVE) {
+				highlightShape();
+			}
 			// Change the shape
 			if (action == ShapeAction.CHANGE) {
-				changeShape();
+				highlightShape();
 			}
 			// Remove the shape
 			if (action == ShapeAction.REMOVE) {
@@ -173,6 +194,29 @@ public class ShapeMouseHandler extends MouseAdapter {
 		// Call the repaint() method on the Model
 		model.repaint();
 
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e){
+		// Get the current shape from the Model
+		shape = model.getCurrentShape();
+
+		// Get the action from the Model
+		action = model.getAction();
+
+		// Make sure the model has a current shape before trying any actions
+		if (shape != null) {
+			
+			if (action == ShapeAction.CHANGE) {
+				changeShape();
+				model.repaint();
+			}
+			
+		}
+		
+
+
+		
 	}
 
 
@@ -226,5 +270,14 @@ public class ShapeMouseHandler extends MouseAdapter {
 			((PolyOctagon) shape).setHeight(Math.abs(startY - y));
 		} 
 
+	}
+
+	public void setActualLineColor(Color actualLineColor) {
+		this.actualLineColor = actualLineColor;
+	}
+
+	private void unhighlightShape() {
+//		shape.setLineColor(actualLineColor);
+		
 	}
 }
