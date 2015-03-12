@@ -37,7 +37,7 @@ public class Model implements Resettable{
 //	public final static String CHANGE = "Change";
 //	public final static String FILL = "Fill";
 
-	//by default, action is draw
+	// Set the default ShapeAction
 	private ShapeAction action = ShapeAction.DRAW;
 
 	//Lesson 6
@@ -57,7 +57,8 @@ public class Model implements Resettable{
 		ShapeType.RECTANGLE.getName(), 
 		ShapeType.OVAL.getName(), 
 		ShapeType.TRIANGLE.getName(),
-		ShapeType.POLYTRI.getName()	
+		ShapeType.POLYTRI.getName()	,
+		ShapeType.POLYOCTAGON.getName()	
 	};
 
 	//Lesson 6

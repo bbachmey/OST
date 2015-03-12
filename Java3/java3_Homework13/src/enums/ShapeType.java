@@ -4,7 +4,8 @@ public enum ShapeType {
 	RECTANGLE ( "Rectangle"),
 	OVAL ( "Oval"),
 	TRIANGLE ( "Triangle"),
-	POLYTRI ( "PolyTri")
+	POLYTRI ( "PolyTri"),
+	POLYOCTAGON ( "Octagon")
 	;
 	
 	private String name;
