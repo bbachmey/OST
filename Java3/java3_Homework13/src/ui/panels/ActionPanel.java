@@ -13,6 +13,7 @@ import model.Model;
 import enums.ShapeAction;
 
 /**
+ * Another Panel added to MainPanel
  * @author bbachmey
  *
  */
@@ -23,6 +24,7 @@ public class ActionPanel extends Panel implements Resettable {
 			chkFill;
 
 	/**
+	 * Constructor
 	 * @param model
 	 */
 	public ActionPanel(final Model model) {

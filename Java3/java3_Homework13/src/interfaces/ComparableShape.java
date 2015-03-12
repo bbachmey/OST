@@ -9,6 +9,7 @@ package interfaces;
  * The instanceof operator will be handy here.
  */
 /**
+ * ComparableShape method guarantees that classes implements abstract methods
  * @author bbachmey
  *
  */

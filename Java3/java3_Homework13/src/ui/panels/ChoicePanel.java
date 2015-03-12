@@ -11,11 +11,13 @@ import model.Model;
 import enums.ShapeType;
 
 /**
- * @author bbachmey Homework 6 Add a ChoicePanel that contains a Choice
- *         component for the types of Shapes you will allow (as shown in lesson
- *         6), including at least one Shape in addition to the Rectangle and
- *         Oval (perhaps a Triangle). This ChoicePanel also needs to implement
- *         Resettable.
+ * Homework 6 Add a ChoicePanel that contains a Choice component for the types
+ * of Shapes you will allow (as shown in lesson 6), including at least one Shape
+ * in addition to the Rectangle and Oval (perhaps a Triangle). This ChoicePanel
+ * also needs to implement Resettable.
+ * 
+ * @author bbachmey
+ * 
  */
 public class ChoicePanel extends Panel implements Resettable {
 
@@ -23,6 +25,7 @@ public class ChoicePanel extends Panel implements Resettable {
 	Choice choice;
 
 	/**
+	 * Constructor
 	 * @param mdl
 	 */
 	public ChoicePanel(Model mdl) {
@@ -57,7 +60,9 @@ public class ChoicePanel extends Panel implements Resettable {
 		this.add(choice);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see interfaces.Resettable#resetComponents()
 	 */
 	public void resetComponents() {

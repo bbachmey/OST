@@ -5,6 +5,11 @@ import interfaces.ComparableShape;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Rectangle class extends Shape with additional properties
+ * @author bbachmey
+ *
+ */
 public class Rectangle extends Shape implements ComparableShape {
 	private Color fillColor;
 	private int width;
@@ -13,6 +18,7 @@ public class Rectangle extends Shape implements ComparableShape {
 	private int area;
 
 	/**
+	 * Class constructor
 	 * @param x
 	 * @param y
 	 * @param w
@@ -61,9 +67,8 @@ public class Rectangle extends Shape implements ComparableShape {
 		return false;
 	}
 
-	/**
-	 * Returns a String representing this object. Overrides toString() in
-	 * java.lang.Object
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
@@ -107,13 +112,11 @@ public class Rectangle extends Shape implements ComparableShape {
 	@Override
 	public int getArea() {
 		return area;
-
 	}
 
 	@Override
 	public void setArea() {
 		area = (this.getWidth()) * (this.getHeight());
-
 	}
 
 }

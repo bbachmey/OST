@@ -12,6 +12,12 @@ public class Triangle extends Shape {
 	private Point B;
 	private Point C;
 
+	/**
+	 * Constructor
+	 * @param lineColor
+	 * @param x
+	 * @param y
+	 */
 	public Triangle(Color lineColor, int x, int y) {
 		super(lineColor, x, y);
 		A = new Point(lineColor, 0, 0);

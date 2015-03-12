@@ -5,6 +5,11 @@ import interfaces.ComparableShape;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Oval extends Rectangle with different shape properties
+ * @author bbachmey
+ *
+ */
 public class Oval extends Rectangle implements ComparableShape {
 	int area;
 
@@ -16,9 +21,6 @@ public class Oval extends Rectangle implements ComparableShape {
 		super(lineColor, x, y, w, h, fillColor, fill);
 	}
 
-	/*
-	 * Override Rectangle draw(Graphics g) method.
-	 */
 	/* (non-Javadoc)
 	 * @see shapes.Rectangle#draw(java.awt.Graphics)
 	 */
@@ -35,8 +37,8 @@ public class Oval extends Rectangle implements ComparableShape {
 		g.setColor(oldColor);
 	}
 
-	/**
-	 * Returns a String that represents this object.
+	/* (non-Javadoc)
+	 * @see shapes.Rectangle#toString()
 	 */
 	public String toString() {
 		return "Oval: \n\tx = " + getX() + "\n\ty = " + getY() + "\n\tw = "

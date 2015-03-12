@@ -3,11 +3,24 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Line extends Shape with additional shape properties
+ * @author bbachmey
+ *
+ */
 public class Line extends Shape {
 
 	int x2;
 	int y2;
 
+	/**
+	 * Constructor
+	 * @param lineColor
+	 * @param x1
+	 * @param y1
+	 * @param x2
+	 * @param y2
+	 */
 	public Line(Color lineColor, int x1, int y1, int x2, int y2) {
 		super(lineColor, x1, y1);
 	}

@@ -3,8 +3,19 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Point extends Shape with additional properties
+ * @author bbachmey
+ *
+ */
 public class Point extends Shape {
 
+	/**
+	 * Constructor
+	 * @param lineColor
+	 * @param x
+	 * @param y
+	 */
 	public Point(Color lineColor, int x, int y) {
 		super(lineColor, x, y);
 	}

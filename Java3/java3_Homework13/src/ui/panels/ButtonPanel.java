@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import model.Model;
 
 /**
+ * Another Panel added to the MainPanel
  * @author bbachmey
  *
  */
@@ -15,6 +16,7 @@ public class ButtonPanel extends Panel {
 	private Button btnClear;
 
 	/**
+	 * Constructor
 	 * @param model
 	 */
 	public ButtonPanel(final Model model) {
@@ -34,8 +36,8 @@ public class ButtonPanel extends Panel {
 		// }
 		// });
 
-		// declare an inner class that implements ActionListener
 		/**
+		 * Inner Class that implements ActionListener
 		 * @author bbachmey
 		 *
 		 */

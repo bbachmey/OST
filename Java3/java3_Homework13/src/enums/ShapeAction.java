@@ -1,6 +1,7 @@
 package enums;
 
 /**
+ * ShapeAction defines actions for shapes
  * @author bbachmey
  *
  */

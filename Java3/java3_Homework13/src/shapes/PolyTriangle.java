@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
+/**
+ * PolyTriangle extends Shape with additional shape properties
+ * @author bbachmey
+ *
+ */
 public class PolyTriangle extends Shape {
 	private Color fillColor;
 	private int width;
@@ -15,6 +20,16 @@ public class PolyTriangle extends Shape {
 	private int sides = 3;
 	private Polygon p;
 
+	/**
+	 * Constructor
+	 * @param lineColor
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h
+	 * @param fillColor
+	 * @param fill
+	 */
 	public PolyTriangle(Color lineColor, int x, int y, int w, int h,
 			Color fillColor, boolean fill) {
 
@@ -88,9 +103,9 @@ public class PolyTriangle extends Shape {
 		return false;
 	}
 
-	/**
-	 * Returns a String representing this object. Overrides toString() in
-	 * java.lang.Object
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {

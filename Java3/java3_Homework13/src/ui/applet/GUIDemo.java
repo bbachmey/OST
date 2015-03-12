@@ -15,6 +15,7 @@ import ui.panels.MainPanel;
 import event.ShapeMouseHandler;
 
 /**
+ * This is the Applet
  * @author bbachmey
  *
  */
@@ -22,6 +23,9 @@ public class GUIDemo extends Applet implements Resettable {
 	MainPanel mainPanel;
 	Model model;
 
+	/* (non-Javadoc)
+	 * @see java.applet.Applet#init()
+	 */
 	public void init() {
 		// set the applet window size
 		resize(600, 400);

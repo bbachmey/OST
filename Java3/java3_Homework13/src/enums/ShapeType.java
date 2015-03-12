@@ -1,6 +1,7 @@
 package enums;
 
 /**
+ * ShapeType enum declares types for shapes
  * @author bbachmey
  *
  */

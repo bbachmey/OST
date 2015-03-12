@@ -10,6 +10,11 @@ import shapes.Rectangle;
 import shapes.Shape;
 import enums.ShapeAction;
 
+/**
+ * Custom MouseAdapter to manage actions with Shapes
+ * @author bbachmey
+ *
+ */
 public class ShapeMouseHandler extends MouseAdapter {
 	// Integers to mark the x,y position of a mouse click
 	private int startX;
@@ -37,7 +42,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 	}
 
 	/**
-	 * 
+	 * Change the properties of an existing shape
 	 */
 	private void changeShape() {
 
@@ -64,7 +69,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 	}
 
 	/**
-	 * 
+	 * Create a shape that doesn't yet exists
 	 */
 	private void makeShape() {
 
@@ -81,9 +86,6 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
-	/*
-	 * Overrides MouseAdapter's mouseDragged method.
-	 */
 	/* (non-Javadoc)
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
@@ -119,9 +121,6 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
-	/*
-	 * Overrides MouseAdapter mousePressed method.
-	 */
 	/* (non-Javadoc)
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
@@ -176,7 +175,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
+
 	/**
+	 * Move a shape to another position on the screen
 	 * @param x
 	 * @param y
 	 */
@@ -198,13 +199,14 @@ public class ShapeMouseHandler extends MouseAdapter {
 	}
 
 	/**
-	 * 
+	 * Delete a shape
 	 */
 	private void removeShape() {
 		model.shapes.remove(shape);
 	}
 
 	/**
+	 * Redraw a shape with new size parameters
 	 * @param x
 	 * @param y
 	 */

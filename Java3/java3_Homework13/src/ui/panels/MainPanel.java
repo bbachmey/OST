@@ -13,6 +13,7 @@ import java.util.Map;
 import model.Model;
 
 /**
+ * This Panel holds the other Panels on the UI
  * @author bbachmey
  *
  */
@@ -23,6 +24,7 @@ public class MainPanel extends Panel implements Resettable {
 	ColorPanel colorPanel;
 
 	/**
+	 * Constructor
 	 * @param model
 	 */
 	public MainPanel(Model model) {
@@ -71,6 +73,7 @@ public class MainPanel extends Panel implements Resettable {
 	 */
 
 	/**
+	 * Inner Class
 	 * @author bbachmey
 	 *
 	 */
@@ -79,6 +82,10 @@ public class MainPanel extends Panel implements Resettable {
 		Model model;
 		Choice lineColorChoice;
 
+		/**
+		 * Inner Class Constructor
+		 * @param mdl
+		 */
 		public ColorPanel(Model mdl) {
 
 			// Set the Model property of the ColorPanel object to the Model

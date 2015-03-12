@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
+/**
+ * PolyOctagon extends Shape with additional shape properties
+ * @author bbachmey
+ *
+ */
 public class PolyOctagon extends Shape {
 
 	Color fillColor;
@@ -41,6 +46,16 @@ public class PolyOctagon extends Shape {
 	int sides;
 	Polygon p;
 
+	/**
+	 * Constructor
+	 * @param lineColor
+	 * @param x
+	 * @param y
+	 * @param w
+	 * @param h
+	 * @param fillColor
+	 * @param fill
+	 */
 	public PolyOctagon(Color lineColor, int x, int y, int w, int h,
 			Color fillColor, boolean fill) {
 
@@ -168,7 +183,7 @@ public class PolyOctagon extends Shape {
 
 		p = new Polygon(polyx, polyy, sides);
 
-		if (isFill()) { // TODO: Add Fill property to PolyTri
+		if (isFill()) {  
 			g.setColor(getFillColor());
 			g.fillPolygon(p);
 		}
@@ -192,9 +207,9 @@ public class PolyOctagon extends Shape {
 		return false;
 	}
 
-	/**
-	 * Returns a String representing this object. Overrides toString() in
-	 * java.lang.Object
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {

@@ -17,8 +17,10 @@ import enums.ShapeAction;
 import enums.ShapeType;
 
 /**
+ * Model class hold all data for the application
+ * 
  * @author bbachmey
- *
+ * 
  */
 public class Model implements Resettable {
 	// declare a Container object
@@ -134,63 +136,26 @@ public class Model implements Resettable {
 	 * value; }
 	 */
 
-	/*
-	 * In your model, write a method that returns an instance of a Shape, given
-	 * a set of x and y coordinates. You will need to search your Vector or
-	 * Array list. If no object contains those coordinates, return null.
-	 */
 	/**
-	 * @param clickX
-	 * @param clickY
-	 * @return
+	 * Model constructor
+	 * 
+	 * @param container
+	 *            An Applet is-a Container. The Container parameter accepts an
+	 *            Applet object which becomes a property of this Model
+	 * 
 	 */
-	public Shape findClickedShape(int clickX, int clickY) {
+	public Model(Container container) {
+		// Local reference of Applet
+		this.container = container;
 
-		// Remember that: All Shapes have x and y position properties
-		// Our shapes are kept in an instance of this model class in a property
-		// called shape
-		// The x,y position of a shape can be compared to the x,y position of a
-		// click,
-		// by adding the width and height values to the click position and
-		// comparing the ranges with the
-		// click x,y position
-		// The abstract class Shape requires implementation of a
-		// containsLocation() method
-		// This can be used to compare the click x,y position.
-
-		// Reverse loop through all of the shapes to see if any of them were
-		// clicked
-
-		int size = shapes.size();
-
-		for (int i = size; i > 0; i--) {
-			Shape it = shapes.get(i - 1);
-			boolean within = it.containsLocation(clickX, clickY);
-
-			// Evaluate the boolean value
-			if (within) {
-				// Return the shape
-				return it;
-			}
-		}
-
-		// Execution only arrives here if no shape was found containing the x,y
-		// location
-		return null;
-	}
-
-	public Color getCurrentLineColor() {
-		return currentLineColor;
-	}
-
-	public Color getCurrentFillColor() {
-		return currentFillColor;
+		// Set the default values of the UI components
+		this.resetComponents();
 	}
 
 	/**
-	 * @return Homework 7 Give your Model.createShape() the ability to make
-	 *         whatever shape the Model.currentShapeType variable (created in
-	 *         the last project) indicates.
+	 * Homework 7 Give your Model.createShape() the ability to make whatever
+	 * shape the Model.currentShapeType variable (created in the last project)
+	 * indicates.
 	 */
 	public Shape createShape() {
 		if (currentShapeType == ShapeType.RECTANGLE) {
@@ -232,20 +197,80 @@ public class Model implements Resettable {
 		return currentShape;
 	}
 
-	/**
-	 * Model constructor
-	 * 
-	 * @param container
-	 *            An Applet is-a Container. The Container parameter accepts an
-	 *            Applet object which becomes a property of this Model
-	 * 
+	/*
+	 * In your model, write a method that returns an instance of a Shape, given
+	 * a set of x and y coordinates. You will need to search your Vector or
+	 * Array list. If no object contains those coordinates, return null.
 	 */
-	public Model(Container container) {
-		// Local reference of Applet
-		this.container = container;
+	/**
+	 * Take two int values and figure out if the Shape in question contains the
+	 * x and y
+	 * 
+	 * @param clickX
+	 * @param clickY
+	 * @return
+	 */
+	public Shape findClickedShape(int clickX, int clickY) {
 
-		// Set the default values of the UI components
-		this.resetComponents();
+		// Remember that: All Shapes have x and y position properties
+		// Our shapes are kept in an instance of this model class in a property
+		// called shape
+		// The x,y position of a shape can be compared to the x,y position of a
+		// click,
+		// by adding the width and height values to the click position and
+		// comparing the ranges with the
+		// click x,y position
+		// The abstract class Shape requires implementation of a
+		// containsLocation() method
+		// This can be used to compare the click x,y position.
+
+		// Reverse loop through all of the shapes to see if any of them were
+		// clicked
+
+		int size = shapes.size();
+
+		for (int i = size; i > 0; i--) {
+			Shape it = shapes.get(i - 1);
+			boolean within = it.containsLocation(clickX, clickY);
+
+			// Evaluate the boolean value
+			if (within) {
+				// Return the shape
+				return it;
+			}
+		}
+
+		// Execution only arrives here if no shape was found containing the x,y
+		// location
+		return null;
+	}
+
+	public ShapeAction getAction() {
+		return action;
+	}
+
+	public Container getContainer() {
+		return container;
+	}
+
+	public Color getCurrentFillColor() {
+		return currentFillColor;
+	}
+
+	public Color getCurrentLineColor() {
+		return currentLineColor;
+	}
+
+	public Shape getCurrentShape() {
+		return currentShape;
+	}
+
+	public ShapeType getCurrentShapeType() {
+		return currentShapeType;
+	}
+
+	public boolean isFill() {
+		return fill;
 	}
 
 	/**
@@ -279,53 +304,17 @@ public class Model implements Resettable {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString() {
-		return "Model:\n\tAction: " + action + "\n\tFill: " + fill;
-	}
-
-	public ShapeAction getAction() {
-		return action;
-	}
-
 	public void setAction(ShapeAction action) {
 		this.action = action;
-	}
-
-	public boolean isFill() {
-		return fill;
-	}
-
-	public void setFill(boolean fill) {
-		this.fill = fill;
-	}
-
-	public ShapeType getCurrentShapeType() {
-		return currentShapeType;
-	}
-
-	public void setCurrentShapeType(ShapeType currentShapeType) {
-		this.currentShapeType = currentShapeType;
-	}
-
-	public Container getContainer() {
-		return container;
 	}
 
 	public void setContainer(Container container) {
 		this.container = container;
 	}
 
-	public Shape getCurrentShape() {
-		return currentShape;
-	}
+	public void setCurrentFillColor(Color color) {
+		this.currentFillColor = color;
 
-	public void setCurrentShape(Shape currentShape) {
-		this.currentShape = currentShape;
 	}
 
 	public void setCurrentLineColor(Color color) {
@@ -333,8 +322,24 @@ public class Model implements Resettable {
 
 	}
 
-	public void setCurrentFillColor(Color color) {
-		this.currentFillColor = color;
+	public void setCurrentShape(Shape currentShape) {
+		this.currentShape = currentShape;
+	}
 
+	public void setCurrentShapeType(ShapeType currentShapeType) {
+		this.currentShapeType = currentShapeType;
+	}
+
+	public void setFill(boolean fill) {
+		this.fill = fill;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		return "Model:\n\tAction: " + action + "\n\tFill: " + fill;
 	}
 }

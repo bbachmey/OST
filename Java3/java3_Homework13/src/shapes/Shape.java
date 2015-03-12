@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
+ * Base class for all shapes in this application
  * @author bbachmey
  * 
  */
@@ -13,11 +14,11 @@ public abstract class Shape {
 	private Color lineColor;
 
 	/**
+	 * The constructor requires three basic Shape properties
 	 * @param x
 	 * @param y
 	 * @param lineColor
 	 * 
-	 *            The constructor requires all three Shape properties
 	 */
 	public Shape(Color lineColor, int x, int y) {
 		this.lineColor = lineColor;
@@ -25,13 +26,14 @@ public abstract class Shape {
 		this.y = y;
 	}
 
-	// Abstract methods must be implemented by subclasses
 	/**
+	 * Abstract method must be implemented by subclasses
 	 * @param g
 	 */
 	public abstract void draw(Graphics g);
 
 	/**
+	 * Abstract method must be implemented by subclasses
 	 * @param x
 	 * @param y
 	 * @return
