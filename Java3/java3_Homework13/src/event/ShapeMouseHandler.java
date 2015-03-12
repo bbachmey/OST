@@ -180,49 +180,6 @@ public class ShapeMouseHandler extends MouseAdapter {
 		
 	}
 
-	private void reDrawShape(int x, int y) {
-
-		// set the x and y location of the shape (allows rubber banding).
-		shape.setX(Math.min(startX, x ));
-		shape.setY(Math.min(startY, y ));
-
-		// if the shape is an instance of Rectangle or a descendant of Rectangle
-		if (shape instanceof Rectangle) {
-			// set its width and height.
-			// allows for rubber banding.
-			((Rectangle) shape).setWidth(Math.abs( startX - x ));
-			((Rectangle) shape).setHeight(Math.abs( startY - y ));
-		}
-		else if (shape instanceof PolyTri) {
-
-			((PolyTri) shape).setWidth(Math.abs(startX - x ));
-			((PolyTri) shape).setHeight(Math.abs(startY - y ));
-		}
-		else if (shape instanceof PolyOctagon) {
-
-			((PolyOctagon) shape).setWidth(Math.abs(startX - x ));
-			((PolyOctagon) shape).setHeight(Math.abs(startY - y ));
-		}
-		else if (shape instanceof PolyOctagon) {
-
-			((PolyOctagon) shape).setWidth(Math.abs(startX - x ));
-			((PolyOctagon) shape).setHeight(Math.abs(startY - y ));
-		}
-
-		else if (shape instanceof Triangle) {
-
-			((Triangle) shape).setWidth(Math.abs(startX - x ));
-			((Triangle) shape).setHeight(Math.abs(startY - y ));
-		}
-		else{
-			
-			// Nothing happens here
-			// Should we throw an exception?
-			// TODO: Let's think about it 
-		}
-		
-	}
-
 	private void removeShape() {
 		model.shapes.remove(shape);		
 	}
