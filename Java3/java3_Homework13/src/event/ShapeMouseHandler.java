@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import enums.ShapeAction;
 import model.Model;
 import shapes.PolyOctagon;
-import shapes.PolyTri;
+import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
 import shapes.Triangle;
@@ -49,10 +49,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 			((Rectangle) shape).setFill(model.isFill());
 			((Rectangle) shape).setFillColor(model.currentFillColor);
 		}
-		if (shape instanceof PolyTri) {
+		if (shape instanceof PolyTriangle) {
 			// Downcast to get fill methods
-			((PolyTri) shape).setFill(model.isFill());
-			((PolyTri) shape).setFillColor(model.currentFillColor);
+			((PolyTriangle) shape).setFill(model.isFill());
+			((PolyTriangle) shape).setFillColor(model.currentFillColor);
 		}
 		if (shape instanceof PolyOctagon) {
 			// Downcast to get fill methods
@@ -195,19 +195,13 @@ public class ShapeMouseHandler extends MouseAdapter {
 			// allows for rubber banding.
 			((Rectangle) shape).setWidth(Math.abs(startX - x - offsetX));
 			((Rectangle) shape).setHeight(Math.abs(startY - y - offsetY));
-		} else if (shape instanceof PolyTri) {
-
-			((PolyTri) shape).setWidth(Math.abs(startX - x));
-			((PolyTri) shape).setHeight(Math.abs(startY - y));
+		} else if (shape instanceof PolyTriangle) {
+			((PolyTriangle) shape).setWidth(Math.abs(startX - x));
+			((PolyTriangle) shape).setHeight(Math.abs(startY - y));
 		} else if (shape instanceof PolyOctagon) {
-
 			((PolyOctagon) shape).setWidth(Math.abs(startX - x));
 			((PolyOctagon) shape).setHeight(Math.abs(startY - y));
-		} else {
-
-			((Triangle) shape).setWidth(Math.abs(startX - x));
-			((Triangle) shape).setHeight(Math.abs(startY - y));
-		}
+		} 
 
 	}
 }

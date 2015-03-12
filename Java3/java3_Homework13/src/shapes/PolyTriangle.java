@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-public class PolyTri extends Shape {
+public class PolyTriangle extends Shape {
 	private Color fillColor;
 	private int width;
 	private int height;
@@ -15,7 +15,7 @@ public class PolyTri extends Shape {
 	private int sides = 3;
 	private Polygon p;
 
-	public PolyTri(Color lineColor, int x, int y, int w, int h,
+	public PolyTriangle(Color lineColor, int x, int y, int w, int h,
 			Color fillColor, boolean fill) {
 
 		// Super constructor

@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import shapes.Oval;
 import shapes.PolyOctagon;
-import shapes.PolyTri;
+import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
 import shapes.Triangle;
@@ -199,7 +199,7 @@ public class Model implements Resettable {
 					currentFillColor, fill);
 		}
 		if (currentShapeType == ShapeType.POLYTRI) {
-			currentShape = new PolyTri(currentLineColor, 0, 0, 50, 50,
+			currentShape = new PolyTriangle(currentLineColor, 0, 0, 50, 50,
 					currentFillColor, fill);
 		}
 		if (currentShapeType == ShapeType.POLYOCTAGON) {

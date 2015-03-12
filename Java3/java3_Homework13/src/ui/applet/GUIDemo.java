@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import event.ShapeMouseHandler;
 import shapes.Oval;
 import shapes.PolyOctagon;
-import shapes.PolyTri;
+import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
 import shapes.Triangle;
@@ -77,7 +77,7 @@ public class GUIDemo extends Applet implements Resettable {
 			if (shape instanceof Triangle) {
 				System.out.println("Element " + i + " is a triangle");
 			}
-			if (shape instanceof PolyTri) {
+			if (shape instanceof PolyTriangle) {
 				System.out.println("Element " + i + " is a polytri");
 			}
 			if (shape instanceof PolyOctagon) {
