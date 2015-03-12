@@ -7,8 +7,8 @@ import java.awt.Panel;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import enums.ShapeType;
 import model.Model;
+import enums.ShapeType;
 
 /**
  * @author bbachmey Homework 6 Add a ChoicePanel that contains a Choice

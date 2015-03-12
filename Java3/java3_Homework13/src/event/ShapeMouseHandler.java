@@ -1,15 +1,14 @@
 package event;
 
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import enums.ShapeAction;
 import model.Model;
 import shapes.PolyOctagon;
 import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
+import enums.ShapeAction;
 
 public class ShapeMouseHandler extends MouseAdapter {
 	// Integers to mark the x,y position of a mouse click

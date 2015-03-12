@@ -9,8 +9,8 @@ import java.awt.Panel;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import enums.ShapeAction;
 import model.Model;
+import enums.ShapeAction;
 
 public class ActionPanel extends Panel implements Resettable {
 

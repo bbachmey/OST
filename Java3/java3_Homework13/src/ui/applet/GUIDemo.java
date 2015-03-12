@@ -3,17 +3,16 @@ package ui.applet;
 import interfaces.Resettable;
 
 import java.applet.Applet;
-import java.awt.Color;
 import java.awt.Graphics;
 
-import event.ShapeMouseHandler;
+import model.Model;
 import shapes.Oval;
 import shapes.PolyOctagon;
 import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
 import ui.panels.MainPanel;
-import model.Model;
+import event.ShapeMouseHandler;
 
 public class GUIDemo extends Applet implements Resettable {
 	MainPanel mainPanel;

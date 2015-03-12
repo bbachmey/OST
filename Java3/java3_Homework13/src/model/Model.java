@@ -1,23 +1,20 @@
 package model;
 
+import interfaces.Resettable;
+
 import java.awt.Color;
+import java.awt.Container;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import shapes.Oval;
 import shapes.PolyOctagon;
 import shapes.PolyTriangle;
 import shapes.Rectangle;
 import shapes.Shape;
-
-import java.awt.Container;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import enums.ShapeAction;
 import enums.ShapeType;
-import interfaces.ComparableShape;
-import interfaces.Resettable;
 
 public class Model implements Resettable {
 	// declare a Container object
