@@ -5,21 +5,41 @@ import java.awt.Graphics;
 import java.awt.Polygon;
 
 public class PolyOctagon extends Shape {
-	private Color fillColor;
-	private int width; 
-	private int height;
-	private boolean fill;
-	private Point A;
-	private Point B;
-	private Point C;
-	private Point D;
-	private Point E;
-	private Point F;
-	private Point G;
-	private Point H;
+	
+	Color fillColor;
+	int width; 
+	int height;
+	boolean fill;
+	
+	Point A;
+	Point B;
+	Point C;
+	Point D;
+	Point E;
+	Point F;
+	Point G;
+	Point H;
 
-	private int sides = 8;
-	private Polygon p;
+	double ratioAX;
+	double ratioBX;
+	double ratioCX;
+	double ratioDX;
+	double ratioEX;
+	double ratioFX;
+	double ratioGX;
+	double ratioHX;
+	
+	double ratioAY;
+	double ratioBY;
+	double ratioCY;
+	double ratioDY;
+	double ratioEY;
+	double ratioFY;
+	double ratioGY;
+	double ratioHY;
+		
+	int sides;
+	Polygon p;
 
 	public PolyOctagon(
 			Color lineColor, 
@@ -48,6 +68,26 @@ public class PolyOctagon extends Shape {
 
 		this.fillColor = fillColor;
 		this.fill = fill;
+		
+		sides = 8;
+		
+		ratioAX = 0.293333;
+		ratioBX = 0.706667;
+		ratioCX = 1;
+		ratioDX = 1;
+		ratioEX = 0.706667;
+		ratioFX = 0.293333;
+		ratioGX = 0;
+		ratioHX = 0;
+		
+		ratioAY = 0;
+		ratioBY = 0;
+		ratioCY = 0.293333;
+		ratioDY = 0.706667;
+		ratioEY = 1;
+		ratioFY = 1;
+		ratioGY = 0.706667;
+		ratioHY = 0.293333;	
 		
 	}
 
@@ -90,29 +130,29 @@ public class PolyOctagon extends Shape {
 //		0	0.293333
 	      
 	      
-		A.setX( x  );
-		A.setY( y );
+		A.setX( super.x + (int)(width * ratioAX) );
+		A.setY( super.y + (int)(width * ratioAY) );
 
-		B.setX( A.getX() + 62 );
-		B.setY( A.getY() );
+		B.setX( super.x + (int)(width * ratioBX)  );
+		B.setY( super.y + (int)(width * ratioBY)  );
 		
-		C.setX( A.getX() + 106 );
-		C.setY( A.getY() + 44  ); 
+		C.setX( super.x + (int)(width * ratioCX)  );
+		C.setY( super.y + (int)(width * ratioCY)  ); 
 		
-		D.setX( A.getX() + 106 );
-		D.setY( A.getY() + 106 );
+		D.setX( super.x + (int)(width * ratioDX)  );
+		D.setY( super.y + (int)(width * ratioDY)  );
 		
-		E.setX( A.getX() + 62 );
-		E.setY( A.getY() + 150 );
+		E.setX( super.x + (int)(width * ratioEX)  );
+		E.setY( super.y + (int)(width * ratioEY)  );
 		
-		F.setX( A.getX() + 0 );
-		F.setY( A.getY() + 150 );
+		F.setX( super.x + (int)(width * ratioFX)  );
+		F.setY( super.y + (int)(width * ratioFY)  );
 		
-		G.setX( A.getX() - 44 );
-		G.setY( A.getY() + 106 );
+		G.setX( super.x + (int)(width * ratioGX)  );
+		G.setY( super.y + (int)(width * ratioGY)  );
 		
-		H.setX( A.getX() - 44 );
-		H.setY( A.getY() + 44 );
+		H.setX( super.x + (int)(width * ratioHX)  );
+		H.setY( super.y + (int)(width * ratioHY)  );
 		
 		polyx[0]=A.getX(); 
 		polyx[1]=B.getX(); 

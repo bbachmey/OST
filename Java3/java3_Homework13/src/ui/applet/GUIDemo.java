@@ -25,9 +25,6 @@ public class GUIDemo extends Applet implements Resettable {
 		resize(600,400);
 		//make a Model object and send it this Applet
 		model = new Model(this);
-		//set the default colors of the model
-		model.setCurrentFillColor(Color.BLUE);
-		model.setCurrentLineColor(Color.BLUE);
 		//make a MainPanel object
 		mainPanel = new MainPanel(model);
 		//add the MainPanel to this Applet
