@@ -9,9 +9,9 @@ package interfaces;
  * The instanceof operator will be handy here.
  */
 public interface ComparableShape {
-	
-	
+
 	public int getArea();
+
 	public void setArea();
-	
+
 }

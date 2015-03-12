@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class Triangle extends Shape {
 	private Color fillColor;
-	private int width; 
+	private int width;
 	private int height;
 	private boolean fill;
 	private Point A;
@@ -14,27 +14,26 @@ public class Triangle extends Shape {
 
 	public Triangle(Color lineColor, int x, int y) {
 		super(lineColor, x, y);
-		A = new Point(lineColor,0,0);
-		B = new Point(lineColor,0,0);
-		C = new Point(lineColor,0,0);
+		A = new Point(lineColor, 0, 0);
+		B = new Point(lineColor, 0, 0);
+		C = new Point(lineColor, 0, 0);
 	}
 
 	@Override
 	public void draw(Graphics g) {
 
-		Line ab = new Line(fillColor,0,0,0,0);
-		Line bc = new Line(fillColor,0,0,0,0);
-		Line ca = new Line(fillColor,0,0,0,0);
-		
-		A.setX( super.getX() );
-		A.setY( super.getY() );
+		Line ab = new Line(fillColor, 0, 0, 0, 0);
+		Line bc = new Line(fillColor, 0, 0, 0, 0);
+		Line ca = new Line(fillColor, 0, 0, 0, 0);
 
-		B.setX( super.getX() + width );
-		B.setY( super.getY() );
-		
-		C.setX( B.getX()-(width/2) );
-		C.setY( A.getY() - height );
+		A.setX(super.getX());
+		A.setY(super.getY());
 
+		B.setX(super.getX() + width);
+		B.setY(super.getY());
+
+		C.setX(B.getX() - (width / 2));
+		C.setY(A.getY() - height);
 
 		ab.setX(A.getX());
 		ab.setX2(B.getX());
@@ -50,7 +49,7 @@ public class Triangle extends Shape {
 		ca.setX2(A.getX());
 		ca.setY(C.getY());
 		ca.setY2(A.getY());
-	
+
 		ab.draw(g);
 		bc.draw(g);
 		ca.draw(g);
@@ -60,32 +59,25 @@ public class Triangle extends Shape {
 	// Override abstract method containsLocation in the Shape class.
 	@Override
 	public boolean containsLocation(int x, int y) {
-		if (
-				getX() <= x 
-				&& getY() <= y 
-				&& getX() + getWidth() >= x 
-				&& getY() + getHeight() >= y
-				){
+		if (getX() <= x && getY() <= y && getX() + getWidth() >= x
+				&& getY() + getHeight() >= y) {
 			return true;
 		}
 		return false;
 	}
 
-
 	/**
-	 * Returns a String representing this object.
-	 * Overrides toString() in java.lang.Object
+	 * Returns a String representing this object. Overrides toString() in
+	 * java.lang.Object
 	 */
 	@Override
 	public String toString() {
-		return "Triangle: " +
-				"\n\tA = ( " + A.getX() + "," + A.getY() + " )" + 
-				"\n\tB = ( " + B.getX() + "," + B.getY() + " )" + 
-				"\n\tC = ( " + C.getX() + "," + C.getY() + " )"  
-				;
+		return "Triangle: " + "\n\tA = ( " + A.getX() + "," + A.getY() + " )"
+				+ "\n\tB = ( " + B.getX() + "," + B.getY() + " )"
+				+ "\n\tC = ( " + C.getX() + "," + C.getY() + " )";
 	}
-	
-	//getters and setters
+
+	// getters and setters
 	public Color getFillColor() {
 		return fillColor;
 	}

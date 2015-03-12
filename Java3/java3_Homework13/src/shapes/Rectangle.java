@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 public class Rectangle extends Shape implements ComparableShape {
 	private Color fillColor;
-	private int width; 
+	private int width;
 	private int height;
 	private boolean fill;
 	private int area;
@@ -21,15 +21,8 @@ public class Rectangle extends Shape implements ComparableShape {
 	 * @param fillColor
 	 * @param fill
 	 */
-	public Rectangle(
-			Color lineColor,
-			int x, 
-			int y, 
-			int w, 
-			int h,  
-			Color fillColor, 
-			boolean fill
-			){
+	public Rectangle(Color lineColor, int x, int y, int w, int h,
+			Color fillColor, boolean fill) {
 		super(lineColor, x, y);
 		this.width = w;
 		this.height = h;
@@ -44,7 +37,7 @@ public class Rectangle extends Shape implements ComparableShape {
 			g.setColor(getFillColor());
 			g.fillRect(getX(), getY(), getWidth(), getHeight());
 		}
-		//draw the outline after drawing the shape
+		// draw the outline after drawing the shape
 		g.setColor(getLineColor());
 		g.drawRect(getX(), getY(), getWidth(), getHeight());
 		// Set the state back when done.
@@ -54,25 +47,22 @@ public class Rectangle extends Shape implements ComparableShape {
 	// Override abstract method containsLocation in the Shape class.
 	@Override
 	public boolean containsLocation(int paramX, int paramY) {
-		if (
-				getX() <= paramX
-				&& getY() <= paramY 
-				&& getX() + getWidth() >= paramX 
-				&& getY() + getHeight() >= paramY
-			) {
-				return true;
+		if (getX() <= paramX && getY() <= paramY
+				&& getX() + getWidth() >= paramX
+				&& getY() + getHeight() >= paramY) {
+			return true;
 		}
 		return false;
 	}
 
 	/**
-	 * Returns a String representing this object.
-	 * Overrides toString() in java.lang.Object
+	 * Returns a String representing this object. Overrides toString() in
+	 * java.lang.Object
 	 */
 	@Override
 	public String toString() {
-		return "Rectangle: \n\tx = " + getX() + "\n\ty = " + getY() + 
-				"\n\tw = " + getWidth() + "\n\th = " + getHeight();
+		return "Rectangle: \n\tx = " + getX() + "\n\ty = " + getY()
+				+ "\n\tw = " + getWidth() + "\n\th = " + getHeight();
 	}
 
 	// Getters and setters.
@@ -111,13 +101,13 @@ public class Rectangle extends Shape implements ComparableShape {
 	@Override
 	public int getArea() {
 		return area;
-		
+
 	}
 
 	@Override
 	public void setArea() {
 		area = (this.getWidth()) * (this.getHeight());
-		
+
 	}
 
 }

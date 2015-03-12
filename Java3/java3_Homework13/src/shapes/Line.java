@@ -8,28 +8,21 @@ public class Line extends Shape {
 	int x2;
 	int y2;
 
-	public Line(
-			Color lineColor,
-			int x1, 
-			int y1,
-			int x2, 
-			int y2
-			){
+	public Line(Color lineColor, int x1, int y1, int x2, int y2) {
 		super(lineColor, x1, y1);
 	}
-	
+
 	@Override
 	public void draw(Graphics g) {
 
+		// Jot down the Color of the Graphics object
+		Color jot = g.getColor();
+		g.setColor(getLineColor());
+		g.drawLine(super.getX(), super.getY(), this.x2, this.y2);
 
-        // Jot down the Color of the Graphics object
-        Color jot = g.getColor();
-        g.setColor(getLineColor());
-        g.drawLine(super.getX(), super.getY(), this.x2, this.y2);
+		// Re-jot the Color
+		g.setColor(jot);
 
-        // Re-jot the Color
-        g.setColor(jot);
-		
 	}
 
 	@Override
@@ -37,7 +30,7 @@ public class Line extends Shape {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	public int getX2() {
 		return x2;
 	}
@@ -54,7 +47,4 @@ public class Line extends Shape {
 		this.y2 = y2;
 	}
 
-
-
-	
 }

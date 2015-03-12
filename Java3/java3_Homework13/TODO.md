@@ -1,6 +1,6 @@
 Add 2 shapes
--Octogon
--Pentagon
+-Octagon
+-Triangle
 
 Change visual representation of shape for Move or Resize
 
