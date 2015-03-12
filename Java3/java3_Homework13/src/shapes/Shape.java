@@ -9,7 +9,7 @@ import java.awt.Graphics;
  */
 public abstract class Shape {
 	// All Shapes have x and y positions and a line Color
-    private int x, y;
+    protected int x, y;
     private Color lineColor;
 
 

@@ -70,16 +70,34 @@ public class PolyOctagon extends Shape {
 //		0	150
 //		-44	106
 //		-44	44
+		
+//		44	0
+//		106	0
+//		150	44
+//		150	106
+//		106	150
+//		44	150
+//		0	106
+//		0	44
+		
+//		0.293333	0
+//		0.706667	0
+//		1	0.293333
+//		1	0.706667
+//		0.706667	1
+//		0.293333	1
+//		0	0.706667
+//		0	0.293333
 	      
 	      
-		A.setX( super.getX() );
-		A.setY( super.getY() );
+		A.setX( x  );
+		A.setY( y );
 
 		B.setX( A.getX() + 62 );
 		B.setY( A.getY() );
 		
 		C.setX( A.getX() + 106 );
-		C.setY( A.getY() + 44  ); //TODO: Finish the math for making an octagon
+		C.setY( A.getY() + 44  ); 
 		
 		D.setX( A.getX() + 106 );
 		D.setY( A.getY() + 106 );
