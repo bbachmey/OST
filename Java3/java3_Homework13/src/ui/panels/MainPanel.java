@@ -58,6 +58,8 @@ public class MainPanel extends Panel implements Resettable {
 		actionPanel.resetComponents();
 		controlsPanel.resetComponents();
 		choicePanel.resetComponents();
+		colorPanel.resetComponents();
+		
 	}
 
 	/*
@@ -175,7 +177,9 @@ public class MainPanel extends Panel implements Resettable {
 		 */
 		@Override
 		public void resetComponents() {
-			// TODO Auto-generated method stub
+
+			lineColorChoice.select(0);
+			fillColorChoice.select(0);
 
 		}
 

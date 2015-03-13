@@ -67,7 +67,7 @@ public class ChoicePanel extends Panel implements Resettable {
 	 */
 	public void resetComponents() {
 		choice.select(0);
-		// model.setCurrentShapeType(ShapeType.RECTANGLE);
+		//model.setCurrentShapeType(ShapeType.RECTANGLE);
 
 	}
 }

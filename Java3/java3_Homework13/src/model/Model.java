@@ -287,7 +287,7 @@ public class Model implements Resettable {
 	 * @see interfaces.Resettable#resetComponents()
 	 */
 	public void resetComponents() {
-
+		
 		// Default colors
 		this.setCurrentFillColor(Color.RED);
 		this.setCurrentLineColor(Color.RED);
@@ -297,6 +297,10 @@ public class Model implements Resettable {
 
 		currentShape = null;
 		fill = false;
+		shapes =  new ArrayList<Shape>();
+		currentShapeType = ShapeType.RECTANGLE;
+		
+		
 		// Does the Applet object implement the Resettable interface?
 		if (container instanceof Resettable) {
 			// If so, call the resetComponents() method of the Applet

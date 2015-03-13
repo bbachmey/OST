@@ -27,5 +27,8 @@ public class ControlsPanel extends Panel implements Resettable {
 	 * @see interfaces.Resettable#resetComponents()
 	 */
 	public void resetComponents() {
+		
+		
+		
 	}
 }
