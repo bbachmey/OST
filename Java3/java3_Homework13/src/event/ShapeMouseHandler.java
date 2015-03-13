@@ -193,6 +193,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 			if (action == ShapeAction.CHANGE) {
 				highlightShape();
 			}
+			// Resize the shape
+			if (action == ShapeAction.RESIZE) {
+				highlightShape();
+			}
 			// Remove the shape
 			if (action == ShapeAction.REMOVE) {
 				removeShape();
@@ -254,6 +258,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 				model.repaint();
 			}
 			if (action == ShapeAction.MOVE) {
+				unhighlightShape();
+				model.repaint();
+			}
+			if (action == ShapeAction.RESIZE) {
 				unhighlightShape();
 				model.repaint();
 			}
