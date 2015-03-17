@@ -3,6 +3,12 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * This shape doesn't show up in the menu of shapes on the UI.
+ * The draw() method works, but there are no instructions written for how to fill this triangle.
+ * @author bbachmey
+ *
+ */
 public class Triangle extends Shape {
 	private Color fillColor;
 	private int width;

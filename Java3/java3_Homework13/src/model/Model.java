@@ -179,7 +179,7 @@ public class Model implements Resettable {
 	}
 
 	/**
-	 * This is how the Applet can be made to repaint itself by the Model
+	 * This is how the Model can make the Applet repaint itself
 	 */
 	public void repaint() {
 		// This method call is sent to the repaint method of the Applet object
@@ -229,12 +229,10 @@ public class Model implements Resettable {
 
 	public void setCurrentFillColor(Color color) {
 		this.currentFillColor = color;
-
 	}
 
 	public void setCurrentLineColor(Color color) {
 		this.currentLineColor = color;
-
 	}
 
 	public void setCurrentShape(Shape currentShape) {

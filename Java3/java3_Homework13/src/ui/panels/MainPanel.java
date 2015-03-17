@@ -161,7 +161,9 @@ public class MainPanel extends Panel implements Resettable {
 		@Override
 		public void resetComponents() {
 
+			// Select the first item in the list
 			lineColorChoice.select(0);
+			// Select the first item in the list
 			fillColorChoice.select(0);
 
 		}
