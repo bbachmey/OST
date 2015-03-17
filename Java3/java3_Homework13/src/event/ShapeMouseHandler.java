@@ -17,15 +17,19 @@ import enums.ShapeAction;
  *
  */
 public class ShapeMouseHandler extends MouseAdapter {
+	
 	// Integers to mark the x,y position of a mouse click
 	private int startX;
 	private int startY;
 	private int offsetX;
 	private int offsetY;
+	
 	// Shape object
 	private Shape shape;
+	
 	// Shape action
 	private ShapeAction action;
+	
 	// The Model
 	private Model model;
 
@@ -80,8 +84,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 	}
 
 	private void highlightShape() {
+		
+		// Set the line color to light blue
 		shape.setLineColor(Color.CYAN);
-
 
 		// Check the inheritance of the Shape
 		if (shape instanceof Rectangle) {
@@ -103,7 +108,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 	}
 	
 	/**
-	 * Create a shape that doesn't yet exists
+	 * Create a shape that doesn't yet exist
 	 */
 	private void makeShape() {
 
@@ -135,7 +140,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 		if (shape != null) {
 
 			if (action == ShapeAction.DRAW) {
-				// reDrawShape( e.getX(), e.getY() );
+				
 				resizeShape(e.getX(), e.getY());
 			}
 
@@ -219,8 +224,9 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
-
 	private void recordShapeOriginals() {
+		
+		// Make note of the current line color
 		originalLineColor = shape.getLineColor();
 		
 		// Check the inheritance of the Shape
@@ -244,6 +250,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	@Override
 	public void mouseReleased(MouseEvent e){
+		
 		// Get the current shape from the Model
 		shape = model.getCurrentShape();
 
@@ -276,6 +283,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 	 * @param y
 	 */
 	private void moveShape(int x, int y) {
+		
 		// if there is a current shape in the model.
 		if (shape != null) {
 
@@ -288,6 +296,7 @@ public class ShapeMouseHandler extends MouseAdapter {
 			// in relative position to the shape
 			shape.setX(shape.getX() - diffX - offsetX);
 			shape.setY(shape.getY() - diffY - offsetY);
+			
 		}
 
 	}
@@ -322,10 +331,6 @@ public class ShapeMouseHandler extends MouseAdapter {
 
 	}
 
-	public void setOriginalLineColor(Color originalLineColor) {
-		this.originalLineColor = originalLineColor;
-	}
-
 	private void unhighlightShape() {
 		shape.setLineColor(originalLineColor);
 		
@@ -356,5 +361,10 @@ public class ShapeMouseHandler extends MouseAdapter {
 	public Color getOriginalLineColor() {
 		return originalLineColor;
 	}
+
+	public void setOriginalLineColor(Color originalLineColor) {
+		this.originalLineColor = originalLineColor;
+	}
+	
 	
 }

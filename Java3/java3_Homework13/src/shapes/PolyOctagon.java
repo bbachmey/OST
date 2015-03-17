@@ -111,34 +111,6 @@ public class PolyOctagon extends Shape {
 		int[] polyx = new int[8];
 		int[] polyy = new int[8];
 
-		// Octagon numbers
-		// 0 0
-		// 62 0
-		// 106 44
-		// 106 106
-		// 62 150
-		// 0 150
-		// -44 106
-		// -44 44
-
-		// 44 0
-		// 106 0
-		// 150 44
-		// 150 106
-		// 106 150
-		// 44 150
-		// 0 106
-		// 0 44
-
-		// 0.293333 0
-		// 0.706667 0
-		// 1 0.293333
-		// 1 0.706667
-		// 0.706667 1
-		// 0.293333 1
-		// 0 0.706667
-		// 0 0.293333
-
 		A.setX(super.x + (int) (width * ratioAX));
 		A.setY(super.y + (int) (width * ratioAY));
 
