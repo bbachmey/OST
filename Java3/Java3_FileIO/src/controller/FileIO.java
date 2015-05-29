@@ -1,6 +1,8 @@
+package controller;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
@@ -26,18 +28,27 @@ public class FileIO {
         myFile = new File(path);
     }
 
-    public String readFile() throws InvocationTargetException {
+    public String readFile() throws Exception {
         FileReader fReader;
         BufferedReader bReader;
         String txtLine = "";
         String returnText = "";
         try {
+        	
             fReader = new FileReader(myFile);
             bReader = new BufferedReader(fReader);
+            
             while ((txtLine = bReader.readLine()) != null) {
                 returnText += txtLine + "\n";
             }
+
+            fReader.close();
+            bReader.close();
+            
             return returnText;
+        } catch (FileNotFoundException e) {
+        	throw e;
+
         } catch (IOException e) {
             throw new InvocationTargetException(e);
         }
@@ -62,7 +73,13 @@ public class FileIO {
         // The file streams should close and flush on method exit
         // but to be safe, always explicitly close():
         pWriter.close();
-
+        
+        try {
+			fWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
         return successFlag;
     }
     
@@ -79,48 +96,8 @@ public class FileIO {
         }
     }
     
-    public static void main(String [] args) {
-
-        final int NORMAL_EXIT = 0;
-        final int FILE_CREATION_ERROR = 1;
-        final int FILE_ERROR = 2;
-        final int FILE_WRITE_ERROR = 3;
-        
-        
-//        String path = "myFile/filetest.txt";
-    	String path = "filetest.txt";
-        int exitCode = NORMAL_EXIT;
-        
-        FileIO fileTest = new FileIO(path);
-
-        boolean append = true;
-        boolean autoFlush = true;
-        
-        
-        try {
-            fileTest.createFile();
-            
-            for (int i = 1; i <= 10; i++) {
-                if (!fileTest.printToFile("Line: " + i, append, autoFlush)) {
-                    System.out.println("An error occurred writing to file: "
-                            + fileTest.getFile().getPath());
-                    exitCode = FILE_WRITE_ERROR;
-                    break;
-                }
-            }
-
-            System.out.println(fileTest.readFile());
-            
-        } catch (InvocationTargetException e) {
-            e.getCause().printStackTrace();
-            exitCode = FILE_CREATION_ERROR;
-        } catch (Exception e) {
-            e.printStackTrace();
-            exitCode = FILE_ERROR;            
-        }
-        finally {
-            System.exit(exitCode);
-        }
-        
+    public void exit() {
+    	//
     }
+    
 }
