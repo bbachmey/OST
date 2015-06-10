@@ -78,13 +78,9 @@ public class InputPanel extends JPanel implements ActionListener  {
                     } 
                     catch(NumberFormatException e)
                     {   
-                        String messageLine1 = "Input must be whole numbers.\n ";
-                        String messageLine2 = "Your decimal value " + jtfSales[x].getText() + " for Sales Person " + (x+1) +" will be truncated.\n ";
-                        String messageLine3 = "You may enter a different integer and click AllSet if truncation is unacceptable.";
 
-                        JOptionPane.showMessageDialog(this, messageLine1+messageLine2+messageLine3,"Input Error", JOptionPane.ERROR_MESSAGE);
- 
-                        sales[x]= (int)Double.parseDouble(jtfSales[x].getText());
+                        String temp = JOptionPane.showInputDialog("Decimal values are not allowed.\n Please give a whole number for Sales Person " + (x+1) + ": ");
+                        sales[x] = Integer.parseInt(temp);
                         jtfSales[x].setText(Integer.toString(sales[x]));      
                     }
                 }
