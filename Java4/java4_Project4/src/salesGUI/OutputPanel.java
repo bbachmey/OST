@@ -14,6 +14,7 @@ public class OutputPanel extends JPanel {
     SalesApp app;      
     int salesBar;
     int [] sales; 
+    DecimalFormat decimalFormat =  new DecimalFormat("####.##");  
 
     public OutputPanel(SalesApp container) {
         app = container;
@@ -33,7 +34,7 @@ public class OutputPanel extends JPanel {
 
     protected void writeResults(){  
         app.calculateMinMax();
-        DecimalFormat df1 =  new DecimalFormat("####.##");  
+//        DecimalFormat df1 =  new DecimalFormat("####.##");  
         // Build the output string like an HTML doc 
         String txtOutput = 
            "<html>Sales Figures<br>__________________________<br>";
@@ -43,13 +44,11 @@ public class OutputPanel extends JPanel {
         }
 
         txtOutput += "<br>The lowest sales belongs to sales person " + 
-            (app.getMin() + 1) + " with $" + sales[app.getMin()] + "<br>";
+            (app.getMin() + 1) + " with $" + decimalFormat.format(sales[app.getMin()]) + "<br>";
         txtOutput += "The highest sales belongs to sales person " + 
-            (app.getMax() + 1) + " with $" + sales[app.getMax()] + "<br>";
-        txtOutput += "<br>The total sales were: $ " + 
-            app.getTotalSales() + "<br>";
-        txtOutput += "The average sales was: $ " + df1.format(app.getAverage()) + 
-            "<br><br>";
+            (app.getMax() + 1) + " with $" + decimalFormat.format(sales[app.getMax()]) + "<br>";
+        txtOutput += "<br>The total sales were: $" + decimalFormat.format(app.getTotalSales()) + "<br>";
+        txtOutput += "The average sales was: $" + decimalFormat.format(app.getAverage()) + "<br><br>";
         txtOutput += createSalesBarInfo();
         txtOutput += "</html>";
 
@@ -60,7 +59,7 @@ public class OutputPanel extends JPanel {
 
     protected void writeMinMax(){  
         app.calculateMinMax();
-        DecimalFormat df1 =  new DecimalFormat("####.##");  
+//        DecimalFormat df1 =  new DecimalFormat("####.##");  
         // Build the output string like an HTML doc 
         String txtOutput = 
            "<html>Min Max<br>__________________________<br>";
@@ -70,9 +69,9 @@ public class OutputPanel extends JPanel {
         }
 
         txtOutput +="Maximum value is at index " + app.getMaxIndex();
-        txtOutput +=" (Sales Person " + (app.getMaxIndex() + 1) + ") with value $" + df1.format(app.getMax()) + "<br />";
+        txtOutput +=" (Sales Person " + (app.getMaxIndex() + 1) + ") with value $" + decimalFormat.format(app.getMax()) + "<br />";
         txtOutput +="Minimum value is at index " + app.getMinIndex();
-        txtOutput +=" (Sales Person " + (app.getMinIndex() + 1) + ") with value $" + df1.format(app.getMin());
+        txtOutput +=" (Sales Person " + (app.getMinIndex() + 1) + ") with value $" + decimalFormat.format(app.getMin());
         
         txtOutput += "</html>";
 
@@ -95,23 +94,23 @@ public class OutputPanel extends JPanel {
             if (performance[x] ==1) {
                 overSalesBar++;
                 salesBarOutput += "Sales person " + (x + 1) + 
-                    " sold more than the sales goal with sales of "+ sales[x]+ "<br>" ;
+                    " sold more than the sales goal with sales of $"+ decimalFormat.format(sales[x])+ "<br>" ;
             } // If this sales person met the goal
             else if (performance[x] ==0) {
                salesBarOutput += "Sales person " + (x + 1) + 
-                   " exactly reached the sales goal with sales of "+ sales[x]+ "<br>" ;
+                   " exactly reached the sales goal with sales of $"+ decimalFormat.format(sales[x])+ "<br>" ;
             } // If this sales person did not meet the goal
             else {
                 salesBarOutput += "Sales person " + (x + 1) + 
-                    " did not reach the sales goal with sales of "+ sales[x]+ "<br>" ;
+                    " did not reach the sales goal with sales of $"+ decimalFormat.format(sales[x])+ "<br>" ;
             }
         }
         if (overSalesBar ==1)
             salesBarOutput += "Only " + overSalesBar + 
-                " sales person sold more than the sales goal of " + app.getBar() + "<br><br>";
+                " sales person sold more than the sales goal of " + decimalFormat.format(app.getBar()) + "<br><br>";
         else
             salesBarOutput += overSalesBar + 
-                " sales people sold more than the sales goal of " + app.getBar() + "<br><br>";
+                " sales people sold more than the sales goal of " + decimalFormat.format(app.getBar()) + "<br><br>";
         return salesBarOutput;     
     } 
 
