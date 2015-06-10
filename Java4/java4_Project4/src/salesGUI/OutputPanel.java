@@ -107,10 +107,10 @@ public class OutputPanel extends JPanel {
         }
         if (overSalesBar ==1)
             salesBarOutput += "Only " + overSalesBar + 
-                " sales person sold more than the sales goal of " + decimalFormat.format(app.getBar()) + "<br><br>";
+                " sales person sold more than the sales goal of $" + decimalFormat.format(app.getBar()) + "<br><br>";
         else
             salesBarOutput += overSalesBar + 
-                " sales people sold more than the sales goal of " + decimalFormat.format(app.getBar()) + "<br><br>";
+                " sales people sold more than the sales goal of $" + decimalFormat.format(app.getBar()) + "<br><br>";
         return salesBarOutput;     
     } 
 
