@@ -13,7 +13,7 @@ public class FileFetcher {
     public void getHomework() throws FileNotFoundException, IOException {
 
         // try {
-            myFile = new FileReader("homework2.txt");
+            myFile = new FileReader("homework.txt");
             System.out.println("I did get here");
             in = new BufferedReader(myFile); 
         // } 
