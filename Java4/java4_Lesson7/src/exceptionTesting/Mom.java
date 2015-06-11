@@ -5,18 +5,17 @@ import java.io.IOException;
 
 public class Mom {
 	
-    public void getToDoHomework() throws IOException {
+    public void getToDoHomework() throws FileNotFoundException {
         FileFetcher testMe = new FileFetcher();
         try{
             testMe.getHomework();	
         }
-        catch(FileNotFoundException e){
-            System.out.println("Mom caught the File Not Found Exception.");
+        catch(IOException e){
+            System.out.println("Mom caught the I/O Exception.");
         }
     }
 
-    public static void main(String [] args) throws IOException {   
-        // Note: This is VERY BAD programming. Do not throw exceptions in main methods.
+    public static void main(String [] args) throws FileNotFoundException {     
         Mom parent1 = new Mom();
         parent1.getToDoHomework();
     }
