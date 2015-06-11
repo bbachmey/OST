@@ -69,9 +69,9 @@ public class OutputPanel extends JPanel {
         }
 
         txtOutput +="Maximum value is at index " + app.getMaxIndex();
-        txtOutput +=" (Sales Person " + (app.getMaxIndex() + 1) + ") with value $" + decimalFormat.format(app.getMax()) + "<br />";
+        txtOutput +=" (Sales Person " + (app.getMaxIndex() + 1) + ") with value $" + decimalFormat.format(app.getSales()[app.getMax()]) + "<br />";
         txtOutput +="Minimum value is at index " + app.getMinIndex();
-        txtOutput +=" (Sales Person " + (app.getMinIndex() + 1) + ") with value $" + decimalFormat.format(app.getMin());
+        txtOutput +=" (Sales Person " + (app.getMinIndex() + 1) + ") with value $" + decimalFormat.format(app.getSales()[app.getMin()]);
         
         txtOutput += "</html>";
 
