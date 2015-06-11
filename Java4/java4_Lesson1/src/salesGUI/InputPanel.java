@@ -65,30 +65,39 @@ public class InputPanel extends JPanel implements ActionListener  {
 
 	}
 
-    public void actionPerformed(ActionEvent event){
+    public void actionPerformed(ActionEvent event) {
         if (event.getSource() instanceof JButton)
         {
             if ((JButton)event.getSource() == done) 
             {
-                for (int x = 0; x < numPeople; x++)
-                {
-                    try 
-                    {
-                        sales[x] = Integer.parseInt(jtfSales[x].getText());  // throws NumberFormatException
-                    } 
-                    catch(NumberFormatException e)
-                    {   
-
-                        String temp = JOptionPane.showInputDialog("Decimal values are not allowed.\n Please give a whole number for Sales Person " + (x+1) + ": ");
-                        sales[x] = Integer.parseInt(temp);
-                        jtfSales[x].setText(Integer.toString(sales[x]));      
-                    }
-                }
-
-                app.setSales(sales);
-                goal = Integer.parseInt(jtfSalesBar.getText());  // so don't have to be sure they hit enter
-                app.setSalesBar(goal);
+                setAllInputs();    // all of the code that was here is 
+                                   //now in the method named setAllInputs
             }
         }
+    }
+    
+    public void setAllInputs(){
+        for (int x = 0; x < numPeople; x++)
+        {
+            try 
+            {
+                sales[x] = Integer.parseInt(jtfSales[x].getText());
+            } 
+            catch(NumberFormatException e)
+            {   
+                String messageLine1 = "Input must be whole numbers.\n ";
+                String messageLine2 = "Your decimal value " + jtfSales[x].getText() + " for Sales Person " + (x+1) +" will be truncated.\n ";
+                String messageLine3 = "You may enter a different integer and click AllSet if truncation is unacceptable.";
+
+                JOptionPane.showMessageDialog(this, messageLine1+messageLine2+messageLine3,"Input Error", JOptionPane.ERROR_MESSAGE);
+
+                sales[x]= (int)Double.parseDouble(jtfSales[x].getText());
+                jtfSales[x].setText(Integer.toString(sales[x]));      
+            }
+        }
+
+        app.setSales(sales);
+        goal = Integer.parseInt(jtfSalesBar.getText());  // so don't have to be sure they hit enter
+        app.setSalesBar(goal);  
     }
 }

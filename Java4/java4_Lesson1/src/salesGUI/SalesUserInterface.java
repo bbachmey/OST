@@ -40,6 +40,7 @@ public class SalesUserInterface extends JFrame {
         m1.add(t= new JMenuItem("Results")); 
         t.addActionListener(new ActionListener() {  
             public void actionPerformed(ActionEvent e) {  
+                inputPanel.setAllInputs();  // added method call to make sure all is set
                 if (processed) 
                 { 
                     remove(results); 

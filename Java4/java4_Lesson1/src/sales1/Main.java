@@ -1,25 +1,19 @@
-
-// ****************************************************************
-// Main.java
-//
-// Instantiates and starts the SalesReport class
-//
-// ****************************************************************
 package sales1;
                 
 public class Main { 
 
     public static void main(String[] args){
-        if (args.length > 0)
+
+        try  
         {
-            int argIn = Integer.parseInt(args[0]);
+            int argIn = Integer.parseInt(args[0]);             // if no args[0], will throw ArrayIndexOutOfBoundsException
             SalesReport mySalesInfo = new SalesReport(argIn);
             mySalesInfo.testMe();
         }
-        else
-        {  
-            SalesReport mySalesInfo = new SalesReport();  // instantiate the class
-            mySalesInfo.testMe();                        // start the application
+        catch (ArrayIndexOutOfBoundsException exception)
+        {
+            SalesReport mySalesInfo = new SalesReport();
+            mySalesInfo.testMe();	
         }
     }
-}   
+}
