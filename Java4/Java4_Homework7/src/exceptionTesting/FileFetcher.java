@@ -67,7 +67,6 @@ public class FileFetcher {
 			
 		}
 
-
 	}	
 	
 	public void readFile(BufferedReader bufferedReader) throws FileNotFoundException, IOException {
