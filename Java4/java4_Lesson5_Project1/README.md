@@ -1,0 +1,2 @@
+
+Create a new dialog box that allows the user a choice of either having your code truncate their faulty input value(s) OR allowing them to input a new value(s) themselves. The Java Tutorial on How to Make Dialogs (link in the Lesson notes) can be quite helpful. You can either make a new project for this objective, or submit it on one that you edit.
