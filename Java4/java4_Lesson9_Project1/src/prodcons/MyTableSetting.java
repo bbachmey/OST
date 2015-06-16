@@ -95,12 +95,13 @@ public class MyTableSetting extends Applet implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == buttonStop) {
-			
+			System.out.println("I said stop.");
 			p1 = null;
 			c1 = null;
 		}
 		else if (e.getSource() == buttonStart) {
-			
+
+			System.out.println("I said start.");
 	        p1 = new Producer(this, s);          
 	        c1 = new Consumer(this, s);          
 
