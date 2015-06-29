@@ -3,9 +3,9 @@ package prodcons;
 class Producer extends Thread {
     private Soup soup;
     private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private MyTableSetting bowlView;
+    private Bowl bowlView;
  
-    public Producer(MyTableSetting bowl, Soup s) {
+    public Producer(Bowl bowl, Soup s) {
         bowlView = bowl;        // the producer is given the GUI that will show what is happening
         soup = s;               // the producer is given the soup--the monitor
     }

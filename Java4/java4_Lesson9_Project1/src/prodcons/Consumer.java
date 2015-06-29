@@ -1,24 +1,40 @@
 package prodcons;
 
 class Consumer extends Thread {
-    private Soup soup;
-    private MyTableSetting bowlView;
 
-    public Consumer(MyTableSetting bowl, Soup s) {
-        bowlView = bowl;                               // the consumer is given the GUI that will show what is happening
-        soup = s;                                      // the consumer is given the soup--the monitor
-    }
+	private Soup soup;
+	private Bowl bowl;
 
-    public void run() {
-        String c;
-        for (int i = 0; i < 10; i++) {              // stop thread when know there are no more coming; here we know there will only be 10
-            c = soup.eat();                            // eat it from the soup
-            System.out.println("Ate a letter: " + c);  // show what happened in Console
-            bowlView.repaint();                        // show it in the bowl  
+	public Consumer(Bowl b, Soup s) {
 
-            try {
-                sleep((int)(Math.random() * 3000));    // have consumer sleep a little longer or sometimes we never see the alphabets!
-            } catch (InterruptedException e) { }
-        }
-    }
+		// the GUI that will show what is happening
+		this.bowl = b;                               
+
+		// the soup--the monitor
+		this.soup = s;     
+
+	}
+
+	public void run() {
+
+		String c;
+
+		while (true) {     
+			// eat it from the soup
+			c = soup.eat();    
+
+			// show what happened in Console
+			System.out.println("Ate a letter: " + c);  
+
+			// show it in the bowl
+			bowl.repaint();                          
+
+			// have consumer sleep a little longer or sometimes we never see the alphabets!
+			try {
+				sleep((int)(Math.random() * 3000));    
+			} catch (InterruptedException e) { }
+
+		}
+	}
+
 }
