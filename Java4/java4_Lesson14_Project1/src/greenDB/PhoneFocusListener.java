@@ -4,15 +4,24 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.JTextField;
 
+/*
+ Focus listener for phone number
+ */
 class PhoneFocusListener implements FocusListener {
 
-    /** an event generated as a result of focus being gained on this telephone number field.  */
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+	 */
     public void focusGained(FocusEvent fEvent) {
         JTextField tf = (JTextField)fEvent.getSource();
         tf.setText("");
     }
-    
-    /** Not implemented */
+
+    /*
+     * (non-Javadoc)
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
     public void focusLost(FocusEvent fEvent){}
     
-} // End PhoneFocusListener class
+}  

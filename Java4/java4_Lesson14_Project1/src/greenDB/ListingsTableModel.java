@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.AbstractTableModel;
 
+/*
+Abstract table model for UI display 
+ */
 class ListingsTableModel extends AbstractTableModel {
     /** The result set from the Listings table to be displayed */
     private ResultSet rs;
@@ -12,6 +15,10 @@ class ListingsTableModel extends AbstractTableModel {
         this.rs = rs;
     }
 
+    /*
+     * (non-Javadoc)
+     * @see javax.swing.table.TableModel#getRowCount()
+     */
     public int getRowCount() {
         try {
             rs.last();
@@ -22,10 +29,18 @@ class ListingsTableModel extends AbstractTableModel {
         }
     }
 
+    /*
+     * (non-Javadoc)
+     * @see javax.swing.table.TableModel#getColumnCount()
+     */
     public int getColumnCount() {
         return 3;
     }
 
+    /*
+     * (non-Javadoc)
+     * @see javax.swing.table.AbstractTableModel#getColumnName(int)
+     */
     public String getColumnName(int column) {
         try {
             String colName = rs.getMetaData().getColumnName(column + 1);
@@ -46,6 +61,10 @@ class ListingsTableModel extends AbstractTableModel {
         }
     }
 
+    /*
+     * (non-Javadoc)
+     * @see javax.swing.table.TableModel#getValueAt(int, int)
+     */
     public Object getValueAt(int row, int column) {
         try {
             rs.absolute(row + 1);
@@ -59,4 +78,4 @@ class ListingsTableModel extends AbstractTableModel {
             return null;
         }
     }
-}  // End ListingsTableModel class
+}   

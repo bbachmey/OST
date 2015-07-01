@@ -15,9 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-/**
- * @author bbachmey
- *
+/*
+ Dialog box for user input
  */
 class AddListingDialog extends JDialog {
 	/** A text field for entering the new phone listing's last name */
@@ -33,6 +32,9 @@ class AddListingDialog extends JDialog {
 	/** A button which, when clicked, will add the new listing to the Listings table */
 	private JButton addButton;
 
+	/*
+	 Constructor
+	 */
 	public AddListingDialog(final JFrame owner) {
 		// set the dialog title and size
 		super(owner, "Add Listing", true);
@@ -115,8 +117,8 @@ class AddListingDialog extends JDialog {
 		contentPane.add(south,  BorderLayout.SOUTH);
 	}
 
-	/**
-	 * @return
+	/*
+	 Create SQL for insert query
 	 */
 	public String buildQuery() {
 		// Get the data entered by the user, trim the white space and change to upper case
@@ -144,9 +146,8 @@ class AddListingDialog extends JDialog {
 	}
 
 
-	/**
-	 * @author bbachmey
-	 *
+	/*
+	 Document listener checks for changes on form
 	 */
 	class InputListener implements DocumentListener {
 		public void insertUpdate(DocumentEvent dEvent) {
@@ -167,6 +168,10 @@ class AddListingDialog extends JDialog {
 			}
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.DocumentEvent)
+		 */
 		public void removeUpdate(DocumentEvent dEvent) {
 			// If last name or first name don't have data or phone number
 			// is  not complete, disable the Add button.
@@ -179,14 +184,17 @@ class AddListingDialog extends JDialog {
 				addButton.setEnabled(false);
 		}
 
-		/** Empty implementation. Method necessary for implementation of DocumentListener */
+		/* 
+		 * Empty implementation. Method necessary for implementation of DocumentListener 
+		 */
 		public void changedUpdate(DocumentEvent dEvent) {}
 
 	} // End InputListener inner class
 
-	/**
-	 * @param phone
-	 * @return
+
+
+	/*
+	 Returns boolean to indicate good phone number format
 	 */
 	private static boolean goodPhoneNumber(String phone) {
 
@@ -199,4 +207,4 @@ class AddListingDialog extends JDialog {
 		}
 
 	}
-} // End AddListingDialog class  
+}

@@ -2,6 +2,9 @@ package greenDB;
                 
 import java.sql.*;
                 
+/*
+ This class manages connection, read, and write to the database
+ */
 public class DatabaseManager {
     private Connection conn;  
     private Statement stmt;
@@ -41,6 +44,9 @@ public class DatabaseManager {
         }
     }
                     
+    /*
+     Populate db with records
+     */
     private String [] initListingsTable() {
         // Executable SQL commands for creating Listings table 
         // inserting initial names and phone numbers.
@@ -73,6 +79,9 @@ public class DatabaseManager {
         return SQL;
     }
                     
+    /*
+     Get metadata about database
+     */
     private boolean inspectForTable (ResultSet rs, String tableName)  throws SQLException {  // exception will be caught when method is used
         int i;
         ResultSetMetaData rsmd = rs.getMetaData ();  // Get the ResultSetMetaData to use for the column headings
@@ -94,6 +103,9 @@ public class DatabaseManager {
         return false;
     }
                     
+    /*
+     Perform get query
+     */
     public void doGetQuery(String query) {  // rather than the "getEntries" of the previous example
         try {
         	
@@ -103,6 +115,9 @@ public class DatabaseManager {
         }
     }
                     
+    /*
+     Perform insert query
+     */
     public void doInsertQuery(String query) {   // rather than the hard-coded "addEntry" of the previous example
         try {  
             stmt.executeUpdate(query);
@@ -111,10 +126,16 @@ public class DatabaseManager {
         }
     }
                     
+    /*
+     Encapsulate access to result set
+     */
     public ResultSet getResultSet() {  // a new method that will let the GUI get the resultSet to manipulate it
         return rset;
     } 
                     
+    /*
+     Close db connection 
+     */
     public void close(boolean remove){  // closes all open connections                                             
         try {
             if (remove) 
@@ -128,6 +149,9 @@ public class DatabaseManager {
         }
     }
     
+    /*
+     Drop db table
+     */
     public void dropTable(){
 
         try {

@@ -3,6 +3,9 @@ package greenDB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/*
+ Action listener for phone book frame
+ */
 class AddListingListener implements ActionListener {
     /** The SimplePhoneBook application frame */
     PhoneBookFrame pbf;
@@ -15,4 +18,4 @@ class AddListingListener implements ActionListener {
         AddListingDialog addDialog = new AddListingDialog(pbf);
         addDialog.setVisible(true);
     }
-}  // End AddListingListener class 
+}  

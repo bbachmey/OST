@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/*
+ Dialog box for username and password
+ */
 class PasswordDialog extends JDialog implements ActionListener{
     private JTextField user;
     private JPasswordField password;
@@ -50,6 +53,10 @@ class PasswordDialog extends JDialog implements ActionListener{
         contentPane.add(south,  BorderLayout.SOUTH);
     }
 
+    /*
+     * (non-Javadoc)
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
         if ("SUBMIT".equals(cmd)) 
@@ -67,6 +74,9 @@ class PasswordDialog extends JDialog implements ActionListener{
         }
     }
 
+    /*
+     Main method for Password Dialog 
+     */
     public static void main(String [] args){  // create the frame first and then give it that frame as owner
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,6 +84,9 @@ class PasswordDialog extends JDialog implements ActionListener{
         addPassword.setVisible(true);  
     }
     
+    /*
+     Login method returns username and password
+     */
     public static String [] login(Object sender) {                               //  object who requested login is the  sender;
         JFrame frame = new JFrame();                                              // attempt is to make as reusable as possible
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
