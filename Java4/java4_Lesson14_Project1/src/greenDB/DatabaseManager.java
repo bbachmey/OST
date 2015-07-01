@@ -2,7 +2,7 @@ package greenDB;
                 
 import java.sql.*;
                 
-/*
+/**
  This class manages connection, read, and write to the database
  */
 public class DatabaseManager {
@@ -44,7 +44,7 @@ public class DatabaseManager {
         }
     }
                     
-    /*
+    /**
      Populate db with records
      */
     private String [] initListingsTable() {
@@ -79,7 +79,7 @@ public class DatabaseManager {
         return SQL;
     }
                     
-    /*
+    /**
      Get metadata about database
      */
     private boolean inspectForTable (ResultSet rs, String tableName)  throws SQLException {  // exception will be caught when method is used
@@ -103,7 +103,7 @@ public class DatabaseManager {
         return false;
     }
                     
-    /*
+    /**
      Perform get query
      */
     public void doGetQuery(String query) {  // rather than the "getEntries" of the previous example
@@ -115,7 +115,7 @@ public class DatabaseManager {
         }
     }
                     
-    /*
+    /**
      Perform insert query
      */
     public void doInsertQuery(String query) {   // rather than the hard-coded "addEntry" of the previous example
@@ -126,14 +126,14 @@ public class DatabaseManager {
         }
     }
                     
-    /*
+    /**
      Encapsulate access to result set
      */
     public ResultSet getResultSet() {  // a new method that will let the GUI get the resultSet to manipulate it
         return rset;
     } 
                     
-    /*
+    /**
      Close db connection 
      */
     public void close(boolean remove){  // closes all open connections                                             
@@ -149,7 +149,7 @@ public class DatabaseManager {
         }
     }
     
-    /*
+    /**
      Drop db table
      */
     public void dropTable(){

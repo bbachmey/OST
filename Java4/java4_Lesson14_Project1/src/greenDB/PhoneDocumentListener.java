@@ -4,16 +4,16 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-/*
+/**
  Document listener for changes made to phone number
  */
 class PhoneDocumentListener implements DocumentListener {
-    /** The phone number text field to which this listener applies */
+    /*** The phone number text field to which this listener applies */
     private JTextField txtField;
-    /** The number of characters that will cause focus to be transferred */
+    /*** The number of characters that will cause focus to be transferred */
     private int numsAllowed;
     
-    /*
+    /**
      Constructor
      */
     public PhoneDocumentListener(JTextField tf, int numsAllowed) {
@@ -21,7 +21,7 @@ class PhoneDocumentListener implements DocumentListener {
         this.numsAllowed = numsAllowed;
     }
     
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.DocumentEvent)
      */
@@ -31,13 +31,13 @@ class PhoneDocumentListener implements DocumentListener {
     }
 
 
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.DocumentEvent)
      */
     public void removeUpdate(DocumentEvent dEvent) {}
 
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.DocumentEvent)
      */

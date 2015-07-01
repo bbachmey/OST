@@ -5,34 +5,34 @@ import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 
-/*
+/**
  This is the UI class for the project. This class extends JFrame and implements WindowListener.
  */
 class PhoneBookFrame extends JFrame implements WindowListener {
-	/** The initial user interface width, in pixels */
+	/*** The initial user interface width, in pixels */
 	private static final int WIDTH  = 577;
-	/** The initial user interface height, in pixels */
+	/*** The initial user interface height, in pixels */
 	private static final int HEIGHT = 466;
-	/** Provides methods for displaying a SQL result set in a JTable */
+	/*** Provides methods for displaying a SQL result set in a JTable */
 	private ListingsTableModel tblModel;
-	/** Used to display the SQL result set in a cell format */
+	/*** Used to display the SQL result set in a cell format */
 	private JTable table;
-	/** A scrollable view for the SQL result set */
+	/*** A scrollable view for the SQL result set */
 	private JScrollPane scrollPane;
-	/** A text field for entering the phone listing's last name */
+	/*** A text field for entering the phone listing's last name */
 	private JTextField lNameField    = new JTextField(10);
-	/** A text field for entering the phone listing's first name */
+	/*** A text field for entering the phone listing's first name */
 	private JTextField fNameField    = new JTextField(10);
-	/** A text field for entering the phone listing's area code */
+	/*** A text field for entering the phone listing's area code */
 	private JTextField areaCodeField = new JTextField(2);
-	/** A text field for entering the phone listing's prefix */
+	/*** A text field for entering the phone listing's prefix */
 	private JTextField prefixField   = new JTextField(2);
-	/** A text field for entering the phone listing's extension */
+	/*** A text field for entering the phone listing's extension */
 	private JTextField suffixField   = new JTextField(3);
-	/** Database Operations */
+	/*** Database Operations */
 	private DatabaseManager myDB;
 
-	/*
+	/**
      Constructor
 	 */
 	public PhoneBookFrame() {
@@ -148,19 +148,19 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 		lNameField.requestFocus();    // set focus to last name field (most common lookup)
 	}
 
-	/*
+	/**
      The PhoneBookFrame requires a handle to the DatabaseManager
 	 */
 	public DatabaseManager getDBManager(){
 		return myDB;
 	}
 
-	/* 
+	/** 
      Gets the entries from the text fields
 	 */
 	class GetListener implements ActionListener {  
 
-		/*
+		/**
 		 * (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
@@ -204,7 +204,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 			doLayout();
 		}
 
-		/*
+		/**
         Creates SQL for select query 
 		 */
 		public String buildQuery(String last, String first, String ac, String pre, String sfx) {
@@ -251,7 +251,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 		// TODO Auto-generated method stub
 
 	}
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.awt.event.WindowListener#windowClosed(java.awt.event.WindowEvent)
 	 */
@@ -261,7 +261,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 		System.out.println("PhoneBookFrame.windowClosed()");
 	}
 
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.awt.event.WindowListener#windowClosing(java.awt.event.WindowEvent)
 	 */
@@ -276,7 +276,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 		}
 	}
 
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.awt.event.WindowListener#windowDeactivated(java.awt.event.WindowEvent)
 	 */
@@ -286,7 +286,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 
 	}
 
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.awt.event.WindowListener#windowDeiconified(java.awt.event.WindowEvent)
 	 */
@@ -296,7 +296,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 
 	}
 
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.awt.event.WindowListener#windowIconified(java.awt.event.WindowEvent)
 	 */
@@ -306,7 +306,7 @@ class PhoneBookFrame extends JFrame implements WindowListener {
 
 	}
 
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.awt.event.WindowListener#windowOpened(java.awt.event.WindowEvent)
 	 */

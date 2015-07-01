@@ -2,7 +2,7 @@ package greenDB;
                 
 import javax.swing.JFrame;
                 
-/*
+/**
  This is the main class in this project. Execution begins here.
  */
 public class SimplePhoneBook {

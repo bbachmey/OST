@@ -15,24 +15,24 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-/*
+/**
  Dialog box for user input
  */
 class AddListingDialog extends JDialog {
-	/** A text field for entering the new phone listing's last name */
+	/*** A text field for entering the new phone listing's last name */
 	private JTextField lNameField    = new JTextField(16);
-	/** A text field for entering the new phone listing's first name */
+	/*** A text field for entering the new phone listing's first name */
 	private JTextField fNameField    = new JTextField(16);
-	/** A text field for entering the new phone listing's area code */
+	/*** A text field for entering the new phone listing's area code */
 	private JTextField areaCodeField = new JTextField(2);
-	/** A text field for entering the new phone listing's prefix */
+	/*** A text field for entering the new phone listing's prefix */
 	private JTextField prefixField   = new JTextField(2);
-	/** A text field for entering the new phone listing's extension */
+	/*** A text field for entering the new phone listing's extension */
 	private JTextField suffixField   = new JTextField(3);
-	/** A button which, when clicked, will add the new listing to the Listings table */
+	/*** A button which, when clicked, will add the new listing to the Listings table */
 	private JButton addButton;
 
-	/*
+	/**
 	 Constructor
 	 */
 	public AddListingDialog(final JFrame owner) {
@@ -117,7 +117,7 @@ class AddListingDialog extends JDialog {
 		contentPane.add(south,  BorderLayout.SOUTH);
 	}
 
-	/*
+	/**
 	 Create SQL for insert query
 	 */
 	public String buildQuery() {
@@ -146,7 +146,7 @@ class AddListingDialog extends JDialog {
 	}
 
 
-	/*
+	/**
 	 Document listener checks for changes on form
 	 */
 	class InputListener implements DocumentListener {
@@ -168,7 +168,7 @@ class AddListingDialog extends JDialog {
 			}
 		}
 
-		/*
+		/**
 		 * (non-Javadoc)
 		 * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.DocumentEvent)
 		 */
@@ -184,7 +184,7 @@ class AddListingDialog extends JDialog {
 				addButton.setEnabled(false);
 		}
 
-		/* 
+		/** 
 		 * Empty implementation. Method necessary for implementation of DocumentListener 
 		 */
 		public void changedUpdate(DocumentEvent dEvent) {}
@@ -193,7 +193,7 @@ class AddListingDialog extends JDialog {
 
 
 
-	/*
+	/**
 	 Returns boolean to indicate good phone number format
 	 */
 	private static boolean goodPhoneNumber(String phone) {

@@ -4,18 +4,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.AbstractTableModel;
 
-/*
+/**
 Abstract table model for UI display 
  */
 class ListingsTableModel extends AbstractTableModel {
-    /** The result set from the Listings table to be displayed */
+    /*** The result set from the Listings table to be displayed */
     private ResultSet rs;
 
     public ListingsTableModel(ResultSet rs) {
         this.rs = rs;
     }
 
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.table.TableModel#getRowCount()
      */
@@ -29,7 +29,7 @@ class ListingsTableModel extends AbstractTableModel {
         }
     }
 
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.table.TableModel#getColumnCount()
      */
@@ -37,7 +37,7 @@ class ListingsTableModel extends AbstractTableModel {
         return 3;
     }
 
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.table.AbstractTableModel#getColumnName(int)
      */
@@ -61,7 +61,7 @@ class ListingsTableModel extends AbstractTableModel {
         }
     }
 
-    /*
+    /**
      * (non-Javadoc)
      * @see javax.swing.table.TableModel#getValueAt(int, int)
      */
